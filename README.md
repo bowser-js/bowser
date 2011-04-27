@@ -1,8 +1,8 @@
 Bowser
 ------
-A Browser detector. Because sometimes, there is no other way, and not even good modern browser provide good feature detection mechanisms.
+A Browser detector. Because sometimes, there is no other way, and not even good modern browsers always provide good feature detection mechanisms.
 
-Works like this:
+So... it works like this:
 
     if (bowser().msie && bowser().version <= 6) {
       alert('hello China');

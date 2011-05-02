@@ -37,6 +37,6 @@ then add bowser to your module collection
 
 use it like this:
 
-    if ($.browser().chrome) {
+    if ($.browser.chrome) {
       alert('Hello Silicon Valley');
     }

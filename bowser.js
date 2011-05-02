@@ -20,9 +20,15 @@
       safari = /safari/i.test(ua) && !chrome,
       opera = /opera/i.test(ua),
       firefox = /firefox/i.test(ua),
-      gecko = /gecko\//i.test(ua);
+      gecko = /gecko\//i.test(ua),
+      info;
 
   function bowser() {
+    info = info ? info : detect();
+    return info;
+  }
+
+  function detect() {
 
     if (ie) {
       return {
@@ -64,7 +70,7 @@
   }
 
   typeof module !== 'undefined' && module.exports ?
-    (module.exports.browser = bowser) :
+    (module.exports.browser = bowser()) :
     (context.bowser = bowser);
 
 }(this);

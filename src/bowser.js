@@ -18,11 +18,11 @@
       info;
 
   function bowser() {
-      info = info ? info : detect();
-      return info;
+    info = info ? info : detect();
+    return info;
   }
-    
-  function detect() {  
+
+  function detect() {
 
     if (ie) {
       return {
@@ -64,7 +64,7 @@
   }
 
   typeof module !== 'undefined' && module.exports ?
-    (module.exports.browser = bowser) :
+    (module.exports.browser = bowser()) :
     (context.bowser = bowser);
 
 }(this);

@@ -20,13 +20,7 @@
       safari = /safari/i.test(ua) && !chrome,
       opera = /opera/i.test(ua),
       firefox = /firefox/i.test(ua),
-      gecko = /gecko\//i.test(ua),
-      info;
-
-  function bowser() {
-    info = info ? info : detect();
-    return info;
-  }
+      gecko = /gecko\//i.test(ua);
 
   function detect() {
 
@@ -69,8 +63,30 @@
 
   }
 
+  var bowser = detect();
+
+  // Graded Browser Support
+  // http://developer.yahoo.com/yui/articles/gbs
+  if ((bowser.msie && bowser.version >= 6) ||
+      (bowser.chrome && bowser.version >= 8) ||
+      (bowser.firefox && bowser.version >= 3.6) ||
+      (bowser.safari && bowser.version >= 5) ||
+      (bowser.opera && bowser.version >= 9.5)) {
+    bowser.a = true;
+  }
+
+  else if ((bowser.msie && bowser.version < 6) ||
+      (bowser.chrome && bowser.version < 8) ||
+      (bowser.firefox && bowser.version < 3.6) ||
+      (bowser.safari && bowser.version < 5) ||
+      (bowser.opera && bowser.version < 9.5)) {
+    bowser.c = true;
+  } else {
+    bowser.x = true;
+  }
+
   typeof module !== 'undefined' && module.exports ?
-    (module.exports.browser = bowser()) :
+    (module.exports.browser = bowser) :
     (context.bowser = bowser);
 
 }(this);

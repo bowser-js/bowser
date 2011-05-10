@@ -4,9 +4,11 @@ A Browser detector. Because sometimes, there is no other way, and not even good 
 
 So... it works like this:
 
-    if (bowser().msie && bowser().version <= 6) {
-      alert('hello China');
-    }
+``` js
+if (bowser.msie && bowser.version <= 6) {
+  alert('Hello China');
+}
+```
 
 Detected Browsers
 -----
@@ -19,11 +21,13 @@ Detected Browsers
 
 Notes
 ----
-safari,chrome, and firefox will report that they have webkit|gecko engines
+Safari, Chrome, and Firefox will report that they have webkit|gecko engines
 
-    if (bowser().webkit) {
-      // do stuff with safari & chrome
-    }
+``` js
+if (bowser.webkit) {
+  // do stuff with safari & chrome
+}
+```
 
 Ender installation
 -----
@@ -37,6 +41,23 @@ then add bowser to your module collection
 
 use it like this:
 
-    if ($.browser.chrome) {
-      alert('Hello Silicon Valley');
-    }
+``` js
+if ($.browser.chrome) {
+  alert('Hello Silicon Valley');
+}
+```
+
+Graded Browser Support
+---------
+One useful feature of Bowser is that aside from checking one browser from another -- it will keep up to date with [Yahoo's Graded Browser Support](http://developer.yahoo.com/yui/articles/gbs/) chart, giving you access to each grade on the bowser object
+
+``` js
+if (bowser.a) {
+  // support full feature set
+}
+else if (bowser.c) {
+  // serve degraded version
+}
+else {
+  // unsupported (bowser.x)
+}

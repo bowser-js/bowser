@@ -26,37 +26,37 @@
 
     if (ie) {
       return {
-        msie: 1,
+        msie: true,
         version: ua.match(/msie ([\d\.]+);/i)[1]
       };
     }
     if (chrome) {
       return {
-        webkit: 1,
-        chrome: 1,
+        webkit: true,
+        chrome: true,
         version: ua.match(/chrome\/([\d\.]+)/i)[1]
       };
     }
     if (safari) {
       return {
-        webkit: 1,
-        safari: 1,
+        webkit: true,
+        safari: true,
         version: ua.match(/version\/([\d\.]+)/i)[1]
       };
     }
     if (opera) {
       return {
-        opera: 1,
+        opera: true,
         version: ua.match(/version\/([\d\.]+)/i)[1]
       };
     }
     if (gecko) {
       var o = {
-        gecko: 1,
+        gecko: true,
         version: ua.match(/firefox\/([\d\.]+)/i)[1]
       };
       if (firefox) {
-        o.firefox = 1;
+        o.firefox = true;
       }
       return o;
     }

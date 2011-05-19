@@ -22,38 +22,42 @@
       firefox = /firefox/i.test(ua),
       gecko = /gecko\//i.test(ua);
 
+  function normalize(ua, pattern){
+    return +ua.match(pattern)[1].split(".")[0]
+  }
+
   function detect() {
 
     if (ie) {
       return {
         msie: t,
-        version: ua.match(/msie ([\d\.]+);/i)[1]
+        version: normalize(ua, /msie ([\d\.]+);/i)
       };
     }
     if (chrome) {
       return {
         webkit: t,
         chrome: t,
-        version: ua.match(/chrome\/([\d\.]+)/i)[1]
+        version: normalize(ua, /chrome\/([\d\.]+)/i)
       };
     }
     if (safari) {
       return {
         webkit: t,
         safari: t,
-        version: ua.match(/version\/([\d\.]+)/i)[1]
+        version: normalize(ua, /version\/([\d\.]+)/i)
       };
     }
     if (opera) {
       return {
         opera: t,
-        version: ua.match(/version\/([\d\.]+)/i)[1]
+        version: normalize(ua, /version\/([\d\.]+)/i)
       };
     }
     if (gecko) {
       var o = {
         gecko: t,
-        version: ua.match(/firefox\/([\d\.]+)/i)[1]
+        version: unormalize(ua, /firefox\/([\d\.]+)/i)
       };
       if (firefox) {
         o.firefox = t;

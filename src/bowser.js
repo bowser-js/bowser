@@ -1,4 +1,16 @@
-!function (context) {
+/*!
+  * Bowser - a browser detector
+  * copyright Dustin Diaz 2011
+  * https://github.com/ded/bowser
+  * MIT License
+  */
+/*!
+  * Bowser - a browser detector
+  * copyright Dustin Diaz 2011
+  * https://github.com/ded/bowser
+  * MIT License
+  */
+!function (context,t) {
   /**
     * navigator.userAgent =>
     * Chrome:  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_7) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.57 Safari/534.24"
@@ -20,37 +32,37 @@
 
     if (ie) {
       return {
-        msie: 1,
-        version: ua.match(/msie ([\d\.]+);/i)[1]
+        msie: t,
+        version: ua.match(/msie (\d+(\.\d+)?);/i)[1]
       };
     }
     if (chrome) {
       return {
-        webkit: 1,
-        chrome: 1,
-        version: ua.match(/chrome\/([\d\.]+)/i)[1]
+        webkit: t,
+        chrome: t,
+        version: ua.match(/chrome\/(\d+(\.\d+)?)/i)[1]
       };
     }
     if (safari) {
       return {
-        webkit: 1,
-        safari: 1,
-        version: ua.match(/version\/([\d\.]+)/i)[1]
+        webkit: t,
+        safari: t,
+        version: ua.match(/version\/(\d+(\.\d+)?)/i)[1]
       };
     }
     if (opera) {
       return {
-        opera: 1,
-        version: ua.match(/version\/([\d\.]+)/i)[1]
+        opera: t,
+        version: ua.match(/version\/(\d+(\.\d+)?)/i)[1]
       };
     }
     if (gecko) {
       var o = {
-        gecko: 1,
-        version: ua.match(/firefox\/([\d\.]+)/i)[1]
+        gecko: t,
+        version: ua.match(/firefox\/(\d+(\.\d+)?)/i)[1]
       };
       if (firefox) {
-        o.firefox = 1;
+        o.firefox = t;
       }
       return o;
     }
@@ -66,7 +78,7 @@
       (bowser.firefox && bowser.version >= 3.6) ||
       (bowser.safari && bowser.version >= 5) ||
       (bowser.opera && bowser.version >= 9.5)) {
-    bowser.a = true;
+    bowser.a = t;
   }
 
   else if ((bowser.msie && bowser.version < 6) ||
@@ -74,13 +86,13 @@
       (bowser.firefox && bowser.version < 3.6) ||
       (bowser.safari && bowser.version < 5) ||
       (bowser.opera && bowser.version < 9.5)) {
-    bowser.c = true;
+    bowser.c = t;
   } else {
-    bowser.x = true;
+    bowser.x = t;
   }
 
   typeof module !== 'undefined' && module.exports ?
     (module.exports.browser = bowser) :
     (context.bowser = bowser);
 
-}(this);
+}(this,true);

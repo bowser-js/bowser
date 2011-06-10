@@ -4,12 +4,6 @@
   * https://github.com/ded/bowser
   * MIT License
   */
-/*!
-  * Bowser - a browser detector
-  * copyright Dustin Diaz 2011
-  * https://github.com/ded/bowser
-  * MIT License
-  */
 !function (context) {
   /**
     * navigator.userAgent =>

@@ -43,12 +43,14 @@
         webkit: t
       , iphone: t
       , mobile: t
+      , ios: t
       , version: ua.match(webkitVersion)[1]
     }
     if (ipad) return {
         webkit: t
       , ipad: t
       , mobile: t
+      , ios: t
       , version: ua.match(webkitVersion)[1]
     }
     if (android) return {

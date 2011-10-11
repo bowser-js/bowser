@@ -84,18 +84,18 @@
   // Graded Browser Support
   // http://developer.yahoo.com/yui/articles/gbs
   if ((bowser.msie && bowser.version >= 6) ||
-      (bowser.chrome && bowser.version >= 8) ||
-      (bowser.firefox && bowser.version >= 3.6) ||
+      (bowser.chrome && bowser.version >= 10) ||
+      (bowser.firefox && bowser.version >= 4.0) ||
       (bowser.safari && bowser.version >= 5) ||
-      (bowser.opera && bowser.version >= 9.5)) {
+      (bowser.opera && bowser.version >= 10.0)) {
     bowser.a = t;
   }
 
   else if ((bowser.msie && bowser.version < 6) ||
-      (bowser.chrome && bowser.version < 8) ||
-      (bowser.firefox && bowser.version < 3.6) ||
+      (bowser.chrome && bowser.version < 10) ||
+      (bowser.firefox && bowser.version < 4.0) ||
       (bowser.safari && bowser.version < 5) ||
-      (bowser.opera && bowser.version < 9.5)) {
+      (bowser.opera && bowser.version < 10.0)) {
     bowser.c = t
   } else bowser.x = t
 

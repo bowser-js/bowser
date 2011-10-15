@@ -71,6 +71,7 @@
     if (gecko) {
       var o = {
           gecko: t
+        , mozilla: t
         , version: ua.match(/firefox\/(\d+(\.\d+)?)/i)[1]
       }
       if (firefox) o.firefox = t

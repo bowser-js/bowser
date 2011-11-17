@@ -16,7 +16,7 @@
     * IE:      "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C)"
     * Firefox: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0"
     * iPhone:  "Mozilla/5.0 (iPhone Simulator; U; CPU iPhone OS 4_3_2 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5"
-    * iPad:    "Mozilla/5.0 (iPad; U; CPU OS 4_3_2 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5", 
+    * iPad:    "Mozilla/5.0 (iPad; U; CPU OS 4_3_2 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5",
     * Android: "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; T-Mobile G2 Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"
     */
 
@@ -31,6 +31,7 @@
     , opera = /opera/i.test(ua)
     , firefox = /firefox/i.test(ua)
     , gecko = /gecko\//i.test(ua)
+    , seamonkey = /seamonkey\//i.test(ua)
     , webkitVersion = /version\/(\d+(\.\d+)?)/i
 
   function detect() {
@@ -82,7 +83,10 @@
       if (firefox) o.firefox = t
       return o
     }
-
+    if (seamonkey) return {
+        seamonkey: t
+      , version: ua.match(/seamonkey\/(\d+(\.\d+)?)/i)[1]
+    }
   }
 
   var bowser = detect()

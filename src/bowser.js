@@ -28,6 +28,7 @@
     , gecko = /gecko\//i.test(ua)
     , seamonkey = /seamonkey\//i.test(ua)
     , webkitVersion = /version\/(\d+(\.\d+)?)/i
+    , o
 
   function detect() {
 
@@ -40,19 +41,19 @@
       , chrome: t
       , version: ua.match(/chrome\/(\d+(\.\d+)?)/i)[1]
     }
-    if (iphone) return {
-        webkit: t
-      , iphone: t
-      , mobile: t
-      , ios: t
-      , version: ua.match(webkitVersion)[1]
-    }
-    if (ipad) return {
-        webkit: t
-      , ipad: t
-      , mobile: t
-      , ios: t
-      , version: ua.match(webkitVersion)[1]
+    if (iphone || ipad) {
+      o = {
+          webkit: t
+        , mobile: t
+        , ios: t
+        , iphone: iphone
+        , ipad: ipad
+      }
+      // WTF: version is not part of user agent in web apps
+      if (webkitVersion.test(ua)) {
+        o.version = ua.match(webkitVersion)[1]
+      }
+      return o
     }
     if (android) return {
         webkit: t
@@ -70,7 +71,7 @@
       , version: ua.match(webkitVersion)[1]
     }
     if (gecko) {
-      var o = {
+      o = {
           gecko: t
         , mozilla: t
         , version: ua.match(/firefox\/(\d+(\.\d+)?)/i)[1]

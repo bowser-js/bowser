@@ -21,5 +21,6 @@ require('smoosh').config({
     , "whitespace": true
     , "asi": true
     , "laxbreak": true
+    , "laxcomma": true
   }
 }).run().build().analyze()

@@ -27,8 +27,8 @@
     , chrome = /chrome/i.test(ua)
     , safari = /safari/i.test(ua) && !chrome
     , iphone = /iphone/i.test(ua)
-    , ipad = /ipad/i.test(ua)
-	, touchpad = /touchpad/i.test(ua)
+    , ipad = /ipad/i.test(ua) 
+    , touchpad = /touchpad/i.test(ua)
     , android = /android/i.test(ua)
     , opera = /opera/i.test(ua)
     , firefox = /firefox/i.test(ua)
@@ -48,7 +48,7 @@
       , chrome: t
       , version: ua.match(/chrome\/(\d+(\.\d+)?)/i)[1]
     }
-	if (touchpad) return {
+    if (touchpad) return {
         webkit: t
       , touchpad: t
       , version : ua.match(/touchpad\/(\d+(\.\d+)?)/i)[1]

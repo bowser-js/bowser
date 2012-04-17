@@ -19,7 +19,7 @@
     * iPad:    "Mozilla/5.0 (iPad; U; CPU OS 4_3_2 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5",
     * Android: "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; T-Mobile G2 Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"
     * Touchpad: "Mozilla/5.0 (hp-tabled;Linux;hpwOS/3.0.5; U; en-US)) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 TouchPad/1.0"
-	*/
+    */
 
   var ua = navigator.userAgent
     , t = true
@@ -27,7 +27,7 @@
     , chrome = /chrome/i.test(ua)
     , safari = /safari/i.test(ua) && !chrome
     , iphone = /iphone/i.test(ua)
-    , ipad = /ipad/i.test(ua) 
+    , ipad = /ipad/i.test(ua)
     , touchpad = /touchpad/i.test(ua)
     , android = /android/i.test(ua)
     , opera = /opera/i.test(ua)
@@ -101,7 +101,7 @@
 
   // Graded Browser Support
   // http://developer.yahoo.com/yui/articles/gbs
-  if ((bowser.msie && bowser.version >= 6) ||
+  if ((bowser.msie && bowser.version >= 7) ||
       (bowser.chrome && bowser.version >= 10) ||
       (bowser.firefox && bowser.version >= 4.0) ||
       (bowser.safari && bowser.version >= 5) ||
@@ -109,7 +109,7 @@
     bowser.a = t;
   }
 
-  else if ((bowser.msie && bowser.version < 6) ||
+  else if ((bowser.msie && bowser.version < 7) ||
       (bowser.chrome && bowser.version < 10) ||
       (bowser.firefox && bowser.version < 4.0) ||
       (bowser.safari && bowser.version < 5) ||

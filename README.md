@@ -28,6 +28,13 @@ if (bowser.webkit) {
   // do stuff with safari & chrome
 }
 ```
+IE Browsers will report their version along with if the browser is in compatability mode
+
+``` js
+if (bowser.msie && bowser.compatability) {
+  // beware compatability mode
+}
+
 
 Ender installation
 -----

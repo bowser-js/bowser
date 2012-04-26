@@ -41,7 +41,19 @@
 
     if (ie) return {
         msie: t
-      , version: ua.match(/msie (\d+(\.\d+)?);/i)[1]
+      , version: (function(ua) {
+          switch (ua.match(/Trident\/(\d+(\.\d+)?)/i)[1]) {
+            case '6.0': //Trident 6.0 maps to IE 10
+              return '10.0'
+            case '5.0': //Trident 5.0 maps to IE 9
+              return '9.0'
+            case '4.0': //Trident 4.0 maps to IE 8
+              return '8.0'
+            default: //Trident not present reverts back to IE 7 or below
+              return '7.0'
+          }
+      })(ua)
+      , compatability: ua.indexOf("MSIE 7.0") > -1      
     }
     if (chrome) return {
         webkit: t

@@ -29,6 +29,14 @@ if (bowser.webkit) {
 }
 ```
 
+IE Browsers will report their version along with if the browser is in compatability mode
+
+``` js
+if (bowser.msie && bowser.compatability) {
+  // beware compatability mode
+}
+```
+
 Ender installation
 -----
 If you don't already have [Ender](http://ender.no.de) (an npm package) install it now (and don't look back)

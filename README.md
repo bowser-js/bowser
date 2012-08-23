@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/ded/bowser.png)](http://travis-ci.org/ded/bowser)
 Bowser
 ------
 A Browser detector. Because sometimes, there is no other way, and not even good modern browsers always provide good feature detection mechanisms.

@@ -1,7 +1,7 @@
-!function (name, definition) {
-  if (typeof define == 'function') define(definition)
-  else if (typeof module != 'undefined' && module.exports) module.exports['browser'] = definition()
-  else this[name] = definition()
+!function (name, definition, context) {
+  if (typeof module != 'undefined' && module.exports) module.exports = definition()
+  else if (typeof context['define'] == 'function' && context['define']['amd']) define(name, definition)
+  else context[name] = definition()
 }('bowser', function () {
   /**
     * navigator.userAgent =>
@@ -113,4 +113,4 @@
   } else bowser.x = t
 
   return bowser
-})
+}, this)

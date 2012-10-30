@@ -74,20 +74,22 @@
       }
       return o
     }
-    if (android) return {
-        webkit: t
-      , android: t
-      , mobile: t
-      , version: ua.match(webkitVersion)[1]
-    }
-    if (safari) return {
-        webkit: t
-      , safari: t
-      , version: ua.match(webkitVersion)[1]
-    }
-    if (opera) return {
-        opera: t
-      , version: ua.match(webkitVersion)[1]
+    if (webkitVersion.test(ua)) {
+      if (android) return {
+          webkit: t
+        , android: t
+        , mobile: t
+        , version: ua.match(webkitVersion)[1]
+      }
+      if (safari) return {
+          webkit: t
+        , safari: t
+        , version: ua.match(webkitVersion)[1]
+      }
+      if (opera) return {
+          opera: t
+        , version: ua.match(webkitVersion)[1]
+      }
     }
     if (gecko) {
       o = {
@@ -96,6 +98,10 @@
         , version: ua.match(/firefox\/(\d+(\.\d+)?)/i)[1]
       }
       if (firefox) o.firefox = t
+      if (android) {
+        o.android = t
+        o.mobile = t
+      }
       return o
     }
     if (seamonkey) return {

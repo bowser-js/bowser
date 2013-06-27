@@ -90,6 +90,7 @@
         seamonkey: t
       , version: ua.match(/seamonkey\/(\d+(\.\d+)?)/i)[1]
     }
+    return {}
   }
 
   var bowser = detect()

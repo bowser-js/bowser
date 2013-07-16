@@ -25,7 +25,7 @@
     , ipad = /ipad/i.test(ua)
     , touchpad = /touchpad/i.test(ua)
     , android = /android/i.test(ua)
-    , opera = /opera/i.test(ua)
+    , opera = /opera/i.test(ua) || /opr/i.test(ua)
     , firefox = /firefox/i.test(ua)
     , gecko = /gecko\//i.test(ua)
     , seamonkey = /seamonkey\//i.test(ua)
@@ -37,6 +37,10 @@
     if (ie) return {
         msie: t
       , version: ua.match(/msie (\d+(\.\d+)?);/i)[1]
+    }
+    if (opera) return {
+        opera: t
+      , version: ua.match(webkitVersion) ? ua.match(webkitVersion)[1] : ua.match(/opr\/(\d+(\.\d+)?)/i)
     }
     if (chrome) return {
         webkit: t
@@ -71,10 +75,6 @@
     if (safari) return {
         webkit: t
       , safari: t
-      , version: ua.match(webkitVersion)[1]
-    }
-    if (opera) return {
-        opera: t
       , version: ua.match(webkitVersion)[1]
     }
     if (gecko) {

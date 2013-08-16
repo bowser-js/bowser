@@ -37,6 +37,7 @@
     , gecko = /gecko\//i.test(ua)
     , seamonkey = /seamonkey\//i.test(ua)
     , webkitVersion = /version\/(\d+(\.\d+)?)/i
+    , firefoxVersion = /firefox\/(\d+(\.\d+)?)/i
     , o
 
   function detect() {
@@ -78,7 +79,7 @@
         webkit: t
       , android: t
       , mobile: t
-      , version: ua.match(webkitVersion)[1]
+      , version: (ua.match(webkitVersion) || ua.match(firefoxVersion))[1]
     }
     if (safari) return {
         webkit: t
@@ -93,7 +94,7 @@
       o = {
           gecko: t
         , mozilla: t
-        , version: ua.match(/firefox\/(\d+(\.\d+)?)/i)[1]
+        , version: ua.match(firefoxVersion)[1]
       }
       if (firefox) o.firefox = t
       return o

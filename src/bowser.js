@@ -14,13 +14,15 @@
     * iPad:    "Mozilla/5.0 (iPad; U; CPU OS 4_3_2 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5",
     * Android: "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; T-Mobile G2 Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"
     * Touchpad: "Mozilla/5.0 (hp-tabled;Linux;hpwOS/3.0.5; U; en-US)) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 TouchPad/1.0"
+    * PhantomJS: "Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.5.0 Safari/534.34"
     */
 
   var ua = navigator.userAgent
     , t = true
     , ie = /msie/i.test(ua)
     , chrome = /chrome/i.test(ua)
-    , safari = /safari/i.test(ua) && !chrome
+    , phantom = /phantom/i.test(ua)
+    , safari = /safari/i.test(ua) && !chrome && !phantom
     , iphone = /iphone/i.test(ua)
     , ipad = /ipad/i.test(ua)
     , touchpad = /touchpad/i.test(ua)
@@ -30,6 +32,7 @@
     , gecko = /gecko\//i.test(ua)
     , seamonkey = /seamonkey\//i.test(ua)
     , webkitVersion = /version\/(\d+(\.\d+)?)/i
+    , firefoxVersion = /firefox\/(\d+(\.\d+)?)/i
     , o
 
   function detect() {
@@ -42,6 +45,11 @@
         webkit: t
       , chrome: t
       , version: ua.match(/chrome\/(\d+(\.\d+)?)/i)[1]
+    }
+    if (phantom) return {
+        webkit: t
+      , phantom: t
+      , version: ua.match(/phantomjs\/(\d+(\.\d+)+)/i)[1]
     }
     if (touchpad) return {
         webkit: t
@@ -66,7 +74,7 @@
         webkit: t
       , android: t
       , mobile: t
-      , version: ua.match(webkitVersion)[1]
+      , version: (ua.match(webkitVersion) || ua.match(firefoxVersion))[1]
     }
     if (safari) return {
         webkit: t
@@ -81,7 +89,7 @@
       o = {
           gecko: t
         , mozilla: t
-        , version: ua.match(/firefox\/(\d+(\.\d+)?)/i)[1]
+        , version: ua.match(firefoxVersion)[1]
       }
       if (firefox) o.firefox = t
       return o

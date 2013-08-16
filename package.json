@@ -2,7 +2,7 @@
     "name": "bowser"
   , "description": "a browser detector"
   , "keywords": ["ender", "browser", "sniff", "detection"]
-  , "version": "0.3.0"
+  , "version": "0.3.1"
   , "homepage": "https://github.com/ded/bowser"
   , "author": "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)"
   , "main": "./bowser.js"

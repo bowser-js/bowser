@@ -1,8 +1,9 @@
 /*!
   * Bowser - a browser detector
   * https://github.com/ded/bowser
-  * MIT License | (c) Dustin Diaz 2011
+  * MIT License | (c) Dustin Diaz 2013
   */
+
 !function (name, definition) {
   if (typeof define == 'function') define(definition)
   else if (typeof module != 'undefined' && module.exports) module.exports['browser'] = definition()
@@ -111,7 +112,7 @@
 
   // Graded Browser Support
   // http://developer.yahoo.com/yui/articles/gbs
-  if ((bowser.msie && bowser.version >= 7) ||
+  if ((bowser.msie && bowser.version >= 8) ||
       (bowser.chrome && bowser.version >= 10) ||
       (bowser.firefox && bowser.version >= 4.0) ||
       (bowser.safari && bowser.version >= 5) ||
@@ -119,7 +120,7 @@
     bowser.a = t;
   }
 
-  else if ((bowser.msie && bowser.version < 7) ||
+  else if ((bowser.msie && bowser.version < 8) ||
       (bowser.chrome && bowser.version < 10) ||
       (bowser.firefox && bowser.version < 4.0) ||
       (bowser.safari && bowser.version < 5) ||

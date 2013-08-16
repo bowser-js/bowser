@@ -106,7 +106,7 @@
 
   // Graded Browser Support
   // http://developer.yahoo.com/yui/articles/gbs
-  if ((bowser.msie && bowser.version >= 7) ||
+  if ((bowser.msie && bowser.version >= 8) ||
       (bowser.chrome && bowser.version >= 10) ||
       (bowser.firefox && bowser.version >= 4.0) ||
       (bowser.safari && bowser.version >= 5) ||
@@ -114,7 +114,7 @@
     bowser.a = t;
   }
 
-  else if ((bowser.msie && bowser.version < 7) ||
+  else if ((bowser.msie && bowser.version < 8) ||
       (bowser.chrome && bowser.version < 10) ||
       (bowser.firefox && bowser.version < 4.0) ||
       (bowser.safari && bowser.version < 5) ||

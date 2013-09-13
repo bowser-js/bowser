@@ -1,5 +1,6 @@
 /**
  * Example User Agents and thair expected bowser objects.
+ * Most of them where found at http://www.useragentstring.com/
  *
  * @see  test/test.js
  * @author hannes.diercks@jimdo.com

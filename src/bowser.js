@@ -22,6 +22,34 @@
     * PhantomJS: "Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.5.0 Safari/534.34"
     */
 
+  /** @const */
+  var TRUE = true;
+
+  /** @const */
+  var STR_VERSION = 'version';
+
+  /** @const */
+  var STR_MOBILE = 'mobile';
+
+  /** @const */
+  var STR_MSIE = 'msie';
+
+  /** @const */
+  var STR_OPERA = 'opera';
+
+  /** @const */
+  var STR_CHROME = 'chrome';
+
+  /** @const */
+  var STR_WEBKIT = 'webkit';
+
+  /** @const */
+  var STR_SAFARI = 'safari';
+
+  /** @const */
+  var STR_FIREFOX = 'firefox';
+
+
   function detect(ua) {
     /**
      * Test a given regex against our user agent
@@ -44,103 +72,76 @@
       return match ? match[i || 1] : 0;
     }
 
-    var t = true
-      , iphone = uaTest(/iphone/i)
+    var iphone = uaTest(/iphone/i)
       , ipad = uaTest(/ipad/i)
       , webkitVersion = /version\/(\d+(\.\d+)?)/i
       , firefoxVersion = /firefox\/(\d+(\.\d+)?)/i
-      , o;
+      , o = {}
+      , version = 0;
 
     if (uaTest(/(msie|trident)/i)) {
-      o = {
-        msie: t
-      , version: versionTest(/(msie |rv:)(\d+(\.\d+)?)/i, 2)
-      };
+      o[STR_MSIE] = TRUE;
+      o[STR_VERSION] = versionTest(/(msie |rv:)(\d+(\.\d+)?)/i, 2);
     } else if (uaTest(/opera/i) || uaTest(/opr/i)) {
-      o = {
-        opera: t
-      , version: versionTest(webkitVersion) || versionTest(/opr\/(\d+(\.\d+)?)/i)
-      };
+      o[STR_OPERA] = TRUE;
+      o[STR_VERSION] = versionTest(webkitVersion) || versionTest(/opr\/(\d+(\.\d+)?)/i);
     } else if (uaTest(/chrome/i)) {
-      o = {
-        webkit: t
-      , chrome: t
-      , version: versionTest(/chrome\/(\d+(\.\d+)?)/i)
-      };
+      o[STR_CHROME] = o[STR_WEBKIT] = TRUE;
+      o[STR_VERSION] = versionTest(/chrome\/(\d+(\.\d+)?)/i);
     } else if (uaTest(/phantom/i)) {
-      o = {
-        webkit: t
-      , phantom: t
-      , version: versionTest(/phantomjs\/(\d+(\.\d+)?)/i)
-      };
+      o.phantom = o[STR_WEBKIT] = TRUE;
+      o[STR_VERSION] = versionTest(/phantomjs\/(\d+(\.\d+)?)/i);
     } else if (uaTest(/touchpad/i)) {
-      o = {
-        webkit: t
-      , touchpad: t
-      , version : versionTest(/touchpad\/(\d+(\.\d+)?)/i)
-      };
+      o.touchpad = o[STR_WEBKIT] = TRUE;
+      o[STR_VERSION] = versionTest(/touchpad\/(\d+(\.\d+)?)/i);
     } else if (iphone || ipad) {
-      o = {
-        webkit: t
-      , mobile: t
-      , ios: t
+      o.ios = o[STR_MOBILE] = o[STR_WEBKIT] = TRUE;
       // WTF: version is not part of user agent in web apps
-      , version: versionTest(webkitVersion)
-      };
+      o[STR_VERSION] = versionTest(webkitVersion);
       if (iphone) {
-        o.iphone = t;
+        o.iphone = TRUE;
       } else if (ipad) {
-        o.ipad = t;
+        o.ipad = TRUE;
       }
     } else if (uaTest(/android/i)) {
-      o = {
-        webkit: t
-      , android: t
-      , mobile: t
-      , version: versionTest(webkitVersion) || versionTest(firefoxVersion)
-      };
+      o.android = o[STR_MOBILE] = o[STR_WEBKIT] = TRUE;
+      o[STR_VERSION] = versionTest(webkitVersion) || versionTest(firefoxVersion);
     } else if (uaTest(/safari/i)) {
-      o = {
-        webkit: t
-      , safari: t
-      , version: versionTest(webkitVersion)
-      };
+      o[STR_SAFARI] = o[STR_WEBKIT] = TRUE;
+      o[STR_VERSION] = versionTest(webkitVersion);
     } else if (uaTest(/gecko\//i)) {
-      o = {
-        gecko: t
-      , mozilla: t
-      , version: versionTest(firefoxVersion)
-      };
+      o.gecko = o.mozilla = TRUE;
+      o[STR_VERSION] = versionTest(firefoxVersion);
       if (uaTest(/firefox/i)) {
-        o.firefox = t;
+        o.firefox = TRUE;
       }
     } else if (uaTest(/seamonkey\//i)) {
-      o = {
-        seamonkey: t
-      , version: versionTest(/seamonkey\/(\d+(\.\d+)?)/i)
-      };
+      o.seamonkey = TRUE;
+      o[STR_VERSION] = versionTest(/seamonkey\/(\d+(\.\d+)?)/i);
     } else {
-      o = {};
+      o[STR_VERSION] = 0;
     }
+
+    version = o[STR_VERSION];
 
     // Graded Browser Support
     // http://developer.yahoo.com/yui/articles/gbs
-    if ((o.msie && o.version >= 8) ||
-        (o.chrome && o.version >= 10) ||
-        (o.firefox && o.version >= 4.0) ||
-        (o.safari && o.version >= 5) ||
-        (o.opera && o.version >= 10.0)) {
-      o.a = t;
+    if ((o[STR_MSIE] && version >= 8) ||
+        (o[STR_CHROME] && version >= 10) ||
+        (o[STR_FIREFOX] && version >= 4.0) ||
+        (o[STR_SAFARI] && version >= 5) ||
+        (o[STR_OPERA] && version >= 10.0)) {
+      o.a = TRUE;
     }
 
-    else if ((o.msie && o.version < 8) ||
-        (o.chrome && o.version < 10) ||
-        (o.firefox && o.version < 4.0) ||
-        (o.safari && o.version < 5) ||
-        (o.opera && o.version < 10.0)) {
-      o.c = t;
+    else if ((o[STR_MSIE] && version < 8) ||
+        (o[STR_CHROME] && version < 10) ||
+        (o[STR_FIREFOX] && version < 4.0) ||
+        (o[STR_SAFARI] && version < 5) ||
+        (o[STR_OPERA] && version < 10.0)) {
+      o.c = TRUE;
     } else {
-      o.x = t;
+      o.x = TRUE;
     }
 
     return o;

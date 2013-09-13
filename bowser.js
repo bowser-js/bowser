@@ -29,19 +29,40 @@
     */
 
   function detect(ua) {
+    /**
+     * Test a given regex against our user agent
+     *
+     * @param  {RegExp} regex
+     * @return {Boolean}
+     */
+    function uaTest(regex) {
+      return regex.test(ua);
+    }
+
+    /**
+     * Get version numbers from our user agent.
+     *
+     * @param  {RegExp} regex
+     * @return {Number}
+     */
+    function versionTest(regex, i) {
+      var match = ua.match(regex);
+      return match ? match[i || 1] : 0;
+    }
+
     var t = true
-      , ie = /(msie|trident)/i.test(ua)
-      , chrome = /chrome/i.test(ua)
-      , phantom = /phantom/i.test(ua)
-      , safari = /safari/i.test(ua) && !chrome && !phantom
-      , iphone = /iphone/i.test(ua)
-      , ipad = /ipad/i.test(ua)
-      , touchpad = /touchpad/i.test(ua)
-      , android = /android/i.test(ua)
-      , opera = /opera/i.test(ua) || /opr/i.test(ua)
-      , firefox = /firefox/i.test(ua)
-      , gecko = /gecko\//i.test(ua)
-      , seamonkey = /seamonkey\//i.test(ua)
+      , ie = uaTest(/(msie|trident)/i)
+      , chrome = uaTest(/chrome/i)
+      , phantom = uaTest(/phantom/i)
+      , safari = uaTest(/safari/i) && !chrome && !phantom
+      , iphone = uaTest(/iphone/i)
+      , ipad = uaTest(/ipad/i)
+      , touchpad = uaTest(/touchpad/i)
+      , android = uaTest(/android/i)
+      , opera = uaTest(/opera/i) || uaTest(/opr/i)
+      , firefox = uaTest(/firefox/i)
+      , gecko = uaTest(/gecko\//i)
+      , seamonkey = uaTest(/seamonkey\//i)
       , webkitVersion = /version\/(\d+(\.\d+)?)/i
       , firefoxVersion = /firefox\/(\d+(\.\d+)?)/i
       , o;
@@ -49,30 +70,30 @@
     if (ie) {
       o = {
         msie: t
-      , version: ua.match(/(msie |rv:)(\d+(\.\d+)?)/i)[2]
+      , version: versionTest(/(msie |rv:)(\d+(\.\d+)?)/i, 2)
       };
     } else if (opera) {
       o = {
         opera: t
-      , version: ua.match(webkitVersion) ? ua.match(webkitVersion)[1] : ua.match(/opr\/(\d+(\.\d+)?)/i)
+      , version: versionTest(webkitVersion) || versionTest(/opr\/(\d+(\.\d+)?)/i)
       };
     } else if (chrome) {
       o = {
         webkit: t
       , chrome: t
-      , version: ua.match(/chrome\/(\d+(\.\d+)?)/i)[1]
+      , version: versionTest(/chrome\/(\d+(\.\d+)?)/i)
       };
     } else if (phantom) {
       o = {
         webkit: t
       , phantom: t
-      , version: ua.match(/phantomjs\/(\d+(\.\d+)+)/i)[1]
+      , version: versionTest(/phantomjs\/(\d+(\.\d+)+)/i)
       };
     } else if (touchpad) {
-      return {
+      o = {
         webkit: t
       , touchpad: t
-      , version : ua.match(/touchpad\/(\d+(\.\d+)?)/i)[1]
+      , version : versionTest(/touchpad\/(\d+(\.\d+)?)/i)
       };
     } else if (iphone || ipad) {
       o = {
@@ -81,35 +102,33 @@
       , ios: t
       , iphone: iphone
       , ipad: ipad
-      };
       // WTF: version is not part of user agent in web apps
-      if (webkitVersion.test(ua)) {
-        o.version = ua.match(webkitVersion)[1];
-      }
+      , version: versionTest(webkitVersion)
+      };
     } else if (android) {
       o = {
         webkit: t
       , android: t
       , mobile: t
-      , version: (ua.match(webkitVersion) || ua.match(firefoxVersion))[1]
+      , version: versionTest(webkitVersion) || versionTest(firefoxVersion)
       };
     } else if (safari) {
       o = {
         webkit: t
       , safari: t
-      , version: ua.match(webkitVersion)[1]
+      , version: versionTest(webkitVersion)
       };
     } else if (gecko) {
       o = {
         gecko: t
       , mozilla: t
-      , version: ua.match(firefoxVersion)[1]
+      , version: versionTest(firefoxVersion)
       };
       if (firefox) o.firefox = t;
     } else if (seamonkey) {
       o = {
         seamonkey: t
-      , version: ua.match(/seamonkey\/(\d+(\.\d+)?)/i)[1]
+      , version: versionTest(/seamonkey\/(\d+(\.\d+)?)/i)
       };
     } else {
       o = {};

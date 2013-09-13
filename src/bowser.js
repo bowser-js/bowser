@@ -71,7 +71,7 @@
       o = {
         webkit: t
       , phantom: t
-      , version: versionTest(/phantomjs\/(\d+(\.\d+)+)/i)
+      , version: versionTest(/phantomjs\/(\d+(\.\d+)?)/i)
       };
     } else if (uaTest(/touchpad/i)) {
       o = {
@@ -84,11 +84,14 @@
         webkit: t
       , mobile: t
       , ios: t
-      , iphone: iphone
-      , ipad: ipad
       // WTF: version is not part of user agent in web apps
       , version: versionTest(webkitVersion)
       };
+      if (iphone) {
+        o.iphone = t;
+      } else if (ipad) {
+        o.ipad = t;
+      }
     } else if (uaTest(/android/i)) {
       o = {
         webkit: t

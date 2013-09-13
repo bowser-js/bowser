@@ -28,44 +28,42 @@
     * PhantomJS: "Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.5.0 Safari/534.34"
     */
 
-  var ua = navigator.userAgent
-    , t = true
-    , ie = /(msie|trident)/i.test(ua)
-    , chrome = /chrome/i.test(ua)
-    , phantom = /phantom/i.test(ua)
-    , safari = /safari/i.test(ua) && !chrome && !phantom
-    , iphone = /iphone/i.test(ua)
-    , ipad = /ipad/i.test(ua)
-    , touchpad = /touchpad/i.test(ua)
-    , android = /android/i.test(ua)
-    , opera = /opera/i.test(ua) || /opr/i.test(ua)
-    , firefox = /firefox/i.test(ua)
-    , gecko = /gecko\//i.test(ua)
-    , seamonkey = /seamonkey\//i.test(ua)
-    , webkitVersion = /version\/(\d+(\.\d+)?)/i
-    , firefoxVersion = /firefox\/(\d+(\.\d+)?)/i
-    , o;
-
-  function detect() {
+  function detect(ua) {
+    var t = true
+      , ie = /(msie|trident)/i.test(ua)
+      , chrome = /chrome/i.test(ua)
+      , phantom = /phantom/i.test(ua)
+      , safari = /safari/i.test(ua) && !chrome && !phantom
+      , iphone = /iphone/i.test(ua)
+      , ipad = /ipad/i.test(ua)
+      , touchpad = /touchpad/i.test(ua)
+      , android = /android/i.test(ua)
+      , opera = /opera/i.test(ua) || /opr/i.test(ua)
+      , firefox = /firefox/i.test(ua)
+      , gecko = /gecko\//i.test(ua)
+      , seamonkey = /seamonkey\//i.test(ua)
+      , webkitVersion = /version\/(\d+(\.\d+)?)/i
+      , firefoxVersion = /firefox\/(\d+(\.\d+)?)/i
+      , o;
 
     if (ie) {
-      return {
+      o = {
         msie: t
       , version: ua.match(/(msie |rv:)(\d+(\.\d+)?)/i)[2]
       };
     } else if (opera) {
-      return {
+      o = {
         opera: t
       , version: ua.match(webkitVersion) ? ua.match(webkitVersion)[1] : ua.match(/opr\/(\d+(\.\d+)?)/i)
       };
     } else if (chrome) {
-      return {
+      o = {
         webkit: t
       , chrome: t
       , version: ua.match(/chrome\/(\d+(\.\d+)?)/i)[1]
       };
     } else if (phantom) {
-      return {
+      o = {
         webkit: t
       , phantom: t
       , version: ua.match(/phantomjs\/(\d+(\.\d+)+)/i)[1]
@@ -88,16 +86,15 @@
       if (webkitVersion.test(ua)) {
         o.version = ua.match(webkitVersion)[1];
       }
-      return o;
     } else if (android) {
-      return {
+      o = {
         webkit: t
       , android: t
       , mobile: t
       , version: (ua.match(webkitVersion) || ua.match(firefoxVersion))[1]
       };
     } else if (safari) {
-      return {
+      o = {
         webkit: t
       , safari: t
       , version: ua.match(webkitVersion)[1]
@@ -109,38 +106,47 @@
       , version: ua.match(firefoxVersion)[1]
       };
       if (firefox) o.firefox = t;
-      return o;
     } else if (seamonkey) {
-      return {
+      o = {
         seamonkey: t
       , version: ua.match(/seamonkey\/(\d+(\.\d+)?)/i)[1]
       };
     } else {
-      return {};
+      o = {};
     }
+
+    // Graded Browser Support
+    // http://developer.yahoo.com/yui/articles/gbs
+    if ((o.msie && o.version >= 8) ||
+        (o.chrome && o.version >= 10) ||
+        (o.firefox && o.version >= 4.0) ||
+        (o.safari && o.version >= 5) ||
+        (o.opera && o.version >= 10.0)) {
+      o.a = t;
+    }
+
+    else if ((o.msie && o.version < 8) ||
+        (o.chrome && o.version < 10) ||
+        (o.firefox && o.version < 4.0) ||
+        (o.safari && o.version < 5) ||
+        (o.opera && o.version < 10.0)) {
+      o.c = t;
+    } else {
+      o.x = t;
+    }
+
+    return o;
   }
 
-  var bowser = detect()
-
-  // Graded Browser Support
-  // http://developer.yahoo.com/yui/articles/gbs
-  if ((bowser.msie && bowser.version >= 8) ||
-      (bowser.chrome && bowser.version >= 10) ||
-      (bowser.firefox && bowser.version >= 4.0) ||
-      (bowser.safari && bowser.version >= 5) ||
-      (bowser.opera && bowser.version >= 10.0)) {
-    bowser.a = t;
-  }
-
-  else if ((bowser.msie && bowser.version < 8) ||
-      (bowser.chrome && bowser.version < 10) ||
-      (bowser.firefox && bowser.version < 4.0) ||
-      (bowser.safari && bowser.version < 5) ||
-      (bowser.opera && bowser.version < 10.0)) {
-    bowser.c = t;
-  } else {
-    bowser.x = t;
-  }
+  /* Get our main bowser object from navigators user agent if present. */
+  var bowser = detect(typeof navigator !== 'undefined' ? navigator.userAgent : '');
+  
+  /*
+   * Set our detect method to the main bowser object so we can
+   * reuse it to test other user agents.
+   * This is needed to implement future tests.
+   */
+  bowser._detect = detect;
 
   return bowser;
-})
+});

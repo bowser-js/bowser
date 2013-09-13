@@ -75,12 +75,16 @@
 
     var iphone = uaTest(/iphone/i)
       , ipad = uaTest(/ipad/i)
+      , ipod = uaTest(/ipod/i)
       , webkitVersion = versionTest(STR_VERSION + '\/')
       , firefoxVersion = versionTest(STR_FIREFOX + '[\/ ]')
       , o = {}
       , version = 0;
 
-    if (uaTest(/(msie|trident)/i)) {
+    if (uaTest(/windows phone/i)) {
+      o.windowsphone = o[STR_MOBILE] = TRUE;
+      o[STR_VERSION] = versionTest('iemobile\/');
+    } else if (uaTest(/(msie|trident)/i)) {
       o[STR_MSIE] = TRUE;
       o[STR_VERSION] = versionTest('(msie |rv:)', 2);
     } else if (uaTest(/opera/i) || uaTest(/opr/i)) {
@@ -95,15 +99,28 @@
     } else if (uaTest(/touchpad/i)) {
       o.touchpad = o[STR_WEBKIT] = TRUE;
       o[STR_VERSION] = versionTest('touchpad\/');
-    } else if (iphone || ipad) {
+    } else if (iphone || ipad || ipod) {
       o.ios = o[STR_MOBILE] = o[STR_WEBKIT] = TRUE;
-      // WTF: version is not part of user agent in web apps
+      // CAUTION: version is not part of user agent in web apps
       o[STR_VERSION] = webkitVersion;
-      if (iphone) {
+      if (ipod) {
+        o.ipod = TRUE;
+      } else if (iphone) {
         o.iphone = TRUE;
       } else if (ipad) {
         o.ipad = TRUE;
       }
+    } else if (uaTest(/blackberry/i)) {
+      o.blackberry = o[STR_MOBILE] = TRUE;
+      if (webkitVersion) {
+        o[STR_WEBKIT] = TRUE;
+        o[STR_VERSION] = webkitVersion;
+      } else {
+        o[STR_VERSION] = versionTest('blackberry[\\d]+\/');
+      }
+    } else if (uaTest(/webos/i)) {
+      o.webos = o[STR_MOBILE] = o[STR_WEBKIT] = TRUE;
+      o[STR_VERSION] = webkitVersion || versionTest('wosbrowser\/');
     } else if (uaTest(/android/i)) {
       o.android = o[STR_MOBILE] = o[STR_WEBKIT] = TRUE;
       o[STR_VERSION] = webkitVersion || firefoxVersion;

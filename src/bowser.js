@@ -49,6 +49,30 @@
   /** @const */
   var STR_FIREFOX = 'firefox';
 
+  /** @const */
+  var STR_BLACKBERRY = 'blackberry';
+
+  /** @const */
+  var STR_WEBOS = 'webos';
+
+  /** @const */
+  var STR_GECKO = 'gecko';
+
+  /** @const */
+  var STR_ANDROID = 'android';
+
+  /** @const */
+  var STR_TOUCHPAD = 'touchpad';
+
+  /** @const */
+  var STR_IPHONE = 'iphone';
+
+  /** @const */
+  var STR_IPAD = 'ipad';
+
+  /** @const */
+  var STR_IPOD = 'ipod';
+
 
   function detect(ua) {
     /**
@@ -57,8 +81,8 @@
      * @param  {RegExp} regex
      * @return {Boolean}
      */
-    function uaTest(regex) {
-      return regex.test(ua);
+    function uaTest(test) {
+      return new RegExp(test, 'i').test(ua);
     }
 
     /**
@@ -73,69 +97,82 @@
       return match ? match[i || 1] : 0;
     }
 
-    var iphone = uaTest(/iphone/i)
-      , ipad = uaTest(/ipad/i)
-      , ipod = uaTest(/ipod/i)
+    var iphone = uaTest(STR_IPHONE)
+      , ipad = uaTest(STR_IPAD)
+      , ipod = uaTest(STR_IPOD)
       , webkitVersion = versionTest(STR_VERSION + '\/')
       , firefoxVersion = versionTest(STR_FIREFOX + '[\/ ]')
       , o = {}
       , version = 0;
 
-    if (uaTest(/windows phone/i)) {
+    if (uaTest('windows phone')) {
       o.windowsphone = o[STR_MOBILE] = TRUE;
       o[STR_VERSION] = versionTest('iemobile\/');
-    } else if (uaTest(/opera/i) || uaTest(/opr/i)) {
+
+    } else if (uaTest(STR_OPERA) || uaTest('opr')) {
       o[STR_OPERA] = TRUE;
       o[STR_VERSION] = webkitVersion || versionTest('opr\/') || versionTest('opera[ \/]');
-    } else if (uaTest(/(msie|trident)/i)) {
+
+    } else if (uaTest('(msie|trident)')) {
       o[STR_MSIE] = TRUE;
       o[STR_VERSION] = versionTest('(msie |rv:)', 2);
-    } else if (uaTest(/chrome/i)) {
+
+    } else if (uaTest(STR_CHROME)) {
       o[STR_CHROME] = o[STR_WEBKIT] = TRUE;
       o[STR_VERSION] = versionTest(STR_CHROME + '\/');
-    } else if (uaTest(/phantom/i)) {
+
+    } else if (uaTest('phantom')) {
       o.phantom = o[STR_WEBKIT] = TRUE;
       o[STR_VERSION] = versionTest('phantomjs\/');
-    } else if (uaTest(/touchpad/i)) {
-      o.touchpad = o[STR_WEBKIT] = TRUE;
-      o[STR_VERSION] = versionTest('touchpad\/');
+
+    } else if (uaTest(STR_TOUCHPAD)) {
+      o[STR_TOUCHPAD] = o[STR_WEBKIT] = TRUE;
+      o[STR_VERSION] = versionTest(STR_TOUCHPAD + '\/');
+
     } else if (iphone || ipad || ipod) {
       o.ios = o[STR_MOBILE] = o[STR_WEBKIT] = TRUE;
       // CAUTION: version is not part of user agent in web apps
       o[STR_VERSION] = webkitVersion;
       if (ipod) {
-        o.ipod = TRUE;
+        o[STR_IPOD] = TRUE;
       } else if (iphone) {
-        o.iphone = TRUE;
+        o[STR_IPHONE] = TRUE;
       } else if (ipad) {
-        o.ipad = TRUE;
+        o[STR_IPAD] = TRUE;
       }
-    } else if (uaTest(/blackberry/i)) {
-      o.blackberry = o[STR_MOBILE] = TRUE;
+
+    } else if (uaTest(STR_BLACKBERRY)) {
+      o[STR_BLACKBERRY] = o[STR_MOBILE] = TRUE;
       if (webkitVersion) {
         o[STR_WEBKIT] = TRUE;
         o[STR_VERSION] = webkitVersion;
       } else {
-        o[STR_VERSION] = versionTest('blackberry[\\d]+\/');
+        o[STR_VERSION] = versionTest(STR_BLACKBERRY + '[\\d]+\/');
       }
-    } else if (uaTest(/webos/i)) {
-      o.webos = o[STR_MOBILE] = o[STR_WEBKIT] = TRUE;
+
+    } else if (uaTest(STR_WEBOS)) {
+      o[STR_WEBOS] = o[STR_MOBILE] = o[STR_WEBKIT] = TRUE;
       o[STR_VERSION] = webkitVersion || versionTest('wosbrowser\/');
-    } else if (uaTest(/android/i)) {
-      o.android = o[STR_MOBILE] = o[STR_WEBKIT] = TRUE;
+
+    } else if (uaTest(STR_ANDROID)) {
+      o[STR_ANDROID] = o[STR_MOBILE] = o[STR_WEBKIT] = TRUE;
       o[STR_VERSION] = webkitVersion || firefoxVersion;
-    } else if (uaTest(/safari/i)) {
+
+    } else if (uaTest(STR_SAFARI)) {
       o[STR_SAFARI] = o[STR_WEBKIT] = TRUE;
       o[STR_VERSION] = webkitVersion;
-    } else if (uaTest(/gecko\//i)) {
-      o.gecko = o.mozilla = TRUE;
+
+    } else if (uaTest(STR_GECKO)) {
+      o[STR_GECKO] = o.mozilla = TRUE;
       o[STR_VERSION] = firefoxVersion;
-      if (uaTest(/firefox/i)) {
+      if (uaTest(STR_FIREFOX)) {
         o.firefox = TRUE;
       }
-    } else if (uaTest(/seamonkey\//i)) {
+
+    } else if (uaTest('seamonkey\/')) {
       o.seamonkey = TRUE;
       o[STR_VERSION] = versionTest('seamonkey\/');
+
     } else {
       o[STR_VERSION] = 0;
     }
@@ -167,7 +204,7 @@
 
   /* Get our main bowser object from navigators user agent if present. */
   var bowser = detect(typeof navigator !== 'undefined' ? navigator.userAgent : '');
-  
+
   /*
    * Set our detect method to the main bowser object so we can
    * reuse it to test other user agents.

@@ -45,45 +45,35 @@
     }
 
     var t = true
-      , ie = uaTest(/(msie|trident)/i)
-      , chrome = uaTest(/chrome/i)
-      , phantom = uaTest(/phantom/i)
-      , safari = uaTest(/safari/i) && !chrome && !phantom
       , iphone = uaTest(/iphone/i)
       , ipad = uaTest(/ipad/i)
-      , touchpad = uaTest(/touchpad/i)
-      , android = uaTest(/android/i)
-      , opera = uaTest(/opera/i) || uaTest(/opr/i)
-      , firefox = uaTest(/firefox/i)
-      , gecko = uaTest(/gecko\//i)
-      , seamonkey = uaTest(/seamonkey\//i)
       , webkitVersion = /version\/(\d+(\.\d+)?)/i
       , firefoxVersion = /firefox\/(\d+(\.\d+)?)/i
       , o;
 
-    if (ie) {
+    if (uaTest(/(msie|trident)/i)) {
       o = {
         msie: t
       , version: versionTest(/(msie |rv:)(\d+(\.\d+)?)/i, 2)
       };
-    } else if (opera) {
+    } else if (uaTest(/opera/i) || uaTest(/opr/i)) {
       o = {
         opera: t
       , version: versionTest(webkitVersion) || versionTest(/opr\/(\d+(\.\d+)?)/i)
       };
-    } else if (chrome) {
+    } else if (uaTest(/chrome/i)) {
       o = {
         webkit: t
       , chrome: t
       , version: versionTest(/chrome\/(\d+(\.\d+)?)/i)
       };
-    } else if (phantom) {
+    } else if (uaTest(/phantom/i)) {
       o = {
         webkit: t
       , phantom: t
       , version: versionTest(/phantomjs\/(\d+(\.\d+)+)/i)
       };
-    } else if (touchpad) {
+    } else if (uaTest(/touchpad/i)) {
       o = {
         webkit: t
       , touchpad: t
@@ -99,27 +89,29 @@
       // WTF: version is not part of user agent in web apps
       , version: versionTest(webkitVersion)
       };
-    } else if (android) {
+    } else if (uaTest(/android/i)) {
       o = {
         webkit: t
       , android: t
       , mobile: t
       , version: versionTest(webkitVersion) || versionTest(firefoxVersion)
       };
-    } else if (safari) {
+    } else if (uaTest(/safari/i)) {
       o = {
         webkit: t
       , safari: t
       , version: versionTest(webkitVersion)
       };
-    } else if (gecko) {
+    } else if (uaTest(/gecko\//i)) {
       o = {
         gecko: t
       , mozilla: t
       , version: versionTest(firefoxVersion)
       };
-      if (firefox) o.firefox = t;
-    } else if (seamonkey) {
+      if (uaTest(/firefox/i)) {
+        o.firefox = t;
+      }
+    } else if (uaTest(/seamonkey\//i)) {
       o = {
         seamonkey: t
       , version: versionTest(/seamonkey\/(\d+(\.\d+)?)/i)

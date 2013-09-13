@@ -90,12 +90,12 @@
     if (uaTest(/windows phone/i)) {
       o.windowsphone = o[STR_MOBILE] = TRUE;
       o[STR_VERSION] = versionTest('iemobile\/');
+    } else if (uaTest(/opera/i) || uaTest(/opr/i)) {
+      o[STR_OPERA] = TRUE;
+      o[STR_VERSION] = webkitVersion || versionTest('opr\/') || versionTest('opera[ \/]');
     } else if (uaTest(/(msie|trident)/i)) {
       o[STR_MSIE] = TRUE;
       o[STR_VERSION] = versionTest('(msie |rv:)', 2);
-    } else if (uaTest(/opera/i) || uaTest(/opr/i)) {
-      o[STR_OPERA] = TRUE;
-      o[STR_VERSION] = webkitVersion || versionTest('opr\/');
     } else if (uaTest(/chrome/i)) {
       o[STR_CHROME] = o[STR_WEBKIT] = TRUE;
       o[STR_VERSION] = versionTest(STR_CHROME + '\/');

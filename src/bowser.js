@@ -1,7 +1,11 @@
 !function (name, definition) {
-  if (typeof define == 'function') define(definition)
-  else if (typeof module != 'undefined' && module.exports) module.exports['browser'] = definition()
-  else this[name] = definition()
+  if (typeof define === 'function') {
+    define(definition);
+  } else if (typeof module !== 'undefined' && module.exports) {
+    module.exports[name] = definition();
+  } else {
+    this[name] = definition();
+  }
 }('bowser', function () {
   /**
     * navigator.userAgent =>
@@ -18,109 +22,195 @@
     * PhantomJS: "Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.5.0 Safari/534.34"
     */
 
-  var ua = navigator.userAgent
-    , t = true
-    , ie = /(msie|trident)/i.test(ua)
-    , chrome = /chrome/i.test(ua)
-    , phantom = /phantom/i.test(ua)
-    , safari = /safari/i.test(ua) && !chrome && !phantom
-    , iphone = /iphone/i.test(ua)
-    , ipad = /ipad/i.test(ua)
-    , touchpad = /touchpad/i.test(ua)
-    , android = /android/i.test(ua)
-    , opera = /opera/i.test(ua) || /opr/i.test(ua)
-    , firefox = /firefox/i.test(ua)
-    , gecko = /gecko\//i.test(ua)
-    , seamonkey = /seamonkey\//i.test(ua)
-    , webkitVersion = /version\/(\d+(\.\d+)?)/i
-    , firefoxVersion = /firefox\/(\d+(\.\d+)?)/i
-    , o
+  /** @const */
+  var TRUE = true;
 
-  function detect() {
+  /** @const */
+  var STR_VERSION = 'version';
 
-    if (ie) return {
-        msie: t
-      , version: ua.match(/(msie |rv:)(\d+(\.\d+)?)/i)[2]
-      }
-    if (opera) return {
-        opera: t
-      , version: ua.match(webkitVersion) ? ua.match(webkitVersion)[1] : ua.match(/opr\/(\d+(\.\d+)?)/i)
-      }
-    if (chrome) return {
-        webkit: t
-      , chrome: t
-      , version: ua.match(/chrome\/(\d+(\.\d+)?)/i)[1]
-      }
-    if (phantom) return {
-        webkit: t
-      , phantom: t
-      , version: ua.match(/phantomjs\/(\d+(\.\d+)+)/i)[1]
-      }
-    if (touchpad) return {
-        webkit: t
-      , touchpad: t
-      , version : ua.match(/touchpad\/(\d+(\.\d+)?)/i)[1]
-      }
-    if (iphone || ipad) {
-      o = {
-        webkit: t
-      , mobile: t
-      , ios: t
-      , iphone: iphone
-      , ipad: ipad
-      }
-      // WTF: version is not part of user agent in web apps
-      if (webkitVersion.test(ua)) {
-        o.version = ua.match(webkitVersion)[1]
-      }
-      return o
+  /** @const */
+  var STR_MOBILE = 'mobile';
+
+  /** @const */
+  var STR_MSIE = 'msie';
+
+  /** @const */
+  var STR_OPERA = 'opera';
+
+  /** @const */
+  var STR_CHROME = 'chrome';
+
+  /** @const */
+  var STR_WEBKIT = 'webkit';
+
+  /** @const */
+  var STR_SAFARI = 'safari';
+
+  /** @const */
+  var STR_FIREFOX = 'firefox';
+
+  /** @const */
+  var STR_BLACKBERRY = 'blackberry';
+
+  /** @const */
+  var STR_WEBOS = 'webos';
+
+  /** @const */
+  var STR_GECKO = 'gecko';
+
+  /** @const */
+  var STR_ANDROID = 'android';
+
+  /** @const */
+  var STR_TOUCHPAD = 'touchpad';
+
+  /** @const */
+  var STR_IPHONE = 'iphone';
+
+  /** @const */
+  var STR_IPAD = 'ipad';
+
+  /** @const */
+  var STR_IPOD = 'ipod';
+
+
+  function detect(ua) {
+    /**
+     * Test a given regex against our user agent
+     *
+     * @param  {RegExp} regex
+     * @return {Boolean}
+     */
+    function uaTest(test) {
+      return new RegExp(test, 'i').test(ua);
     }
-    if (android) return {
-        webkit: t
-      , android: t
-      , mobile: t
-      , version: (ua.match(webkitVersion) || ua.match(firefoxVersion))[1]
-      }
-    if (safari) return {
-        webkit: t
-      , safari: t
-      , version: ua.match(webkitVersion)[1]
-      }
-    if (gecko) {
-      o = {
-        gecko: t
-      , mozilla: t
-      , version: ua.match(firefoxVersion)[1]
-      }
-      if (firefox) o.firefox = t
-      return o
+
+    /**
+     * Append version number matcher to our starting string
+     * and get version number from our user agent.
+     *
+     * @param  {String} start
+     * @return {Number}
+     */
+    function versionTest(start, i) {
+      var match = ua.match(new RegExp(start + '(\\d+(\\.\\d+)?)', 'i'));
+      return match ? match[i || 1] : 0;
     }
-    if (seamonkey) return {
-        seamonkey: t
-      , version: ua.match(/seamonkey\/(\d+(\.\d+)?)/i)[1]
+
+    var iphone = uaTest(STR_IPHONE)
+      , ipad = uaTest(STR_IPAD)
+      , ipod = uaTest(STR_IPOD)
+      , webkitVersion = versionTest(STR_VERSION + '\/')
+      , firefoxVersion = versionTest(STR_FIREFOX + '[\/ ]')
+      , o = {}
+      , version = 0;
+
+    if (uaTest('windows phone')) {
+      o.windowsphone = o[STR_MOBILE] = TRUE;
+      o[STR_VERSION] = versionTest('iemobile\/');
+
+    } else if (uaTest(STR_OPERA) || uaTest('opr')) {
+      o[STR_OPERA] = TRUE;
+      o[STR_VERSION] = webkitVersion || versionTest('opr\/') || versionTest('opera[ \/]');
+
+    } else if (uaTest('(msie|trident)')) {
+      o[STR_MSIE] = TRUE;
+      o[STR_VERSION] = versionTest('(msie |rv:)', 2);
+
+    } else if (uaTest(STR_CHROME)) {
+      o[STR_CHROME] = o[STR_WEBKIT] = TRUE;
+      o[STR_VERSION] = versionTest(STR_CHROME + '\/');
+
+    } else if (uaTest('phantom')) {
+      o.phantom = o[STR_WEBKIT] = TRUE;
+      o[STR_VERSION] = versionTest('phantomjs\/');
+
+    } else if (uaTest(STR_TOUCHPAD)) {
+      o[STR_TOUCHPAD] = o[STR_WEBKIT] = TRUE;
+      o[STR_VERSION] = versionTest(STR_TOUCHPAD + '\/');
+
+    } else if (iphone || ipad || ipod) {
+      o.ios = o[STR_MOBILE] = o[STR_WEBKIT] = TRUE;
+      // CAUTION: version is not part of user agent in web apps
+      o[STR_VERSION] = webkitVersion;
+      if (ipod) {
+        o[STR_IPOD] = TRUE;
+      } else if (iphone) {
+        o[STR_IPHONE] = TRUE;
+      } else if (ipad) {
+        o[STR_IPAD] = TRUE;
       }
-    return {}
+
+    } else if (uaTest(STR_BLACKBERRY)) {
+      o[STR_BLACKBERRY] = o[STR_MOBILE] = TRUE;
+      if (webkitVersion) {
+        o[STR_WEBKIT] = TRUE;
+        o[STR_VERSION] = webkitVersion;
+      } else {
+        o[STR_VERSION] = versionTest(STR_BLACKBERRY + '[\\d]+\/');
+      }
+
+    } else if (uaTest(STR_WEBOS)) {
+      o[STR_WEBOS] = o[STR_MOBILE] = o[STR_WEBKIT] = TRUE;
+      o[STR_VERSION] = webkitVersion || versionTest('wosbrowser\/');
+
+    } else if (uaTest(STR_ANDROID)) {
+      o[STR_ANDROID] = o[STR_MOBILE] = o[STR_WEBKIT] = TRUE;
+      o[STR_VERSION] = webkitVersion || firefoxVersion;
+
+    } else if (uaTest(STR_SAFARI)) {
+      o[STR_SAFARI] = o[STR_WEBKIT] = TRUE;
+      o[STR_VERSION] = webkitVersion;
+
+    } else if (uaTest(STR_GECKO)) {
+      o[STR_GECKO] = o.mozilla = TRUE;
+      o[STR_VERSION] = firefoxVersion;
+      if (uaTest(STR_FIREFOX)) {
+        o.firefox = TRUE;
+      }
+
+    } else if (uaTest('seamonkey\/')) {
+      o.seamonkey = TRUE;
+      o[STR_VERSION] = versionTest('seamonkey\/');
+
+    } else {
+      o[STR_VERSION] = 0;
+    }
+
+    version = o[STR_VERSION];
+
+    // Graded Browser Support
+    // http://developer.yahoo.com/yui/articles/gbs
+    if ((o[STR_MSIE] && version >= 8) ||
+        (o[STR_CHROME] && version >= 10) ||
+        (o[STR_FIREFOX] && version >= 4.0) ||
+        (o[STR_SAFARI] && version >= 5) ||
+        (o[STR_OPERA] && version >= 10.0)) {
+      o.a = TRUE;
+    }
+
+    else if ((o[STR_MSIE] && version < 8) ||
+        (o[STR_CHROME] && version < 10) ||
+        (o[STR_FIREFOX] && version < 4.0) ||
+        (o[STR_SAFARI] && version < 5) ||
+        (o[STR_OPERA] && version < 10.0)) {
+      o.c = TRUE;
+    } else {
+      o.x = TRUE;
+    }
+
+    return o;
   }
 
-  var bowser = detect()
+  /* Get our main bowser object from navigators user agent if present. */
+  var bowser = detect(typeof navigator !== 'undefined' ? navigator.userAgent : '');
 
-  // Graded Browser Support
-  // http://developer.yahoo.com/yui/articles/gbs
-  if ((bowser.msie && bowser.version >= 8) ||
-      (bowser.chrome && bowser.version >= 10) ||
-      (bowser.firefox && bowser.version >= 4.0) ||
-      (bowser.safari && bowser.version >= 5) ||
-      (bowser.opera && bowser.version >= 10.0)) {
-    bowser.a = t;
-  }
+  /*
+   * Set our detect method to the main bowser object so we can
+   * reuse it to test other user agents.
+   * This is needed to implement future tests.
+   */
+  bowser._detect = detect;
 
-  else if ((bowser.msie && bowser.version < 8) ||
-      (bowser.chrome && bowser.version < 10) ||
-      (bowser.firefox && bowser.version < 4.0) ||
-      (bowser.safari && bowser.version < 5) ||
-      (bowser.opera && bowser.version < 10.0)) {
-    bowser.c = t
-  } else bowser.x = t
-
-  return bowser
-})
+  return bowser;
+});

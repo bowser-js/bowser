@@ -5,9 +5,13 @@
   */
 
 !function (name, definition) {
-  if (typeof define == 'function') define(definition)
-  else if (typeof module != 'undefined' && module.exports) module.exports['browser'] = definition()
-  else this[name] = definition()
+  if (typeof define === 'function') {
+    define(definition);
+  } else if (typeof module !== 'undefined' && module.exports) {
+    module.exports[name] = definition();
+  } else {
+    this[name] = definition();
+  }
 }('bowser', function () {
   /**
     * navigator.userAgent =>
@@ -40,72 +44,80 @@
     , seamonkey = /seamonkey\//i.test(ua)
     , webkitVersion = /version\/(\d+(\.\d+)?)/i
     , firefoxVersion = /firefox\/(\d+(\.\d+)?)/i
-    , o
+    , o;
 
   function detect() {
 
-    if (ie) return {
+    if (ie) {
+      return {
         msie: t
       , version: ua.match(/(msie |rv:)(\d+(\.\d+)?)/i)[2]
-      }
-    if (opera) return {
+      };
+    } else if (opera) {
+      return {
         opera: t
       , version: ua.match(webkitVersion) ? ua.match(webkitVersion)[1] : ua.match(/opr\/(\d+(\.\d+)?)/i)
-      }
-    if (chrome) return {
+      };
+    } else if (chrome) {
+      return {
         webkit: t
       , chrome: t
       , version: ua.match(/chrome\/(\d+(\.\d+)?)/i)[1]
-      }
-    if (phantom) return {
+      };
+    } else if (phantom) {
+      return {
         webkit: t
       , phantom: t
       , version: ua.match(/phantomjs\/(\d+(\.\d+)+)/i)[1]
-      }
-    if (touchpad) return {
+      };
+    } else if (touchpad) {
+      return {
         webkit: t
       , touchpad: t
       , version : ua.match(/touchpad\/(\d+(\.\d+)?)/i)[1]
-      }
-    if (iphone || ipad) {
+      };
+    } else if (iphone || ipad) {
       o = {
         webkit: t
       , mobile: t
       , ios: t
       , iphone: iphone
       , ipad: ipad
-      }
+      };
       // WTF: version is not part of user agent in web apps
       if (webkitVersion.test(ua)) {
-        o.version = ua.match(webkitVersion)[1]
+        o.version = ua.match(webkitVersion)[1];
       }
-      return o
-    }
-    if (android) return {
+      return o;
+    } else if (android) {
+      return {
         webkit: t
       , android: t
       , mobile: t
       , version: (ua.match(webkitVersion) || ua.match(firefoxVersion))[1]
-      }
-    if (safari) return {
+      };
+    } else if (safari) {
+      return {
         webkit: t
       , safari: t
       , version: ua.match(webkitVersion)[1]
-      }
-    if (gecko) {
+      };
+    } else if (gecko) {
       o = {
         gecko: t
       , mozilla: t
       , version: ua.match(firefoxVersion)[1]
-      }
-      if (firefox) o.firefox = t
-      return o
-    }
-    if (seamonkey) return {
+      };
+      if (firefox) o.firefox = t;
+      return o;
+    } else if (seamonkey) {
+      return {
         seamonkey: t
       , version: ua.match(/seamonkey\/(\d+(\.\d+)?)/i)[1]
-      }
-    return {}
+      };
+    } else {
+      return {};
+    }
   }
 
   var bowser = detect()
@@ -125,8 +137,10 @@
       (bowser.firefox && bowser.version < 4.0) ||
       (bowser.safari && bowser.version < 5) ||
       (bowser.opera && bowser.version < 10.0)) {
-    bowser.c = t
-  } else bowser.x = t
+    bowser.c = t;
+  } else {
+    bowser.x = t;
+  }
 
-  return bowser
+  return bowser;
 })

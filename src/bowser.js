@@ -44,7 +44,7 @@
       }
     if (opera) return {
         opera: t
-      , version: ua.match(webkitVersion) ? ua.match(webkitVersion)[1] : ua.match(/opr\/(\d+(\.\d+)?)/i)
+      , version: ua.match(webkitVersion) ? ua.match(webkitVersion)[1] : ua.match(/opr\/(\d+(\.\d+)?)/i)[1]
       }
     if (chrome) return {
         webkit: t

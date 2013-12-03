@@ -54,6 +54,7 @@
       }
     if (chrome) return {
         webkit: t
+      , mobile: iphone || ipad || android
       , chrome: t
       , version: ua.match(/chrome\/(\d+(\.\d+)?)/i)[1]
       }

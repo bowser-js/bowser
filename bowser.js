@@ -45,31 +45,37 @@
   function detect() {
 
     if (ie) return {
-        msie: t
+        name: 'Internet Explorer'
+      , msie: t
       , version: ua.match(/(msie |rv:)(\d+(\.\d+)?)/i)[2]
       }
     if (opera) return {
-        opera: t
+        name: 'Opera'
+      , opera: t
       , version: ua.match(webkitVersion) ? ua.match(webkitVersion)[1] : ua.match(/opr\/(\d+(\.\d+)?)/i)[1]
       }
     if (chrome) return {
-        webkit: t
+        name: 'Chrome'
+      , webkit: t
       , chrome: t
       , version: ua.match(/chrome\/(\d+(\.\d+)?)/i)[1]
       }
     if (phantom) return {
-        webkit: t
+        name: 'PhantomJS'
+      , webkit: t
       , phantom: t
       , version: ua.match(/phantomjs\/(\d+(\.\d+)+)/i)[1]
       }
     if (touchpad) return {
-        webkit: t
+        name: 'TouchPad'
+      , webkit: t
       , touchpad: t
       , version : ua.match(/touchpad\/(\d+(\.\d+)?)/i)[1]
       }
     if (iphone || ipad) {
       o = {
-        webkit: t
+        name : iphone ? 'iPhone' : 'iPad'
+      , webkit: t
       , mobile: t
       , ios: t
       , iphone: iphone
@@ -82,27 +88,34 @@
       return o
     }
     if (android) return {
-        webkit: t
+        name: 'Android'
+      , webkit: t
       , android: t
       , mobile: t
       , version: (ua.match(webkitVersion) || ua.match(firefoxVersion))[1]
       }
     if (safari) return {
-        webkit: t
+        name: 'Safari'
+      , webkit: t
       , safari: t
       , version: ua.match(webkitVersion)[1]
       }
     if (gecko) {
       o = {
-        gecko: t
+        name: 'Gecko'
+      , gecko: t
       , mozilla: t
       , version: ua.match(firefoxVersion)[1]
       }
-      if (firefox) o.firefox = t
+      if (firefox) {
+        o.name = 'Firefox';
+        o.firefox = t;
+      }
       return o
     }
     if (seamonkey) return {
-        seamonkey: t
+        name: 'SeaMonkey'
+      , seamonkey: t
       , version: ua.match(/seamonkey\/(\d+(\.\d+)?)/i)[1]
       }
     return {}

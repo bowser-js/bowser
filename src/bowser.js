@@ -21,7 +21,7 @@
   var ua = navigator.userAgent
     , t = true
     , ie = /(msie|trident)/i.test(ua)
-    , chrome = /chrome/i.test(ua)
+    , chrome = /chrome|crios/i.test(ua)
     , phantom = /phantom/i.test(ua)
     , safari = /safari/i.test(ua) && !chrome && !phantom
     , iphone = /iphone/i.test(ua)
@@ -52,7 +52,7 @@
         name: 'Chrome'
       , webkit: t
       , chrome: t
-      , version: ua.match(/chrome\/(\d+(\.\d+)?)/i)[1]
+      , version: ua.match(/(?:chrome|crios)\/(\d+(\.\d+)?)/i)[1]
       }
     if (phantom) return {
         name: 'PhantomJS'

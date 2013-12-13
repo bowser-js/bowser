@@ -4,69 +4,64 @@
   else this[name] = definition()
 }('bowser', function () {
   /**
-    * navigator.userAgent =>
-    * Chrome:  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_7) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.57 Safari/534.24"
-    * Opera:   "Opera/9.80 (Macintosh; Intel Mac OS X 10.6.7; U; en) Presto/2.7.62 Version/11.01"
-    * Safari:  "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_7; en-us) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/5.0.5 Safari/533.21.1"
-    * IE:      "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C)"
-    * IE>=11:  "Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; .NET4.0E; .NET4.0C; Media Center PC 6.0; rv:11.0) like Gecko"
-    * Firefox: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0"
-    * iPhone:  "Mozilla/5.0 (iPhone Simulator; U; CPU iPhone OS 4_3_2 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5"
-    * iPad:    "Mozilla/5.0 (iPad; U; CPU OS 4_3_2 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5",
-    * Android: "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; T-Mobile G2 Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"
-    * Touchpad: "Mozilla/5.0 (hp-tabled;Linux;hpwOS/3.0.5; U; en-US)) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 TouchPad/1.0"
-    * PhantomJS: "Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.5.0 Safari/534.34"
+    * See useragents.js for examples of navigator.userAgent
     */
 
-  var ua = navigator.userAgent
-    , t = true
-    , ie = /(msie|trident)/i.test(ua)
-    , chrome = /chrome|crios/i.test(ua)
-    , phantom = /phantom/i.test(ua)
-    , safari = /safari/i.test(ua) && !chrome && !phantom
-    , iphone = /iphone/i.test(ua)
-    , ipad = /ipad/i.test(ua)
-    , touchpad = /touchpad/i.test(ua)
-    , android = /android/i.test(ua)
-    , opera = /opera/i.test(ua) || /opr/i.test(ua)
-    , firefox = /firefox/i.test(ua)
-    , gecko = /gecko\//i.test(ua)
-    , seamonkey = /seamonkey\//i.test(ua)
-    , webkitVersion = /version\/(\d+(\.\d+)?)/i
-    , firefoxVersion = /firefox\/(\d+(\.\d+)?)/i
-    , o
+  var t = true,
+      v /* temporary placeholder for versions. */
 
-  function detect() {
+  function detect(ua) {
 
-    if (ie) return {
+    var ie = /(msie|trident)/i.test(ua)
+      , chrome = /chrome|crios/i.test(ua)
+      , phantom = /phantom/i.test(ua)
+      , safari = /safari/i.test(ua) && !chrome && !phantom
+      , iphone = /iphone/i.test(ua)
+      , ipad = /ipad/i.test(ua)
+      , touchpad = /touchpad/i.test(ua)
+      , android = /android/i.test(ua)
+      , opera = /opera/i.test(ua) || /opr/i.test(ua)
+      , firefox = /firefox/i.test(ua)
+      , gecko = /gecko\//i.test(ua)
+      , seamonkey = /seamonkey\//i.test(ua)
+      , webkitVersion = /version\/(\d+(\.\d+)?)/i
+      , firefoxVersion = /firefox[ \/](\d+(\.\d+)?)/i
+      , o = {}
+
+    if (opera) {
+      if ((v = ua.match(webkitVersion)) && v.length > 1) v = v[1]
+      else if ((v = ua.match(/opr\/(\d+(\.\d+)?)/i)) && v.length > 1) v = v[1]
+      else if ((v = ua.match(/opera[ \/](\d+(\.\d+)?)/i)) && v.length > 1) v = v[1]
+      else v = 0
+      o = {
+        name: 'Opera'
+      , opera: t
+      , version: v
+      }
+    } else if (ie) o = {
         name: 'Internet Explorer'
       , msie: t
       , version: ua.match(/(msie |rv:)(\d+(\.\d+)?)/i)[2]
       }
-    if (opera) return {
-        name: 'Opera'
-      , opera: t
-      , version: ua.match(webkitVersion) ? ua.match(webkitVersion)[1] : ua.match(/opr\/(\d+(\.\d+)?)/i)[1]
-      }
-    if (chrome) return {
+    else if (chrome) o = {
         name: 'Chrome'
       , webkit: t
       , chrome: t
       , version: ua.match(/(?:chrome|crios)\/(\d+(\.\d+)?)/i)[1]
       }
-    if (phantom) return {
+    else if (phantom) o = {
         name: 'PhantomJS'
       , webkit: t
       , phantom: t
-      , version: ua.match(/phantomjs\/(\d+(\.\d+)+)/i)[1]
+      , version: ua.match(/phantomjs\/(\d+(\.\d+)?)/i)[1]
       }
-    if (touchpad) return {
+    else if (touchpad) o = {
         name: 'TouchPad'
       , webkit: t
       , touchpad: t
       , version : ua.match(/touchpad\/(\d+(\.\d+)?)/i)[1]
       }
-    if (iphone || ipad) {
+    else if (iphone || ipad) {
       o = {
         name : iphone ? 'iPhone' : 'iPad'
       , webkit: t
@@ -79,61 +74,68 @@
       if (webkitVersion.test(ua)) {
         o.version = ua.match(webkitVersion)[1]
       }
-      return o
     }
-    if (android) return {
+    else if (android) o = {
         name: 'Android'
       , webkit: t
       , android: t
       , mobile: t
       , version: (ua.match(webkitVersion) || ua.match(firefoxVersion))[1]
       }
-    if (safari) return {
+    else if (safari) o = {
         name: 'Safari'
       , webkit: t
       , safari: t
-      , version: ua.match(webkitVersion)[1]
+      , version: ((v = ua.match(webkitVersion)) ? v[1] : 0)
       }
-    if (gecko) {
+    else if (gecko) {
       o = {
         name: 'Gecko'
       , gecko: t
       , mozilla: t
-      , version: ua.match(firefoxVersion)[1]
+      , version: ((v = ua.match(firefoxVersion)) && v? v[1] : 0)
       }
       if (firefox) {
         o.name = 'Firefox';
         o.firefox = t;
       }
-      return o
     }
-    if (seamonkey) return {
+    else if (seamonkey) o = {
         name: 'SeaMonkey'
       , seamonkey: t
       , version: ua.match(/seamonkey\/(\d+(\.\d+)?)/i)[1]
       }
-    return {}
+
+    // Graded Browser Support
+    // http://developer.yahoo.com/yui/articles/gbs
+    if ((o.msie && o.version >= 8) ||
+        (o.chrome && o.version >= 10) ||
+        (o.firefox && o.version >= 4.0) ||
+        (o.safari && o.version >= 5) ||
+        (o.opera && o.version >= 10.0)) {
+      o.a = t;
+    }
+
+    else if ((o.msie && o.version < 8) ||
+        (o.chrome && o.version < 10) ||
+        (o.firefox && o.version < 4.0) ||
+        (o.safari && o.version < 5) ||
+        (o.opera && o.version < 10.0)) {
+      o.c = t
+    } else o.x = t
+
+    return o
   }
 
-  var bowser = detect()
+  var bowser = detect(typeof navigator !== 'undefined' ? navigator.userAgent : '')
 
-  // Graded Browser Support
-  // http://developer.yahoo.com/yui/articles/gbs
-  if ((bowser.msie && bowser.version >= 8) ||
-      (bowser.chrome && bowser.version >= 10) ||
-      (bowser.firefox && bowser.version >= 4.0) ||
-      (bowser.safari && bowser.version >= 5) ||
-      (bowser.opera && bowser.version >= 10.0)) {
-    bowser.a = t;
-  }
 
-  else if ((bowser.msie && bowser.version < 8) ||
-      (bowser.chrome && bowser.version < 10) ||
-      (bowser.firefox && bowser.version < 4.0) ||
-      (bowser.safari && bowser.version < 5) ||
-      (bowser.opera && bowser.version < 10.0)) {
-    bowser.c = t
-  } else bowser.x = t
+  /*
+   * Set our detect method to the main bowser object so we can
+   * reuse it to test other user agents.
+   * This is needed to implement future tests.
+   */
+  bowser._detect = detect;
 
   return bowser
 });

@@ -61,3 +61,19 @@ else if (bowser.c) {
 else {
   // unsupported (bowser.x)
 }
+```
+
+Building
+--------
+
+Simply `$ npm install` and `$ make` inside the bowser folder.
+
+
+Testing
+-------
+We started a list `src/useragents.js` with example user agents and their expected bowser object.
+
+Whenever you add support for new browsers or notice a bug / mismatch, please update the list and
+check if all tests are still passing.
+
+To run the test call `$ make test` and hope for green light ;)

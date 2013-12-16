@@ -283,6 +283,7 @@ module.exports.useragents = {
       , version: '5.0'
       , iphone: true
       , ipad: false
+      , ipod: false
       , mobile: true
       , webkit: true
       , x: true
@@ -292,6 +293,7 @@ module.exports.useragents = {
       , version: '3.0'
       , iphone: true
       , ipad: false
+      , ipod: false
       , mobile: true
       , webkit: true
       , x: true
@@ -301,6 +303,7 @@ module.exports.useragents = {
       , version: '4.0'
       , iphone: true
       , ipad: false
+      , ipod: false
       , mobile: true
       , webkit: true
       , x: true
@@ -310,6 +313,7 @@ module.exports.useragents = {
       , version: '3.1'
       , iphone: true
       , ipad: false
+      , ipod: false
       , mobile: true
       , webkit: true
       , x: true
@@ -321,6 +325,7 @@ module.exports.useragents = {
       , version: '6.0'
       , iphone: false
       , ipad: true
+      , ipod: false
       , mobile: true
       , webkit: true
       , x: true
@@ -330,6 +335,7 @@ module.exports.useragents = {
       , version: '5.1'
       , iphone: false
       , ipad: true
+      , ipod: false
       , mobile: true
       , webkit: true
       , x: true
@@ -339,6 +345,7 @@ module.exports.useragents = {
       , version: '5.0'
       , iphone: false
       , ipad: true
+      , ipod: false
       , mobile: true
       , webkit: true
       , x: true
@@ -348,8 +355,88 @@ module.exports.useragents = {
       , version: '4.0'
       , iphone: false
       , ipad: true
+      , ipod: false
       , mobile: true
       , webkit: true
+      , x: true
+      }
+    }
+  , iPod: {
+      'Mozilla/5.0 (iPod; U; CPU iPhone OS 4_3_3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/6533.18.5': {
+        ios: true
+      , version: '5.0'
+      , iphone: false
+      , ipad: false
+      , ipod: true
+      , mobile: true
+      , webkit: true
+      , x: true
+      }
+    , 'Mozilla/5.0 (iPod; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/4A93 Safari/419.3': {
+        ios: true
+      , version: '3.0'
+      , iphone: false
+      , ipad: false
+      , ipod: true
+      , mobile: true
+      , webkit: true
+      , x: true
+      }
+    }
+  , BlackBerry: {
+      'Mozilla/5.0 (BlackBerry; U; BlackBerry 9900; en) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.1.0.346 Mobile Safari/534.11+': {
+        blackberry: true
+      , version: '7.1'
+      , webkit: true
+      , mobile: true
+      , x: true
+      }
+    , 'Mozilla/5.0 (BlackBerry; U; BlackBerry 9800; en-US) AppleWebKit/534.8+ (KHTML, like Gecko) Version/6.0.0.450 Mobile Safari/534.8+': {
+        blackberry: true
+      , version: '6.0'
+      , webkit: true
+      , mobile: true
+      , x: true
+      }
+    , 'BlackBerry9800/5.0.0.862 Profile/MIDP-2.1 Configuration/CLDC-1.1 VendorID/331 UNTRUSTED/1.0 3gpp-gba': {
+        blackberry: true
+      , version: '5.0'
+      , mobile: true
+      , x: true
+      }
+    , 'BlackBerry8320/4.5.0.52 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/179': {
+        blackberry: true
+      , version: '4.5'
+      , mobile: true
+      , x: true
+      }
+    }
+  , 'Windows Phone': {
+      'Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 920)': {
+        windowsphone: true
+      , version: '10.0'
+      , mobile: true
+      , x: true
+      }
+    , 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0)': {
+        windowsphone: true
+      , version: '9.0'
+      , mobile: true
+      , x: true
+      }
+    , 'Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; Nokia;N70)': {
+        windowsphone: true
+      , version: '7.0'
+      , mobile: true
+      , x: true
+      }
+    }
+  , WebOS: {
+      'Mozilla/5.0 (webOS/1.0; U; en-US) AppleWebKit/525.27.1 (KHTML, like Gecko) Version/1.0 Safari/525.27.1 Pre/1.0': {
+        webos: true
+      , webkit: true
+      , version: '1.0'
+      , mobile: true
       , x: true
       }
     }

@@ -13,11 +13,21 @@ if (bowser.msie && bowser.version <= 6) {
 Detected Browsers
 -----
 
-  * msie
-  * safari[webkit]
+  * android
+  * blackberry
   * chrome[webkit]
   * firefox[gecko]
+  * ipad
+  * iphone
+  * ipod
+  * msie
   * opera
+  * phantomjs
+  * safari[webkit]
+  * seamonkey
+  * touchpad
+  * webos
+  * windows phone
 
 Notes
 ----

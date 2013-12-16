@@ -48,12 +48,26 @@
       , opera: t
       , version: ua.match(webkitVersion) ? ua.match(webkitVersion)[1] : ua.match(/opr\/(\d+(\.\d+)?)/i)[1]
       }
-    if (chrome) return {
+    if (chrome) {
+      o = {
         name: 'Chrome'
       , webkit: t
       , chrome: t
       , version: ua.match(/(?:chrome|crios)\/(\d+(\.\d+)?)/i)[1]
       }
+      // Chrome for Android
+      if (android) {
+        o.android = t;
+        o.mobile = t;
+      }
+      // Chrome for iOS
+      if (iphone || ipad) {
+        o.ios = t;
+        o.iphone = iphone;
+        o.ipad = ipad;
+      }
+      return o
+    }
     if (phantom) return {
         name: 'PhantomJS'
       , webkit: t
@@ -81,13 +95,6 @@
       }
       return o
     }
-    if (android) return {
-        name: 'Android'
-      , webkit: t
-      , android: t
-      , mobile: t
-      , version: (ua.match(webkitVersion) || ua.match(firefoxVersion))[1]
-      }
     if (safari) return {
         name: 'Safari'
       , webkit: t
@@ -105,12 +112,25 @@
         o.name = 'Firefox';
         o.firefox = t;
       }
+      // Firefox for Android
+      if (android) {
+        o.android = t;
+        o.mobile = t;
+      }
       return o
     }
     if (seamonkey) return {
         name: 'SeaMonkey'
       , seamonkey: t
       , version: ua.match(/seamonkey\/(\d+(\.\d+)?)/i)[1]
+      }
+    // Android browser/webview (not Firefox/Chrome running on Android)
+    if (android) return {
+        name: 'Android'
+      , webkit: t
+      , android: t
+      , mobile: t
+      , version: (ua.match(webkitVersion) || ua.match(firefoxVersion))[1]
       }
     return {}
   }

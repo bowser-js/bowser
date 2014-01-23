@@ -7,6 +7,7 @@
     * navigator.userAgent =>
     * Chrome:  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_7) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.57 Safari/534.24"
     * Opera:   "Opera/9.80 (Macintosh; Intel Mac OS X 10.6.7; U; en) Presto/2.7.62 Version/11.01"
+    * Silk:    "Mozilla/5.0 (Linux; U; en-us; KFOT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.8 Safari/535.19 Silk-Accelerated=true"
     * Safari:  "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_7; en-us) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/5.0.5 Safari/533.21.1"
     * IE:      "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C)"
     * IE>=11:  "Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; .NET4.0E; .NET4.0C; Media Center PC 6.0; rv:11.0) like Gecko"
@@ -23,7 +24,8 @@
     , ie = /(msie|trident)/i.test(ua)
     , chrome = /chrome|crios/i.test(ua)
     , phantom = /phantom/i.test(ua)
-    , safari = /safari/i.test(ua) && !chrome && !phantom
+    , silk = /silk/i.test(ua)
+    , safari = /safari/i.test(ua) && !chrome && !phantom && !silk
     , iphone = /iphone/i.test(ua)
     , ipad = /ipad/i.test(ua)
     , touchpad = /touchpad/i.test(ua)
@@ -87,6 +89,13 @@
       , android: t
       , mobile: t
       , version: (ua.match(webkitVersion) || ua.match(firefoxVersion))[1]
+      }
+    if (silk) return {
+        name: 'Silk'
+      , webkit: t
+      , silk: t
+      , mobile: t
+      , version: ua.match(/version\/(\d+(\.\d+)?)/i)[1]
       }
     if (safari) return {
         name: 'Safari'

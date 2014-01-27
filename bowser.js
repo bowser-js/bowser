@@ -22,6 +22,7 @@
     * Android: "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; T-Mobile G2 Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"
     * Touchpad: "Mozilla/5.0 (hp-tabled;Linux;hpwOS/3.0.5; U; en-US)) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 TouchPad/1.0"
     * PhantomJS: "Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.5.0 Safari/534.34"
+    * Amazon Silk: "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_3; en-us; Silk/1.0.22.153_10033210) AppleWebKit/533.16 (KHTML, like Gecko) Version/5.0 Safari/533.16 Silk-Accelerated=true"
     */
 
   var ua = navigator.userAgent
@@ -33,6 +34,7 @@
     , iphone = /iphone/i.test(ua)
     , ipad = /ipad/i.test(ua)
     , touchpad = /touchpad/i.test(ua)
+    , silk = /silk/i.test(ua)
     , android = /android/i.test(ua)
     , opera = /opera/i.test(ua) || /opr/i.test(ua)
     , firefox = /firefox/i.test(ua)
@@ -72,6 +74,14 @@
       , touchpad: t
       , version : ua.match(/touchpad\/(\d+(\.\d+)?)/i)[1]
       }
+
+    if (silk) return {
+          name: 'Amazon Silk'
+        , webkit: t
+        , android: t
+        , mobile: t
+        , version : ua.match(/silk\/(\d+(\.\d+)?)/i)[1]
+        }
     if (iphone || ipad) {
       o = {
         name : iphone ? 'iPhone' : 'iPad'

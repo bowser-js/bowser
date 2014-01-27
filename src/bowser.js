@@ -24,11 +24,11 @@
     , ie = /(msie|trident)/i.test(ua)
     , chrome = /chrome|crios/i.test(ua)
     , phantom = /phantom/i.test(ua)
-    , safari = /safari/i.test(ua) && !chrome && !phantom
     , iphone = /iphone/i.test(ua)
     , ipad = /ipad/i.test(ua)
     , touchpad = /touchpad/i.test(ua)
     , silk = /silk/i.test(ua)
+    , safari = /safari/i.test(ua) && !chrome && !phantom && !silk
     , android = /android/i.test(ua)
     , opera = /opera/i.test(ua) || /opr/i.test(ua)
     , firefox = /firefox/i.test(ua)

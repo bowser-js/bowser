@@ -61,6 +61,7 @@ else if (bowser.c) {
 else {
   // unsupported (bowser.x)
 }
+```
 
 Building
 ---------

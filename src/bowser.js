@@ -36,6 +36,7 @@
     , seamonkey = /seamonkey\//i.test(ua)
     , webkitVersion = /version\/(\d+(\.\d+)?)/i
     , firefoxVersion = /firefox\/(\d+(\.\d+)?)/i
+    , mobile = /mobile/i.test(ua)
     , o
 
   function detect() {
@@ -55,6 +56,10 @@
       , webkit: t
       , chrome: t
       , version: ua.match(/(?:chrome|crios)\/(\d+(\.\d+)?)/i)[1]
+      , ipad: ipad
+      , iphone: iphone
+      , ios: !!ua.match(/crios/i)
+      , mobile: mobile
       }
     if (phantom) return {
         name: 'PhantomJS'
@@ -80,7 +85,7 @@
       o = {
         name : iphone ? 'iPhone' : 'iPad'
       , webkit: t
-      , mobile: t
+      , mobile: iphone
       , ios: t
       , iphone: iphone
       , ipad: ipad
@@ -129,17 +134,17 @@
 
   // Graded Browser Support
   // http://developer.yahoo.com/yui/articles/gbs
-  if ((bowser.msie && bowser.version >= 8) ||
-      (bowser.chrome && bowser.version >= 10) ||
-      (bowser.firefox && bowser.version >= 4.0) ||
+  if ((bowser.msie && bowser.version >= 9) ||
+      (bowser.chrome && bowser.version >= 20) ||
+      (bowser.firefox && bowser.version >= 10.0) ||
       (bowser.safari && bowser.version >= 5) ||
       (bowser.opera && bowser.version >= 10.0)) {
     bowser.a = t;
   }
 
-  else if ((bowser.msie && bowser.version < 8) ||
-      (bowser.chrome && bowser.version < 10) ||
-      (bowser.firefox && bowser.version < 4.0) ||
+  else if ((bowser.msie && bowser.version < 9) ||
+      (bowser.chrome && bowser.version < 20) ||
+      (bowser.firefox && bowser.version < 10.0) ||
       (bowser.safari && bowser.version < 5) ||
       (bowser.opera && bowser.version < 10.0)) {
     bowser.c = t

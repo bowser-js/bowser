@@ -19,6 +19,7 @@
     * Firefox: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0"
     * iPhone:  "Mozilla/5.0 (iPhone Simulator; U; CPU iPhone OS 4_3_2 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5"
     * iPad:    "Mozilla/5.0 (iPad; U; CPU OS 4_3_2 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5",
+    * iPod:    "Mozilla/5.0 (iPod; U; CPU iPhone OS 4_3_3 like Mac OS X; ja-jp) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/6533.18.5"
     * Android: "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; T-Mobile G2 Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"
     * Touchpad: "Mozilla/5.0 (hp-tabled;Linux;hpwOS/3.0.5; U; en-US)) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 TouchPad/1.0"
     * PhantomJS: "Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.5.0 Safari/534.34"
@@ -32,6 +33,7 @@
     , phantom = /phantom/i.test(ua)
     , iphone = /iphone/i.test(ua)
     , ipad = /ipad/i.test(ua)
+    , ipod = /ipod/i.test(ua)
     , touchpad = /touchpad/i.test(ua)
     , silk = /silk/i.test(ua)
     , safari = /safari/i.test(ua) && !chrome && !phantom && !silk
@@ -87,14 +89,15 @@
         , mobile: t
         , version : ua.match(/silk\/(\d+(\.\d+)?)/i)[1]
         }
-    if (iphone || ipad) {
+    if (iphone || ipad || ipod) {
       o = {
-        name : iphone ? 'iPhone' : 'iPad'
+        name : iphone ? 'iPhone' : ipad ? 'iPad' : 'iPod'
       , webkit: t
       , mobile: iphone
       , ios: t
       , iphone: iphone
       , ipad: ipad
+      , ipod: ipod
       }
       // WTF: version is not part of user agent in web apps
       if (webkitVersion.test(ua)) {

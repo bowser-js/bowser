@@ -320,7 +320,34 @@ module.exports.useragents = {
       }
     }
   , Firefox: {
-      'Mozilla/5.0 (Android; Mobile; rv:27.0) Gecko/27.0 Firefox/27.0': {
+      'Mozilla/5.0 (Mobile; rv:26.0) Gecko/26.0 Firefox/26.0': {
+        mozilla: true
+      , gecko: true
+      , firefox: true
+      , version: '26.0'
+      , mobile: true
+      , firefoxos: true
+      , a: true
+      }
+    , 'Mozilla/5.0 (Tablet; rv:26.0) Gecko/26.0 Firefox/26.0': {
+        mozilla: true
+      , gecko: true
+      , firefox: true
+      , version: '26.0'
+      , mobile: true
+      , firefoxos: true
+      , a: true
+      }
+    , 'Mozilla/5.0 (Mobile; LG-D300; rv:18.1) Gecko/18.1 Firefox/18.1': {
+        mozilla: true
+      , gecko: true
+      , firefox: true
+      , version: '18.1'
+      , mobile: true
+      , firefoxos: true
+      , a: true
+      }
+    , 'Mozilla/5.0 (Android; Mobile; rv:27.0) Gecko/27.0 Firefox/27.0': {
         mozilla: true
       , gecko: true
       , firefox: true

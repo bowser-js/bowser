@@ -34,6 +34,8 @@
       , mobile = /mobile/i.test(ua)
       , o = {}
 
+    if (ipod) iphone = false
+
     if (windowsphone) o = {
         name: 'Windows Phone'
       , windowsphone: t
@@ -51,11 +53,11 @@
       , version: v
       }
       if (android) {
-        o.android = true
-        o.mobile = true
+        o.android = t
+        o.mobile = t
       }
       if (chrome) {
-        o.webkit = true
+        o.webkit = t
       }
     } else if (ie) o = {
         name: 'Internet Explorer'
@@ -69,7 +71,9 @@
       , version: ua.match(/(?:chrome|crios)\/(\d+(\.\d+)?)/i)[1]
       , ipad: ipad
       , iphone: iphone
-      , ios: !!ua.match(/crios/i)
+      , ipod: ipod
+      , ios: iphone || ipad || ipod
+      , android: android
       , mobile: mobile
       }
     else if (phantom) o = {
@@ -92,7 +96,6 @@
       , version : ua.match(/silk\/(\d+(\.\d+)?)/i)[1]
       }
     else if (iphone || ipad || ipod) {
-      if (ipod) iphone = false
       o = {
         name : iphone ? 'iPhone' : ipad ? 'iPad' : 'iPod'
       , webkit: t
@@ -127,19 +130,6 @@
       , webos: t
       , version: (ua.match(webkitVersion) || ua.match(/wosbrowser\/(\d+(\.\d+)?)/i))[1]
       }
-    else if (android) o = {
-        name: 'Android'
-      , webkit: t
-      , android: t
-      , mobile: t
-      , version: (ua.match(webkitVersion) || ua.match(firefoxVersion))[1]
-      }
-    else if (safari) o = {
-        name: 'Safari'
-      , webkit: t
-      , safari: t
-      , version: ((v = ua.match(webkitVersion)) ? v[1] : 0)
-      }
     else if (gecko) {
       o = {
         name: 'Gecko'
@@ -151,7 +141,24 @@
         o.name = 'Firefox';
         o.firefox = t;
       }
+      if (android) {
+        o.android = t
+        o.mobile = t
+      }
     }
+    else if (android) o = {
+        name: 'Android'
+      , webkit: t
+      , android: t
+      , mobile: t
+      , version: ua.match(webkitVersion)[1]
+      }
+    else if (safari) o = {
+        name: 'Safari'
+      , webkit: t
+      , safari: t
+      , version: ((v = ua.match(webkitVersion)) ? v[1] : 0)
+      }
     else if (seamonkey) o = {
         name: 'SeaMonkey'
       , seamonkey: t

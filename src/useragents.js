@@ -7,21 +7,73 @@
  */
 module.exports.useragents = {
     Chrome: {
-      'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.17 Safari/537.36': {
+      'Mozilla/5.0 (Linux; Android 4.3; Galaxy Nexus Build/JWR66Y) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.99 Mobile Safari/537.36': {
         chrome: true
       , ipad: false
       , iphone: false
+      , ipod: false
       , ios: false
+      , android: true
+      , mobile: true
+      , version: '32.0'
+      , webkit: true
+      , a: true
+      }
+    , 'Mozilla/5.0 (Linux; Android 4.1; Galaxy Nexus Build/JRN84D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19': {
+        chrome: true
+      , ipad: false
+      , iphone: false
+      , ipod: false
+      , ios: false
+      , android: true
+      , mobile: true
+      , version: '18.0'
+      , webkit: true
+      , c: true
+      }
+    , 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 5_1_1 like Mac OS X; en) AppleWebKit/534.46.0 (KHTML, like Gecko) CriOS/19.0.1084.60 Mobile/9B206 Safari/7534.48.3': {
+        chrome: true
+      , ipad: false
+      , iphone: true
+      , ipod: false
+      , ios: true
+      , android: false
+      , mobile: true
+      , version: '19.0'
+      , webkit: true
+      , c: true
+      }
+    , 'Mozilla/5.0 (iPad; U; CPU OS 5_1_1 like Mac OS X; en-us) AppleWebKit/534.46.0 (KHTML, like Gecko) CriOS/19.0.1084.60 Mobile/9B206 Safari/7534.48.3': {
+        chrome: true
+      , ipad: true
+      , iphone: false
+      , ipod: false
+      , ios: true
+      , android: false
+      , mobile: true
+      , version: '19.0'
+      , webkit: true
+      , c: true
+      }
+    , 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.17 Safari/537.36': {
+        chrome: true
+      , ipad: false
+      , iphone: false
+      , ipod: false
+      , ios: false
+      , android: false
       , mobile: false
       , version: '30.0'
       , webkit: true
       , a: true
-        }
+      }
     , 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.62 Safari/537.36': {
         chrome: true
       , ipad: false
       , iphone: false
+      , ipod: false
       , ios: false
+      , android: false
       , mobile: false
       , version: '29.0'
       , webkit: true
@@ -31,7 +83,9 @@ module.exports.useragents = {
         chrome: true
       , ipad: false
       , iphone: false
+      , ipod: false
       , ios: false
+      , android: false
       , mobile: false
       , version: '29.0'
       , webkit: true
@@ -41,7 +95,9 @@ module.exports.useragents = {
         chrome: true
       , ipad: false
       , iphone: false
+      , ipod: false
       , ios: false
+      , android: false
       , mobile: false
       , version: '29.0'
       , webkit: true
@@ -51,7 +107,9 @@ module.exports.useragents = {
         chrome: true
       , ipad: false
       , iphone: false
+      , ipod: false
       , ios: false
+      , android: false
       , mobile: false
       , version: '28.0'
       , webkit: true
@@ -61,7 +119,9 @@ module.exports.useragents = {
         chrome: true
       , ipad: false
       , iphone: false
+      , ipod: false
       , ios: false
+      , android: false
       , mobile: false
       , version: '11.0'
       , webkit: true
@@ -71,7 +131,9 @@ module.exports.useragents = {
         chrome: true
       , ipad: false
       , iphone: false
+      , ipod: false
       , ios: false
+      , android: false
       , mobile: false
       , version: '6.0'
       , webkit: true
@@ -258,7 +320,16 @@ module.exports.useragents = {
       }
     }
   , Firefox: {
-      'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:25.0) Gecko/20100101 Firefox/25.0': {
+      'Mozilla/5.0 (Android; Mobile; rv:27.0) Gecko/27.0 Firefox/27.0': {
+        mozilla: true
+      , gecko: true
+      , firefox: true
+      , version: '27.0'
+      , mobile: true
+      , android: true
+      , a: true
+      }
+    , 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:25.0) Gecko/20100101 Firefox/25.0': {
         mozilla: true
       , gecko: true
       , firefox: true
@@ -425,7 +496,17 @@ module.exports.useragents = {
       }
     }
   , iPod: {
-      'Mozilla/5.0 (iPod; U; CPU iPhone OS 4_3_3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/6533.18.5': {
+      'Mozilla/5.0 (iPod; CPU iPhone OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B176 Safari/7534.48.3': {
+        ios: true
+      , version: '5.1'
+      , iphone: false
+      , ipad: false
+      , ipod: true
+      , mobile: true
+      , webkit: true
+      , x: true
+      }
+    , 'Mozilla/5.0 (iPod; U; CPU iPhone OS 4_3_3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/6533.18.5': {
         ios: true
       , version: '5.0'
       , iphone: false

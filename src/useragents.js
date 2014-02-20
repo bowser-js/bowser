@@ -329,6 +329,15 @@ module.exports.useragents = {
       , android: true
       , a: true
       }
+    , 'Mozilla/5.0 (Android; Tablet; rv:26.0) Gecko/26.0 Firefox/26.0': {
+        mozilla: true
+      , gecko: true
+      , firefox: true
+      , version: '26.0'
+      , mobile: true
+      , android: true
+      , a: true
+      }
     , 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:25.0) Gecko/20100101 Firefox/25.0': {
         mozilla: true
       , gecko: true
@@ -405,6 +414,29 @@ module.exports.useragents = {
       , firefox: true
       , version: '1.5'
       , c: true
+      }
+    }
+  , SeaMonkey: {
+      'Mozilla/5.0 (Windows NT 5.2; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 SeaMonkey/2.7.1': {
+        mozilla: true
+      , gecko: true
+      , seamonkey: true
+      , version: '2.7'
+      , x: true
+      }
+    , 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.5; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 SeaMonkey/2.7.1': {
+        mozilla: true
+      , gecko: true
+      , seamonkey: true
+      , version: '2.7'
+      , x: true
+      }
+    , 'Mozilla/5.0 (X11; Linux i686; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 SeaMonkey/2.7.1': {
+        mozilla: true
+      , gecko: true
+      , seamonkey: true
+      , version: '2.7'
+      , x: true
       }
     }
   , iPhone: {

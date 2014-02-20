@@ -143,14 +143,19 @@
       , mozilla: t
       , version: ((v = ua.match(firefoxVersion)) && v? v[1] : 0)
       }
-      if (firefox) {
-        o.name = 'Firefox';
-        o.firefox = t;
+      if (seamonkey) {
+        o.name = 'SeaMonkey'
+        o.seamonkey = t
+        o.version = ua.match(/seamonkey\/(\d+(\.\d+)?)/i)[1]
+      } else if (firefox) {
+        o.name = 'Firefox'
+        o.firefox = t
       }
       if (android) {
         o.android = t
         o.mobile = t
       }
+
     }
     else if (android) o = {
         name: 'Android'
@@ -164,11 +169,6 @@
       , webkit: t
       , safari: t
       , version: ((v = ua.match(webkitVersion)) ? v[1] : 0)
-      }
-    else if (seamonkey) o = {
-        name: 'SeaMonkey'
-      , seamonkey: t
-      , version: ua.match(/seamonkey\/(\d+(\.\d+)?)/i)[1]
       }
 
     // Graded Browser Support

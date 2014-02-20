@@ -126,7 +126,7 @@
       , webkit: t
       , webos: t
       , version: (ua.match(webkitVersion) || ua.match(/wosbrowser\/(\d+(\.\d+)?)/i))[1]
-    }
+      }
     else if (android) o = {
         name: 'Android'
       , webkit: t

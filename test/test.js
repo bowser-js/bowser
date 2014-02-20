@@ -28,23 +28,34 @@ function objLength(obj) {
   return size
 }
 
+function objKeys(obj) {
+  var keys = []
+    , key
+  for (key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      keys.push(key)
+    }
+  }
+  keys.sort();
+  return keys.join(', ')
+}
+
 /* Groups */
 for (g in allUserAgents) { (function(group, userAgents) {
   describe(group, function() {
 
     /* User Agents */
     for (ua in userAgents) { (function(userAgent, expections) {
-      describe('#' + userAgent, function() {
+      describe('user agent "' + userAgent + '"', function() {
 
         expections.name = group
 
         /* Get the result from bowser. */
         var result = browser._detect(userAgent)
-          , expectionLength = objLength(expections)
 
         /* At first, check if the result has the correct length. */
-        it('Should have ' + expectionLength + ' properties', function() {
-          assert.equal(objLength(result), expectionLength)
+        it('should have ' + objLength(expections) + ' properties', function() {
+          assert.equal(objKeys(result), objKeys(expections))
         })
 
         /* Properties */

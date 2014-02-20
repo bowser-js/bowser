@@ -1,9 +1,9 @@
 !function (name, definition) {
-  if (typeof define == 'function') define(definition)
-  else if (typeof module != 'undefined' && module.exports) module.exports['browser'] = definition()
+  if (typeof module != 'undefined' && module.exports) module.exports['browser'] = definition()
+  else if (typeof define == 'function') define(definition)
   else this[name] = definition()
 }('bowser', function () {
-  /**
+   /**
     * See useragents.js for examples of navigator.userAgent
     */
 
@@ -15,17 +15,21 @@
     var ie = /(msie|trident)/i.test(ua)
       , chrome = /chrome|crios/i.test(ua)
       , phantom = /phantom/i.test(ua)
-      , safari = /safari/i.test(ua) && !chrome && !phantom
       , iphone = /iphone/i.test(ua)
       , ipad = /ipad/i.test(ua)
+      , ipod = /ipod/i.test(ua)
       , touchpad = /touchpad/i.test(ua)
+      , silk = /silk/i.test(ua)
+      , safari = /safari/i.test(ua) && !chrome && !phantom && !silk
       , android = /android/i.test(ua)
       , opera = /opera/i.test(ua) || /opr/i.test(ua)
       , firefox = /firefox/i.test(ua)
       , gecko = /gecko\//i.test(ua)
       , seamonkey = /seamonkey\//i.test(ua)
       , webkitVersion = /version\/(\d+(\.\d+)?)/i
+      // , firefoxVersion = /firefox\/(\d+(\.\d+)?)/i
       , firefoxVersion = /firefox[ \/](\d+(\.\d+)?)/i
+      , mobile = /mobile/i.test(ua)
       , o = {}
 
     if (opera) {
@@ -48,6 +52,10 @@
       , webkit: t
       , chrome: t
       , version: ua.match(/(?:chrome|crios)\/(\d+(\.\d+)?)/i)[1]
+      , ipad: ipad
+      , iphone: iphone
+      , ios: !!ua.match(/crios/i)
+      , mobile: mobile
       }
     else if (phantom) o = {
         name: 'PhantomJS'
@@ -61,14 +69,22 @@
       , touchpad: t
       , version : ua.match(/touchpad\/(\d+(\.\d+)?)/i)[1]
       }
-    else if (iphone || ipad) {
-      o = {
-        name : iphone ? 'iPhone' : 'iPad'
+    else if (silk) o =  {
+        name: 'Amazon Silk'
       , webkit: t
+      , android: t
       , mobile: t
+      , version : ua.match(/silk\/(\d+(\.\d+)?)/i)[1]
+      }
+    else if (iphone || ipad || ipod) {
+      o = {
+        name : iphone ? 'iPhone' : ipad ? 'iPad' : 'iPod'
+      , webkit: t
+      , mobile: iphone
       , ios: t
       , iphone: iphone
       , ipad: ipad
+      , ipod: ipod
       }
       // WTF: version is not part of user agent in web apps
       if (webkitVersion.test(ua)) {
@@ -108,17 +124,17 @@
 
     // Graded Browser Support
     // http://developer.yahoo.com/yui/articles/gbs
-    if ((o.msie && o.version >= 8) ||
-        (o.chrome && o.version >= 10) ||
-        (o.firefox && o.version >= 4.0) ||
+    if ((o.msie && o.version >= 9) ||
+        (o.chrome && o.version >= 20) ||
+        (o.firefox && o.version >= 10.0) ||
         (o.safari && o.version >= 5) ||
         (o.opera && o.version >= 10.0)) {
       o.a = t;
     }
 
-    else if ((o.msie && o.version < 8) ||
-        (o.chrome && o.version < 10) ||
-        (o.firefox && o.version < 4.0) ||
+    else if ((o.msie && o.version < 9) ||
+        (o.chrome && o.version < 20) ||
+        (o.firefox && o.version < 10.0) ||
         (o.safari && o.version < 5) ||
         (o.opera && o.version < 10.0)) {
       o.c = t

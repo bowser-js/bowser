@@ -1,9 +1,9 @@
 !function (name, definition) {
-  if (typeof module != 'undefined' && module.exports) module.exports['browser'] = definition()
-  else if (typeof define == 'function') define(definition)
+  if (typeof define == 'function') define(definition)
+  else if (typeof module != 'undefined' && module.exports) module.exports['browser'] = definition()
   else this[name] = definition()
 }('bowser', function () {
-   /**
+  /**
     * See useragents.js for examples of navigator.userAgent
     */
 
@@ -26,13 +26,21 @@
       , firefox = /firefox/i.test(ua)
       , gecko = /gecko\//i.test(ua)
       , seamonkey = /seamonkey\//i.test(ua)
+      , webos = /webos/i.test(ua)
+      , windowsphone = /windows phone/i.test(ua)
+      , blackberry = /blackberry/i.test(ua)
       , webkitVersion = /version\/(\d+(\.\d+)?)/i
-      // , firefoxVersion = /firefox\/(\d+(\.\d+)?)/i
       , firefoxVersion = /firefox[ \/](\d+(\.\d+)?)/i
       , mobile = /mobile/i.test(ua)
       , o = {}
 
-    if (opera) {
+    if (windowsphone) o = {
+        name: 'Windows Phone'
+      , windowsphone: t
+      , mobile: t
+      , version: ua.match(/iemobile\/(\d+(\.\d+)?)/i)[1]
+      }
+    else if (opera) {
       if ((v = ua.match(webkitVersion)) && v.length > 1) v = v[1]
       else if ((v = ua.match(/opr\/(\d+(\.\d+)?)/i)) && v.length > 1) v = v[1]
       else if ((v = ua.match(/opera[ \/](\d+(\.\d+)?)/i)) && v.length > 1) v = v[1]
@@ -84,10 +92,11 @@
       , version : ua.match(/silk\/(\d+(\.\d+)?)/i)[1]
       }
     else if (iphone || ipad || ipod) {
+      if (ipod) iphone = false
       o = {
         name : iphone ? 'iPhone' : ipad ? 'iPad' : 'iPod'
       , webkit: t
-      , mobile: iphone
+      , mobile: t
       , ios: t
       , iphone: iphone
       , ipad: ipad
@@ -97,6 +106,26 @@
       if (webkitVersion.test(ua)) {
         o.version = ua.match(webkitVersion)[1]
       }
+    }
+    else if (blackberry) {
+      o = {
+        name: 'BlackBerry'
+      , blackberry: t
+      , mobile: t
+      }
+      if ((v = ua.match(webkitVersion))) {
+        o.version = v[1]
+        o.webkit = t
+      } else {
+        o.version = ua.match(/blackberry[\d]+\/(\d+(\.\d+)?)/i)[1]
+      }
+    } 
+    else if (webos) o = {
+        name: 'WebOS'
+      , mobile: t
+      , webkit: t
+      , webos: t
+      , version: (ua.match(webkitVersion) || ua.match(/wosbrowser\/(\d+(\.\d+)?)/i))[1]
     }
     else if (android) o = {
         name: 'Android'

@@ -42,6 +42,13 @@
       , opera: t
       , version: v
       }
+      if (android) {
+        o.android = true
+        o.mobile = true
+      }
+      if (chrome) {
+        o.webkit = true
+      }
     } else if (ie) o = {
         name: 'Internet Explorer'
       , msie: t

@@ -89,7 +89,28 @@ module.exports.useragents = {
       }
     }
   , Opera: {
-      'Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.14': {
+      'Mozilla/5.0 (Linux; Android 4.3; Galaxy Nexus Build/JWR66Y) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.72 Mobile Safari/537.36 OPR/19.0.1340.69721': {
+        opera: true
+      , webkit: true
+      , android: true
+      , mobile: true
+      , version: '19.0'
+      , a: true
+      }
+    , 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 OPR/15.0.1147.100': {
+        opera: true
+      , webkit: true
+      , version: '15.0'
+      , a: true
+      }
+    , 'Opera/9.80 (Android 4.3; Linux; Opera Mobi/ADR-1309251116) Presto/2.11.355 Version/12.10': {
+        opera: true
+      , version: '12.10'
+      , android: true
+      , mobile: true
+      , a: true
+      }
+    , 'Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.14': {
         opera: true
       , version: '12.14'
       , a: true

@@ -153,7 +153,7 @@
       if (android) {
         o.android = t
         o.mobile = t
-      } else if (!android && firefox && /\((mobile|tablet);.*rv:[\d\.]+\)/i.test(ua)) {
+      } else if (!android && firefox && /\((mobile|tablet);[^\)]*rv:[\d\.]+\)/i.test(ua)) {
         o.firefoxos = t
         o.mobile = t
       }

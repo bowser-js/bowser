@@ -42,7 +42,6 @@
       , blackberry = /blackberry/i.test(ua)
       , webkitVersion = /version\/(\d+(\.\d+)?)/i
       , firefoxVersion = /firefox[ \/](\d+(\.\d+)?)/i
-      , mobile = /mobile/i.test(ua)
       , o = {}
 
     if (ipod) iphone = false
@@ -50,6 +49,7 @@
     if (windowsphone) o = {
         name: 'Windows Phone'
       , windowsphone: t
+      , msie: t
       , mobile: t
       , version: getVersion(ua, /iemobile\/(\d+(\.\d+)?)/i, 1)
       }
@@ -75,18 +75,20 @@
       , msie: t
       , version: getVersion(ua, /(msie |rv:)(\d+(\.\d+)?)/i, 2)
       }
-    else if (chrome) o = {
+    else if (chrome) {
+      o = {
         name: 'Chrome'
       , webkit: t
       , chrome: t
       , version: getVersion(ua, /(?:chrome|crios)\/(\d+(\.\d+)?)/i, 1)
-      , ipad: ipad
-      , iphone: iphone
-      , ipod: ipod
-      , ios: iphone || ipad || ipod
-      , android: android
-      , mobile: mobile
       }
+      if (android) o.android = t
+      if (ipad || ipod || iphone) {
+        o[iphone ? 'iphone' : ipad ? 'ipad' : 'ipod'] = t
+        o.ios = t
+      }
+      if (o.android || o.ios) o.mobile = t
+    }
     else if (phantom) o = {
         name: 'PhantomJS'
       , webkit: t
@@ -112,10 +114,8 @@
       , webkit: t
       , mobile: t
       , ios: t
-      , iphone: iphone
-      , ipad: ipad
-      , ipod: ipod
       }
+      o[iphone ? 'iphone' : ipad ? 'ipad' : 'ipod'] = t
       // WTF: version is not part of user agent in web apps
       if (webkitVersion.test(ua)) {
         o.version = getVersion(ua, webkitVersion, 1)
@@ -178,13 +178,33 @@
       , version: getVersion(ua, webkitVersion, 1)
       }
 
+    var osVersion;
+    if (android) {
+      osVersion = getVersion(ua, /android[ \/](\d+(\.\d+)*)/i, 1);
+      if (osVersion) {
+        o.osversion = osVersion;
+      }
+    } else if (iphone || ipad || ipod) {
+      osVersion = getVersion(ua, /os (\d+([_\s]\d+)*) like mac os x/i, 1);
+      if (osVersion) {
+        o.osversion = osVersion.replace(/[_\s]/g, '.');
+      }
+    } else if (windowsphone) {
+      osVersion = getVersion(ua, /windows phone (?:os)?\s?(\d+(\.\d+)*)/i, 1);
+      if (osVersion) {
+        o.osversion = osVersion;
+      }
+    }
+
     // Graded Browser Support
     // http://developer.yahoo.com/yui/articles/gbs
     if ((o.msie && o.version >= 9) ||
         (o.chrome && o.version >= 20) ||
         (o.firefox && o.version >= 10.0) ||
         (o.safari && o.version >= 5) ||
-        (o.opera && o.version >= 10.0)) {
+        (o.opera && o.version >= 10.0) ||
+        (o.ios && o.osversion && o.osversion.split(".")[0] >= 6)
+        ) {
       o.a = t;
     }
 
@@ -192,7 +212,9 @@
         (o.chrome && o.version < 20) ||
         (o.firefox && o.version < 10.0) ||
         (o.safari && o.version < 5) ||
-        (o.opera && o.version < 10.0)) {
+        (o.opera && o.version < 10.0) ||
+        (o.ios && o.osversion && o.osversion.split(".")[0] < 6)
+        ) {
       o.c = t
     } else o.x = t
 

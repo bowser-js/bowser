@@ -1,12 +1,12 @@
 /*!
   * Bowser - a browser detector
   * https://github.com/ded/bowser
-  * MIT License | (c) Dustin Diaz 2013
+  * MIT License | (c) Dustin Diaz 2014
   */
 
 !function (name, definition) {
-  if (typeof define == 'function') define(definition)
-  else if (typeof module != 'undefined' && module.exports) module.exports['browser'] = definition()
+  if (typeof module != 'undefined' && module.exports) module.exports['browser'] = definition()
+  else if (typeof define == 'function') define(definition)
   else this[name] = definition()
 }('bowser', function () {
   /**

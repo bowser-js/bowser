@@ -64,9 +64,19 @@ else {
 ```
 
 Building
----------
+--------
 
 If you'd like to contribute a change to bowser, modify the files in src/, then run the following (you'll need node + npm installed):
 
     $ npm install
     $ make
+
+
+Testing
+-------
+We started a list `src/useragents.js` with example user agents and their expected bowser object.
+
+Whenever you add support for new browsers or notice a bug / mismatch, please update the list and
+check if all tests are still passing.
+
+To run the test call `$ make test`

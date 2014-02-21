@@ -17,5 +17,6 @@
   },
   "devDependencies": {
     "smoosh": "*"
+    , "mocha": "*"
   }
 }

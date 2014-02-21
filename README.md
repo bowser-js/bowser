@@ -10,28 +10,35 @@ if (bowser.msie && bowser.version <= 6) {
 }
 ```
 
-Detected Browsers
+Detected Browsers[Engines]
+-----
+
+  * chrome[webkit]
+  * firefox[gecko]
+  * msie
+  * opera[webkit if >12]
+  * phantomjs[webkit]
+  * safari[webkit]
+  * seamonkey[gecko]
+  * touchpad[webkit]
+
+Detected mobile operating systems
 -----
 
   * android
-  * blackberry
-  * chrome[webkit]
-  * firefox[gecko]
-  * ipad
-  * iphone
-  * ipod
-  * msie
-  * opera
-  * phantomjs
-  * safari[webkit]
-  * seamonkey
-  * touchpad
-  * webos
   * windows phone
+  * ios (iphone/ipad/ipod)
+  * blackberry
+  * firefoxos
+  * webos
+
+Android, iOS and Windows Phone will all report the OS version number if it is contained in the UA string in the `osversion` field. iOS is always reported as `ios` and additionally as `iphone`/`ipad`/`ipod`, whichever one matches best. Windows Phone is reported as `windowsphone`.
+
+All detected mobile OSes are additionally flagged `mobile`.
 
 Notes
 ----
-Safari, Chrome, and Firefox will report that they have webkit|gecko engines
+Safari, Chrome and some other minor browsers will report that they have `webkit` engines, Firefox and Seamonkey will report that they have `gecko` engines.
 
 ``` js
 if (bowser.webkit) {

@@ -2,6 +2,8 @@ Bowser
 ------
 A Browser detector. Because sometimes, there is no other way, and not even good modern browsers always provide good feature detection mechanisms.
 
+[![bowser ci](https://secure.travis-ci.org/ded/bowser.png)](https://travis-ci.org/ded/bowser/)
+
 So... it works like this:
 
 ``` js

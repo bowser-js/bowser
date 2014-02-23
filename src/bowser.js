@@ -133,7 +133,7 @@
       , mobile: t
       , webkit: t
       , webos: t
-      , version: (getVersion(ua, webkitVersion, 1) || getVersion(ua, /wosbrowser\/(\d+(\.\d+)?)/i, 1))
+      , version: (getVersion(ua, webkitVersion, 1) || getVersion(ua, /w(?:eb)?osbrowser\/(\d+(\.\d+)?)/i, 1))
       }
     else if (gecko) {
       o = {
@@ -180,14 +180,14 @@
       }
     } else if (iphone || ipad || ipod) {
       osVersion = getVersion(ua, /os (\d+([_\s]\d+)*) like mac os x/i, 1);
-      if (osVersion) {
-        o.osversion = osVersion.replace(/[_\s]/g, '.');
-      }
+      osVersion = (osVersion || "").replace(/[_\s]/g, '.');
     } else if (windowsphone) {
       osVersion = getVersion(ua, /windows phone (?:os)?\s?(\d+(\.\d+)*)/i, 1);
-      if (osVersion) {
-        o.osversion = osVersion;
-      }
+    } else if (webos) {
+      osVersion = getVersion(ua, /(?:web|hpw)os\/(\d+(\.\d+)*)/i, 1);
+    }
+    if (osVersion) {
+      o.osversion = osVersion;
     }
 
     // Graded Browser Support

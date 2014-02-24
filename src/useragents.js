@@ -846,6 +846,32 @@ module.exports.useragents = {
       , x: true
       }
     }
+  , Bada: {
+      'Mozilla/5.0 (SAMSUNG; SAMSUNG-GT-S8500/S8500XPKJ1; U; Bada/2.0; it-it) AppleWebKit/534.20 (KHTML, like Gecko) Dolfin/3.0 WVGA SMM-MMS/1.2.0 OPN-B': {
+        bada: true
+      , osversion: '2.0'
+      , webkit: true
+      , version: '3.0'
+      , mobile: true
+      , x: true
+      }
+    , 'Mozilla/5.0 (SAMSUNG; SAMSUNG-GT-S8500/S8500XXJL2; U; Bada/1.2; de-de) AppleWebKit/533.1 (KHTML, like Gecko) Dolfin/2.2 Mobile WVGA SMM-MMS/1.2.0 OPN-B': {
+        bada: true
+      , osversion: '1.2'
+      , webkit: true
+      , version: '2.2'
+      , mobile: true
+      , x: true
+      }
+    , 'Mozilla/5.0 (SAMSUNG; SAMSUNG-GT-S8500/S8500XXJF4; U; Bada/1.0; fr-fr) AppleWebKit/533.1 (KHTML, like Gecko) Dolfin/2.0 Mobile WVGA SMM-MMS/1.2.0 OPN-B': {
+        bada: true
+      , osversion: '1.0'
+      , webkit: true
+      , version: '2.0'
+      , mobile: true
+      , x: true
+      }
+    }
   , PhantomJS: {
       'Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.5.0 Safari/534.34': {
         phantom: true

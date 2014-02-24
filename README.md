@@ -26,6 +26,7 @@ Flags set for detected Browsers[Engines]
   * `seamonkey`[`gecko`]
   * BlackBerry native browser as `blackberry`[`webkit`]
   * WebOS native browser as `webos`[`webkit`]
+  * Amazon Kindle browser as `silk`[`webkit`]
 
 Flags set for detected mobile Operating Systems
 -----

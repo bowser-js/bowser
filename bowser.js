@@ -29,7 +29,6 @@
       , iphone = /iphone/i.test(ua)
       , ipad = /ipad/i.test(ua)
       , ipod = /ipod/i.test(ua)
-      , touchpad = /touchpad/i.test(ua)
       , silk = /silk/i.test(ua)
       , safari = /safari/i.test(ua) && !chrome && !phantom && !silk
       , android = /android/i.test(ua)
@@ -37,7 +36,7 @@
       , firefox = /firefox/i.test(ua)
       , gecko = /gecko\//i.test(ua)
       , seamonkey = /seamonkey\//i.test(ua)
-      , webos = /webos/i.test(ua)
+      , webos = /(?:web|hpw)os/i.test(ua)
       , windowsphone = /windows phone/i.test(ua)
       , blackberry = /blackberry/i.test(ua)
       , webkitVersion = /version\/(\d+(\.\d+)?)/i
@@ -95,14 +94,9 @@
       , phantom: t
       , version: getVersion(ua, /phantomjs\/(\d+(\.\d+)?)/i, 1)
       }
-    else if (touchpad) o = {
-        name: 'TouchPad'
-      , webkit: t
-      , touchpad: t
-      , version : getVersion(ua, /touchpad\/(\d+(\.\d+)?)/i, 1)
-      }
     else if (silk) o =  {
         name: 'Amazon Silk'
+      , silk: t
       , webkit: t
       , android: t
       , mobile: t
@@ -134,13 +128,16 @@
         o.version = getVersion(ua, /blackberry[\d]+\/(\d+(\.\d+)?)/i, 1)
       }
     } 
-    else if (webos) o = {
+    else if (webos) {
+      o = {
         name: 'WebOS'
       , mobile: t
       , webkit: t
       , webos: t
-      , version: (getVersion(ua, webkitVersion, 1) || getVersion(ua, /wosbrowser\/(\d+(\.\d+)?)/i, 1))
-      }
+      , version: (getVersion(ua, webkitVersion, 1) || getVersion(ua, /w(?:eb)?osbrowser\/(\d+(\.\d+)?)/i, 1))
+      };
+      /touchpad\//i.test(ua) && (o.touchpad = t)
+    }
     else if (gecko) {
       o = {
         name: 'Gecko'
@@ -186,14 +183,14 @@
       }
     } else if (iphone || ipad || ipod) {
       osVersion = getVersion(ua, /os (\d+([_\s]\d+)*) like mac os x/i, 1);
-      if (osVersion) {
-        o.osversion = osVersion.replace(/[_\s]/g, '.');
-      }
+      osVersion = (osVersion || "").replace(/[_\s]/g, '.');
     } else if (windowsphone) {
       osVersion = getVersion(ua, /windows phone (?:os)?\s?(\d+(\.\d+)*)/i, 1);
-      if (osVersion) {
-        o.osversion = osVersion;
-      }
+    } else if (webos) {
+      osVersion = getVersion(ua, /(?:web|hpw)os\/(\d+(\.\d+)*)/i, 1);
+    }
+    if (osVersion) {
+      o.osversion = osVersion;
     }
 
     // Graded Browser Support

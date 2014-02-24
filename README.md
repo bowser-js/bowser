@@ -12,29 +12,32 @@ if (bowser.msie && bowser.version <= 6) {
 }
 ```
 
-Detected Browsers[Engines]
+Flags set for detected Browsers[Engines]
 -----
 
-  * chrome[webkit]
-  * firefox[gecko]
-  * msie
-  * opera[webkit if >12]
-  * phantomjs[webkit]
-  * safari[webkit]
-  * seamonkey[gecko]
-  * touchpad[webkit]
+  * `chrome`[`webkit`]
+  * `firefox`[`gecko`]
+  * `msie`
+  * Android native browser as `android`[`webkit`]
+  * iOS native browser as `ios`[`webkit`]
+  * `opera`[`webkit` if >12]
+  * `phantomjs`[`webkit`]
+  * `safari`[`webkit`]
+  * `seamonkey`[`gecko`]
+  * BlackBerry native browser as `blackberry`[`webkit`]
+  * WebOS native browser as `webos`[`webkit`]
 
-Detected mobile operating systems
+Flags set for detected mobile Operating Systems
 -----
 
-  * android
-  * windows phone
-  * ios (iphone/ipad/ipod)
-  * blackberry
-  * firefoxos
-  * webos
+  * `android`
+  * Windows Phone as `windowsphone`
+  * `ios` (`iphone`/`ipad`/`ipod`)
+  * `blackberry`
+  * `firefoxos`
+  * `webos`
 
-Android, iOS and Windows Phone will all report the OS version number if it is contained in the UA string in the `osversion` field. iOS is always reported as `ios` and additionally as `iphone`/`ipad`/`ipod`, whichever one matches best. Windows Phone is reported as `windowsphone`.
+Android, iOS, Windows Phone, and WebOS will all report the OS version number if it is contained in the UA string in the `osversion` field. iOS is always reported as `ios` and additionally as `iphone`/`ipad`/`ipod`, whichever one matches best. If WebOS device is an HP TouchPad the flag `touchpad` is additionally set.
 
 All detected mobile OSes are additionally flagged `mobile`.
 
@@ -44,7 +47,7 @@ Safari, Chrome and some other minor browsers will report that they have `webkit`
 
 ``` js
 if (bowser.webkit) {
-  // do stuff with safari & chrome
+  // do stuff with safari & chrome & opera & android & blackberry & webos
 }
 ```
 

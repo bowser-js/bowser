@@ -48,7 +48,7 @@ Safari, Chrome and some other minor browsers will report that they have `webkit`
 
 ``` js
 if (bowser.webkit) {
-  // do stuff with safari & chrome & opera & android & blackberry & webos
+  // do stuff with safari & chrome & opera & android & blackberry & webos & silk
 }
 ```
 

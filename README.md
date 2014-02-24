@@ -28,6 +28,8 @@ Flags set for detected Browsers[Engines]
   * WebOS native browser as `webos`[`webkit`]
   * Amazon Kindle browser as `silk`[`webkit`]
 
+For all detected browsers the browser version is set in the `version` field.
+
 Flags set for detected mobile Operating Systems
 -----
 

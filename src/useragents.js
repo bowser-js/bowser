@@ -7,7 +7,16 @@
  */
 module.exports.useragents = {
     Chrome: {
-      'Mozilla/5.0 (Linux; Android 4.3; Galaxy Nexus Build/JWR66Y) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.99 Mobile Safari/537.36': {
+      'Mozilla/5.0 (Linux; Android 4.4.2; Nexus 7 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.99 Safari/537.36': {
+        chrome: true
+      , android: true
+      , osversion: '4.4.2'
+      , tablet: true
+      , version: '32.0'
+      , webkit: true
+      , a: true
+      }
+    , 'Mozilla/5.0 (Linux; Android 4.3; Galaxy Nexus Build/JWR66Y) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.99 Mobile Safari/537.36': {
         chrome: true
       , android: true
       , osversion: '4.3'
@@ -22,6 +31,24 @@ module.exports.useragents = {
       , osversion: '4.1'
       , mobile: true
       , version: '18.0'
+      , webkit: true
+      , c: true
+      }
+    , 'Mozilla/5.0 (Linux; U; Android-4.0.3; en-us; Xoom Build/IML77) AppleWebKit/535.7 (KHTML, like Gecko) CrMo/16.0.912.75 Safari/535.7': {
+        chrome: true
+      , android: true
+      , osversion: '4.0.3'
+      , tablet: true
+      , version: '16.0'
+      , webkit: true
+      , c: true
+      }
+    , 'Mozilla/5.0 (Linux; U; Android-4.0.3; en-us; Galaxy Nexus Build/IML74K) AppleWebKit/535.7 (KHTML, like Gecko) CrMo/16.0.912.75 Mobile Safari/535.7': {
+        chrome: true
+      , android: true
+      , osversion: '4.0.3'
+      , mobile: true
+      , version: '16.0'
       , webkit: true
       , c: true
       }
@@ -40,7 +67,7 @@ module.exports.useragents = {
       , ipad: true
       , ios: true
       , osversion: '5.1.1'
-      , mobile: true
+      , tablet: true
       , version: '19.0'
       , webkit: true
       , c: true
@@ -95,7 +122,7 @@ module.exports.useragents = {
       , webkit: true
       , android: true
       , osversion: '4.0.3'
-      , mobile: true
+      , tablet: true
       , version : '3.4'
       , x: true
       }
@@ -104,7 +131,7 @@ module.exports.useragents = {
       , silk: true
       , webkit: true
       , android: true
-      , mobile: true
+      , tablet: true
       , version : '3.4'
       , x: true
       }
@@ -114,7 +141,7 @@ module.exports.useragents = {
       , webkit: true
       , android: true
       , osversion: '2.3.4'
-      , mobile: true
+      , tablet: true
       , version : '1.0'
       , x: true
       }
@@ -123,13 +150,22 @@ module.exports.useragents = {
       , silk: true
       , webkit: true
       , android: true
-      , mobile: true
+      , tablet: true
       , version : '1.0'
       , x: true
       }
     }
   , Opera: {
-      'Mozilla/5.0 (Linux; Android 4.3; Galaxy Nexus Build/JWR66Y) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.72 Mobile Safari/537.36 OPR/19.0.1340.69721': {
+      'Mozilla/5.0 (Linux; Android 4.4.2; Nexus 7 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.72 Safari/537.36 OPR/19.0.1340.69721': {
+        opera: true
+      , webkit: true
+      , android: true
+      , osversion: '4.4.2'
+      , tablet: true
+      , version: '19.0'
+      , a: true
+      }
+    , 'Mozilla/5.0 (Linux; Android 4.3; Galaxy Nexus Build/JWR66Y) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.72 Mobile Safari/537.36 OPR/19.0.1340.69721': {
         opera: true
       , webkit: true
       , android: true
@@ -150,6 +186,14 @@ module.exports.useragents = {
       , android: true
       , osversion: '4.3'
       , mobile: true
+      , a: true
+      }
+    , 'Opera/9.80 (Android 4.4.2; Linux; Opera Tablet/ADR-1309251116) Presto/2.11.355 Version/12.10': {
+        opera: true
+      , version: '12.10'
+      , android: true
+      , osversion: '4.4.2'
+      , tablet: true
       , a: true
       }
     , 'Opera/9.80 (Windows NT 6.0) Presto/2.12.388 Version/12.14': {
@@ -329,7 +373,7 @@ module.exports.useragents = {
       , gecko: true
       , firefox: true
       , version: '26.0'
-      , mobile: true
+      , tablet: true
       , firefoxos: true
       , a: true
       }
@@ -356,7 +400,7 @@ module.exports.useragents = {
       , gecko: true
       , firefox: true
       , version: '26.0'
-      , mobile: true
+      , tablet: true
       , android: true
       , a: true
       }
@@ -512,7 +556,7 @@ module.exports.useragents = {
       , name: 'iPad'
       , version: '7.0'
       , ipad: true
-      , mobile: true
+      , tablet: true
       , webkit: true
       , a: true
       }
@@ -522,7 +566,7 @@ module.exports.useragents = {
       , name: 'iPad'
       , version: '6.0'
       , ipad: true
-      , mobile: true
+      , tablet: true
       , webkit: true
       , a: true
       }
@@ -532,7 +576,7 @@ module.exports.useragents = {
       , name: 'iPad'
       , version: '5.1'
       , ipad: true
-      , mobile: true
+      , tablet: true
       , webkit: true
       , c: true
       }
@@ -542,7 +586,7 @@ module.exports.useragents = {
       , name: 'iPad'
       , version: '5.0'
       , ipad: true
-      , mobile: true
+      , tablet: true
       , webkit: true
       , c: true
       }
@@ -552,7 +596,7 @@ module.exports.useragents = {
       , name: 'iPad'
       , version: '4.0'
       , ipad: true
-      , mobile: true
+      , tablet: true
       , webkit: true
       , c: true
       }
@@ -595,7 +639,37 @@ module.exports.useragents = {
       }
     }
   , BlackBerry: {
-      'Mozilla/5.0 (BlackBerry; U; BlackBerry 9900; en) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.1.0.346 Mobile Safari/534.11+': {
+      'Mozilla/5.0 (BB10; Touch) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.4633 Mobile Safari/537.10+': {
+        blackberry: true
+      , version: '10.1'
+      , webkit: true
+      , mobile: true
+      , x: true
+      }
+    , 'Mozilla/5.0 (BB10; Kbd) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.1429 Mobile Safari/537.10+': {
+        blackberry: true
+      , version: '10.1'
+      , webkit: true
+      , mobile: true
+      , x: true
+      }
+    , 'Mozilla/5.0 (PlayBook; U; RIM Tablet OS 2.1.0; en-US) AppleWebKit/536.2+ (KHTML, like Gecko) Version/7.2.1.0 Safari/536.2+': {
+        blackberry: true
+      , osversion: '2.1.0'
+      , version: '7.2'
+      , webkit: true
+      , tablet: true
+      , x: true
+      }
+    , 'Mozilla/5.0 (PlayBook; U; RIM Tablet OS 1.0.0; en-US) AppleWebKit/534.11 (KHTML, like Gecko) Version/7.1.0.7 Safari/534.11': {
+        blackberry: true
+      , osversion: '1.0.0'
+      , version: '7.1'
+      , webkit: true
+      , tablet: true
+      , x: true
+      }
+    , 'Mozilla/5.0 (BlackBerry; U; BlackBerry 9900; en) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.1.0.346 Mobile Safari/534.11+': {
         blackberry: true
       , version: '7.1'
       , webkit: true
@@ -676,7 +750,7 @@ module.exports.useragents = {
       , osversion: '3.0.5'
       , version: '234.83'
       , webkit: true
-      , mobile: true
+      , tablet: true
       , x: true
       }
     , 'Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.2; U; en-US) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.40.1 Safari/534.6 TouchPad/1.0': {
@@ -685,7 +759,7 @@ module.exports.useragents = {
       , osversion: '3.0.2'
       , version: '234.40'
       , webkit: true
-      , mobile: true
+      , tablet: true
       , x: true
       }
     , 'Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.0; U; de-DE) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/233.70 Safari/534.6 TouchPad/1.0': {
@@ -694,7 +768,7 @@ module.exports.useragents = {
       , osversion: '3.0.0'
       , version: '233.70'
       , webkit: true
-      , mobile: true
+      , tablet: true
       , x: true
       }
     , 'Mozilla/5.0 (Linux; webOS/2.1.2; U; xx-xx) AppleWebKit/534.6 (KHTML, like Gecko) webOSBrowser/221.11 Safari/534.6 Pre/3.0': {
@@ -723,7 +797,39 @@ module.exports.useragents = {
       }
     }
   , Android: {
-      'Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; T-Mobile G2 Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1': {
+      'Mozilla/5.0 (Linux; U; Android 4.4.2; de-de; Nexus 7 Build/KOT49H) AppleWebKit/537.16 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.16': {
+        android: true
+      , osversion: '4.4.2'
+      , webkit: true
+      , version: 4.0
+      , mobile: true
+      , x: true
+      }
+    , 'Mozilla/5.0 (Linux; U; Android 4.3; de-de; Galaxy Nexus Build/JWR66Y) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30': {
+        android: true
+      , osversion: '4.3'
+      , webkit: true
+      , version: 4.0
+      , mobile: true
+      , x: true
+      }
+    , 'Mozilla/5.0 (Linux; U; Android 4.2; en-us; Nexus 10 Build/JVP15I) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30': {
+        android: true
+      , osversion: '4.2'
+      , webkit: true
+      , version: 4.0
+      , tablet: true
+      , x: true
+      }
+    , 'Mozilla/5.0 (Linux; U; Android 3.2; de-de; A100 Build/HTJ85B) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13': {
+        android: true
+      , osversion: '3.2'
+      , webkit: true
+      , version: 4.0
+      , tablet: true
+      , x: true
+      }
+    , 'Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; T-Mobile G2 Build/GRJ22) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1': {
         android: true
       , osversion: '2.3.4'
       , webkit: true

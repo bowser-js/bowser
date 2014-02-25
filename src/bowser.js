@@ -161,7 +161,7 @@
     }
 
     // OS version extraction
-    var osVersion;
+    var osVersion = '';
     if (ios) {
       osVersion = getVersion(/os (\d+([_\s]\d+)*) like mac os x/i);
       osVersion = osVersion.replace(/[_\s]/g, '.');
@@ -183,7 +183,7 @@
     }
 
     // device type extraction
-    var osMajorVersion = (osVersion || '').split('.')[0];
+    var osMajorVersion = osVersion.split('.')[0];
     if (tablet || ipad || (android && (osMajorVersion == 3 || (osMajorVersion == 4 && !mobile))) || rimtablet || silk || touchpad) {
       result.tablet = t
     } else if (iphone || ipod || (android && mobile) || windowsphone || blackberry || webos || bada || tizen || mobile) {

@@ -206,7 +206,6 @@
       osVersion = (osVersion || "").replace(/[_\s]/g, '.');
     } else if (android) {
       osVersion = getVersion(ua, /android[ \/-](\d+(\.\d+)*)/i, 1);
-      osVersion && (o.osversion = osVersion)
     }
     if (osVersion) {
       o.osversion = osVersion;

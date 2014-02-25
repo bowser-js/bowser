@@ -27,7 +27,7 @@
       , safari = /safari/i.test(ua) && !chrome && !phantom && !silk
       , android = /android/i.test(ua)
       , opera = /opera/i.test(ua) || /opr/i.test(ua)
-      , firefox = /firefox/i.test(ua)
+      , firefox = /(firefox|iceweasel)/i.test(ua)
       , gecko = /gecko\//i.test(ua)
       , seamonkey = /seamonkey\//i.test(ua)
       , webos = /(?:web|hpw)os/i.test(ua)
@@ -37,7 +37,7 @@
       , rimtablet = /rim\stablet/i.test(ua)
       , bada = /bada\//i.test(ua)
       , webkitVersion = /version\/(\d+(\.\d+)?)/i
-      , firefoxVersion = /firefox[ \/](\d+(\.\d+)?)/i
+      , firefoxVersion = /(?:firefox|iceweasel)[ \/](\d+(\.\d+)?)/i
       , mobile = /mobi/i.test(ua)
       , tablet = /tablet/i.test(ua)
       , o = {}

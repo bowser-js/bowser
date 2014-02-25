@@ -425,6 +425,20 @@ module.exports.useragents = {
       , version: '21.0'
       , a: true
       }
+    , 'Mozilla/5.0 (X11; Linux x86_64; rv:17.0) Gecko/20121202 Firefox/17.0 Iceweasel/17.0.1': {
+        mozilla: true
+      , gecko: true
+      , firefox: true
+      , version: '17.0'
+      , a: true
+      }
+    , 'Mozilla/5.0 (X11; Linux x86_64; rv:15.0) Gecko/20120724 Debian Iceweasel/15.0': {
+        mozilla: true
+      , gecko: true
+      , firefox: true
+      , version: '15.0'
+      , a: true
+      }
     , 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:15.0) Gecko/20120910144328 Firefox/15.0.2': {
         mozilla: true
       , gecko: true

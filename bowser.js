@@ -41,7 +41,8 @@
       , windowsphone = /windows phone/i.test(ua)
       , blackberry = /(blackberry|\bbb\d+)/i.test(ua)
       , rimtablet = /rim\stablet/i.test(ua)
-      , bada = /bada\//i.test(ua)
+      , bada = /bada/i.test(ua)
+      , tizen = /tizen/i.test(ua)
       , webkitVersion = /version\/(\d+(\.\d+)?)/i
       , firefoxVersion = /(?:firefox|iceweasel)[ \/](\d+(\.\d+)?)/i
       , mobile = /mobi/i.test(ua)
@@ -145,6 +146,14 @@
       };
       touchpad && (o.touchpad = t)
     }
+    else if (tizen) {
+      o = {
+        name: 'Tizen'
+      , webkit: t
+      , tizen: t
+      , version: getVersion(ua, /(?:tizen\s?)?browser\/(\d+(\.\d+)?)/i, 1) || getVersion(ua, webkitVersion, 1)
+      };
+    }
     else if (gecko) {
       o = {
         name: 'Gecko'
@@ -182,14 +191,8 @@
 
     // OS version extraction
     var osVersion;
-    if (android) {
-      osVersion = getVersion(ua, /android[ \/-](\d+(\.\d+)*)/i, 1);
-      if (osVersion) {
-        o.osversion = osVersion;
-      }
-    } else if (iphone || ipad || ipod) {
-      osVersion = getVersion(ua, /os (\d+([_\s]\d+)*) like mac os x/i, 1);
-      osVersion = (osVersion || "").replace(/[_\s]/g, '.');
+    if (tizen) {
+      osVersion = getVersion(ua, /tizen[\/\s](\d+(\.\d+)*)/i, 1);
     } else if (windowsphone) {
       osVersion = getVersion(ua, /windows phone (?:os)?\s?(\d+(\.\d+)*)/i, 1);
     } else if (webos) {
@@ -198,6 +201,12 @@
       osVersion = getVersion(ua, /rim\stablet\sos\s(\d+(\.\d+)*)/i, 1);
     } else if (bada) {
       osVersion = getVersion(ua, /bada\/(\d+(\.\d+)*)/i, 1);
+    } else if (iphone || ipad || ipod) {
+      osVersion = getVersion(ua, /os (\d+([_\s]\d+)*) like mac os x/i, 1);
+      osVersion = (osVersion || "").replace(/[_\s]/g, '.');
+    } else if (android) {
+      osVersion = getVersion(ua, /android[ \/-](\d+(\.\d+)*)/i, 1);
+      osVersion && (o.osversion = osVersion)
     }
     if (osVersion) {
       o.osversion = osVersion;
@@ -207,7 +216,7 @@
     var osMajorVersion = (osVersion || '').split('.')[0];
     if (tablet || ipad || (android && (osMajorVersion == 3 || (osMajorVersion == 4 && !mobile))) || rimtablet || silk || touchpad) {
       o.tablet = t
-    } else if (iphone || ipod || (android && mobile) || windowsphone || blackberry || webos || bada || mobile) {
+    } else if (iphone || ipod || (android && mobile) || windowsphone || blackberry || webos || bada || tizen || mobile) {
       o.mobile = t
     }
 

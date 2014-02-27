@@ -144,7 +144,6 @@
       , bada: t
       , version: getVersion(ua, /dolfin\/(\d+(\.\d+)?)/i, 1)
       };
-      touchpad && (o.touchpad = t)
     }
     else if (tizen) {
       o = {

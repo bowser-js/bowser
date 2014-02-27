@@ -27,6 +27,7 @@ Flags set for detected Browsers[Engines]
   * BlackBerry native browser as `blackberry`[`webkit`]
   * WebOS native browser as `webos`[`webkit`]
   * Amazon Kindle browser as `silk`[`webkit`]
+  * Bada browser as `bada`[`webkit`]
 
 For all detected browsers the browser version is set in the `version` field.
 
@@ -39,10 +40,11 @@ Flags set for detected mobile Operating Systems
   * `blackberry`
   * `firefoxos`
   * `webos` (`touchpad`)
+  * `bada`
 
-Android, iOS, Windows Phone, and WebOS will all report the OS version number if it is contained in the UA string in the `osversion` field. iOS is always reported as `ios` and additionally as `iphone`/`ipad`/`ipod`, whichever one matches best. If WebOS device is an HP TouchPad the flag `touchpad` is additionally set.
+Android, iOS, Windows Phone, WebOS, and Bada will all report the OS version number if it is contained in the UA string in the `osversion` field. iOS is always reported as `ios` and additionally as `iphone`/`ipad`/`ipod`, whichever one matches best. If WebOS device is an HP TouchPad the flag `touchpad` is additionally set.
 
-All detected mobile OSes are additionally flagged `mobile`, **if they are not running on a tablet device**. If a tablet is detected, the flag `tablet` is set instead.
+All detected mobile OSes are additionally flagged `mobile`, **if they are not powering a tablet device**. If a tablet device is detected, the flag `tablet` is set instead.
 
 Notes
 ----

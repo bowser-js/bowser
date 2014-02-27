@@ -41,6 +41,7 @@
       , windowsphone = /windows phone/i.test(ua)
       , blackberry = /(blackberry|\bbb\d+)/i.test(ua)
       , rimtablet = /rim\stablet/i.test(ua)
+      , bada = /bada\//i.test(ua)
       , webkitVersion = /version\/(\d+(\.\d+)?)/i
       , firefoxVersion = /firefox[ \/](\d+(\.\d+)?)/i
       , mobile = /mobi/i.test(ua)
@@ -135,6 +136,14 @@
       };
       touchpad && (o.touchpad = t)
     }
+    else if (bada) {
+      o = {
+        name: 'Bada'
+      , webkit: t
+      , bada: t
+      , version: getVersion(ua, /dolfin\/(\d+(\.\d+)?)/i, 1)
+      };
+    }
     else if (gecko) {
       o = {
         name: 'Gecko'
@@ -186,16 +195,18 @@
       osVersion = getVersion(ua, /(?:web|hpw)os\/(\d+(\.\d+)*)/i, 1);
     } else if (rimtablet) {
       osVersion = getVersion(ua, /rim\stablet\sos\s(\d+(\.\d+)*)/i, 1);
+    } else if (bada) {
+      osVersion = getVersion(ua, /bada\/(\d+(\.\d+)*)/i, 1);
     }
     if (osVersion) {
       o.osversion = osVersion;
     }
 
     // device type extraction
-    var osMajorVersion = (osVersion || "").split('.')[0];
-    if (tablet || ipad || rimtablet || silk || touchpad || (android && (osMajorVersion == 3 || (osMajorVersion == 4 && !mobile)))) {
+    var osMajorVersion = (osVersion || '').split('.')[0];
+    if (tablet || ipad || (android && (osMajorVersion == 3 || (osMajorVersion == 4 && !mobile))) || rimtablet || silk || touchpad) {
       o.tablet = t
-    } else if (iphone || ipod || (android && mobile) || windowsphone || blackberry || webos || mobile) {
+    } else if (iphone || ipod || (android && mobile) || windowsphone || blackberry || webos || bada || mobile) {
       o.mobile = t
     }
 

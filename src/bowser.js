@@ -18,7 +18,7 @@
   function detect(ua) {
 
     var ie = /(msie|trident)/i.test(ua)
-      , chrome = /chrome|crios/i.test(ua)
+      , chrome = /chrome|crios|crmo/i.test(ua)
       , phantom = /phantom/i.test(ua)
       , iphone = /iphone/i.test(ua)
       , ipad = /ipad/i.test(ua)
@@ -31,10 +31,14 @@
       , gecko = /gecko\//i.test(ua)
       , seamonkey = /seamonkey\//i.test(ua)
       , webos = /(?:web|hpw)os/i.test(ua)
+      , touchpad = /touchpad\//i.test(ua)
       , windowsphone = /windows phone/i.test(ua)
-      , blackberry = /blackberry/i.test(ua)
+      , blackberry = /(blackberry|\bbb\d+)/i.test(ua)
+      , rimtablet = /rim\stablet/i.test(ua)
       , webkitVersion = /version\/(\d+(\.\d+)?)/i
       , firefoxVersion = /firefox[ \/](\d+(\.\d+)?)/i
+      , mobile = /mobi/i.test(ua)
+      , tablet = /tablet/i.test(ua)
       , o = {}
 
     if (ipod) iphone = false
@@ -43,7 +47,6 @@
         name: 'Windows Phone'
       , windowsphone: t
       , msie: t
-      , mobile: t
       , version: getVersion(ua, /iemobile\/(\d+(\.\d+)?)/i, 1)
       }
     else if (opera) {
@@ -57,7 +60,6 @@
       }
       if (android) {
         o.android = t
-        o.mobile = t
       }
       if (chrome) {
         o.webkit = t
@@ -73,14 +75,13 @@
         name: 'Chrome'
       , webkit: t
       , chrome: t
-      , version: getVersion(ua, /(?:chrome|crios)\/(\d+(\.\d+)?)/i, 1)
+      , version: getVersion(ua, /(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i, 1)
       }
       if (android) o.android = t
       if (ipad || ipod || iphone) {
         o[iphone ? 'iphone' : ipad ? 'ipad' : 'ipod'] = t
         o.ios = t
       }
-      if (o.android || o.ios) o.mobile = t
     }
     else if (phantom) o = {
         name: 'PhantomJS'
@@ -93,14 +94,12 @@
       , silk: t
       , webkit: t
       , android: t
-      , mobile: t
       , version : getVersion(ua, /silk\/(\d+(\.\d+)?)/i, 1)
       }
     else if (iphone || ipad || ipod) {
       o = {
         name : iphone ? 'iPhone' : ipad ? 'iPad' : 'iPod'
       , webkit: t
-      , mobile: t
       , ios: t
       }
       o[iphone ? 'iphone' : ipad ? 'ipad' : 'ipod'] = t
@@ -109,11 +108,10 @@
         o.version = getVersion(ua, webkitVersion, 1)
       }
     }
-    else if (blackberry) {
+    else if (blackberry || rimtablet) {
       o = {
         name: 'BlackBerry'
       , blackberry: t
-      , mobile: t
       }
       if ((v = getVersion(ua, webkitVersion, 1))) {
         o.version = v
@@ -125,12 +123,11 @@
     else if (webos) {
       o = {
         name: 'WebOS'
-      , mobile: t
       , webkit: t
       , webos: t
       , version: (getVersion(ua, webkitVersion, 1) || getVersion(ua, /w(?:eb)?osbrowser\/(\d+(\.\d+)?)/i, 1))
       };
-      /touchpad\//i.test(ua) && (o.touchpad = t)
+      touchpad && (o.touchpad = t)
     }
     else if (gecko) {
       o = {
@@ -149,17 +146,14 @@
       }
       if (android) {
         o.android = t
-        o.mobile = t
       } else if (!android && firefox && /\((mobile|tablet);[^\)]*rv:[\d\.]+\)/i.test(ua)) {
         o.firefoxos = t
-        o.mobile = t
       }
     }
     else if (android) o = {
         name: 'Android'
       , webkit: t
       , android: t
-      , mobile: t
       , version: getVersion(ua, webkitVersion, 1)
       }
     else if (safari) o = {
@@ -169,9 +163,11 @@
       , version: getVersion(ua, webkitVersion, 1)
       }
 
+
+    // OS version extraction
     var osVersion;
     if (android) {
-      osVersion = getVersion(ua, /android[ \/](\d+(\.\d+)*)/i, 1);
+      osVersion = getVersion(ua, /android[ \/-](\d+(\.\d+)*)/i, 1);
       if (osVersion) {
         o.osversion = osVersion;
       }
@@ -182,9 +178,19 @@
       osVersion = getVersion(ua, /windows phone (?:os)?\s?(\d+(\.\d+)*)/i, 1);
     } else if (webos) {
       osVersion = getVersion(ua, /(?:web|hpw)os\/(\d+(\.\d+)*)/i, 1);
+    } else if (rimtablet) {
+      osVersion = getVersion(ua, /rim\stablet\sos\s(\d+(\.\d+)*)/i, 1);
     }
     if (osVersion) {
       o.osversion = osVersion;
+    }
+
+    // device type extraction
+    var osMajorVersion = (osVersion || "").split('.')[0];
+    if (tablet || ipad || rimtablet || silk || touchpad || (android && (osMajorVersion == 3 || (osMajorVersion == 4 && !mobile)))) {
+      o.tablet = t
+    } else if (iphone || ipod || (android && mobile) || windowsphone || blackberry || webos || mobile) {
+      o.mobile = t
     }
 
     // Graded Browser Support

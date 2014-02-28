@@ -66,7 +66,6 @@
       result = {
         name: 'Gecko'
       , gecko: t
-      , mozilla: t
       , version: getFirstMatch(/(?:firefox|iceweasel)[ \/](\d+(\.\d+)?)/i)
       }
       if (/seamonkey\//i.test(ua)) {

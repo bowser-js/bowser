@@ -360,8 +360,7 @@ module.exports.useragents = {
     }
   , Firefox: {
       'Mozilla/5.0 (Mobile; rv:26.0) Gecko/26.0 Firefox/26.0': {
-        mozilla: true
-      , gecko: true
+        gecko: true
       , firefox: true
       , version: '26.0'
       , mobile: true
@@ -369,8 +368,7 @@ module.exports.useragents = {
       , a: true
       }
     , 'Mozilla/5.0 (Tablet; rv:26.0) Gecko/26.0 Firefox/26.0': {
-        mozilla: true
-      , gecko: true
+        gecko: true
       , firefox: true
       , version: '26.0'
       , tablet: true
@@ -378,8 +376,7 @@ module.exports.useragents = {
       , a: true
       }
     , 'Mozilla/5.0 (Mobile; LG-D300; rv:18.1) Gecko/18.1 Firefox/18.1': {
-        mozilla: true
-      , gecko: true
+        gecko: true
       , firefox: true
       , version: '18.1'
       , mobile: true
@@ -387,8 +384,7 @@ module.exports.useragents = {
       , a: true
       }
     , 'Mozilla/5.0 (Android; Mobile; rv:27.0) Gecko/27.0 Firefox/27.0': {
-        mozilla: true
-      , gecko: true
+        gecko: true
       , firefox: true
       , version: '27.0'
       , mobile: true
@@ -396,8 +392,7 @@ module.exports.useragents = {
       , a: true
       }
     , 'Mozilla/5.0 (Android; Tablet; rv:26.0) Gecko/26.0 Firefox/26.0': {
-        mozilla: true
-      , gecko: true
+        gecko: true
       , firefox: true
       , version: '26.0'
       , tablet: true
@@ -405,92 +400,79 @@ module.exports.useragents = {
       , a: true
       }
     , 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:25.0) Gecko/20100101 Firefox/25.0': {
-        mozilla: true
-      , gecko: true
+        gecko: true
       , firefox: true
       , version: '25.0'
       , a: true
       }
     , 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:24.0) Gecko/20100101 Firefox/24.0': {
-        mozilla: true
-      , gecko: true
+        gecko: true
       , firefox: true
       , version: '24.0'
       , a: true
       }
     , 'Mozilla/5.0 (X11; Linux i686; rv:21.0) Gecko/20100101 Firefox/21.0': {
-        mozilla: true
-      , gecko: true
+        gecko: true
       , firefox: true
       , version: '21.0'
       , a: true
       }
     , 'Mozilla/5.0 (X11; Linux x86_64; rv:17.0) Gecko/20121202 Firefox/17.0 Iceweasel/17.0.1': {
-        mozilla: true
-      , gecko: true
+        gecko: true
       , firefox: true
       , version: '17.0'
       , a: true
       }
     , 'Mozilla/5.0 (X11; Linux x86_64; rv:15.0) Gecko/20120724 Debian Iceweasel/15.0': {
-        mozilla: true
-      , gecko: true
+        gecko: true
       , firefox: true
       , version: '15.0'
       , a: true
       }
     , 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:15.0) Gecko/20120910144328 Firefox/15.0.2': {
-        mozilla: true
-      , gecko: true
+        gecko: true
       , firefox: true
       , version: '15.0'
       , a: true
       }
     , 'Mozilla/5.0 (Windows; U; Windows NT 6.1; WOW64; en-US; rv:2.0.4) Gecko/20120718 AskTbAVR-IDW/3.12.5.17700 Firefox/14.0.1': {
-        mozilla: true
-      , gecko: true
+        gecko: true
       , firefox: true
       , version: '14.0'
       , a: true
       }
     , 'Mozilla/5.0 (Windows NT 5.1; rv:6.0) Gecko/20100101 Firefox/6.0 FirePHP/0.6': {
-        mozilla: true
-      , gecko: true
+        gecko: true
       , firefox: true
       , version: '6.0'
       , c: true
       }
     , 'Mozilla/5.0 (X11; Linux x86_64; rv:2.2a1pre) Gecko/20100101 Firefox/4.2a1pre': {
-        mozilla: true
-      , gecko: true
+        gecko: true
       , firefox: true
       , version: '4.2'
       , c: true
       }
     , 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:2.0) Gecko/20100101 Firefox/4.0': {
-        mozilla: true
-      , gecko: true
+        gecko: true
       , firefox: true
       , version: '4.0'
       , c: true
       }
     , 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2b1) Gecko/20091014 Firefox/3.6b1 GTB5': {
-        mozilla: true
-      , gecko: true
+        gecko: true
       , firefox: true
       , version: '3.6'
       , c: true
       }
     , 'Mozilla/5.0 (Windows; U; Windows NT 6.0; de; rv:1.9.0.15) Gecko/2009101601 Firefox 2.1 (.NET CLR 3.5.30729)': {
-        mozilla: true
-      , gecko: true
+        gecko: true
       , firefox: true
       , version: '2.1'
       , c: true
       }
     , 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.0.7) Gecko/20061014 Firefox/1.5.0.7': {
-        mozilla: true
-      , gecko: true
+        gecko: true
       , firefox: true
       , version: '1.5'
       , c: true
@@ -498,22 +480,19 @@ module.exports.useragents = {
     }
   , SeaMonkey: {
       'Mozilla/5.0 (Windows NT 5.2; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 SeaMonkey/2.7.1': {
-        mozilla: true
-      , gecko: true
+        gecko: true
       , seamonkey: true
       , version: '2.7'
       , x: true
       }
     , 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.5; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 SeaMonkey/2.7.1': {
-        mozilla: true
-      , gecko: true
+        gecko: true
       , seamonkey: true
       , version: '2.7'
       , x: true
       }
     , 'Mozilla/5.0 (X11; Linux i686; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 SeaMonkey/2.7.1': {
-        mozilla: true
-      , gecko: true
+        gecko: true
       , seamonkey: true
       , version: '2.7'
       , x: true

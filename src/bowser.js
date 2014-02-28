@@ -138,15 +138,17 @@
     }
     else result = {}
 
+    // set webkit flag for webkit-based browsers
+    if (/(apple)?webkit/i.test(ua)) {
+      result.webkit = t
+    }
+
     // set OS flags for platforms that have multiple browsers
     if (android || result.silk) {
       result.android = t
     } else if (iosdevice) {
       result[iosdevice] = t
       result.ios = t
-    }
-    if (/applewebkit/i.test(ua)) {
-      result.webkit = t
     }
 
     // OS version extraction

@@ -29,6 +29,7 @@ Flags set for detected Browsers[Engines]
   * Amazon Kindle browser as `silk`[`webkit`]
   * Bada browser as `bada`[`webkit`]
   * Tizen browser as `tizen`[`webkit`]
+  * Sailfish browser as `sailfish`[`gecko`]
 
 For all detected browsers the browser version is set in the `version` field.
 
@@ -43,6 +44,7 @@ Flags set for detected mobile Operating Systems
   * `webos` (`touchpad`)
   * `bada`
   * `tizen`
+  * `sailfish`
 
 Android, iOS, Windows Phone, WebOS, Bada, and Tizen will all report the OS version number if it is contained in the UA string in the `osversion` field. iOS is always reported as `ios` and additionally as `iphone`/`ipad`/`ipod`, whichever one matches best. If WebOS device is an HP TouchPad the flag `touchpad` is additionally set.
 

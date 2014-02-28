@@ -907,6 +907,22 @@ module.exports.useragents = {
       , x: true
       }
     }
+  , Sailfish: {
+      'Mozilla/5.0 (Maemo; Linux; U; Jolla; Sailfish; Mobile; rv:26.0) Gecko/26.0 Firefox/26.0 SailfishBrowser/1.0 like Safari/538.1': {
+        sailfish: true
+      , gecko: true
+      , version: '1.0'
+      , mobile: true
+      , x: true
+      }
+    , 'Mozilla/5.0 (Linux; U; Jolla; Sailfish; Mobile; rv:20.0) Gecko/20.0 Firefox/20.0 Sailfish Browser/1.0 like Safari/535.19': {
+        sailfish: true
+      , gecko: true
+      , version: '1.0'
+      , mobile: true
+      , x: true
+      }
+    }
   , PhantomJS: {
       'Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.5.0 Safari/534.34': {
         phantom: true

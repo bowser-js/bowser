@@ -68,22 +68,28 @@
         result.version = versionIdentifier
       }
     }
-    else if (/gecko\//i.test(ua)) {
+    else if (/sailfish/i.test(ua)) {
       result = {
-        name: 'Gecko'
-      , gecko: t
+        name: 'Sailfish'
+      , sailfish: t
+      , version: getFirstMatch(/sailfish\s?browser\/(\d+(\.\d+)?)/i)
+      }
+    }
+    else if (/seamonkey\//i.test(ua)) {
+      result = {
+        name: 'SeaMonkey'
+      , seamonkey: t
+      , version: getFirstMatch(/seamonkey\/(\d+(\.\d+)?)/i)
+      }
+    }
+    else if (/firefox|iceweasel/i.test(ua)) {
+      result = {
+        name: 'Firefox'
+      , firefox: t
       , version: getFirstMatch(/(?:firefox|iceweasel)[ \/](\d+(\.\d+)?)/i)
       }
-      if (/seamonkey\//i.test(ua)) {
-        result.name = 'SeaMonkey'
-        result.seamonkey = t
-        result.version = getFirstMatch(/seamonkey\/(\d+(\.\d+)?)/i)
-      } else if (/firefox|iceweasel/i.test(ua)) {
-        result.name = 'Firefox'
-        result.firefox = t
-        if (/\((mobile|tablet);[^\)]*rv:[\d\.]+\)/i.test(ua)) {
-          result.firefoxos = t
-        }
+      if (/\((mobile|tablet);[^\)]*rv:[\d\.]+\)/i.test(ua)) {
+        result.firefoxos = t
       }
     }
     else if (/silk/i.test(ua)) {
@@ -144,15 +150,25 @@
     }
     else result = {}
 
+    // set webkit or gecko flag for browsers based on these engines
+    if (/(apple)?webkit/i.test(ua)) {
+      result.name = result.name || "Webkit"
+      result.webkit = t
+      if (!result.version && versionIdentifier) {
+        result.version = versionIdentifier
+      }
+    } else if (!result.opera && /gecko\//i.test(ua)) {
+      result.name = result.name || "Gecko"
+      result.gecko = t
+      result.version = result.version || getFirstMatch(/gecko\/(\d+(\.\d+)?)/i)
+    }
+
     // set OS flags for platforms that have multiple browsers
     if (android || result.silk) {
       result.android = t
     } else if (iosdevice) {
       result[iosdevice] = t
       result.ios = t
-    }
-    if (/applewebkit/i.test(ua)) {
-      result.webkit = t
     }
 
     // OS version extraction

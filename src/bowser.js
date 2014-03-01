@@ -7,234 +7,216 @@
     * See useragents.js for examples of navigator.userAgent
     */
 
-  var t = true,
-      v /* temporary placeholder for versions. */
-
-  function getVersion(ua, regex, matchedIdx) {
-    var match = ua.match(regex);
-    return (match && match.length > matchedIdx && match[matchedIdx]) || 0;
-  }
+  var t = true
 
   function detect(ua) {
 
-    var ie = /(msie|trident)/i.test(ua)
-      , chrome = /chrome|crios|crmo/i.test(ua)
-      , phantom = /phantom/i.test(ua)
-      , iphone = /iphone/i.test(ua)
-      , ipad = /ipad/i.test(ua)
-      , ipod = /ipod/i.test(ua)
-      , silk = /silk/i.test(ua)
-      , safari = /safari/i.test(ua) && !chrome && !phantom && !silk
-      , android = /android/i.test(ua)
-      , opera = /opera/i.test(ua) || /opr/i.test(ua)
-      , firefox = /(firefox|iceweasel)/i.test(ua)
-      , gecko = /gecko\//i.test(ua)
-      , seamonkey = /seamonkey\//i.test(ua)
-      , webos = /(?:web|hpw)os/i.test(ua)
-      , touchpad = /touchpad\//i.test(ua)
-      , windowsphone = /windows phone/i.test(ua)
-      , blackberry = /(blackberry|\bbb\d+)/i.test(ua)
-      , rimtablet = /rim\stablet/i.test(ua)
-      , bada = /bada/i.test(ua)
-      , tizen = /tizen/i.test(ua)
-      , webkitVersion = /version\/(\d+(\.\d+)?)/i
-      , firefoxVersion = /(?:firefox|iceweasel)[ \/](\d+(\.\d+)?)/i
-      , mobile = /mobi/i.test(ua)
+    function getFirstMatch(regex) {
+      var match = ua.match(regex);
+      return (match && match.length > 1 && match[1]) || '';
+    }
+
+    var iosdevice = getFirstMatch(/(ipod|iphone|ipad)/i).toLowerCase()
+      , likeAndroid = /like android/i.test(ua)
+      , android = !likeAndroid && /android/i.test(ua)
+      , versionIdentifier = getFirstMatch(/version\/(\d+(\.\d+)?)/i)
       , tablet = /tablet/i.test(ua)
-      , o = {}
+      , mobile = !tablet && /[^-]mobi/i.test(ua)
+      , result
 
-    if (ipod) iphone = false
-
-    if (windowsphone) o = {
+    if (/opera|opr/i.test(ua)) {
+      result = {
+        name: 'Opera'
+      , opera: t
+      , version: versionIdentifier || getFirstMatch(/(?:opera|opr)[\s\/](\d+(\.\d+)?)/i)
+      }
+    }
+    else if (/windows phone/i.test(ua)) {
+      result = {
         name: 'Windows Phone'
       , windowsphone: t
       , msie: t
-      , version: getVersion(ua, /iemobile\/(\d+(\.\d+)?)/i, 1)
-      }
-    else if (opera) {
-      v = getVersion(ua, webkitVersion, 1) ||
-          getVersion(ua, /opr\/(\d+(\.\d+)?)/i, 1) ||
-          getVersion(ua, /opera[ \/](\d+(\.\d+)?)/i, 1);
-      o = {
-        name: 'Opera'
-      , opera: t
-      , version: v
-      }
-      if (android) {
-        o.android = t
-      }
-      if (chrome) {
-        o.webkit = t
+      , version: getFirstMatch(/iemobile\/(\d+(\.\d+)?)/i)
       }
     }
-    else if (ie) o = {
+    else if (/msie|trident/i.test(ua)) {
+      result = {
         name: 'Internet Explorer'
       , msie: t
-      , version: getVersion(ua, /(msie |rv:)(\d+(\.\d+)?)/i, 2)
-      }
-    else if (chrome) {
-      o = {
-        name: 'Chrome'
-      , webkit: t
-      , chrome: t
-      , version: getVersion(ua, /(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i, 1)
-      }
-      if (android) o.android = t
-      if (ipad || ipod || iphone) {
-        o[iphone ? 'iphone' : ipad ? 'ipad' : 'ipod'] = t
-        o.ios = t
+      , version: getFirstMatch(/(?:msie |rv:)(\d+(\.\d+)?)/i)
       }
     }
-    else if (phantom) o = {
-        name: 'PhantomJS'
-      , webkit: t
-      , phantom: t
-      , version: getVersion(ua, /phantomjs\/(\d+(\.\d+)?)/i, 1)
+    else if (/chrome|crios|crmo/i.test(ua)) {
+      result = {
+        name: 'Chrome'
+      , chrome: t
+      , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
       }
-    else if (silk) o =  {
+    }
+    else if (iosdevice) {
+      result = {
+        name : iosdevice == 'iphone' ? 'iPhone' : iosdevice == 'ipad' ? 'iPad' : 'iPod'
+      }
+      // WTF: version is not part of user agent in web apps
+      if (versionIdentifier) {
+        result.version = versionIdentifier
+      }
+    }
+    else if (/sailfish/i.test(ua)) {
+      result = {
+        name: 'Sailfish'
+      , sailfish: t
+      , version: getFirstMatch(/sailfish\s?browser\/(\d+(\.\d+)?)/i)
+      }
+    }
+    else if (/seamonkey\//i.test(ua)) {
+      result = {
+        name: 'SeaMonkey'
+      , seamonkey: t
+      , version: getFirstMatch(/seamonkey\/(\d+(\.\d+)?)/i)
+      }
+    }
+    else if (/firefox|iceweasel/i.test(ua)) {
+      result = {
+        name: 'Firefox'
+      , firefox: t
+      , version: getFirstMatch(/(?:firefox|iceweasel)[ \/](\d+(\.\d+)?)/i)
+      }
+      if (/\((mobile|tablet);[^\)]*rv:[\d\.]+\)/i.test(ua)) {
+        result.firefoxos = t
+      }
+    }
+    else if (/silk/i.test(ua)) {
+      result =  {
         name: 'Amazon Silk'
       , silk: t
-      , webkit: t
-      , android: t
-      , version : getVersion(ua, /silk\/(\d+(\.\d+)?)/i, 1)
-      }
-    else if (iphone || ipad || ipod) {
-      o = {
-        name : iphone ? 'iPhone' : ipad ? 'iPad' : 'iPod'
-      , webkit: t
-      , ios: t
-      }
-      o[iphone ? 'iphone' : ipad ? 'ipad' : 'ipod'] = t
-      // WTF: version is not part of user agent in web apps
-      if (webkitVersion.test(ua)) {
-        o.version = getVersion(ua, webkitVersion, 1)
+      , version : getFirstMatch(/silk\/(\d+(\.\d+)?)/i)
       }
     }
-    else if (blackberry || rimtablet) {
-      o = {
+    else if (android) {
+      result = {
+        name: 'Android'
+      , version: versionIdentifier
+      }
+    }
+    else if (/phantom/i.test(ua)) {
+      result = {
+        name: 'PhantomJS'
+      , phantom: t
+      , version: getFirstMatch(/phantomjs\/(\d+(\.\d+)?)/i)
+      }
+    }
+    else if (/blackberry|\bbb\d+/i.test(ua) || /rim\stablet/i.test(ua)) {
+      result = {
         name: 'BlackBerry'
       , blackberry: t
-      }
-      if ((v = getVersion(ua, webkitVersion, 1))) {
-        o.version = v
-        o.webkit = t
-      } else {
-        o.version = getVersion(ua, /blackberry[\d]+\/(\d+(\.\d+)?)/i, 1)
+      , version: versionIdentifier || getFirstMatch(/blackberry[\d]+\/(\d+(\.\d+)?)/i)
       }
     } 
-    else if (webos) {
-      o = {
+    else if (/(web|hpw)os/i.test(ua)) {
+      result = {
         name: 'WebOS'
-      , webkit: t
       , webos: t
-      , version: (getVersion(ua, webkitVersion, 1) || getVersion(ua, /w(?:eb)?osbrowser\/(\d+(\.\d+)?)/i, 1))
+      , version: versionIdentifier || getFirstMatch(/w(?:eb)?osbrowser\/(\d+(\.\d+)?)/i)
       };
-      touchpad && (o.touchpad = t)
+      /touchpad\//i.test(ua) && (result.touchpad = t)
     }
-    else if (bada) {
-      o = {
+    else if (/bada/i.test(ua)) {
+      result = {
         name: 'Bada'
-      , webkit: t
       , bada: t
-      , version: getVersion(ua, /dolfin\/(\d+(\.\d+)?)/i, 1)
+      , version: getFirstMatch(/dolfin\/(\d+(\.\d+)?)/i)
       };
     }
-    else if (tizen) {
-      o = {
+    else if (/tizen/i.test(ua)) {
+      result = {
         name: 'Tizen'
-      , webkit: t
       , tizen: t
-      , version: getVersion(ua, /(?:tizen\s?)?browser\/(\d+(\.\d+)?)/i, 1) || getVersion(ua, webkitVersion, 1)
+      , version: getFirstMatch(/(?:tizen\s?)?browser\/(\d+(\.\d+)?)/i) || versionIdentifier
       };
     }
-    else if (gecko) {
-      o = {
-        name: 'Gecko'
-      , gecko: t
-      , mozilla: t
-      , version: getVersion(ua, firefoxVersion, 1)
-      }
-      if (seamonkey) {
-        o.name = 'SeaMonkey'
-        o.seamonkey = t
-        o.version = getVersion(ua, /seamonkey\/(\d+(\.\d+)?)/i, 1)
-      } else if (firefox) {
-        o.name = 'Firefox'
-        o.firefox = t
-      }
-      if (android) {
-        o.android = t
-      } else if (!android && firefox && /\((mobile|tablet);[^\)]*rv:[\d\.]+\)/i.test(ua)) {
-        o.firefoxos = t
+    else if (/safari/i.test(ua)) {
+      result = {
+        name: 'Safari'
+      , safari: t
+      , version: versionIdentifier
       }
     }
-    else if (android) o = {
-        name: 'Android'
-      , webkit: t
-      , android: t
-      , version: getVersion(ua, webkitVersion, 1)
-      }
-    else if (safari) o = {
-        name: 'Safari'
-      , webkit: t
-      , safari: t
-      , version: getVersion(ua, webkitVersion, 1)
-      }
+    else result = {}
 
+    // set webkit or gecko flag for browsers based on these engines
+    if (/(apple)?webkit/i.test(ua)) {
+      result.name = result.name || "Webkit"
+      result.webkit = t
+      if (!result.version && versionIdentifier) {
+        result.version = versionIdentifier
+      }
+    } else if (!result.opera && /gecko\//i.test(ua)) {
+      result.name = result.name || "Gecko"
+      result.gecko = t
+      result.version = result.version || getFirstMatch(/gecko\/(\d+(\.\d+)?)/i)
+    }
+
+    // set OS flags for platforms that have multiple browsers
+    if (android || result.silk) {
+      result.android = t
+    } else if (iosdevice) {
+      result[iosdevice] = t
+      result.ios = t
+    }
 
     // OS version extraction
-    var osVersion;
-    if (tizen) {
-      osVersion = getVersion(ua, /tizen[\/\s](\d+(\.\d+)*)/i, 1);
-    } else if (windowsphone) {
-      osVersion = getVersion(ua, /windows phone (?:os)?\s?(\d+(\.\d+)*)/i, 1);
-    } else if (webos) {
-      osVersion = getVersion(ua, /(?:web|hpw)os\/(\d+(\.\d+)*)/i, 1);
-    } else if (rimtablet) {
-      osVersion = getVersion(ua, /rim\stablet\sos\s(\d+(\.\d+)*)/i, 1);
-    } else if (bada) {
-      osVersion = getVersion(ua, /bada\/(\d+(\.\d+)*)/i, 1);
-    } else if (iphone || ipad || ipod) {
-      osVersion = getVersion(ua, /os (\d+([_\s]\d+)*) like mac os x/i, 1);
-      osVersion = (osVersion || "").replace(/[_\s]/g, '.');
+    var osVersion = '';
+    if (iosdevice) {
+      osVersion = getFirstMatch(/os (\d+([_\s]\d+)*) like mac os x/i);
+      osVersion = osVersion.replace(/[_\s]/g, '.');
     } else if (android) {
-      osVersion = getVersion(ua, /android[ \/-](\d+(\.\d+)*)/i, 1);
+      osVersion = getFirstMatch(/android[ \/-](\d+(\.\d+)*)/i);
+    } else if (result.windowsphone) {
+      osVersion = getFirstMatch(/windows phone (?:os)?\s?(\d+(\.\d+)*)/i);
+    } else if (result.webos) {
+      osVersion = getFirstMatch(/(?:web|hpw)os\/(\d+(\.\d+)*)/i);
+    } else if (result.blackberry) {
+      osVersion = getFirstMatch(/rim\stablet\sos\s(\d+(\.\d+)*)/i);
+    } else if (result.bada) {
+      osVersion = getFirstMatch(/bada\/(\d+(\.\d+)*)/i);
+    } else if (result.tizen) {
+      osVersion = getFirstMatch(/tizen[\/\s](\d+(\.\d+)*)/i);
     }
     if (osVersion) {
-      o.osversion = osVersion;
+      result.osversion = osVersion;
     }
 
     // device type extraction
-    var osMajorVersion = (osVersion || '').split('.')[0];
-    if (tablet || ipad || (android && (osMajorVersion == 3 || (osMajorVersion == 4 && !mobile))) || rimtablet || silk || touchpad) {
-      o.tablet = t
-    } else if (iphone || ipod || (android && mobile) || windowsphone || blackberry || webos || bada || tizen || mobile) {
-      o.mobile = t
+    var osMajorVersion = osVersion.split('.')[0];
+    if (tablet || iosdevice == 'ipad' || (android && (osMajorVersion == 3 || (osMajorVersion == 4 && !mobile))) || result.silk) {
+      result.tablet = t
+    } else if (mobile || iosdevice == 'iphone' || iosdevice == 'ipod' || android || result.blackberry || result.webos || result.bada) {
+      result.mobile = t
     }
 
     // Graded Browser Support
     // http://developer.yahoo.com/yui/articles/gbs
-    if ((o.msie && o.version >= 9) ||
-        (o.chrome && o.version >= 20) ||
-        (o.firefox && o.version >= 10.0) ||
-        (o.safari && o.version >= 5) ||
-        (o.opera && o.version >= 10.0) ||
-        (o.ios && o.osversion && o.osversion.split(".")[0] >= 6)
+    if ((result.msie && result.version >= 9) ||
+        (result.chrome && result.version >= 20) ||
+        (result.firefox && result.version >= 10.0) ||
+        (result.safari && result.version >= 5) ||
+        (result.opera && result.version >= 10.0) ||
+        (result.ios && result.osversion && result.osversion.split(".")[0] >= 6)
         ) {
-      o.a = t;
+      result.a = t;
     }
-
-    else if ((o.msie && o.version < 9) ||
-        (o.chrome && o.version < 20) ||
-        (o.firefox && o.version < 10.0) ||
-        (o.safari && o.version < 5) ||
-        (o.opera && o.version < 10.0) ||
-        (o.ios && o.osversion && o.osversion.split(".")[0] < 6)
+    else if ((result.msie && result.version < 9) ||
+        (result.chrome && result.version < 20) ||
+        (result.firefox && result.version < 10.0) ||
+        (result.safari && result.version < 5) ||
+        (result.opera && result.version < 10.0) ||
+        (result.ios && result.osversion && result.osversion.split(".")[0] < 6)
         ) {
-      o.c = t
-    } else o.x = t
+      result.c = t
+    } else result.x = t
 
-    return o
+    return result
   }
 
   var bowser = detect(typeof navigator !== 'undefined' ? navigator.userAgent : '')

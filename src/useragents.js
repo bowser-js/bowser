@@ -886,6 +886,48 @@ module.exports.useragents = {
       , x: true
       }
     }
+  , Tizen: {
+      'Mozilla/5.0 (Linux; Tizen 2.2; sdk) AppleWebKit/537.3 (KHTML, like Gecko) Version/2.2 Mobile Safari/537.3': {
+        tizen: true
+      , osversion: '2.2'
+      , webkit: true
+      , version: '2.2'
+      , mobile: true
+      , x: true
+      }
+    , 'Mozilla/5.0 (Linux; Tizen 2.1; sdk) AppleWebKit/537.3 (KHTML, like Gecko) Version/2.1 Mobile Safari/537.3': {
+        tizen: true
+      , osversion: '2.1'
+      , webkit: true
+      , version: '2.1'
+      , mobile: true
+      , x: true
+      }
+    , 'Mozilla/5.0 (Linux; U; Tizen 2.0; en-us) AppleWebKit/537.1 (KHTML, like Gecko) Mobile TizenBrowser/2.0': {
+        tizen: true
+      , osversion: '2.0'
+      , webkit: true
+      , version: '2.0'
+      , mobile: true
+      , x: true
+      }
+    , 'Mozilla/5.0 (Linux; U; Tizen/1.0 like Android; en-us; AppleWebKit/534.46 (KHTML, like Gecko) Tizen Browser/1.0 Mobile': {
+        tizen: true
+      , osversion: '1.0'
+      , webkit: true
+      , version: '1.0'
+      , mobile: true
+      , x: true
+      }
+    , 'Mozilla/5.0 (SAMSUNG; SAMSUNG-GT-i9500/1.0; U; Tizen/1.0 like Android; en-us) AppleWebKit/534.46 (KHTML, like Gecko) SLP Browser/1.0 Mobile': {
+        tizen: true
+      , osversion: '1.0'
+      , webkit: true
+      , version: '1.0'
+      , mobile: true
+      , x: true
+      }
+    }
   , PhantomJS: {
       'Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.5.0 Safari/534.34': {
         phantom: true

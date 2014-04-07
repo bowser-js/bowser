@@ -257,25 +257,25 @@ module.exports.useragents = {
         safari: true
       , version: '5.1'
       , webkit: true
-      , a: true
+      , c: true
       }
     , 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_7; en-us) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/5.0.5 Safari/533.21.1': {
         safari: true
       , version: '5.0'
       , webkit: true
-      , a: true
+      , c: true
       }
     , 'Mozilla/5.0 (Windows; U; Windows NT 5.1; ru-RU) AppleWebKit/533.18.1 (KHTML, like Gecko) Version/5.0.2 Safari/533.18.5': {
         safari: true
       , version: '5.0'
       , webkit: true
-      , a: true
+      , c: true
       }
     , 'Mozilla/5.0 (X11; U; Linux x86_64; en-us) AppleWebKit/531.2+ (KHTML, like Gecko) Version/5.0 Safari/531.2+': {
         safari: true
       , version: '5.0'
       , webkit: true
-      , a: true
+      , c: true
       }
     , 'Mozilla/5.0 (Windows; U; Windows NT 5.0; en-en) AppleWebKit/533.16 (KHTML, like Gecko) Version/4.1 Safari/533.16': {
         safari: true
@@ -330,7 +330,7 @@ module.exports.useragents = {
     , 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET CLR 2.0.50727; Media Center PC 6.0)': {
         msie: true
       , version: '9.0'
-      , a: true
+      , c: true
       }
     , 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C)': {
         msie: true
@@ -381,7 +381,7 @@ module.exports.useragents = {
       , version: '18.1'
       , mobile: true
       , firefoxos: true
-      , a: true
+      , c: true
       }
     , 'Mozilla/5.0 (Android; Mobile; rv:27.0) Gecko/27.0 Firefox/27.0': {
         gecko: true
@@ -421,25 +421,25 @@ module.exports.useragents = {
         gecko: true
       , firefox: true
       , version: '17.0'
-      , a: true
+      , c: true
       }
     , 'Mozilla/5.0 (X11; Linux x86_64; rv:15.0) Gecko/20120724 Debian Iceweasel/15.0': {
         gecko: true
       , firefox: true
       , version: '15.0'
-      , a: true
+      , c: true
       }
     , 'Mozilla/5.0 (Windows NT 6.2; WOW64; rv:15.0) Gecko/20120910144328 Firefox/15.0.2': {
         gecko: true
       , firefox: true
       , version: '15.0'
-      , a: true
+      , c: true
       }
     , 'Mozilla/5.0 (Windows; U; Windows NT 6.1; WOW64; en-US; rv:2.0.4) Gecko/20120718 AskTbAVR-IDW/3.12.5.17700 Firefox/14.0.1': {
         gecko: true
       , firefox: true
       , version: '14.0'
-      , a: true
+      , c: true
       }
     , 'Mozilla/5.0 (Windows NT 5.1; rv:6.0) Gecko/20100101 Firefox/6.0 FirePHP/0.6': {
         gecko: true
@@ -725,7 +725,7 @@ module.exports.useragents = {
       , msie: true
       , version: '9.0'
       , mobile: true
-      , a: true
+      , c: true
       }
     , 'Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; Nokia;N70)': {
         windowsphone: true

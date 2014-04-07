@@ -118,7 +118,7 @@
       , blackberry: t
       , version: versionIdentifier || getFirstMatch(/blackberry[\d]+\/(\d+(\.\d+)?)/i)
       }
-    } 
+    }
     else if (/(web|hpw)os/i.test(ua)) {
       result = {
         name: 'WebOS'
@@ -203,19 +203,19 @@
 
     // Graded Browser Support
     // http://developer.yahoo.com/yui/articles/gbs
-    if ((result.msie && result.version >= 9) ||
+    if ((result.msie && result.version >= 10) ||
         (result.chrome && result.version >= 20) ||
-        (result.firefox && result.version >= 10.0) ||
-        (result.safari && result.version >= 5) ||
+        (result.firefox && result.version >= 20.0) ||
+        (result.safari && result.version >= 6) ||
         (result.opera && result.version >= 10.0) ||
         (result.ios && result.osversion && result.osversion.split(".")[0] >= 6)
         ) {
       result.a = t;
     }
-    else if ((result.msie && result.version < 9) ||
+    else if ((result.msie && result.version < 10) ||
         (result.chrome && result.version < 20) ||
-        (result.firefox && result.version < 10.0) ||
-        (result.safari && result.version < 5) ||
+        (result.firefox && result.version < 20.0) ||
+        (result.safari && result.version < 6) ||
         (result.opera && result.version < 10.0) ||
         (result.ios && result.osversion && result.osversion.split(".")[0] < 6)
         ) {

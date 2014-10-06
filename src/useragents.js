@@ -637,14 +637,14 @@ module.exports.useragents = {
       , version: '10.1'
       , webkit: true
       , mobile: true
-      , x: true
+      , a: true
       }
     , 'Mozilla/5.0 (BB10; Kbd) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.1429 Mobile Safari/537.10+': {
         blackberry: true
       , version: '10.1'
       , webkit: true
       , mobile: true
-      , x: true
+      , a: true
       }
     , 'Mozilla/5.0 (PlayBook; U; RIM Tablet OS 2.1.0; en-US) AppleWebKit/536.2+ (KHTML, like Gecko) Version/7.2.1.0 Safari/536.2+': {
         blackberry: true

@@ -142,6 +142,13 @@
       , version: versionIdentifier
       }
     }
+    else if(/googlebot/i.test(ua)) {
+      result = {
+        name: 'Googlebot'
+      , googlebot: t
+      , version: getFirstMatch(/googlebot\/(\d+(\.\d+))/i) || versionIdentifier
+      }
+    }
     else result = {}
 
     // set webkit or gecko flag for browsers based on these engines

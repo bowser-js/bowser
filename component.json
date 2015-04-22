@@ -7,7 +7,7 @@
     "sniff",
     "detection"
   ],
-  "version": "0.7.1",
+  "version": "0.7.2",
   "homepage": "https://github.com/ded/bowser",
   "author": "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)",
   "main": "bowser.js",

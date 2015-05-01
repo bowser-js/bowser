@@ -931,4 +931,11 @@ module.exports.useragents = {
       , x: true
       }
     }
+  , Generic: {
+    'Generic/2.15 libww': {
+      name: 'Generic'
+    , version: '2.15'
+    , x: true
+    }
+  }
 };

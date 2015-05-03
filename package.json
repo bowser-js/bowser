@@ -13,10 +13,20 @@
   "main": "./bowser.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ded/bowser.git"
+    "url": "git+https://github.com/ded/bowser.git"
   },
   "devDependencies": {
     "smoosh": "*",
     "mocha": "*"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/ded/bowser/issues"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "license": "MIT"
 }

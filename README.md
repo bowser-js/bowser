@@ -16,6 +16,7 @@ if (bowser.msie && bowser.version <= 6) {
   * `chrome`[`webkit`]
   * `firefox`[`gecko`]
   * `msie`
+  * `msedge`
   * Android native browser as `android`[`webkit`]
   * iOS native browser as `ios`[`webkit`]
   * `opera`[`webkit` if >12]

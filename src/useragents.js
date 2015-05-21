@@ -358,6 +358,13 @@ module.exports.useragents = {
       , c: true
       }
     }
+  , 'Microsoft Edge': {
+      'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0': {
+        msedge: true
+      , version: '12.0'
+      , a: true
+      }
+    }
   , Firefox: {
       'Mozilla/5.0 (Mobile; rv:26.0) Gecko/26.0 Firefox/26.0': {
         gecko: true
@@ -734,6 +741,14 @@ module.exports.useragents = {
       , version: '7.0'
       , mobile: true
       , c: true
+      }
+    , 'Mozilla/5.0 (Windows Phone 10.0; Android 4.2.1; DEVICE INFO) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Mobile Safari/537.36 Edge/12.0': {
+        windowsphone: true
+      , osversion: '10.0'
+      , msedge: true
+      , version: '12.0'
+      , mobile: true
+      , a: true
       }
     }
   , WebOS: {

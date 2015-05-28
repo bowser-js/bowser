@@ -252,6 +252,23 @@ module.exports.useragents = {
       , c: true
       }
     }
+  , 'Yandex Browser': {
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 YaBrowser/15.4.2272.3420 (beta) Yowser/2.0 Safari/537.36': {
+            yandexbrowser: true
+            , webkit: true
+            , version: '15.4'
+            , a: true
+        },
+        'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 5 Build/LMY48B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 YaBrowser/15.4.2272.3608.00 Mobile Safari/537.36': {
+            yandexbrowser: true
+            , android: true
+            , osversion: '5.1.1'
+            , mobile: true
+            , version: '15.4'
+            , webkit: true
+            , a: true
+        }
+    }
   , Safari: {
       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.13+ (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2': {
         safari: true

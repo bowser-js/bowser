@@ -20,7 +20,7 @@ if (bowser.msie && bowser.version <= 6) {
   * Android native browser as `android`[`webkit`]
   * iOS native browser as `ios`[`webkit`]
   * `opera`[`webkit` if >12]
-  * `phantomjs`[`webkit`]
+  * `phantom`[`webkit`]
   * `safari`[`webkit`]
   * `seamonkey`[`gecko`]
   * BlackBerry native browser as `blackberry`[`webkit`]

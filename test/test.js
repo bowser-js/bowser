@@ -9,7 +9,7 @@ var g
   , ua
   , p
   , assert = require('assert')
-  , browser = require('../src/bowser').browser
+  , browser = require('../src/bowser')
   , allUserAgents = require('../src/useragents').useragents
 
 /**

@@ -74,7 +74,6 @@ if (require('bowser').chrome) {
 ```
 
 ### Graded Browser Support
-One useful feature of Bowser is that aside from checking one browser from another -- it will keep up to date with [Yahoo's Graded Browser Support](http://developer.yahoo.com/yui/articles/gbs/) chart, giving you access to each grade on the bowser object
 
 ``` js
 if (bowser.a) {

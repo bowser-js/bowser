@@ -103,3 +103,6 @@ See the list in `src/useragents.js` with example user agents and their expected 
 
 Whenever you add support for new browsers or notice a bug / mismatch, please update the list and
 check if all tests are still passing.
+
+### License
+Licensed as MIT. All rights not explicitly granted in the MIT license are reserved. See the included LICENSE file for more details.

@@ -11,6 +11,9 @@ if (bowser.msie && bowser.version <= 6) {
 }
 ```
 
+## 1.0.0 breaking changes
+`browser = require('bowser').browser;` becomes `browser = require('bowser');`
+
 ## Flags set for detected Browsers[Engines]
 
   * `chrome`[`webkit`]

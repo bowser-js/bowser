@@ -964,6 +964,14 @@ module.exports.useragents = {
       , x: true
       }
     }
+	, Vivaldi: {
+		'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.75 Safari/537.36 Vivaldi/1.0.219.53': {
+			vivaldi: true
+			, webkit: true
+			, version: '1.0'
+			, a: true
+		}
+	}
   , Generic: {
     'Generic/2.15 libww': {
       name: 'Generic'

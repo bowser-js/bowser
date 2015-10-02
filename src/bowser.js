@@ -175,6 +175,13 @@
       , version: versionIdentifier
       }
     }
+	else if (/vivaldi/i.test(ua)) {
+		result = {
+			name: 'Vivaldi'
+			, vivaldi: t
+			, version: versionIdentifier
+		}
+	}
     else {
       result = {
         name: getFirstMatch(/^(.*)\/(.*) /),

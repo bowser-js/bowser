@@ -970,6 +970,12 @@ module.exports.useragents = {
 			, webkit: true
 			, version: '1.0'
 			, a: true
+		},
+		'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.75 Safari/537.36 Vivaldi/1.0.219.50': {
+			vivaldi: true
+			, webkit: true
+			, version: '1.0'
+			, a: true
 		}
 	}
   , Generic: {

@@ -970,5 +970,26 @@ module.exports.useragents = {
     , version: '2.15'
     , x: true
     }
-  }
+  },
+    "UC Browser": {
+        'Mozilla/5.0 (iPad; U; CPU OS 9 like Mac OS X; en-us; iPad4,4) AppleWebKit/534.46 (KHTML, like Gecko) UCBrowser/2.4.0.367 U3/1 Safari/7543.48.3': {
+            ucbrowser: true,
+            version: '2.4.0.367',
+            webkit: true,
+            ipad: true,
+            ios: true,
+            osversion: 9,
+            tablet: true,
+            a: true
+        },
+        'Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; SM-T210R Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30 UCBrowser/2.3.2.300': {
+            android: true,
+            osversion: '4.1.2',
+            tablet: true,
+            ucbrowser: true,
+            version: '2.3.2.300',
+            webkit: true,
+            x: true
+        }
+    }
 };

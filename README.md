@@ -35,10 +35,14 @@ if (bowser.msie && bowser.version <= 6) {
 
 For all detected browsers the browser version is set in the `version` field.
 
-## Flags set for detected mobile Operating Systems
+## Flags set for detected Operating Systems
 
+  * `mac`
+  *  Windows other than Windows Phone as `windows`
+  *  Windows Phone as `windowsphone`
+  * `linux` for Linux other than `android`, `chromeos`, `webos`, `tizen`, and `sailfish`
+  * `chromeos`
   * `android`
-  * Windows Phone as `windowsphone`
   * `ios` (`iphone`/`ipad`/`ipod`)
   * `blackberry`
   * `firefoxos`

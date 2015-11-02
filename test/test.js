@@ -48,7 +48,7 @@ for (g in allUserAgents) { (function(group, userAgents) {
     for (ua in userAgents) { (function(userAgent, expections) {
       describe('user agent "' + userAgent + '"', function() {
 
-        expections.name = group
+        expections.name = expections.name || group
 
         /* Get the result from bowser. */
         var result = browser._detect(userAgent)

@@ -88,7 +88,8 @@
     }
     else if (iosdevice) {
       result = {
-        name : iosdevice == 'iphone' ? 'iPhone' : iosdevice == 'ipad' ? 'iPad' : 'iPod'
+        name : 'Safari'
+      , safari: t
       }
       // WTF: version is not part of user agent in web apps
       if (versionIdentifier) {
@@ -234,6 +235,7 @@
     }
 
     // Graded Browser Support
+    // Graded Browser Support
     // http://developer.yahoo.com/yui/articles/gbs
     if (result.msedge ||
         (result.msie && result.version >= 10) ||
@@ -250,7 +252,7 @@
     else if ((result.msie && result.version < 10) ||
         (result.chrome && result.version < 20) ||
         (result.firefox && result.version < 20.0) ||
-        (result.safari && result.version < 6) ||
+        (result.safari && result.version < 6 && !result.ios) ||
         (result.opera && result.version < 10.0) ||
         (result.ios && result.osversion && result.osversion.split(".")[0] < 6)
         ) {

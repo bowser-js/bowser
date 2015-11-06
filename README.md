@@ -27,9 +27,9 @@ These flags are set for all detected browsers:
 * `name` - A human readable name for this browser.  E.g. 'Chrome', ''
 * `version` - Version number for the browser.  E.g. '32.0'
 
-Bowser makes a best guess to match name and version for unknown UA strings, so they may not be set.
+For unknown browsers, Bowser makes a best guess from the UA string.  So, these may not be set.
 
-### Rendering Engine Flags
+### Engine flags
 If detected, one of these flags may be set to true:
 
   * `webkit` - Chrome, Android, iOs, BB, etc.
@@ -50,23 +50,23 @@ if (bowser.webkit) {
 If detected, one of these flags may be set to true:
 
   * `mobile` - All detected mobile OSes are additionally flagged `mobile`, **unless it's a tablet**
-  * `tablet` - If a tablet device is detected, the flag `tablet` is set **instead of `mobile`**.
+  * `tablet` - If a tablet device is detected, the flag `tablet` is **set instead of `mobile`**.
 
-### Browsers flags
-If detected, one of these flags may be set to true.  The rendering engine flag is shown in []'s:
+### Browser flags
+If detected, one of these flags may be set to true.  The engine flag is shown in []'s:
 
   * `chrome` - [`webkit`]
   * `firefox` - [`gecko`]
   * `msie`
   * `msedge`
   * `safari` - [`webkit`]
-  * `android` native browser - [`webkit`]
-  * `ios` native browser - [`webkit`]
+  * `android` - native browser - [`webkit`]
+  * `ios` - native browser - [`webkit`]
   * `opera` - [`webkit` if >12]
   * `phantom` - [`webkit`]
-  * `blackberry` native browser - [`webkit`]
-  * `webos` native browser - [`webkit`]
-  * `silk` Amazon Kindle browser  - [`webkit`]
+  * `blackberry` - native browser - [`webkit`]
+  * `webos` - native browser - [`webkit`]
+  * `silk` - Amazon Kindle browser  - [`webkit`]
   * `bada` - [`webkit`]
   * `tizen` - [`webkit`]
   * `seamonkey` - [`gecko`]
@@ -99,13 +99,13 @@ iOS is always reported as `ios` and additionally as `iphone`/`ipad`/`ipod`, whic
 If WebOS device is an HP TouchPad the flag `touchpad` is additionally set.
 
 ### Browser capability grading
-One of these flags will be set:
+One of these flags may be set:
 
   * `a` - This browser has full capabilities
   * `c` - This browser has degraded capabilities.  Serve simpler version
   * `x` - This browser has minimal capabilities and is probably not well detected.
 
-There is no `b`.
+There is no `b`.  For unknown browsers, none of these flags may be set.
 
 ### Ender Support
 

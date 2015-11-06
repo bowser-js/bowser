@@ -1,0 +1,29 @@
+{
+  "name": "bjoska.bowser",
+  "description": "A Browser detector. Because sometimes, there is no other way, and not even good modern browsers always provide good feature detection mechanisms.",
+  "authors": [
+    "Dustin Diaz <polvero@gmail.com>"
+  ],
+  "homepage": "https://github.com/ded/bowser",
+  "license": "MIT",
+  "main": "bowser.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bjoska/bowser.git"
+  },
+  "version": "1.0.0",
+  "keywords": [
+    "browser",
+    "browser",
+    "detection",
+    "useragent",
+    "agents"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

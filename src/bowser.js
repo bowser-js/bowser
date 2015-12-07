@@ -92,7 +92,7 @@
 		result = {
 			name: 'Vivaldi'
 			, vivaldi: t
-			, version: versionIdentifier || getFirstMatch(/vivaldi[\d]+\/(\d+(\.\d+)?)/i)
+			, version: getFirstMatch(/vivaldi\/(\d+(\.\d+)?)/i) || versionIdentifier
 		}
 	}
     else if (/chrome|crios|crmo/i.test(ua)) {

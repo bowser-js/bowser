@@ -1034,7 +1034,7 @@ module.exports.useragents = {
 			, version: '1.0'
 			, windows: true
 			, webkit: true
-			, c: true
+			, a: true
 		}
 	}
   , Generic: {

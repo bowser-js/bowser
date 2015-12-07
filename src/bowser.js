@@ -88,6 +88,13 @@
       , version: edgeVersion
       }
     }
+	else if (/vivaldi/i.test(ua)) {
+		result = {
+			name: 'Vivaldi'
+			, vivaldi: t
+			, version: versionIdentifier
+		}
+	}
     else if (/chrome|crios|crmo/i.test(ua)) {
       result = {
         name: 'Chrome'

@@ -16,6 +16,7 @@ if (bowser.msie && bowser.version <= 6) {
 
 ## Flags set for detected Browsers[Engines]
 
+  * `vivaldi`[`webkit`]
   * `chrome`[`webkit`]
   * `firefox`[`gecko`]
   * `msie`

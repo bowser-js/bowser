@@ -260,6 +260,7 @@
     if (result.msedge ||
         (result.msie && result.version >= 10) ||
         (result.yandexbrowser && result.version >= 15) ||
+		(result.vivaldi && result.version >= 1.0) ||
         (result.chrome && result.version >= 20) ||
         (result.firefox && result.version >= 20.0) ||
         (result.safari && result.version >= 6) ||

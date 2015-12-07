@@ -73,6 +73,14 @@
       , msie: t
       , version: getFirstMatch(/(?:msie |rv:)(\d+(\.\d+)?)/i)
       }
+    }
+	else if (/vivaldi/i.test(ua)) {
+		result = {
+			name: 'Vivaldi'
+			, vivaldi: t
+			, version: getFirstMatch(/vivaldi\/(\d+(\.\d+)?)/i) || versionIdentifier
+		}
+	}
     } else if (chromeos) {
       result = {
         name: 'Chrome'
@@ -81,6 +89,7 @@
       , chrome: t
       , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
       }
+    }
     } else if (/chrome.+? edge/i.test(ua)) {
       result = {
         name: 'Microsoft Edge'
@@ -256,6 +265,7 @@
         (result.chrome && result.version >= 20) ||
         (result.firefox && result.version >= 20.0) ||
         (result.safari && result.version >= 6) ||
+		(result.vivaldi && result.version >= 1) ||
         (result.opera && result.version >= 10.0) ||
         (result.ios && result.osversion && result.osversion.split(".")[0] >= 6) ||
         (result.blackberry && result.version >= 10.1)

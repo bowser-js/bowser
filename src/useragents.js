@@ -7,7 +7,16 @@
  */
 module.exports.useragents = {
     Chrome: {
-      'Mozilla/5.0 (Linux; Android 4.4.2; Nexus 7 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.99 Safari/537.36': {
+      'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 9 Build/LMY48T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Safari/537.36': {
+        chrome: true
+      , android: true
+      , osversion: '5.1.1'
+      , tablet: true
+      , version: '47.0'
+      , webkit: true
+      , a: true
+      }
+    , 'Mozilla/5.0 (Linux; Android 4.4.2; Nexus 7 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.99 Safari/537.36': {
         chrome: true
       , android: true
       , osversion: '4.4.2'
@@ -884,7 +893,7 @@ module.exports.useragents = {
       , osversion: '4.4.2'
       , webkit: true
       , version: 4.0
-      , mobile: true
+      , tablet: true
       , x: true
       }
     , 'Mozilla/5.0 (Linux; U; Android 4.3; de-de; Galaxy Nexus Build/JWR66Y) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30': {

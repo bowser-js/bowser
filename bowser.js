@@ -30,7 +30,7 @@
     var iosdevice = getFirstMatch(/(ipod|iphone|ipad)/i).toLowerCase()
       , likeAndroid = /like android/i.test(ua)
       , android = !likeAndroid && /android/i.test(ua)
-      , nexusMobile = /nexus\s*[4-6]\s*/i.test(ua)
+      , nexusMobile = /nexus\s*[0-6]\s*/i.test(ua)
       , nexusTablet = !nexusMobile && /nexus\s*[0-9]+/i.test(ua)
       , chromeos = /CrOS/.test(ua)
       , silk = /silk/i.test(ua)

@@ -24,6 +24,8 @@
     var iosdevice = getFirstMatch(/(ipod|iphone|ipad)/i).toLowerCase()
       , likeAndroid = /like android/i.test(ua)
       , android = !likeAndroid && /android/i.test(ua)
+      , nexusMobile = /nexus\s*[0-6]\s*/i.test(ua)
+      , nexusTablet = !nexusMobile && /nexus\s*[0-9]+/i.test(ua)
       , chromeos = /CrOS/.test(ua)
       , silk = /silk/i.test(ua)
       , sailfish = /sailfish/i.test(ua)
@@ -37,7 +39,11 @@
       , versionIdentifier = getFirstMatch(/version\/(\d+(\.\d+)?)/i)
       , tablet = /tablet/i.test(ua)
       , mobile = !tablet && /[^-]mobi/i.test(ua)
-      , result
+      , result;
+
+    if (android && !mobile) {
+      tablet = true;
+    }
 
     if (/opera|opr/i.test(ua)) {
       result = {
@@ -242,7 +248,7 @@
 
     // device type extraction
     var osMajorVersion = osVersion.split('.')[0];
-    if (tablet || iosdevice == 'ipad' || (android && (osMajorVersion == 3 || (osMajorVersion == 4 && !mobile))) || result.silk) {
+    if (tablet || nexusTablet || iosdevice == 'ipad' || (android && (osMajorVersion == 3 || (osMajorVersion == 4 && !mobile))) || result.silk) {
       result.tablet = t
     } else if (mobile || iosdevice == 'iphone' || iosdevice == 'ipod' || android || result.blackberry || result.webos || result.bada) {
       result.mobile = t

@@ -39,7 +39,11 @@
       , versionIdentifier = getFirstMatch(/version\/(\d+(\.\d+)?)/i)
       , tablet = /tablet/i.test(ua)
       , mobile = !tablet && /[^-]mobi/i.test(ua)
-      , result
+      , result;
+
+    if (android && !mobile) {
+      tablet = true;
+    }
 
     if (/opera|opr/i.test(ua)) {
       result = {

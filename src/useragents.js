@@ -7,7 +7,16 @@
  */
 module.exports.useragents = {
     Chrome: {
-      'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 9 Build/LMY48T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Safari/537.36': {
+      'Mozilla/5.0 (Linux; Android 5.0.2; SM-T530 Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Safari/537.36': {
+        chrome: true
+      , android: true
+      , osversion: '5.0.2'
+      , tablet: true
+      , version: '47.0'
+      , webkit: true
+      , a: true
+      }
+    , 'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 9 Build/LMY48T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Safari/537.36': {
         chrome: true
       , android: true
       , osversion: '5.1.1'

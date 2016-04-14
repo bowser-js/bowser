@@ -1028,4 +1028,11 @@ module.exports.useragents = {
     , x: true
     }
   }
+  , Googlebot: {
+    'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)': {
+      googlebot: true
+    , version: '2.1'
+    , x: true
+    }
+  }
 };

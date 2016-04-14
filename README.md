@@ -33,6 +33,7 @@ if (bowser.msie && bowser.version <= 6) {
   * Tizen browser as `tizen`[`webkit`]
   * Sailfish browser as `sailfish`[`gecko`]
   * UC Browser as `ucbrowser`[`webkit`]
+  * QupZilla browser as `qupzilla`[`webkit`]
 
 For all detected browsers the browser version is set in the `version` field.
 

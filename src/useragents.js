@@ -1056,4 +1056,20 @@ module.exports.useragents = {
       x: true
     }
   }
+  , "QupZilla": {
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) QupZilla/1.8.2 Safari/538.1': {
+      mac: true,
+      qupzilla: true,
+      version: '1.8.2',
+      webkit: true,
+      x: true
+    },
+    'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.21 (KHTML, like Gecko) QupZilla/1.8.6 Safari/537.21': {
+      windows: true,
+      qupzilla: true,
+      version: '1.8.6',
+      webkit: true,
+      x: true
+    }
+  }
 }

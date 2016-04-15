@@ -580,7 +580,15 @@ module.exports.useragents = {
       }
     }
   , iPhone: {
-      'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11B554a': {
+      'Mozilla/5.0 (iPhone; CPU iPhone OS 9_0 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13A344 Safari/601.1': {
+        ios: true
+      , osversion: '9.0.0'
+      , iphone: true
+      , mobile: true
+      , webkit: true
+      , a: true
+      }    
+    ,  'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11B554a': {
         ios: true
       , osversion: '7.0.4'
       , iphone: true

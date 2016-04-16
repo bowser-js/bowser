@@ -73,6 +73,7 @@ If detected, one of these flags may be set to true.  The rendering engine flag i
   * `sailfish` - [`gecko`]
   * `ucbrowser` — [`webkit`]
   * `qupzilla` — [`webkit`]
+  * `vivaldi` — [`webkit`]
 
 For all detected browsers the browser version is set in the `version` field.
 

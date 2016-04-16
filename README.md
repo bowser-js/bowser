@@ -14,57 +14,100 @@ if (bowser.msie && bowser.version <= 6) {
 ## 1.0.0 breaking changes
 `browser = require('bowser').browser;` becomes `browser = require('bowser');`
 
-## Flags set for detected Browsers[Engines]
+## Bowser Flags
+Your mileage may vary, but these flags should be set.  See Contributing below.
 
-  * `chrome`[`webkit`]
-  * `firefox`[`gecko`]
-  * `msie`
-  * `msedge`
-  * Android native browser as `android`[`webkit`]
-  * iOS native browser as `ios`[`webkit`]
-  * `opera`[`webkit` if >12]
-  * `phantom`[`webkit`]
-  * `safari`[`webkit`]
-  * `seamonkey`[`gecko`]
-  * BlackBerry native browser as `blackberry`[`webkit`]
-  * WebOS native browser as `webos`[`webkit`]
-  * Amazon Kindle browser as `silk`[`webkit`]
-  * Bada browser as `bada`[`webkit`]
-  * Tizen browser as `tizen`[`webkit`]
-  * Sailfish browser as `sailfish`[`gecko`]
-  * UC Browser as `ucbrowser`[`webkit`]
-  * QupZilla browser as `qupzilla`[`webkit`]
+``` js
+alert('Hello ' + bowser.name + ' ' + bowser.version);
+```
 
-For all detected browsers the browser version is set in the `version` field.
+### All detected browsers
+These flags are set for all detected browsers:
 
-## Flags set for detected Operating Systems
+* `name` - A human readable name for this browser.  E.g. 'Chrome', ''
+* `version` - Version number for the browser.  E.g. '32.0'
 
-  * `mac`
-  *  Windows other than Windows Phone as `windows`
-  *  Windows Phone as `windowsphone`
-  * `linux` for Linux other than `android`, `chromeos`, `webos`, `tizen`, and `sailfish`
-  * `chromeos`
-  * `android`
-  * `ios` (`iphone`/`ipad`/`ipod`)
-  * `blackberry`
-  * `firefoxos`
-  * `webos` (`touchpad`)
-  * `bada`
-  * `tizen`
-  * `sailfish`
+For unknown browsers, Bowser makes a best guess from the UA string.  So, these may not be set.
 
-Android, iOS, Windows Phone, WebOS, Bada, and Tizen will all report the OS version number if it is contained in the UA string in the `osversion` field. iOS is always reported as `ios` and additionally as `iphone`/`ipad`/`ipod`, whichever one matches best. If WebOS device is an HP TouchPad the flag `touchpad` is additionally set.
+### Rendering engine flags
+If detected, one of these flags may be set to true:
 
-All detected mobile OSes are additionally flagged `mobile`, **if they are not powering a tablet device**. If a tablet device is detected, the flag `tablet` is set instead.
+  * `webkit` - Chrome, Android, iOs, BB, etc.
+  * `gecko` - Firefox, etc.
+  * `msie`  - IE <= 11
+  * `msedge` - IE > 11
 
-### Notes
-Safari, Chrome and some other minor browsers will report that they have `webkit` engines, Firefox and Seamonkey will report that they have `gecko` engines.
+Safari, Chrome and some other minor browsers will report that they have `webkit` engines.
+Firefox and Seamonkey will report that they have `gecko` engines.
 
 ``` js
 if (bowser.webkit) {
   // do stuff with safari & chrome & opera & android & blackberry & webos & silk
 }
 ```
+
+### Device flags
+If detected, one of these flags may be set to true:
+
+  * `mobile` - All detected mobile OSes are additionally flagged `mobile`, **unless it's a tablet**
+  * `tablet` - If a tablet device is detected, the flag `tablet` is **set instead of `mobile`**.
+
+### Browser flags
+If detected, one of these flags may be set to true.  The rendering engine flag is shown in []'s:
+
+  * `chrome` - [`webkit`]
+  * `firefox` - [`gecko`]
+  * `msie`
+  * `msedge`
+  * `safari` - [`webkit`]
+  * `android` - native browser - [`webkit`]
+  * `ios` - native browser - [`webkit`]
+  * `opera` - [`webkit` if >12]
+  * `phantom` - [`webkit`]
+  * `blackberry` - native browser - [`webkit`]
+  * `webos` - native browser - [`webkit`]
+  * `silk` - Amazon Kindle browser  - [`webkit`]
+  * `bada` - [`webkit`]
+  * `tizen` - [`webkit`]
+  * `seamonkey` - [`gecko`]
+  * `sailfish` - [`gecko`]
+  * `ucbrowser` — [`webkit`]
+  * `qupzilla` — [`webkit`]
+
+For all detected browsers the browser version is set in the `version` field.
+
+### OS Flags
+If detected, one of these flags may be set to true:
+
+  * `mac`
+  * `windows` - other than Windows Phone
+  * `windowsphone`
+  * `linux` - other than `android`, `chromeos`, `webos`, `tizen`, and `sailfish`
+  * `chromeos`
+  * `android`
+  * `ios` - also sets one of `iphone`/`ipad`/`ipod`
+  * `blackberry`
+  * `firefoxos`
+  * `webos` - may also set `touchpad`
+  * `bada`
+  * `tizen`
+  * `sailfish`
+
+`osversion` may also be set:
+
+  * `osversion` - for Android, iOS, Windows Phone, WebOS, Bada, and Tizen.  If included in UA string.
+
+iOS is always reported as `ios` and additionally as `iphone`/`ipad`/`ipod`, whichever one matches best.
+If WebOS device is an HP TouchPad the flag `touchpad` is additionally set.
+
+### Browser capability grading
+One of these flags may be set:
+
+  * `a` - This browser has full capabilities
+  * `c` - This browser has degraded capabilities.  Serve simpler version
+  * `x` - This browser has minimal capabilities and is probably not well detected.
+
+There is no `b`.  For unknown browsers, none of these flags may be set.
 
 ### Ender Support
 
@@ -79,20 +122,6 @@ if (bowser.webkit) {
 ``` js
 if (require('bowser').chrome) {
   alert('Hello Silicon Valley')
-}
-```
-
-### Graded Browser Support
-
-``` js
-if (bowser.a) {
-  // support full feature set
-}
-else if (bowser.c) {
-  // serve degraded version
-}
-else {
-  // unsupported (bowser.x)
 }
 ```
 

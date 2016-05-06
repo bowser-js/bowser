@@ -7,7 +7,16 @@
  */
 module.exports.useragents = {
     Chrome: {
-      'Mozilla/5.0 (Linux; Android 4.4.2; Nexus 7 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.99 Safari/537.36': {
+      'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 9 Build/LMY48T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Safari/537.36': {
+        chrome: true
+      , android: true
+      , osversion: '5.1.1'
+      , tablet: true
+      , version: '47.0'
+      , webkit: true
+      , a: true
+      }
+    , 'Mozilla/5.0 (Linux; Android 4.4.2; Nexus 7 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.99 Safari/537.36': {
         chrome: true
       , android: true
       , osversion: '4.4.2'
@@ -884,7 +893,7 @@ module.exports.useragents = {
       , osversion: '4.4.2'
       , webkit: true
       , version: 4.0
-      , mobile: true
+      , tablet: true
       , x: true
       }
     , 'Mozilla/5.0 (Linux; U; Android 4.3; de-de; Galaxy Nexus Build/JWR66Y) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30': {
@@ -1021,6 +1030,22 @@ module.exports.useragents = {
       , x: true
       }
     }
+	, Vivaldi: {
+		'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.99 Safari/537.36 Vivaldi/1.0.303.52' : {
+			vivaldi: true
+			, version: '1.0'
+			, mac: true
+			, webkit: true
+			, a: true
+		},
+		'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.99 Safari/537.36 Vivaldi/1.0.303.52': {
+			vivaldi: true
+			, version: '1.0'
+			, windows: true
+			, webkit: true
+			, a: true
+		}
+	}
   , Generic: {
     'Generic/2.15 libww': {
       name: 'Generic'
@@ -1028,4 +1053,48 @@ module.exports.useragents = {
     , x: true
     }
   }
-};
+  , Googlebot: {
+    'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)': {
+      googlebot: true
+    , version: '2.1'
+    , x: true
+    }
+  }
+  , "UC Browser": {
+    'Mozilla/5.0 (iPad; U; CPU OS 9 like Mac OS X; en-us; iPad4,4) AppleWebKit/534.46 (KHTML, like Gecko) UCBrowser/2.4.0.367 U3/1 Safari/7543.48.3': {
+      ucbrowser: true,
+      version: '2.4.0.367',
+      webkit: true,
+      ipad: true,
+      ios: true,
+      osversion: 9,
+      tablet: true,
+      a: true
+    },
+    'Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; SM-T210R Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30 UCBrowser/2.3.2.300': {
+      android: true,
+      osversion: '4.1.2',
+      tablet: true,
+      ucbrowser: true,
+      version: '2.3.2.300',
+      webkit: true,
+      x: true
+    }
+  }
+  , "QupZilla": {
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) QupZilla/1.8.2 Safari/538.1': {
+      mac: true,
+      qupzilla: true,
+      version: '1.8.2',
+      webkit: true,
+      x: true
+    },
+    'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.21 (KHTML, like Gecko) QupZilla/1.8.6 Safari/537.21': {
+      windows: true,
+      qupzilla: true,
+      version: '1.8.6',
+      webkit: true,
+      x: true
+    }
+  }
+}

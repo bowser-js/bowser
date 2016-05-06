@@ -2,8 +2,7 @@ require('smoosh').config({
   "JAVASCRIPT": {
     "DIST_DIR": "./"
   , "bowser": [
-        "./src/copyright.js"
-      , "./src/bowser.js"
+        "./src/bowser.js"
     ]
   }
   , "JSHINT_OPTS": {

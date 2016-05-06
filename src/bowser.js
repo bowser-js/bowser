@@ -1,3 +1,9 @@
+/*!
+ * Bowser - a browser detector
+ * https://github.com/ded/bowser
+ * MIT License | (c) Dustin Diaz 2015
+ */
+
 !function (name, definition) {
   if (typeof module != 'undefined' && module.exports) module.exports = definition()
   else if (typeof define == 'function' && define.amd) define(definition)
@@ -24,6 +30,8 @@
     var iosdevice = getFirstMatch(/(ipod|iphone|ipad)/i).toLowerCase()
       , likeAndroid = /like android/i.test(ua)
       , android = !likeAndroid && /android/i.test(ua)
+      , nexusMobile = /nexus\s*[0-6]\s*/i.test(ua)
+      , nexusTablet = !nexusMobile && /nexus\s*[0-9]+/i.test(ua)
       , chromeos = /CrOS/.test(ua)
       , silk = /silk/i.test(ua)
       , sailfish = /sailfish/i.test(ua)
@@ -51,6 +59,13 @@
         name: 'Yandex Browser'
       , yandexbrowser: t
       , version: versionIdentifier || getFirstMatch(/(?:yabrowser)[\s\/](\d+(\.\d+)?)/i)
+      }
+    }
+    else if (/ucbrowser/i.test(ua)) {
+      result = {
+          name: 'UC Browser'
+        , ucbrowser: t
+        , version: getFirstMatch(/(?:ucbrowser)[\s\/](\d+(?:\.\d+)+)/i)
       }
     }
     else if (windowsphone) {
@@ -88,6 +103,13 @@
       , version: edgeVersion
       }
     }
+	else if (/vivaldi/i.test(ua)) {
+		result = {
+			name: 'Vivaldi'
+			, vivaldi: t
+			, version: getFirstMatch(/vivaldi\/(\d+(\.\d+)?)/i) || versionIdentifier
+		}
+	}
     else if (/chrome|crios|crmo/i.test(ua)) {
       result = {
         name: 'Chrome'
@@ -177,11 +199,25 @@
       , version: getFirstMatch(/(?:tizen\s?)?browser\/(\d+(\.\d+)?)/i) || versionIdentifier
       };
     }
+    else if (/qupzilla/i.test(ua)) {
+      result = {
+        name: 'QupZilla'
+        , qupzilla: t
+        , version: getFirstMatch(/(?:qupzilla)[\s\/](\d+(?:\.\d+)+)/i) || versionIdentifier
+      }
+    }
     else if (/safari/i.test(ua)) {
       result = {
         name: 'Safari'
       , safari: t
       , version: versionIdentifier
+      }
+    }
+    else if(/googlebot/i.test(ua)) {
+      result = {
+        name: 'Googlebot'
+      , googlebot: t
+      , version: getFirstMatch(/googlebot\/(\d+(\.\d+))/i) || versionIdentifier
       }
     }
     else {
@@ -242,9 +278,9 @@
 
     // device type extraction
     var osMajorVersion = osVersion.split('.')[0];
-    if (tablet || iosdevice == 'ipad' || (android && (osMajorVersion == 3 || (osMajorVersion == 4 && !mobile))) || result.silk) {
+    if (tablet || nexusTablet || iosdevice == 'ipad' || (android && (osMajorVersion == 3 || (osMajorVersion == 4 && !mobile))) || result.silk) {
       result.tablet = t
-    } else if (mobile || iosdevice == 'iphone' || iosdevice == 'ipod' || android || result.blackberry || result.webos || result.bada) {
+    } else if (mobile || iosdevice == 'iphone' || iosdevice == 'ipod' || android || nexusMobile || result.blackberry || result.webos || result.bada) {
       result.mobile = t
     }
 
@@ -253,6 +289,7 @@
     if (result.msedge ||
         (result.msie && result.version >= 10) ||
         (result.yandexbrowser && result.version >= 15) ||
+		(result.vivaldi && result.version >= 1.0) ||
         (result.chrome && result.version >= 20) ||
         (result.firefox && result.version >= 20.0) ||
         (result.safari && result.version >= 6) ||

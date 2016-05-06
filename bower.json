@@ -1,0 +1,29 @@
+{
+  "name": "bowser",
+  "description": "a browser detector",
+  "keywords": [
+    "ender",
+    "browser",
+    "sniff",
+    "detection"
+  ],
+  "version": "1.0.0",
+  "homepage": "https://github.com/ded/bowser",
+  "scripts": [
+    "bowser.js"
+  ],
+  "authors": [
+    "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)"
+  ],
+  "moduleType": [],
+  "license": "MIT",
+  "main": "bowser.js",
+  "ignore": [
+    "node_modules",
+    "test",
+    "src",
+    "make",
+    "**/.*",
+    "Makefile"
+  ]
+}

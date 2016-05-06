@@ -10,18 +10,17 @@
   "version": "1.0.0",
   "homepage": "https://github.com/ded/bowser",
   "scripts": [
-    "bowser.js"
+    "src/bowser.js"
   ],
   "authors": [
     "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)"
   ],
   "moduleType": [],
   "license": "MIT",
-  "main": "bowser.js",
+  "main": "src/bowser.js",
   "ignore": [
     "node_modules",
     "test",
-    "src",
     "make",
     "**/.*",
     "Makefile"

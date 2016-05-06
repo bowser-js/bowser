@@ -1,3 +1,9 @@
+/*!
+ * Bowser - a browser detector
+ * https://github.com/ded/bowser
+ * MIT License | (c) Dustin Diaz 2015
+ */
+
 !function (name, definition) {
   if (typeof module != 'undefined' && module.exports) module.exports = definition()
   else if (typeof define == 'function' && define.amd) define(definition)

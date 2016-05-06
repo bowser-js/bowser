@@ -11,6 +11,10 @@ if (bowser.msie && bowser.version <= 6) {
 }
 ```
 
+## 1.1.0 breaking changes
+We don't save built script in the repo anymore. The main file (`src/bowser.js`) is available through NPM or Bower.
+Also you can download minified file from [the release page](https://github.com/ded/bowser/releases).
+
 ## 1.0.0 breaking changes
 `browser = require('bowser').browser;` becomes `browser = require('bowser');`
 

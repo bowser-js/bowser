@@ -11,6 +11,7 @@
   "homepage": "https://github.com/ded/bowser",
   "author": "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)",
   "main": "./src/bowser.js",
+  "typings": "./typings.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ded/bowser.git"

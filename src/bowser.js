@@ -47,11 +47,18 @@
       , mobile = !tablet && /[^-]mobi/i.test(ua)
       , result
 
-    if (/opera|opr/i.test(ua)) {
+    if (/opera|opr|opios/i.test(ua)) {
       result = {
         name: 'Opera'
       , opera: t
-      , version: versionIdentifier || getFirstMatch(/(?:opera|opr)[\s\/](\d+(\.\d+)?)/i)
+      , version: versionIdentifier || getFirstMatch(/(?:opera|opr|opios)[\s\/](\d+(\.\d+)?)/i)
+      }
+    }
+    else if (/coast/i.test(ua)) {
+      result = {
+        name: 'Opera Coast'
+        , coast: t
+        , version: versionIdentifier || getFirstMatch(/(?:coast)[\s\/](\d+(\.\d+)?)/i)
       }
     }
     else if (/yabrowser/i.test(ua)) {
@@ -66,6 +73,13 @@
           name: 'UC Browser'
         , ucbrowser: t
         , version: getFirstMatch(/(?:ucbrowser)[\s\/](\d+(?:\.\d+)+)/i)
+      }
+    }
+    else if (/mxios/i.test(ua)) {
+      result = {
+        name: 'Maxthon'
+        , maxthon: t
+        , version: getFirstMatch(/(?:mxios)[\s\/](\d+(?:\.\d+)+)/i)
       }
     }
     else if (windowsphone) {
@@ -117,15 +131,6 @@
       , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
       }
     }
-    else if (iosdevice) {
-      result = {
-        name : iosdevice == 'iphone' ? 'iPhone' : iosdevice == 'ipad' ? 'iPad' : 'iPod'
-      }
-      // WTF: version is not part of user agent in web apps
-      if (versionIdentifier) {
-        result.version = versionIdentifier
-      }
-    }
     else if (sailfish) {
       result = {
         name: 'Sailfish'
@@ -140,11 +145,11 @@
       , version: getFirstMatch(/seamonkey\/(\d+(\.\d+)?)/i)
       }
     }
-    else if (/firefox|iceweasel/i.test(ua)) {
+    else if (/firefox|iceweasel|fxios/i.test(ua)) {
       result = {
         name: 'Firefox'
       , firefox: t
-      , version: getFirstMatch(/(?:firefox|iceweasel)[ \/](\d+(\.\d+)?)/i)
+      , version: getFirstMatch(/(?:firefox|iceweasel|fxios)[ \/](\d+(\.\d+)?)/i)
       }
       if (/\((mobile|tablet);[^\)]*rv:[\d\.]+\)/i.test(ua)) {
         result.firefoxos = t
@@ -206,11 +211,22 @@
         , version: getFirstMatch(/(?:qupzilla)[\s\/](\d+(?:\.\d+)+)/i) || versionIdentifier
       }
     }
-    else if (/safari/i.test(ua)) {
+    else if (/safari|applewebkit/i.test(ua)) {
       result = {
         name: 'Safari'
       , safari: t
-      , version: versionIdentifier
+      }
+      if (versionIdentifier) {
+        result.version = versionIdentifier
+      }
+    }
+    else if (iosdevice) {
+      result = {
+        name : iosdevice == 'iphone' ? 'iPhone' : iosdevice == 'ipad' ? 'iPad' : 'iPod'
+      }
+      // WTF: version is not part of user agent in web apps
+      if (versionIdentifier) {
+        result.version = versionIdentifier
       }
     }
     else if(/googlebot/i.test(ua)) {
@@ -289,7 +305,7 @@
     if (result.msedge ||
         (result.msie && result.version >= 10) ||
         (result.yandexbrowser && result.version >= 15) ||
-		(result.vivaldi && result.version >= 1.0) ||
+		    (result.vivaldi && result.version >= 1.0) ||
         (result.chrome && result.version >= 20) ||
         (result.firefox && result.version >= 20.0) ||
         (result.safari && result.version >= 6) ||

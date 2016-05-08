@@ -117,18 +117,11 @@
       , version: edgeVersion
       }
     }
-	else if (/vivaldi/i.test(ua)) {
-		result = {
-			name: 'Vivaldi'
-			, vivaldi: t
-			, version: getFirstMatch(/vivaldi\/(\d+(\.\d+)?)/i) || versionIdentifier
-		}
-	}
-    else if (/chrome|crios|crmo/i.test(ua)) {
+    else if (/vivaldi/i.test(ua)) {
       result = {
-        name: 'Chrome'
-      , chrome: t
-      , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
+        name: 'Vivaldi'
+        , vivaldi: t
+        , version: getFirstMatch(/vivaldi\/(\d+(\.\d+)?)/i) || versionIdentifier
       }
     }
     else if (sailfish) {
@@ -160,12 +153,6 @@
         name: 'Amazon Silk'
       , silk: t
       , version : getFirstMatch(/silk\/(\d+(\.\d+)?)/i)
-      }
-    }
-    else if (android) {
-      result = {
-        name: 'Android'
-      , version: versionIdentifier
       }
     }
     else if (/phantom/i.test(ua)) {
@@ -209,6 +196,19 @@
         name: 'QupZilla'
         , qupzilla: t
         , version: getFirstMatch(/(?:qupzilla)[\s\/](\d+(?:\.\d+)+)/i) || versionIdentifier
+      }
+    }
+    else if (/chrome|crios|crmo/i.test(ua)) {
+      result = {
+        name: 'Chrome'
+        , chrome: t
+        , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
+      }
+    }
+    else if (android) {
+      result = {
+        name: 'Android'
+        , version: versionIdentifier
       }
     }
     else if (/safari|applewebkit/i.test(ua)) {

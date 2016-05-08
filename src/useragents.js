@@ -131,6 +131,16 @@ module.exports.useragents = {
       , webkit: true
       , c: true
       }
+    , 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1 (KHTML, like Gecko) CriOS/50.0.2661.95 Mobile/13E238 Safari/601.1.46': {
+        chrome: true
+      , version: '50.0'
+      , osversion: '9.3.1'
+      , webkit: true
+      , ios: true
+      , iphone: true
+      , mobile: true
+      , a: true
+      }
     }
   , 'Amazon Silk': {
       'Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; KFTT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.4 Mobile Safari/535.19 Silk-Accelerated=true': {
@@ -499,6 +509,16 @@ module.exports.useragents = {
       , webkit: true
       , safari: true
       , c: true
+    }
+    , 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13E238 Safari/601.1': {
+        ios: true
+      , iphone: true
+      , safari: true
+      , version: '9.0'
+      , mobile: true
+      , osversion: '9.3.1'
+      , a: true
+      , webkit: true
     }
   }
   , 'Internet Explorer': {

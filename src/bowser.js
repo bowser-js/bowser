@@ -47,7 +47,7 @@
       , mobile = !tablet && /[^-]mobi/i.test(ua)
       , result
 
-    if (/opera|opr/i.test(ua)) {
+    if (/opera|opr|opios/i.test(ua)) {
       result = {
         name: 'Opera'
       , opera: t
@@ -131,11 +131,11 @@
       , version: getFirstMatch(/seamonkey\/(\d+(\.\d+)?)/i)
       }
     }
-    else if (/firefox|iceweasel/i.test(ua)) {
+    else if (/firefox|iceweasel|fxios/i.test(ua)) {
       result = {
         name: 'Firefox'
       , firefox: t
-      , version: getFirstMatch(/(?:firefox|iceweasel)[ \/](\d+(\.\d+)?)/i)
+      , version: getFirstMatch(/(?:firefox|iceweasel|fxios)[ \/](\d+(\.\d+)?)/i)
       }
       if (/\((mobile|tablet);[^\)]*rv:[\d\.]+\)/i.test(ua)) {
         result.firefoxos = t

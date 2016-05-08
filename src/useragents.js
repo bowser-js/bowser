@@ -715,7 +715,17 @@ module.exports.useragents = {
       , linux: true
       , c: true
       }
+    , 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) FxiOS/3.0 Mobile/13E238 Safari/601.1.46': {
+        firefox: true
+      , version: '3.0'
+      , osversion: '9.3.1'
+      , ios: true
+      , iphone: true
+      , mobile: true
+      , a: true
+      , webkit: true
     }
+  }
   , SeaMonkey: {
       'Mozilla/5.0 (Windows NT 5.2; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 SeaMonkey/2.7.1': {
         gecko: true

@@ -1145,4 +1145,16 @@ module.exports.useragents = {
       x: true
     }
   }
+  , 'Maxthon': {
+    'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13E238 Safari/601.1 MXiOS/4.8.6.59': {
+        mobile: true
+      , ios: true
+      , iphone: true
+      , version: '4.8.6.59'
+      , osversion: '9.3.1'
+      , webkit: true
+      , maxthon: true
+      , a: true
+    }
+  }
 }

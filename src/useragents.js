@@ -290,7 +290,19 @@ module.exports.useragents = {
       , linux: true
       , c: true
       }
+  }
+  , 'Opera Coast': {
+    'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Coast/5.02.99991 Mobile/13E238 Safari/7534.48.3': {
+        coast: true
+      , version: '5.02'
+      , osversion: '9.3.1'
+      , iphone: true
+      , ios: true
+      , mobile: true
+      , a: true
+      , webkit: true
     }
+  }
   , 'Yandex Browser': {
         'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 YaBrowser/15.4.2272.3420 (beta) Yowser/2.0 Safari/537.36': {
             yandexbrowser: true

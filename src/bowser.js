@@ -51,7 +51,14 @@
       result = {
         name: 'Opera'
       , opera: t
-      , version: versionIdentifier || getFirstMatch(/(?:opera|opr)[\s\/](\d+(\.\d+)?)/i)
+      , version: versionIdentifier || getFirstMatch(/(?:opera|opr|opios)[\s\/](\d+(\.\d+)?)/i)
+      }
+    }
+    else if (/coast/i.test(ua)) {
+      result = {
+        name: 'Opera Coast'
+        , coast: t
+        , version: versionIdentifier || getFirstMatch(/(?:coast)[\s\/](\d+(\.\d+)?)/i)
       }
     }
     else if (/yabrowser/i.test(ua)) {

@@ -1128,6 +1128,16 @@ module.exports.useragents = {
       webkit: true,
       x: true
     }
+    , 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X; en-US) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/13E238 UCBrowser/10.7.0.782 Mobile': {
+        iphone: true
+      , ios: true
+      , mobile: true
+      , osversion: '9.3.1'
+      , version: '10.7.0.782'
+      , webkit: true
+      , a: true
+      , ucbrowser: true
+    }
   }
   , "QupZilla": {
     'Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) QupZilla/1.8.2 Safari/538.1': {

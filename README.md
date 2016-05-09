@@ -36,7 +36,8 @@ For unknown browsers, Bowser makes a best guess from the UA string.  So, these m
 ### Rendering engine flags
 If detected, one of these flags may be set to true:
 
-  * `webkit` - Chrome, Android, iOs, BB, etc.
+  * `webkit` - Chrome 0-27, Android <4.4, iOs, BB, etc.
+  * `blink` - Chrome >=28, Android >=4.4, Opera, etc.
   * `gecko` - Firefox, etc.
   * `msie`  - IE <= 11
   * `msedge` - IE > 11
@@ -59,14 +60,14 @@ If detected, one of these flags may be set to true:
 ### Browser flags
 If detected, one of these flags may be set to true.  The rendering engine flag is shown in []'s:
 
-  * `chrome` - [`webkit`]
+  * `chrome` - [`webkit`|`blink`]
   * `firefox` - [`gecko`]
   * `msie`
   * `msedge`
   * `safari` - [`webkit`]
-  * `android` - native browser - [`webkit`]
+  * `android` - native browser - [`webkit`|`blink`]
   * `ios` - native browser - [`webkit`]
-  * `opera` - [`webkit` if >12]
+  * `opera` - [`blink` if >=15]
   * `phantom` - [`webkit`]
   * `blackberry` - native browser - [`webkit`]
   * `webos` - native browser - [`webkit`]
@@ -77,7 +78,9 @@ If detected, one of these flags may be set to true.  The rendering engine flag i
   * `sailfish` - [`gecko`]
   * `ucbrowser` — [`webkit`]
   * `qupzilla` — [`webkit`]
-  * `vivaldi` — [`webkit`]
+  * `vivaldi` — [`blink`]
+  * `sleipnir` — [`blink`]
+  * `kMeleon` — [`gecko`]
 
 For all detected browsers the browser version is set in the `version` field.
 

@@ -13,7 +13,7 @@ module.exports.useragents = {
       , osversion: '5.1.1'
       , tablet: true
       , version: '47.0'
-      , webkit: true
+      , blink: true
       , a: true
       }
     , 'Mozilla/5.0 (Linux; Android 4.4.2; Nexus 7 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.99 Safari/537.36': {
@@ -22,7 +22,7 @@ module.exports.useragents = {
       , osversion: '4.4.2'
       , tablet: true
       , version: '32.0'
-      , webkit: true
+      , blink: true
       , a: true
       }
     , 'Mozilla/5.0 (Linux; Android 4.3; Galaxy Nexus Build/JWR66Y) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.99 Mobile Safari/537.36': {
@@ -31,7 +31,7 @@ module.exports.useragents = {
       , osversion: '4.3'
       , mobile: true
       , version: '32.0'
-      , webkit: true
+      , blink: true
       , a: true
       }
     , 'Mozilla/5.0 (Linux; Android 4.1; Galaxy Nexus Build/JRN84D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19': {
@@ -85,14 +85,14 @@ module.exports.useragents = {
         chrome: true
       , version: '30.0'
       , windows: true
-      , webkit: true
+      , blink: true
       , a: true
       }
     , 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.62 Safari/537.36': {
         chrome: true
       , version: '29.0'
       , windows: true
-      , webkit: true
+      , blink: true
       , a: true
       }
     , 'Mozilla/5.0 (X11; CrOS i686 4319.74.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.57 Safari/537.36': {
@@ -100,21 +100,21 @@ module.exports.useragents = {
       , chromeBook: true
       , version: '29.0'
       , chromeos: true
-      , webkit: true
+      , blink: true
       , a: true
       }
     , 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.2 Safari/537.36': {
         chrome: true
       , version: '29.0'
       , windows: true
-      , webkit: true
+      , blink: true
       , a: true
       }
     , 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1468.0 Safari/537.36': {
         chrome: true
       , version: '28.0'
       , windows: true
-      , webkit: true
+      , blink: true
       , a: true
       }
     , 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_7) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.57 Safari/534.24': {
@@ -130,6 +130,34 @@ module.exports.useragents = {
       , linux: true
       , webkit: true
       , c: true
+      }
+    , 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1 (KHTML, like Gecko) CriOS/50.0.2661.95 Mobile/13E238 Safari/601.1.46': {
+        chrome: true
+      , version: '50.0'
+      , osversion: '9.3.1'
+      , webkit: true
+      , ios: true
+      , iphone: true
+      , mobile: true
+      , a: true
+      }
+    , 'Mozilla/5.0 (Linux; Android 5.0.2; SM-T705 Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.105 Safari/537.36': {
+          chrome: true
+        , android: true
+        , version: '49.0'
+        , osversion: '5.0.2'
+        , blink: true
+        , a: true
+        , tablet: true
+      }
+    , 'Mozilla/5.0 (Linux; Android 6.0.99; Build/NPC91K) AppleWebKit/537.36(KHTML, like Gecko) Chrome/50.0.2661.86 Safari/537.36': {
+          chrome: true
+        , android: true
+        , tablet: true
+        , osversion: '6.0.99'
+        , version: '50.0'
+        , blink: true
+        , a: true
       }
     }
   , 'Amazon Silk': {
@@ -175,7 +203,7 @@ module.exports.useragents = {
   , Opera: {
       'Mozilla/5.0 (Linux; Android 4.4.2; Nexus 7 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.72 Safari/537.36 OPR/19.0.1340.69721': {
         opera: true
-      , webkit: true
+      , blink: true
       , android: true
       , osversion: '4.4.2'
       , tablet: true
@@ -184,7 +212,7 @@ module.exports.useragents = {
       }
     , 'Mozilla/5.0 (Linux; Android 4.3; Galaxy Nexus Build/JWR66Y) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.72 Mobile Safari/537.36 OPR/19.0.1340.69721': {
         opera: true
-      , webkit: true
+      , blink: true
       , android: true
       , osversion: '4.3'
       , mobile: true
@@ -194,7 +222,7 @@ module.exports.useragents = {
     , 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 OPR/15.0.1147.100': {
         opera: true
       , windows: true
-      , webkit: true
+      , blink: true
       , version: '15.0'
       , a: true
       }
@@ -280,24 +308,36 @@ module.exports.useragents = {
       , linux: true
       , c: true
       }
+  }
+  , 'Opera Coast': {
+    'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Coast/5.02.99991 Mobile/13E238 Safari/7534.48.3': {
+        coast: true
+      , version: '5.02'
+      , osversion: '9.3.1'
+      , iphone: true
+      , ios: true
+      , mobile: true
+      , a: true
+      , webkit: true
     }
+  }
   , 'Yandex Browser': {
-        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 YaBrowser/15.4.2272.3420 (beta) Yowser/2.0 Safari/537.36': {
-            yandexbrowser: true
-            , webkit: true
-            , version: '15.4'
-            , mac: true
-            , a: true
-        },
-        'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 5 Build/LMY48B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 YaBrowser/15.4.2272.3608.00 Mobile Safari/537.36': {
-            yandexbrowser: true
-            , android: true
-            , osversion: '5.1.1'
-            , mobile: true
-            , version: '15.4'
-            , webkit: true
-            , a: true
-        }
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 YaBrowser/15.4.2272.3420 (beta) Yowser/2.0 Safari/537.36': {
+        yandexbrowser: true
+      , blink: true
+      , version: '15.4'
+      , mac: true
+      , a: true
+    },
+      'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 5 Build/LMY48B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 YaBrowser/15.4.2272.3608.00 Mobile Safari/537.36': {
+          yandexbrowser: true
+        , android: true
+        , osversion: '5.1.1'
+        , mobile: true
+        , version: '15.4'
+        , blink: true
+        , a: true
+      }
     }
   , Safari: {
       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.13+ (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2': {
@@ -349,7 +389,168 @@ module.exports.useragents = {
       , webkit: true
       , c: true
       }
+    , 'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11B554a': {
+      ios: true
+      , osversion: '7.0.4'
+      , iphone: true
+      , mobile: true
+      , webkit: true
+      , safari: true
+      , a: true
     }
+    , 'Mozilla/5.0 (iPhone Simulator; U; CPU iPhone OS 4_3_2 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5': {
+      ios: true
+      , osversion: '4.3.2'
+      , version: '5.0'
+      , iphone: true
+      , mobile: true
+      , safari: true
+      , webkit: true
+      , c: true
+    }
+    , 'Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3': {
+      ios: true
+      , version: '3.0'
+      , iphone: true
+      , mobile: true
+      , webkit: true
+      , safari: true
+      , c: true
+    }
+    , 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_1 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8B5097d Safari/6531.22.7': {
+      ios: true
+      , osversion: '4.1'
+      , version: '4.0'
+      , iphone: true
+      , mobile: true
+      , webkit: true
+      , safari: true
+      , c: true
+    }
+    , 'Mozilla/5.0 (Macintosh; U; PPC Mac OS X 10_5_2; en-gb) AppleWebKit/526+ (KHTML, like Gecko) Version/3.1 iPhone': {
+      ios: true
+      , version: '3.1'
+      , iphone: true
+      , mobile: true
+      , webkit: true
+      , safari: true
+      , c: true
+    }
+    , 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_0 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13A344 Safari/601.1': {
+      ios: true
+      , osversion: '9.0'
+      , version: '9.0'
+      , iphone: true
+      , mobile: true
+      , webkit: true
+      , safari: true
+      , a: true
+    }
+    , 'Mozilla/5.0 (iPad; CPU OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B554a Safari/9537.53': {
+      ios: true
+      , osversion: '7.0.4'
+      , name: 'Safari'
+      , version: '7.0'
+      , ipad: true
+      , tablet: true
+      , webkit: true
+      , safari: true
+      , a: true
+    }
+    , 'Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5355d Safari/8536.25': {
+      ios: true
+      , osversion: '6.0'
+      , name: 'Safari'
+      , version: '6.0'
+      , ipad: true
+      , tablet: true
+      , webkit: true
+      , safari: true
+      , a: true
+    }
+    , 'Mozilla/5.0 (iPad; CPU OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko ) Version/5.1 Mobile/9B176 Safari/7534.48.3': {
+      ios: true
+      , osversion: '5.1'
+      , name: 'Safari'
+      , version: '5.1'
+      , ipad: true
+      , tablet: true
+      , webkit: true
+      , safari: true
+      , c: true
+    }
+    , 'Mozilla/5.0 (iPad; U; CPU OS 4_3_2 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5': {
+      ios: true
+      , osversion: '4.3.2'
+      , name: 'Safari'
+      , version: '5.0'
+      , ipad: true
+      , tablet: true
+      , webkit: true
+      , safari: true
+      , c: true
+    }
+    , 'Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; es-es) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B360 Safari/531.21.10': {
+      ios: true
+      , osversion: '3.2'
+      , name: 'Safari'
+      , version: '4.0'
+      , ipad: true
+      , tablet: true
+      , webkit: true
+      , safari: true
+      , c: true
+    }
+    , 'Mozilla/5.0 (iPod touch; CPU iPhone OS 7_0_3 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B511 Safari/9537.53': {
+      ios: true
+      , osversion: '7.0.3'
+      , version: '7.0'
+      , ipod: true
+      , mobile: true
+      , webkit: true
+      , safari: true
+      , a: true
+    }
+    , 'Mozilla/5.0 (iPod; CPU iPhone OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B176 Safari/7534.48.3': {
+      ios: true
+      , osversion: '5.1'
+      , version: '5.1'
+      , ipod: true
+      , mobile: true
+      , webkit: true
+      , safari: true
+      , c: true
+    }
+    , 'Mozilla/5.0 (iPod; U; CPU iPhone OS 4_3_3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/6533.18.5': {
+      ios: true
+      , osversion: '4.3.3'
+      , version: '5.0'
+      , ipod: true
+      , mobile: true
+      , webkit: true
+      , safari: true
+      , c: true
+    }
+    , 'Mozilla/5.0 (iPod; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/4A93 Safari/419.3': {
+      ios: true
+      , version: '3.0'
+      , ipod: true
+      , mobile: true
+      , webkit: true
+      , safari: true
+      , c: true
+    }
+    , 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13E238 Safari/601.1': {
+        ios: true
+      , iphone: true
+      , safari: true
+      , version: '9.0'
+      , mobile: true
+      , osversion: '9.3.1'
+      , a: true
+      , webkit: true
+    }
+  }
   , 'Internet Explorer': {
       'Mozilla/5.0 (Windows NT 6.3; Win64; x64; Trident/7.0; MAARJS; rv:11.0) like Gecko': {
         msie: true
@@ -422,6 +623,12 @@ module.exports.useragents = {
       , version: '5.01'
       , windows: true
       , c: true
+      }
+    , 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; Xbox; Xbox One)': {
+        xbox: true
+      , msie: true
+      , version: '10.0'
+      , a: true
       }
     }
   , 'Microsoft Edge': {
@@ -564,7 +771,17 @@ module.exports.useragents = {
       , linux: true
       , c: true
       }
+    , 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) FxiOS/3.0 Mobile/13E238 Safari/601.1.46': {
+        firefox: true
+      , version: '3.0'
+      , osversion: '9.3.1'
+      , ios: true
+      , iphone: true
+      , mobile: true
+      , a: true
+      , webkit: true
     }
+  }
   , SeaMonkey: {
       'Mozilla/5.0 (Windows NT 5.2; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 SeaMonkey/2.7.1': {
         gecko: true
@@ -585,148 +802,6 @@ module.exports.useragents = {
       , seamonkey: true
       , version: '2.7'
       , linux: true
-      , x: true
-      }
-    }
-  , iPhone: {
-      'Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11B554a': {
-        ios: true
-      , osversion: '7.0.4'
-      , iphone: true
-      , mobile: true
-      , webkit: true
-      , a: true
-      }
-    , 'Mozilla/5.0 (iPhone Simulator; U; CPU iPhone OS 4_3_2 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5': {
-        ios: true
-      , osversion: '4.3.2'
-      , version: '5.0'
-      , iphone: true
-      , mobile: true
-      , webkit: true
-      , c: true
-      }
-    , 'Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3': {
-        ios: true
-      , version: '3.0'
-      , iphone: true
-      , mobile: true
-      , webkit: true
-      , x: true
-      }
-    , 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_1 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8B5097d Safari/6531.22.7': {
-        ios: true
-      , osversion: '4.1'
-      , version: '4.0'
-      , iphone: true
-      , mobile: true
-      , webkit: true
-      , c: true
-      }
-    , 'Mozilla/5.0 (Macintosh; U; PPC Mac OS X 10_5_2; en-gb) AppleWebKit/526+ (KHTML, like Gecko) Version/3.1 iPhone': {
-        ios: true
-      , version: '3.1'
-      , iphone: true
-      , mobile: true
-      , webkit: true
-      , x: true
-      }
-    , 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_0 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13A344 Safari/601.1': {
-        ios: true
-      , osversion: '9.0'
-      , version: '9.0'
-      , iphone: true
-      , mobile: true
-      , webkit: true
-      , a: true
-      }
-    }
-  , iPad: {
-      'Mozilla/5.0 (iPad; CPU OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B554a Safari/9537.53': {
-        ios: true
-      , osversion: '7.0.4'
-      , name: 'iPad'
-      , version: '7.0'
-      , ipad: true
-      , tablet: true
-      , webkit: true
-      , a: true
-      }
-    , 'Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5355d Safari/8536.25': {
-        ios: true
-      , osversion: '6.0'
-      , name: 'iPad'
-      , version: '6.0'
-      , ipad: true
-      , tablet: true
-      , webkit: true
-      , a: true
-      }
-    , 'Mozilla/5.0 (iPad; CPU OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko ) Version/5.1 Mobile/9B176 Safari/7534.48.3': {
-        ios: true
-      , osversion: '5.1'
-      , name: 'iPad'
-      , version: '5.1'
-      , ipad: true
-      , tablet: true
-      , webkit: true
-      , c: true
-      }
-    , 'Mozilla/5.0 (iPad; U; CPU OS 4_3_2 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8H7 Safari/6533.18.5': {
-        ios: true
-      , osversion: '4.3.2'
-      , name: 'iPad'
-      , version: '5.0'
-      , ipad: true
-      , tablet: true
-      , webkit: true
-      , c: true
-      }
-    , 'Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; es-es) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B360 Safari/531.21.10': {
-        ios: true
-      , osversion: '3.2'
-      , name: 'iPad'
-      , version: '4.0'
-      , ipad: true
-      , tablet: true
-      , webkit: true
-      , c: true
-      }
-    }
-  , iPod: {
-      'Mozilla/5.0 (iPod touch; CPU iPhone OS 7_0_3 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11B511 Safari/9537.53': {
-        ios: true
-      , osversion: '7.0.3'
-      , version: '7.0'
-      , ipod: true
-      , mobile: true
-      , webkit: true
-      , a: true
-      }
-    , 'Mozilla/5.0 (iPod; CPU iPhone OS 5_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9B176 Safari/7534.48.3': {
-        ios: true
-      , osversion: '5.1'
-      , version: '5.1'
-      , ipod: true
-      , mobile: true
-      , webkit: true
-      , c: true
-      }
-    , 'Mozilla/5.0 (iPod; U; CPU iPhone OS 4_3_3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/6533.18.5': {
-        ios: true
-      , osversion: '4.3.3'
-      , version: '5.0'
-      , ipod: true
-      , mobile: true
-      , webkit: true
-      , c: true
-      }
-    , 'Mozilla/5.0 (iPod; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/4A93 Safari/419.3': {
-        ios: true
-      , version: '3.0'
-      , ipod: true
-      , mobile: true
-      , webkit: true
       , x: true
       }
     }
@@ -1044,14 +1119,14 @@ module.exports.useragents = {
 			vivaldi: true
 			, version: '1.0'
 			, mac: true
-			, webkit: true
+			, blink: true
 			, a: true
 		},
 		'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.99 Safari/537.36 Vivaldi/1.0.303.52': {
 			vivaldi: true
 			, version: '1.0'
 			, windows: true
-			, webkit: true
+			, blink: true
 			, a: true
 		}
 	}
@@ -1089,6 +1164,16 @@ module.exports.useragents = {
       webkit: true,
       x: true
     }
+    , 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X; en-US) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/13E238 UCBrowser/10.7.0.782 Mobile': {
+        iphone: true
+      , ios: true
+      , mobile: true
+      , osversion: '9.3.1'
+      , version: '10.7.0.782'
+      , webkit: true
+      , a: true
+      , ucbrowser: true
+    }
   }
   , "QupZilla": {
     'Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) QupZilla/1.8.2 Safari/538.1': {
@@ -1104,6 +1189,53 @@ module.exports.useragents = {
       version: '1.8.6',
       webkit: true,
       x: true
+    }
+  }
+  , 'Maxthon': {
+    'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13E238 Safari/601.1 MXiOS/4.8.6.59': {
+        mobile: true
+      , ios: true
+      , iphone: true
+      , version: '4.8.6.59'
+      , osversion: '9.3.1'
+      , webkit: true
+      , maxthon: true
+      , a: true
+    }
+  }
+  , 'Epiphany': {
+    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/602.1 (KHTML, like Gecko) Version/8.0 Safari/602.1 Debian/buildd-unstable (3.18.5-1) Epiphany/3.18.5': {
+      epiphany: true
+      , x: true
+      , webkit: true
+      , version: '3.18.5'
+      , linux: true
+    }
+  }
+  , 'Puffin': {
+    'Mozilla/5.0 (X11; U; Linux x86_64; zh-TW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.114 Safari/537.36 Puffin/3.7.0IT': {
+        linux: true
+      , blink: true
+      , puffin: true
+      , version: '3.7'
+      , x: true
+    }
+  }, 'Sleipnir': {
+    'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36 Sleipnir/6.1.4': {
+      sleipnir: true
+      , blink: true
+      , windows: true
+      , x: true
+      , version: '6.1.4'
+    }
+  }
+  , 'K-Meleon': {
+    'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:24.0) Gecko/20140105 Firefox/24.0 K-Meleon/74.0': {
+      windows: true
+      , kMeleon: true
+      , version: '74.0'
+      , gecko: true
+      , x: true
     }
   }
 }

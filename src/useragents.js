@@ -13,7 +13,7 @@ module.exports.useragents = {
       , osversion: '5.1.1'
       , tablet: true
       , version: '47.0'
-      , webkit: true
+      , blink: true
       , a: true
       }
     , 'Mozilla/5.0 (Linux; Android 4.4.2; Nexus 7 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.99 Safari/537.36': {
@@ -22,7 +22,7 @@ module.exports.useragents = {
       , osversion: '4.4.2'
       , tablet: true
       , version: '32.0'
-      , webkit: true
+      , blink: true
       , a: true
       }
     , 'Mozilla/5.0 (Linux; Android 4.3; Galaxy Nexus Build/JWR66Y) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.99 Mobile Safari/537.36': {
@@ -31,7 +31,7 @@ module.exports.useragents = {
       , osversion: '4.3'
       , mobile: true
       , version: '32.0'
-      , webkit: true
+      , blink: true
       , a: true
       }
     , 'Mozilla/5.0 (Linux; Android 4.1; Galaxy Nexus Build/JRN84D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Mobile Safari/535.19': {
@@ -85,14 +85,14 @@ module.exports.useragents = {
         chrome: true
       , version: '30.0'
       , windows: true
-      , webkit: true
+      , blink: true
       , a: true
       }
     , 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.62 Safari/537.36': {
         chrome: true
       , version: '29.0'
       , windows: true
-      , webkit: true
+      , blink: true
       , a: true
       }
     , 'Mozilla/5.0 (X11; CrOS i686 4319.74.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.57 Safari/537.36': {
@@ -100,21 +100,21 @@ module.exports.useragents = {
       , chromeBook: true
       , version: '29.0'
       , chromeos: true
-      , webkit: true
+      , blink: true
       , a: true
       }
     , 'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.2 Safari/537.36': {
         chrome: true
       , version: '29.0'
       , windows: true
-      , webkit: true
+      , blink: true
       , a: true
       }
     , 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1468.0 Safari/537.36': {
         chrome: true
       , version: '28.0'
       , windows: true
-      , webkit: true
+      , blink: true
       , a: true
       }
     , 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_7) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.57 Safari/534.24': {
@@ -185,7 +185,7 @@ module.exports.useragents = {
   , Opera: {
       'Mozilla/5.0 (Linux; Android 4.4.2; Nexus 7 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.72 Safari/537.36 OPR/19.0.1340.69721': {
         opera: true
-      , webkit: true
+      , blink: true
       , android: true
       , osversion: '4.4.2'
       , tablet: true
@@ -194,7 +194,7 @@ module.exports.useragents = {
       }
     , 'Mozilla/5.0 (Linux; Android 4.3; Galaxy Nexus Build/JWR66Y) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.72 Mobile Safari/537.36 OPR/19.0.1340.69721': {
         opera: true
-      , webkit: true
+      , blink: true
       , android: true
       , osversion: '4.3'
       , mobile: true
@@ -204,7 +204,7 @@ module.exports.useragents = {
     , 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 OPR/15.0.1147.100': {
         opera: true
       , windows: true
-      , webkit: true
+      , blink: true
       , version: '15.0'
       , a: true
       }
@@ -304,22 +304,22 @@ module.exports.useragents = {
     }
   }
   , 'Yandex Browser': {
-        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 YaBrowser/15.4.2272.3420 (beta) Yowser/2.0 Safari/537.36': {
-            yandexbrowser: true
-            , webkit: true
-            , version: '15.4'
-            , mac: true
-            , a: true
-        },
-        'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 5 Build/LMY48B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 YaBrowser/15.4.2272.3608.00 Mobile Safari/537.36': {
-            yandexbrowser: true
-            , android: true
-            , osversion: '5.1.1'
-            , mobile: true
-            , version: '15.4'
-            , webkit: true
-            , a: true
-        }
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 YaBrowser/15.4.2272.3420 (beta) Yowser/2.0 Safari/537.36': {
+        yandexbrowser: true
+      , blink: true
+      , version: '15.4'
+      , mac: true
+      , a: true
+    },
+      'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 5 Build/LMY48B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 YaBrowser/15.4.2272.3608.00 Mobile Safari/537.36': {
+          yandexbrowser: true
+        , android: true
+        , osversion: '5.1.1'
+        , mobile: true
+        , version: '15.4'
+        , blink: true
+        , a: true
+      }
     }
   , Safari: {
       'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.13+ (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2': {
@@ -1095,14 +1095,14 @@ module.exports.useragents = {
 			vivaldi: true
 			, version: '1.0'
 			, mac: true
-			, webkit: true
+			, blink: true
 			, a: true
 		},
 		'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.99 Safari/537.36 Vivaldi/1.0.303.52': {
 			vivaldi: true
 			, version: '1.0'
 			, windows: true
-			, webkit: true
+			, blink: true
 			, a: true
 		}
 	}

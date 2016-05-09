@@ -89,6 +89,13 @@
         , version: getFirstMatch(/(?:epiphany)[\s\/](\d+(?:\.\d+)+)/i)
       }
     }
+    else if (/puffin/i.test(ua)) {
+      result = {
+        name: 'Puffin'
+        , puffin: t
+        , version: getFirstMatch(/(?:puffin)[\s\/](\d+(?:\.\d+)?)/i)
+      }
+    }
     else if (windowsphone) {
       result = {
         name: 'Windows Phone'

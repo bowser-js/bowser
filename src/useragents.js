@@ -1206,4 +1206,13 @@ module.exports.useragents = {
       , linux: true
     }
   }
+  , 'Puffin': {
+    'Mozilla/5.0 (X11; U; Linux x86_64; zh-TW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/30.0.1599.114 Safari/537.36 Puffin/3.7.0IT': {
+        linux: true
+      , blink: true
+      , puffin: true
+      , version: '3.7'
+      , x: true
+    }
+  }
 }

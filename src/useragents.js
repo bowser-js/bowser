@@ -141,6 +141,24 @@ module.exports.useragents = {
       , mobile: true
       , a: true
       }
+    , 'Mozilla/5.0 (Linux; Android 5.0.2; SM-T705 Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.105 Safari/537.36': {
+          chrome: true
+        , android: true
+        , version: '49.0'
+        , osversion: '5.0.2'
+        , blink: true
+        , a: true
+        , tablet: true
+      }
+    , 'Mozilla/5.0 (Linux; Android 6.0.99; Build/NPC91K) AppleWebKit/537.36(KHTML, like Gecko) Chrome/50.0.2661.86 Safari/537.36': {
+          chrome: true
+        , android: true
+        , tablet: true
+        , osversion: '6.0.99'
+        , version: '50.0'
+        , blink: true
+        , a: true
+      }
     }
   , 'Amazon Silk': {
       'Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; KFTT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.4 Mobile Safari/535.19 Silk-Accelerated=true': {

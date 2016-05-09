@@ -624,6 +624,12 @@ module.exports.useragents = {
       , windows: true
       , c: true
       }
+    , 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; Xbox; Xbox One)': {
+        xbox: true
+      , msie: true
+      , version: '10.0'
+      , a: true
+      }
     }
   , 'Microsoft Edge': {
       'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0': {

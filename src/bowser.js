@@ -45,6 +45,7 @@
       , versionIdentifier = getFirstMatch(/version\/(\d+(\.\d+)?)/i)
       , tablet = /tablet/i.test(ua)
       , mobile = !tablet && /[^-]mobi/i.test(ua)
+      , xbox = /xbox/i.test(ua)
       , result
 
     if (/opera|opr|opios/i.test(ua)) {
@@ -295,10 +296,12 @@
     } else if (iosdevice) {
       result[iosdevice] = t
       result.ios = t
-    } else if (windows) {
-      result.windows = t
     } else if (mac) {
       result.mac = t
+    } else if (xbox) {
+      result.xbox = t
+    } else if (windows) {
+      result.windows = t
     } else if (linux) {
       result.linux = t
     }

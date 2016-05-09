@@ -1214,5 +1214,22 @@ module.exports.useragents = {
       , version: '3.7'
       , x: true
     }
+  }, 'Sleipnir': {
+    'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36 Sleipnir/6.1.4': {
+      sleipnir: true
+      , blink: true
+      , windows: true
+      , x: true
+      , version: '6.1.4'
+    }
+  }
+  , 'K-Meleon': {
+    'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:24.0) Gecko/20140105 Firefox/24.0 K-Meleon/74.0': {
+      windows: true
+      , kMeleon: true
+      , version: '74.0'
+      , gecko: true
+      , x: true
+    }
   }
 }

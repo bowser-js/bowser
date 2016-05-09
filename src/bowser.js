@@ -96,6 +96,20 @@
         , version: getFirstMatch(/(?:puffin)[\s\/](\d+(?:\.\d+)?)/i)
       }
     }
+    else if (/sleipnir/i.test(ua)) {
+      result = {
+        name: 'Sleipnir'
+        , sleipnir: t
+        , version: getFirstMatch(/(?:sleipnir)[\s\/](\d+(?:\.\d+)+)/i)
+      }
+    }
+    else if (/k-meleon/i.test(ua)) {
+      result = {
+        name: 'K-Meleon'
+        , kMeleon: t
+        , version: getFirstMatch(/(?:k-meleon)[\s\/](\d+(?:\.\d+)+)/i)
+      }
+    }
     else if (windowsphone) {
       result = {
         name: 'Windows Phone'

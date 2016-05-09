@@ -78,6 +78,8 @@ If detected, one of these flags may be set to true.  The rendering engine flag i
   * `ucbrowser` — [`webkit`]
   * `qupzilla` — [`webkit`]
   * `vivaldi` — [`webkit`]
+  * `sleipnir` — [`blink`]
+  * `kMeleon` — [`gecko`]
 
 For all detected browsers the browser version is set in the `version` field.
 

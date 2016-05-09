@@ -1179,4 +1179,13 @@ module.exports.useragents = {
       , a: true
     }
   }
+  , 'Epiphany': {
+    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/602.1 (KHTML, like Gecko) Version/8.0 Safari/602.1 Debian/buildd-unstable (3.18.5-1) Epiphany/3.18.5': {
+      epiphany: true
+      , x: true
+      , webkit: true
+      , version: '3.18.5'
+      , linux: true
+    }
+  }
 }

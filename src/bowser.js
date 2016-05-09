@@ -82,6 +82,13 @@
         , version: getFirstMatch(/(?:mxios)[\s\/](\d+(?:\.\d+)+)/i)
       }
     }
+    else if (/epiphany/i.test(ua)) {
+      result = {
+        name: 'Epiphany'
+        , epiphany: t
+        , version: getFirstMatch(/(?:epiphany)[\s\/](\d+(?:\.\d+)+)/i)
+      }
+    }
     else if (windowsphone) {
       result = {
         name: 'Windows Phone'

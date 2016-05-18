@@ -1238,4 +1238,23 @@ module.exports.useragents = {
       , x: true
     }
   }
+  , 'Chromium': {
+    'Mozilla/5.0 (Linux; Ubuntu 14.04 like Android 4.4) AppleWebKit/537.36 Chromium/35.0.1870.2 Mobile Safari/537.36': {
+        mobile: true
+      , linux: true
+      , chromium: true
+      , version: '35.0'
+      , blink: true
+      , x: true
+    }
+  }
+  , 'SlimerJS' : {
+    'Mozilla/5.0 (X11; Linux x86_64; rv:21.0) Gecko/20100101 SlimerJS/0.7': {
+      linux: true
+      , slimer: true
+      , version: '0.7'
+      , gecko: true
+      , x: true
+    }
+  }
 }

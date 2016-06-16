@@ -461,8 +461,9 @@
 
   /**
    * Check if browser is unsupported
+   *
    * @example
-   *   bowser.check({
+   *   bowser.isUnsupportedBrowser({
    *     msie: "10",
    *     firefox: "23",
    *     chrome: "29",
@@ -489,6 +490,17 @@
           }
       }
       return true && !strictMode; // not found
+  }
+
+  /**
+   * Check if browser is supported
+   *
+   * @param  {Object} minVersions map of minimal version to browser
+   * @param  {Boolean} strictMode flag to return false if browser wasn't found in map
+   * @return {Boolean}
+   */
+  function check(minVersions, strictMode) {
+    return !isUnsupportedBrowser(minVersions, strictMode);
   }
 
   bowser.isUnsupportedBrowser = isUnsupportedBrowser;

@@ -100,3 +100,31 @@ describe('Browser versions comparision', function() {
     });
   }
 });
+
+describe('Unsupported browser check', function() {
+
+  before(function() {
+    this.ie10_6 = "Mozilla/5.0 (compatible; MSIE 10.6; Windows NT 6.1; Trident/5.0; InfoPath.2; SLCC1; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET CLR 2.0.50727) 3gpp-gba UNTRUSTED/1.0";
+  });
+
+  it('should be passed by #isUnsupportedBrowser for IE10.6 and for IE10 miminal version specified', function() {
+    var unsupported = browser.isUnsupportedBrowser({msie: "10"}, this.ie10_6);
+    assert.equal(unsupported, false);
+  });
+
+  it('should NOT be passed by #check for IE10.6 and for IE11 miminal version specified', function() {
+    var supported = browser.check({msie: "11"}, this.ie10_6);
+    assert.equal(supported, false);
+  });
+
+  it('should be passed by #check for IE10.6 when version was not specified', function() {
+    var supported = browser.check({}, this.ie10_6);
+    assert.equal(supported, true);
+  });
+
+  it('should be NOT passed by #check for IE10.6 when version was not specified in strict mode', function() {
+    var supported = browser.check({}, true, this.ie10_6);
+    assert.equal(supported, false);
+  });
+
+})

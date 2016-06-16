@@ -122,7 +122,7 @@ describe('Unsupported browser check', function() {
     assert.equal(supported, true);
   });
 
-  it('should be NOT passed by #check for IE10.6 when version was not specified in strict mode', function() {
+  it('should NOT be passed by #check for IE10.6 when version was not specified in strict mode', function() {
     var supported = browser.check({}, true, this.ie10_6);
     assert.equal(supported, false);
   });

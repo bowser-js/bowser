@@ -419,6 +419,23 @@
   }
 
   /**
+   * Array::map polyfill
+   * @param  {Array} arr
+   * @param  {Function} iterator
+   * @return {Array}
+   */
+  function map(arr, iterator) {
+    var result = [], i;
+    if (Array.prototype.map) {
+      return Array.prototype.map.call(arr, iterator);
+    }
+    for (i = 0; i < arr.length; i++) {
+      result = iterator(arr[i]);
+    }
+    return result;
+  }
+
+  /**
    * Calculate browser version weight
    * @see http://jsbin.com/vohahaciku/1/edit?js,console
    *

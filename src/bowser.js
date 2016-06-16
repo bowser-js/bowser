@@ -440,7 +440,6 @@
 
   /**
    * Calculate browser version weight
-   * @see http://jsbin.com/vohahaciku/1/edit?js,console
    *
    * @example
    *   compareVersions(['1.10.2.1',  '1.8.2.1.90'])    // 1

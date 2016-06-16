@@ -409,8 +409,10 @@
 
   /**
    * Get version precisions count
+   *
    * @example
    *   getVersionPrecision("1.10.3") // 3
+   *
    * @param  {string} version
    * @return {number}
    */
@@ -420,6 +422,7 @@
 
   /**
    * Array::map polyfill
+   *
    * @param  {Array} arr
    * @param  {Function} iterator
    * @return {Array}
@@ -457,7 +460,7 @@
         // 2) "9" -> "9.0" (for precision = 2)
         version = version + new Array(delta + 1).join(".0");
 
-        // 3) "9.0" -> [""000000000"", "000000009"]
+        // 3) "9.0" -> ["000000000"", "000000009"]
         return map(version.split("."), function (chunk) {
           return new Array(20 - chunk.length).join("0") + chunk;
         }).reverse();

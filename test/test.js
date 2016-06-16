@@ -81,6 +81,12 @@ var comparisionsTasks = [
   ['1.010.2.1', '1.08.2.1.90', 1],
   ['1.10.2.1', '1.10.2.1', 0],
   ['1.10.2.1', '1.0800.2', -1],
+  ['1.0.0-alpha', '1.0.0-alpha.1', -1],
+  ['1.0.0-alpha.1', '1.0.0-alpha.beta', -1],
+  ['1.0.0-alpha.beta', '1.0.0-beta', -1],
+  ['1.0.0-beta', '1.0.0-beta.2', -1],
+  ['1.0.0-beta.11', '1.0.0-rc.1', -1],
+  ['1.0.0-rc.1', '1.0.0', -1]
 ];
 
 describe('Browser versions comparision', function() {

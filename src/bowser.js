@@ -406,7 +406,7 @@
     }
     return false;
   }
-  
+
   /**
    * Get version precisions count
    * @example
@@ -427,6 +427,9 @@
    *   compareVersions(['1.010.2.1', '1.09.2.1.90']);  // 1
    *   compareVersions(['1.10.2.1',  '1.10.2.1']);     // 0
    *   compareVersions(['1.10.2.1',  '1.0800.2']);     // -1
+   *
+   * @param  {Array<String>} versions versions to compare
+   * @return {Number} comparision result
    */
   function compareVersions(versions) {
       // 1) get common precision for both versions, for example for "10.0" and "9" it should be 2
@@ -467,6 +470,10 @@
    *     opera: "16",
    *     phantom: "534"
    *   });
+   *
+   * @param  {Object}  minVersions minVersions map of minimal version to browser
+   * @param  {Boolean} strictMode flag to return false if browser wasn't found in map
+   * @return {Boolean}
    */
   function isUnsupportedBrowser(minVersions, strictMode) {
       if (strictMode === void 0) { strictMode = false; }

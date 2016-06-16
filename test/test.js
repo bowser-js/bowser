@@ -90,7 +90,6 @@ var comparisionsTasks = [
 ];
 
 describe('Browser versions comparision', function() {
-
   for(g in comparisionsTasks) {
     var task = comparisionsTasks[g],
         version = task[0],
@@ -98,6 +97,6 @@ describe('Browser versions comparision', function() {
         matching = task[2] === 0 ? ' == ' : (task[2] > 0) ? ' > ' : ' < ';
     it('version ' + version + ' should be' + matching + 'version ' + version2, function(){
       assert.equal(browser.compareVersions([version, version2]), task[2]);
-    })
+    });
   }
 });

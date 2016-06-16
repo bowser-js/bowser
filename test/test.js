@@ -73,3 +73,25 @@ for (g in allUserAgents) { (function(group, userAgents) {
 
   })
 })(g, allUserAgents[g])}
+
+var comparisionsTasks = [
+  ['9.0', '10', -1],
+  ['11', '10', 1],
+  ['1.10.2.1',  '1.8.2.1.90', 1],
+  ['1.010.2.1', '1.08.2.1.90', 1],
+  ['1.10.2.1', '1.10.2.1', 0],
+  ['1.10.2.1', '1.0800.2', -1],
+];
+
+describe('Browser versions comparision', function() {
+
+  for(g in comparisionsTasks) {
+    var task = comparisionsTasks[g],
+        version = task[0],
+        version2 = task[1],
+        matching = task[2] === 0 ? ' == ' : (task[2] > 0) ? ' > ' : ' < ';
+    it('version ' + version + ' should be' + matching + 'version ' + version2, function(){
+      assert.equal(browser.compareVersions([version, version2]), task[2]);
+    })
+  }
+});

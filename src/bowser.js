@@ -451,16 +451,21 @@
   function compareVersions(versions) {
       // 1) get common precision for both versions, for example for "10.0" and "9" it should be 2
       var precision = Math.max(getVersionPrecision(versions[0]), getVersionPrecision(versions[1]));
-      var chunks = versions.map(function (version) {
-          var delta = precision - getVersionPrecision(version);
-          return (version + new Array(delta + 1).join(".0")) // 2) "9" -> "9.0" (for precision = 2)
-              .split(".")
-              .map(function (chunk) { return new Array(10 - chunk.length).join("0") + chunk; })
-              .reverse();
+      var chunks = map(versions, function (version) {
+        var delta = precision - getVersionPrecision(version);
+
+        // 2) "9" -> "9.0" (for precision = 2)
+        version = version + new Array(delta + 1).join(".0");
+
+        // 3) "9.0" -> [""000000000"", "000000009"]
+        return map(version.split("."), function (chunk) {
+          return new Array(20 - chunk.length).join("0") + chunk;
+        }).reverse();
       });
+
       // iterate in reverse order by reversed chunks array
       while (--precision >= 0) {
-          // 5) compare: "000000009" > "000000010" = false (but "9" > "10" = true)
+          // 4) compare: "000000009" > "000000010" = false (but "9" > "10" = true)
           if (chunks[0][precision] > chunks[1][precision]) {
               return 1;
           }

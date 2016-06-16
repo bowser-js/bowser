@@ -497,15 +497,30 @@
    *   });
    *
    * @param  {Object}  minVersions map of minimal version to browser
-   * @param  {Boolean} strictMode flag to return false if browser wasn't found in map
+   * @param  {Boolean} [strictMode = false] flag to return false if browser wasn't found in map
+   * @param  {String}  [ua] user agent string
    * @return {Boolean}
    */
-  function isUnsupportedBrowser(minVersions, strictMode) {
-      if (strictMode === void 0) { strictMode = false; }
-      var version = "" + bowser.version;
+  function isUnsupportedBrowser(minVersions, strictMode, ua) {
+      var _bowser = bowser;
+
+      // make strictMode param optional with ua param usage
+      if (typeof strictMode === 'string') {
+        ua = strictMode;
+        strictMode = void(0);
+      }
+
+      if (strictMode === void(0)) {
+        strictMode = false;
+      }
+      if (ua) {
+        _bowser = detect(ua);
+      }
+
+      var version = "" + _bowser.version;
       for (var browser in minVersions) {
           if (minVersions.hasOwnProperty(browser)) {
-              if (bowser[browser]) {
+              if (_bowser[browser]) {
                   // browser version and min supported version.
                   if (compareVersions([version, minVersions[browser]]) < 0) {
                       return true; // unsupported
@@ -513,14 +528,14 @@
               }
           }
       }
-      return true && !strictMode; // not found
+      return strictMode; // not found
   }
 
   /**
    * Check if browser is supported
    *
    * @param  {Object} minVersions map of minimal version to browser
-   * @param  {Boolean} strictMode flag to return false if browser wasn't found in map
+   * @param  {Boolean} [strictMode = false] flag to return false if browser wasn't found in map
    * @return {Boolean}
    */
   function check(minVersions, strictMode) {

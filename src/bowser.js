@@ -406,6 +406,86 @@
     }
     return false;
   }
+  
+  /**
+   * Get version precisions count
+   * @example
+   *   getVersionPrecision("1.10.3") // 3
+   * @param  {string} version
+   * @return {number}
+   */
+  function getVersionPrecision(version) {
+      return version.split(".").length;
+  }
+
+  /**
+   * Calculate browser version weight
+   * @see http://jsbin.com/vohahaciku/1/edit?js,console
+   *
+   * @example
+   *   compareVersions(['1.10.2.1',  '1.8.2.1.90'])    // 1
+   *   compareVersions(['1.010.2.1', '1.09.2.1.90']);  // 1
+   *   compareVersions(['1.10.2.1',  '1.10.2.1']);     // 0
+   *   compareVersions(['1.10.2.1',  '1.0800.2']);     // -1
+   */
+  function compareVersions(versions) {
+      // 1) get common precision for both versions, for example for "10.0" and "9" it should be 2
+      var precision = Math.max(getVersionPrecision(versions[0]), getVersionPrecision(versions[1]));
+      var chunks = versions.map(function (version) {
+          var delta = precision - getVersionPrecision(version);
+          return (version + new Array(delta + 1).join(".0")) // 2) "9" -> "9.0" (for precision = 2)
+              .split(".")
+              .map(function (chunk) { return new Array(10 - chunk.length).join("0") + chunk; })
+              .reverse();
+      });
+      // iterate in reverse order by reversed chunks array
+      while (--precision >= 0) {
+          // 5) compare: "000000009" > "000000010" = false (but "9" > "10" = true)
+          if (chunks[0][precision] > chunks[1][precision]) {
+              return 1;
+          }
+          else if (chunks[0][precision] === chunks[1][precision]) {
+              if (precision === 0) {
+                  // all version chunks are same
+                  return 0;
+              }
+          }
+          else {
+              return -1;
+          }
+      }
+  }
+
+  /**
+   * Check if browser is unsupported
+   * @example
+   *   bowser.check({
+   *     msie: "10",
+   *     firefox: "23",
+   *     chrome: "29",
+   *     safari: "5.1",
+   *     opera: "16",
+   *     phantom: "534"
+   *   });
+   */
+  function isUnsupportedBrowser(minVersions, strictMode) {
+      if (strictMode === void 0) { strictMode = false; }
+      var version = "" + bowser.version;
+      for (var browser in minVersions) {
+          if (minVersions.hasOwnProperty(browser)) {
+              if (bowser[browser]) {
+                  // browser version and min supported version.
+                  if (compareVersions([version, minVersions[browser]]) < 0) {
+                      return true; // unsupported
+                  }
+              }
+          }
+      }
+      return true && !strictMode; // not found
+  }
+
+  bowser.isUnsupportedBrowser = isUnsupportedBrowser;
+  bowser.compareVersions = compareVersions;
 
   /*
    * Set our detect method to the main bowser object so we can

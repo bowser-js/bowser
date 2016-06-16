@@ -529,6 +529,7 @@
 
   bowser.isUnsupportedBrowser = isUnsupportedBrowser;
   bowser.compareVersions = compareVersions;
+  bowser.check = check;
 
   /*
    * Set our detect method to the main bowser object so we can

@@ -496,7 +496,7 @@
    *     phantom: "534"
    *   });
    *
-   * @param  {Object}  minVersions minVersions map of minimal version to browser
+   * @param  {Object}  minVersions map of minimal version to browser
    * @param  {Boolean} strictMode flag to return false if browser wasn't found in map
    * @return {Boolean}
    */

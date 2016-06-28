@@ -448,7 +448,7 @@
    *   compareVersions(['1.10.2.1',  '1.0800.2']);     // -1
    *
    * @param  {Array<String>} versions versions to compare
-   * @return {Number} comparision result
+   * @return {Number} comparison result
    */
   function compareVersions(versions) {
       // 1) get common precision for both versions, for example for "10.0" and "9" it should be 2

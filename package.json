@@ -27,7 +27,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "make test"
+    "test": "make test",
+    "prepublish": "make boosh"
   },
   "license": "MIT"
 }

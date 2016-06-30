@@ -7,3 +7,5 @@
 - [FEATURE] Add `bowser.isUnsupportedBrowser` method
 - [FEATURE] Add `bowser.check` method
 - [DOC] Changelog started
+- [DOC] Add API section to README
+- [FIX] Fix detection of browser type (A/C/X) for Chromium 

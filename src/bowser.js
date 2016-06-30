@@ -377,6 +377,7 @@
         (result.opera && result.version >= 10.0) ||
         (result.ios && result.osversion && result.osversion.split(".")[0] >= 6) ||
         (result.blackberry && result.version >= 10.1)
+        || (result.chromium && result.version >= 20)
         ) {
       result.a = t;
     }
@@ -386,6 +387,7 @@
         (result.safari && result.version < 6) ||
         (result.opera && result.version < 10.0) ||
         (result.ios && result.osversion && result.osversion.split(".")[0] < 6)
+        || (result.chromium && result.version < 20)
         ) {
       result.c = t
     } else result.x = t

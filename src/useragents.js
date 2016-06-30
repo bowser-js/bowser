@@ -1245,7 +1245,14 @@ module.exports.useragents = {
       , chromium: true
       , version: '35.0'
       , blink: true
-      , x: true
+      , a: true
+    }
+    , 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/50.0.2661.102 Chrome/50.0.2661.102 Safari/537.36': {
+      chromium: true
+      , a: true
+      , version: '50.0'
+      , linux: true
+      , blink: true
     }
   }
   , 'SlimerJS' : {

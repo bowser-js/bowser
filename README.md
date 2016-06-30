@@ -18,6 +18,44 @@ Also you can download minified file from [the release page](https://github.com/d
 ## 1.0.0 breaking changes
 `browser = require('bowser').browser;` becomes `browser = require('bowser');`
 
+---
+
+## API
+
+### bowser()`:Object`
+Use it to get object with detected flags of your current browser.
+
+### bowser._detect(ua `:String`)`:Object`
+Use it to get object with detected flags from User Agent string.
+
+### bowser.check(minVersions`:Object`, strictMode`:Boolean`)`:Boolean`
+Use it to check if browser supported.
+
+```
+browser.check({msie: "11"}, window.navigator.userAgent);
+// true / false
+```
+
+### bowser.compareVersions(versions`:Array<String>`)`:Number`
+Use it to compare two versions.
+
+```
+browser.compareVersions(['9.0', '10']);
+// -1
+```
+
+### bowser.isUnsupportedBrowser(minVersions`:Object`, [strictMode]`:Boolean`, [ua]`:string`)`:Boolean`
+Use it to check if browser is unsupported.
+
+```
+browser.isUnsupportedBrowser({msie: "10"}, window.navigator.userAgent);
+// true / false
+```
+
+See more examples in [tests](test/test.js).
+
+---
+
 ## Bowser Flags
 Your mileage may vary, but these flags should be set.  See Contributing below.
 

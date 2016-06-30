@@ -377,6 +377,7 @@
         (result.opera && result.version >= 10.0) ||
         (result.ios && result.osversion && result.osversion.split(".")[0] >= 6) ||
         (result.blackberry && result.version >= 10.1)
+        || (result.chromium && result.version >= 20)
         ) {
       result.a = t;
     }
@@ -386,6 +387,7 @@
         (result.safari && result.version < 6) ||
         (result.opera && result.version < 10.0) ||
         (result.ios && result.osversion && result.osversion.split(".")[0] < 6)
+        || (result.chromium && result.version < 20)
         ) {
       result.c = t
     } else result.x = t
@@ -406,6 +408,145 @@
     }
     return false;
   }
+
+  /**
+   * Get version precisions count
+   *
+   * @example
+   *   getVersionPrecision("1.10.3") // 3
+   *
+   * @param  {string} version
+   * @return {number}
+   */
+  function getVersionPrecision(version) {
+      return version.split(".").length;
+  }
+
+  /**
+   * Array::map polyfill
+   *
+   * @param  {Array} arr
+   * @param  {Function} iterator
+   * @return {Array}
+   */
+  function map(arr, iterator) {
+    var result = [], i;
+    if (Array.prototype.map) {
+      return Array.prototype.map.call(arr, iterator);
+    }
+    for (i = 0; i < arr.length; i++) {
+      result = iterator(arr[i]);
+    }
+    return result;
+  }
+
+  /**
+   * Calculate browser version weight
+   *
+   * @example
+   *   compareVersions(['1.10.2.1',  '1.8.2.1.90'])    // 1
+   *   compareVersions(['1.010.2.1', '1.09.2.1.90']);  // 1
+   *   compareVersions(['1.10.2.1',  '1.10.2.1']);     // 0
+   *   compareVersions(['1.10.2.1',  '1.0800.2']);     // -1
+   *
+   * @param  {Array<String>} versions versions to compare
+   * @return {Number} comparison result
+   */
+  function compareVersions(versions) {
+      // 1) get common precision for both versions, for example for "10.0" and "9" it should be 2
+      var precision = Math.max(getVersionPrecision(versions[0]), getVersionPrecision(versions[1]));
+      var chunks = map(versions, function (version) {
+        var delta = precision - getVersionPrecision(version);
+
+        // 2) "9" -> "9.0" (for precision = 2)
+        version = version + new Array(delta + 1).join(".0");
+
+        // 3) "9.0" -> ["000000000"", "000000009"]
+        return map(version.split("."), function (chunk) {
+          return new Array(20 - chunk.length).join("0") + chunk;
+        }).reverse();
+      });
+
+      // iterate in reverse order by reversed chunks array
+      while (--precision >= 0) {
+          // 4) compare: "000000009" > "000000010" = false (but "9" > "10" = true)
+          if (chunks[0][precision] > chunks[1][precision]) {
+              return 1;
+          }
+          else if (chunks[0][precision] === chunks[1][precision]) {
+              if (precision === 0) {
+                  // all version chunks are same
+                  return 0;
+              }
+          }
+          else {
+              return -1;
+          }
+      }
+  }
+
+  /**
+   * Check if browser is unsupported
+   *
+   * @example
+   *   bowser.isUnsupportedBrowser({
+   *     msie: "10",
+   *     firefox: "23",
+   *     chrome: "29",
+   *     safari: "5.1",
+   *     opera: "16",
+   *     phantom: "534"
+   *   });
+   *
+   * @param  {Object}  minVersions map of minimal version to browser
+   * @param  {Boolean} [strictMode = false] flag to return false if browser wasn't found in map
+   * @param  {String}  [ua] user agent string
+   * @return {Boolean}
+   */
+  function isUnsupportedBrowser(minVersions, strictMode, ua) {
+      var _bowser = bowser;
+
+      // make strictMode param optional with ua param usage
+      if (typeof strictMode === 'string') {
+        ua = strictMode;
+        strictMode = void(0);
+      }
+
+      if (strictMode === void(0)) {
+        strictMode = false;
+      }
+      if (ua) {
+        _bowser = detect(ua);
+      }
+
+      var version = "" + _bowser.version;
+      for (var browser in minVersions) {
+          if (minVersions.hasOwnProperty(browser)) {
+              if (_bowser[browser]) {
+                  // browser version and min supported version.
+                  if (compareVersions([version, minVersions[browser]]) < 0) {
+                      return true; // unsupported
+                  }
+              }
+          }
+      }
+      return strictMode; // not found
+  }
+
+  /**
+   * Check if browser is supported
+   *
+   * @param  {Object} minVersions map of minimal version to browser
+   * @param  {Boolean} [strictMode = false] flag to return false if browser wasn't found in map
+   * @return {Boolean}
+   */
+  function check(minVersions, strictMode) {
+    return !isUnsupportedBrowser(minVersions, strictMode);
+  }
+
+  bowser.isUnsupportedBrowser = isUnsupportedBrowser;
+  bowser.compareVersions = compareVersions;
+  bowser.check = check;
 
   /*
    * Set our detect method to the main bowser object so we can

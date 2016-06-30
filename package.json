@@ -7,7 +7,7 @@
     "sniff",
     "detection"
   ],
-  "version": "1.3.0",
+  "version": "1.4.0",
   "homepage": "https://github.com/ded/bowser",
   "author": "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)",
   "main": "./src/bowser.js",
@@ -27,7 +27,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "make test"
+    "test": "make test",
+    "prepublish": "make boosh"
   },
   "license": "MIT"
 }

@@ -73,3 +73,58 @@ for (g in allUserAgents) { (function(group, userAgents) {
 
   })
 })(g, allUserAgents[g])}
+
+var comparisionsTasks = [
+  ['9.0', '10', -1],
+  ['11', '10', 1],
+  ['1.10.2.1',  '1.8.2.1.90', 1],
+  ['1.010.2.1', '1.08.2.1.90', 1],
+  ['1.10.2.1', '1.10.2.1', 0],
+  ['1.10.2.1', '1.0800.2', -1],
+  ['1.0.0-alpha', '1.0.0-alpha.1', -1],
+  ['1.0.0-alpha.1', '1.0.0-alpha.beta', -1],
+  ['1.0.0-alpha.beta', '1.0.0-beta', -1],
+  ['1.0.0-beta', '1.0.0-beta.2', -1],
+  ['1.0.0-beta.11', '1.0.0-rc.1', -1],
+  ['1.0.0-rc.1', '1.0.0', -1]
+];
+
+describe('Browser versions comparision', function() {
+  for(g in comparisionsTasks) {
+    var task = comparisionsTasks[g],
+        version = task[0],
+        version2 = task[1],
+        matching = task[2] === 0 ? ' == ' : (task[2] > 0) ? ' > ' : ' < ';
+    it('version ' + version + ' should be' + matching + 'version ' + version2, function(){
+      assert.equal(browser.compareVersions([version, version2]), task[2]);
+    });
+  }
+});
+
+describe('Unsupported browser check', function() {
+
+  before(function() {
+    this.ie10_6 = "Mozilla/5.0 (compatible; MSIE 10.6; Windows NT 6.1; Trident/5.0; InfoPath.2; SLCC1; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET CLR 2.0.50727) 3gpp-gba UNTRUSTED/1.0";
+  });
+
+  it('should be passed by #isUnsupportedBrowser for IE10.6 and for IE10 miminal version specified', function() {
+    var unsupported = browser.isUnsupportedBrowser({msie: "10"}, this.ie10_6);
+    assert.equal(unsupported, false);
+  });
+
+  it('should NOT be passed by #check for IE10.6 and for IE11 miminal version specified', function() {
+    var supported = browser.check({msie: "11"}, this.ie10_6);
+    assert.equal(supported, false);
+  });
+
+  it('should be passed by #check for IE10.6 when version was not specified', function() {
+    var supported = browser.check({}, this.ie10_6);
+    assert.equal(supported, true);
+  });
+
+  it('should NOT be passed by #check for IE10.6 when version was not specified in strict mode', function() {
+    var supported = browser.check({}, true, this.ie10_6);
+    assert.equal(supported, false);
+  });
+
+})

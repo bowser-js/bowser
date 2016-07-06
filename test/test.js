@@ -112,8 +112,18 @@ describe('Unsupported browser check', function() {
     assert.equal(unsupported, false);
   });
 
+  it('should be passed by #isUnsupportedBrowser for IE10.6 and for IE10 miminal version specified in strict mode', function() {
+    var unsupported = browser.isUnsupportedBrowser({msie: "10"}, true, this.ie10_6);
+    assert.equal(unsupported, false);
+  });
+
   it('should NOT be passed by #check for IE10.6 and for IE11 miminal version specified', function() {
     var supported = browser.check({msie: "11"}, this.ie10_6);
+    assert.equal(supported, false);
+  });
+
+  it('should NOT be passed by #check for IE10.6 and for IE11 miminal version specified in strict mode', function() {
+    var supported = browser.check({msie: "11"}, true, this.ie10_6);
     assert.equal(supported, false);
   });
 

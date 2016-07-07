@@ -529,9 +529,7 @@
       }
     }
 
-    if (strictMode) {
-      return false; // not found
-    }
+    return strictMode; // not found
   }
 
   /**
@@ -539,6 +537,7 @@
    *
    * @param  {Object} minVersions map of minimal version to browser
    * @param  {Boolean} [strictMode = false] flag to return false if browser wasn't found in map
+   * @param  {String}  [ua] user agent string
    * @return {Boolean}
    */
   function check(minVersions, strictMode, ua) {

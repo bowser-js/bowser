@@ -1,5 +1,8 @@
 # Bowser Changelog
 
+### 1.4.1 (July 7, 2016)
+
+- [FIX] Fix `strictMode` logic for `isUnsupportedBrowser`
 
 ### 1.4.0 (June 28, 2016)
 

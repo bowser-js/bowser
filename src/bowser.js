@@ -528,7 +528,10 @@
               }
           }
       }
-      return strictMode; // not found
+    
+    if (strictMode) {
+      return false; // not found
+    }
   }
 
   /**

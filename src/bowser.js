@@ -529,9 +529,7 @@
       }
     }
 
-    if (strictMode) {
-      return false; // not found
-    }
+    return strictMode; // not found
   }
 
   /**

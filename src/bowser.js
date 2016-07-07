@@ -419,7 +419,7 @@
    * @return {number}
    */
   function getVersionPrecision(version) {
-      return version.split(".").length;
+    return version.split(".").length;
   }
 
   /**
@@ -453,36 +453,36 @@
    * @return {Number} comparison result
    */
   function compareVersions(versions) {
-      // 1) get common precision for both versions, for example for "10.0" and "9" it should be 2
-      var precision = Math.max(getVersionPrecision(versions[0]), getVersionPrecision(versions[1]));
-      var chunks = map(versions, function (version) {
-        var delta = precision - getVersionPrecision(version);
+    // 1) get common precision for both versions, for example for "10.0" and "9" it should be 2
+    var precision = Math.max(getVersionPrecision(versions[0]), getVersionPrecision(versions[1]));
+    var chunks = map(versions, function (version) {
+      var delta = precision - getVersionPrecision(version);
 
-        // 2) "9" -> "9.0" (for precision = 2)
-        version = version + new Array(delta + 1).join(".0");
+      // 2) "9" -> "9.0" (for precision = 2)
+      version = version + new Array(delta + 1).join(".0");
 
-        // 3) "9.0" -> ["000000000"", "000000009"]
-        return map(version.split("."), function (chunk) {
-          return new Array(20 - chunk.length).join("0") + chunk;
-        }).reverse();
-      });
+      // 3) "9.0" -> ["000000000"", "000000009"]
+      return map(version.split("."), function (chunk) {
+        return new Array(20 - chunk.length).join("0") + chunk;
+      }).reverse();
+    });
 
-      // iterate in reverse order by reversed chunks array
-      while (--precision >= 0) {
-          // 4) compare: "000000009" > "000000010" = false (but "9" > "10" = true)
-          if (chunks[0][precision] > chunks[1][precision]) {
-              return 1;
-          }
-          else if (chunks[0][precision] === chunks[1][precision]) {
-              if (precision === 0) {
-                  // all version chunks are same
-                  return 0;
-              }
-          }
-          else {
-              return -1;
-          }
+    // iterate in reverse order by reversed chunks array
+    while (--precision >= 0) {
+      // 4) compare: "000000009" > "000000010" = false (but "9" > "10" = true)
+      if (chunks[0][precision] > chunks[1][precision]) {
+        return 1;
       }
+      else if (chunks[0][precision] === chunks[1][precision]) {
+        if (precision === 0) {
+          // all version chunks are same
+          return 0;
+        }
+      }
+      else {
+        return -1;
+      }
+    }
   }
 
   /**
@@ -504,33 +504,32 @@
    * @return {Boolean}
    */
   function isUnsupportedBrowser(minVersions, strictMode, ua) {
-      var _bowser = bowser;
+    var _bowser = bowser;
 
-      // make strictMode param optional with ua param usage
-      if (typeof strictMode === 'string') {
-        ua = strictMode;
-        strictMode = void(0);
-      }
+    // make strictMode param optional with ua param usage
+    if (typeof strictMode === 'string') {
+      ua = strictMode;
+      strictMode = void(0);
+    }
 
-      if (strictMode === void(0)) {
-        strictMode = false;
-      }
-      if (ua) {
-        _bowser = detect(ua);
-      }
+    if (strictMode === void(0)) {
+      strictMode = false;
+    }
+    if (ua) {
+      _bowser = detect(ua);
+    }
 
-      var version = "" + _bowser.version;
-      for (var browser in minVersions) {
-          if (minVersions.hasOwnProperty(browser)) {
-              if (_bowser[browser]) {
-                  // browser version and min supported version.
-                  if (compareVersions([version, minVersions[browser]]) < 0) {
-                      return true; // unsupported
-                  }
-              }
-          }
+    var version = "" + _bowser.version;
+    for (var browser in minVersions) {
+      if (minVersions.hasOwnProperty(browser)) {
+        if (_bowser[browser]) {
+          // browser version and min supported version.
+          return compareVersions([version, minVersions[browser]]) < 0;
+        }
       }
-      return strictMode; // not found
+    }
+
+    return strictMode; // not found
   }
 
   /**
@@ -538,10 +537,11 @@
    *
    * @param  {Object} minVersions map of minimal version to browser
    * @param  {Boolean} [strictMode = false] flag to return false if browser wasn't found in map
+   * @param  {String}  [ua] user agent string
    * @return {Boolean}
    */
-  function check(minVersions, strictMode) {
-    return !isUnsupportedBrowser(minVersions, strictMode);
+  function check(minVersions, strictMode, ua) {
+    return !isUnsupportedBrowser(minVersions, strictMode, ua);
   }
 
   bowser.isUnsupportedBrowser = isUnsupportedBrowser;

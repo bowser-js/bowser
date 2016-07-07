@@ -524,9 +524,7 @@
           if (minVersions.hasOwnProperty(browser)) {
               if (_bowser[browser]) {
                   // browser version and min supported version.
-                  if (compareVersions([version, minVersions[browser]]) < 0) {
-                      return true; // unsupported
-                  }
+                  return compareVersions([version, minVersions[browser]]) < 0;
               }
           }
       }
@@ -540,8 +538,8 @@
    * @param  {Boolean} [strictMode = false] flag to return false if browser wasn't found in map
    * @return {Boolean}
    */
-  function check(minVersions, strictMode) {
-    return !isUnsupportedBrowser(minVersions, strictMode);
+  function check(minVersions, strictMode, ua) {
+    return !isUnsupportedBrowser(minVersions, strictMode, ua);
   }
 
   bowser.isUnsupportedBrowser = isUnsupportedBrowser;

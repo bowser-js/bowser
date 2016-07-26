@@ -28,7 +28,7 @@ Use it to get object with detected flags of your current browser.
 ### bowser._detect(ua `:String`)`:Object`
 Use it to get object with detected flags from User Agent string.
 
-### bowser.check(minVersions`:Object`, strictMode`:Boolean`)`:Boolean`
+### bowser.check(minVersions`:Object`, strictMode`:Boolean`, [ua]`:String`)`:Boolean`
 Use it to check if browser supported.
 
 ```

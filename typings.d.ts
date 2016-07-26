@@ -40,6 +40,7 @@ export const windows: boolean
 export const windowsphone: boolean
 
 export function test(browserList: Flag[]): boolean
+export function isUnsupportedBrowser(minVersions:Object, strictMode?:Boolean, ua?:string): boolean
 
 export type Flag = "a" | "b" | "c" | "android" | "bada" | "blackberry"
                  | "chrome" | "firefox" | "gecko" | "ios" | "msie"

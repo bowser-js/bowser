@@ -1,5 +1,11 @@
 # Bowser Changelog
 
+
+### 1.4.2 (July 26, 2016)
+
+- [FIX] Fix missing `isUnsupportedBrowser` in typings description
+- [DOC] Fix `check`'s declaration in README
+
 ### 1.4.1 (July 7, 2016)
 
 - [FIX] Fix `strictMode` logic for `isUnsupportedBrowser`

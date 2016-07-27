@@ -1,5 +1,8 @@
 # Bowser Changelog
 
+### 1.4.3 (July 27, 2016)
+
+- [FIX] Fix error `Object doesn't support this property or method` on IE8
 
 ### 1.4.2 (July 26, 2016)
 

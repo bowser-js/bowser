@@ -1,5 +1,9 @@
 # Bowser Changelog
 
+### 1.4.4 (August 10, 2016)
+
+- [FIX] Fix AMD `define` call — pass name to the function
+
 ### 1.4.3 (July 27, 2016)
 
 - [FIX] Fix error `Object doesn't support this property or method` on IE8

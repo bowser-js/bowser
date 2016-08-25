@@ -16,7 +16,7 @@ We don't save built script in the repo anymore. The main file (`src/bowser.js`) 
 Also you can download minified file from [the release page](https://github.com/ded/bowser/releases).
 
 ## 1.0.0 breaking changes
-`browser = require('bowser').browser;` becomes `browser = require('bowser');`
+`bowser = require('bowser').bowser;` becomes `bowser = require('bowser');`
 
 ---
 
@@ -32,7 +32,7 @@ Use it to get object with detected flags from User Agent string.
 Use it to check if browser supported.
 
 ```
-browser.check({msie: "11"}, window.navigator.userAgent);
+bowser.check({msie: "11"}, window.navigator.userAgent);
 // true / false
 ```
 
@@ -40,7 +40,7 @@ browser.check({msie: "11"}, window.navigator.userAgent);
 Use it to compare two versions.
 
 ```
-browser.compareVersions(['9.0', '10']);
+bowser.compareVersions(['9.0', '10']);
 // -1
 ```
 
@@ -48,7 +48,7 @@ browser.compareVersions(['9.0', '10']);
 Use it to check if browser is unsupported.
 
 ```
-browser.isUnsupportedBrowser({msie: "10"}, window.navigator.userAgent);
+bowser.isUnsupportedBrowser({msie: "10"}, window.navigator.userAgent);
 // true / false
 ```
 

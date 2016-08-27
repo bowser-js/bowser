@@ -1264,4 +1264,15 @@ module.exports.useragents = {
       , x: true
     }
   }
+  , 'Samsung Internet for Android' : {
+    'Mozilla/5.0 (Linux; Android 5.0.2; SAMSUNG SM-G925F Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/4.0 Chrome/44.0.2403.133 Mobile Safari/537.36': {
+      mobile: true
+      , android: true
+      , osversion: '5.0.2'
+      , samsungBrowser: true
+      , version: '4.0'
+      , a: true
+      , blink: true
+    }
+  }
 }

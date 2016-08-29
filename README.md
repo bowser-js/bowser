@@ -119,6 +119,7 @@ If detected, one of these flags may be set to true.  The rendering engine flag i
   * `android` - native browser - [`webkit`|`blink`]
   * `ios` - native browser - [`webkit`]
   * `opera` - [`blink` if >=15]
+  * `samsungBrowser` - [`blink`]
   * `phantom` - [`webkit`]
   * `blackberry` - native browser - [`webkit`]
   * `webos` - native browser - [`webkit`]

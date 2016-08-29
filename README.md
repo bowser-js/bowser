@@ -41,12 +41,12 @@ browser.check({msie: "9.0"}); // false
 /**
  * specific user agent
  */ 
-browser.check({chome: 45}, window.navigator.userAgent); // true
+browser.check({chrome: 45}, window.navigator.userAgent); // true
 
 /**
  * but false in strict mode
  */
-browser.check({chome: 45}, true, window.navigator.userAgent); // false
+browser.check({chrome: 45}, true, window.navigator.userAgent); // false
 ```
 
 ### bowser.compareVersions(versions`:Array<String>`)`:Number`

@@ -16,7 +16,7 @@ We don't save built script in the repo anymore. The main file (`src/bowser.js`) 
 Also you can download minified file from [the release page](https://github.com/ded/bowser/releases).
 
 ## 1.0.0 breaking changes
-`browser = require('bowser').browser;` becomes `browser = require('bowser');`
+`browser = require('bowser').browser;` becomes `bowser = require('bowser');`
 
 ---
 
@@ -31,24 +31,37 @@ Use it to get object with detected flags from User Agent string.
 ### bowser.check(minVersions`:Object`, strictMode`:Boolean`, [ua]`:String`)`:Boolean`
 Use it to check if browser supported.
 
-```
-browser.check({msie: "11"}, window.navigator.userAgent);
-// true / false
+``` js
+/**
+ * in case of using IE10
+ */
+bowser.check({msie: "11"});  // true
+bowser.check({msie: "9.0"}); // false
+
+/**
+ * specific user agent
+ */ 
+bowser.check({chrome: 45}, window.navigator.userAgent); // true
+
+/**
+ * but false in strict mode
+ */
+bowser.check({chrome: 45}, true, window.navigator.userAgent); // false
 ```
 
 ### bowser.compareVersions(versions`:Array<String>`)`:Number`
 Use it to compare two versions.
 
-```
-browser.compareVersions(['9.0', '10']);
+``` js
+bowser.compareVersions(['9.0', '10']);
 // -1
 ```
 
 ### bowser.isUnsupportedBrowser(minVersions`:Object`, [strictMode]`:Boolean`, [ua]`:string`)`:Boolean`
 Use it to check if browser is unsupported.
 
-```
-browser.isUnsupportedBrowser({msie: "10"}, window.navigator.userAgent);
+``` js
+bowser.isUnsupportedBrowser({msie: "10"}, window.navigator.userAgent);
 // true / false
 ```
 
@@ -106,6 +119,7 @@ If detected, one of these flags may be set to true.  The rendering engine flag i
   * `android` - native browser - [`webkit`|`blink`]
   * `ios` - native browser - [`webkit`]
   * `opera` - [`blink` if >=15]
+  * `samsungBrowser` - [`blink`]
   * `phantom` - [`webkit`]
   * `blackberry` - native browser - [`webkit`]
   * `webos` - native browser - [`webkit`]

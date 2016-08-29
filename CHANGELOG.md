@@ -1,5 +1,12 @@
 # Bowser Changelog
 
+### 1.4.5 (August 30, 2016)
+
+- [FIX] Add support of Samsung Internet for Android
+- [FIX] Fix case when `navigator.userAgent` is `undefined`
+- [DOC] Add information about `strictMode` in `check` function
+- [DOC] Consistent use of `bowser` variable in the README
+
 ### 1.4.4 (August 10, 2016)
 
 - [FIX] Fix AMD `define` call — pass name to the function

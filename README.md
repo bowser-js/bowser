@@ -16,7 +16,7 @@ We don't save built script in the repo anymore. The main file (`src/bowser.js`) 
 Also you can download minified file from [the release page](https://github.com/ded/bowser/releases).
 
 ## 1.0.0 breaking changes
-`browser = require('bowser').browser;` becomes `browser = require('bowser');`
+`browser = require('bowser').browser;` becomes `bowser = require('bowser');`
 
 ---
 
@@ -28,32 +28,32 @@ Use it to get object with detected flags of your current browser.
 ### bowser._detect(ua `:String`)`:Object`
 Use it to get object with detected flags from User Agent string.
 
-### bowser.check(minVersions`:Object`, [strictMode]`:Boolean`, [ua]`:String`)`:Boolean`
+### bowser.check(minVersions`:Object`, strictMode`:Boolean`, [ua]`:String`)`:Boolean`
 Use it to check if browser supported.
 
 ``` js
 /**
  * in case of using IE10
  */
-browser.check({msie: "11"});  // true
-browser.check({msie: "9.0"}); // false
+bowser.check({msie: "11"});  // true
+bowser.check({msie: "9.0"}); // false
 
 /**
  * specific user agent
  */ 
-browser.check({chrome: 45}, window.navigator.userAgent); // true
+bowser.check({chrome: 45}, window.navigator.userAgent); // true
 
 /**
  * but false in strict mode
  */
-browser.check({chrome: 45}, true, window.navigator.userAgent); // false
+bowser.check({chrome: 45}, true, window.navigator.userAgent); // false
 ```
 
 ### bowser.compareVersions(versions`:Array<String>`)`:Number`
 Use it to compare two versions.
 
 ``` js
-browser.compareVersions(['9.0', '10']);
+bowser.compareVersions(['9.0', '10']);
 // -1
 ```
 
@@ -61,7 +61,7 @@ browser.compareVersions(['9.0', '10']);
 Use it to check if browser is unsupported.
 
 ``` js
-browser.isUnsupportedBrowser({msie: "10"}, window.navigator.userAgent);
+bowser.isUnsupportedBrowser({msie: "10"}, window.navigator.userAgent);
 // true / false
 ```
 

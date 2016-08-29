@@ -38,6 +38,7 @@
       , tizen = /tizen/i.test(ua)
       , webos = /(web|hpw)os/i.test(ua)
       , windowsphone = /windows phone/i.test(ua)
+      , samsungBrowser = /SamsungBrowser/i.test(ua)
       , windows = !windowsphone && /windows/i.test(ua)
       , mac = !iosdevice && !silk && /macintosh/i.test(ua)
       , linux = !android && !sailfish && !tizen && !webos && /linux/i.test(ua)
@@ -53,6 +54,13 @@
         name: 'Opera'
       , opera: t
       , version: versionIdentifier || getFirstMatch(/(?:opera|opr|opios)[\s\/](\d+(\.\d+)?)/i)
+      }
+    }
+    else if (/SamsungBrowser/i.test(ua)) {
+      result = {
+        name: 'Samsung Internet for Android'
+        , samsungBrowser: t
+        , version: versionIdentifier || getFirstMatch(/(?:SamsungBrowser)[\s\/](\d+(\.\d+)?)/i)
       }
     }
     else if (/coast/i.test(ua)) {
@@ -372,6 +380,7 @@
         (result.yandexbrowser && result.version >= 15) ||
 		    (result.vivaldi && result.version >= 1.0) ||
         (result.chrome && result.version >= 20) ||
+        (result.samsungBrowser && result.version >= 4) ||
         (result.firefox && result.version >= 20.0) ||
         (result.safari && result.version >= 6) ||
         (result.opera && result.version >= 10.0) ||

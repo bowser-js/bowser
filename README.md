@@ -28,18 +28,31 @@ Use it to get object with detected flags of your current browser.
 ### bowser._detect(ua `:String`)`:Object`
 Use it to get object with detected flags from User Agent string.
 
-### bowser.check(minVersions`:Object`, strictMode`:Boolean`, [ua]`:String`)`:Boolean`
+### bowser.check(minVersions`:Object`, [strictMode]`:Boolean`, [ua]`:String`)`:Boolean`
 Use it to check if browser supported.
 
-```
-browser.check({msie: "11"}, window.navigator.userAgent);
-// true / false
+``` js
+/**
+ * in case of using IE10
+ */
+browser.check({msie: "11"});  // true
+browser.check({msie: "9.0"}); // false
+
+/**
+ * specific user agent
+ */ 
+browser.check({chome: 45}, window.navigator.userAgent); // true
+
+/**
+ * but false in strict mode
+ */
+browser.check({chome: 45}, true, window.navigator.userAgent); // false
 ```
 
 ### bowser.compareVersions(versions`:Array<String>`)`:Number`
 Use it to compare two versions.
 
-```
+``` js
 browser.compareVersions(['9.0', '10']);
 // -1
 ```
@@ -47,7 +60,7 @@ browser.compareVersions(['9.0', '10']);
 ### bowser.isUnsupportedBrowser(minVersions`:Object`, [strictMode]`:Boolean`, [ua]`:string`)`:Boolean`
 Use it to check if browser is unsupported.
 
-```
+``` js
 browser.isUnsupportedBrowser({msie: "10"}, window.navigator.userAgent);
 // true / false
 ```

@@ -395,7 +395,7 @@
     return result
   }
 
-  var bowser = detect(typeof navigator !== 'undefined' ? navigator.userAgent : '')
+  var bowser = detect(typeof navigator !== 'undefined' ? navigator.userAgent || '' : '')
 
   bowser.test = function (browserList) {
     for (var i = 0; i < browserList.length; ++i) {

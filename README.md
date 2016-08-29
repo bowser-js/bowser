@@ -46,7 +46,7 @@ browser.check({chome: 45}, window.navigator.userAgent); // true
 /**
  * but false in strict mode
  */
-browesr.check({chome: 45}, true, window.navigator.userAgent); // false
+browser.check({chome: 45}, true, window.navigator.userAgent); // false
 ```
 
 ### bowser.compareVersions(versions`:Array<String>`)`:Number`

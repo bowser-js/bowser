@@ -26,6 +26,8 @@ export const silk: boolean
 export const tizen: boolean
 export const webkit: boolean
 export const webos: boolean
+export const mobile: boolean
+export const tablet: boolean
 
 // operating systems
 export const chromeos: boolean

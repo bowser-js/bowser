@@ -308,6 +308,25 @@ module.exports.useragents = {
       , linux: true
       , c: true
       }
+    , 'Mozilla/5.0 (iPod touch; CPU iPhone OS 9_3_4 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) OPiOS/14.0.0.104835 Mobile/13G35 Safari/9537.53': {
+      opera: true
+      , version: '14.0'
+      , mobile: true
+      , ipod: true
+      , ios: true
+      , a: true
+      , osversion: '9.3.4'
+      , webkit: true
+    }
+    , 'Mozilla/5.0 (Linux; U; Android 6.0; R1 HD Build/MRA58K; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/52.0.2743.98 Mobile Safari/537.36 OPR/18.0.2254.106542': {
+      opera: true
+      , version: '18.0'
+      , blink: true
+      , mobile: true
+      , android: true
+      , a: true
+      , osversion: '6.0'
+    }
   }
   , 'Opera Coast': {
     'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Coast/5.02.99991 Mobile/13E238 Safari/7534.48.3': {

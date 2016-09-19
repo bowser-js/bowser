@@ -29,7 +29,7 @@ Use it to get object with detected flags of your current browser.
 Use it to get object with detected flags from User Agent string.
 
 ### bowser.check(minVersions`:Object`, strictMode`:Boolean`, [ua]`:String`)`:Boolean`
-Use it to check if browser supported.
+Use it to check if browser is supported. In default non-strict mode any browser family not present in `minVersions` will pass the check (like Chrome in the third call in the sample bellow). When strict mode is enabled then any not specified browser family in `minVersions` will cause `check` to return `false` (in the sample it is the fourth call, the last one).
 
 ``` js
 /**

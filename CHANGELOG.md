@@ -1,5 +1,10 @@
 # Bowser Changelog
 
+### 1.4.6 (September 19, 2016)
+- [FIX] Fix mobile Opera's version detection on Android
+- [FIX] Fix typescript typings — add `mobile` and `tablet` flags
+- [DOC] Fix description of `bowser.check`
+
 ### 1.4.5 (August 30, 2016)
 
 - [FIX] Add support of Samsung Internet for Android

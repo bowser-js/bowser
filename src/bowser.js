@@ -321,7 +321,7 @@
     }
 
     // set OS flags for platforms that have multiple browsers
-    if (!result.msedge && (android || result.silk)) {
+    if (!result.windowsphone && !result.msedge && (android || result.silk)) {
       result.android = t
     } else if (iosdevice) {
       result[iosdevice] = t

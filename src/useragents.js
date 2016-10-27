@@ -936,6 +936,14 @@ module.exports.useragents = {
       , mobile: true
       , a: true
       }
+    , 'Mozilla/5.0 (Mobile; Windows Phone 8.1; Android 4.0; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; Microsoft; Lumia 535)': {
+        windowsphone: true
+      , osversion: '8.1'
+      , msie: true
+      , version: '11.0'
+      , mobile: true
+      , a: true
+      }
     }
   , WebOS: {
       'Mozilla/5.0 (hp-tablet; Linux; hpwOS/3.0.5; U; en-US) AppleWebKit/534.6 (KHTML, like Gecko) wOSBrowser/234.83 Safari/534.6 TouchPad/1.0': {

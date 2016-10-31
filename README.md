@@ -41,12 +41,12 @@ bowser.check({msie: "9.0"}); // false
 /**
  * specific user agent
  */ 
-bowser.check({chrome: 45}, window.navigator.userAgent); // true
+bowser.check({chrome: "45"}, window.navigator.userAgent); // true
 
 /**
  * but false in strict mode
  */
-bowser.check({chrome: 45}, true, window.navigator.userAgent); // false
+bowser.check({chrome: "45"}, true, window.navigator.userAgent); // false
 ```
 
 ### bowser.compareVersions(versions`:Array<String>`)`:Number`

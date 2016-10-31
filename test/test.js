@@ -127,6 +127,12 @@ describe('Unsupported browser check', function() {
     assert.equal(supported, false);
   });
 
+  it('should throw an error when minVersion map has a number, but not a string', function() {
+    assert.throws(() => {
+      browser.check({msie: 11}, this.ie10_6);
+    }, /Browser version in the minVersion map should be a string/);
+  });
+
   it('should be passed by #check for IE10.6 when version was not specified', function() {
     var supported = browser.check({}, this.ie10_6);
     assert.equal(supported, true);

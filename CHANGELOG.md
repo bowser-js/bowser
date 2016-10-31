@@ -1,5 +1,9 @@
 # Bowser Changelog
 
+### 1.5.0 (October 31, 2016)
+- [ADD] Throw an error when `minVersion` map has not a string as a version and fix readme (#165)
+- [FIX] Fix truly detection of Windows Phones (#167) 
+
 ### 1.4.6 (September 19, 2016)
 - [FIX] Fix mobile Opera's version detection on Android
 - [FIX] Fix typescript typings — add `mobile` and `tablet` flags

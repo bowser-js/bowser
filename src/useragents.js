@@ -649,6 +649,18 @@ module.exports.useragents = {
       , version: '10.0'
       , a: true
       }
+    , 'Mozilla/5.0 (Windows NT 6.3; ARM; Trident/7.0; Touch; rv:11.0) like Gecko': {
+        msie: true
+      , version: '11.0'
+      , a: true
+      , windows: true
+      }
+    , 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; Touch; LCTE; rv:11.0)': {
+        msie: true
+      , version: '11.0'
+      , a: true
+      , windows: true
+      }
     }
   , 'Microsoft Edge': {
       'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0': {

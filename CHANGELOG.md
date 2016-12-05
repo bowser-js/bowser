@@ -1,5 +1,10 @@
 # Bowser Changelog
 
+### 1.6.0 (December 5, 2016)
+- [ADD] Add some tests for Windows devices (#89)
+- [ADD] Add `root` to initialization process (#170)
+- [FIX] Upgrade .travis.yml config
+
 ### 1.5.0 (October 31, 2016)
 - [ADD] Throw an error when `minVersion` map has not a string as a version and fix readme (#165)
 - [FIX] Fix truly detection of Windows Phones (#167) 

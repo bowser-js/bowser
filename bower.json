@@ -7,7 +7,7 @@
     "sniff",
     "detection"
   ],
-  "version": "1.4.6",
+  "version": "1.6.0",
   "homepage": "https://github.com/ded/bowser",
   "scripts": [
     "src/bowser.js"

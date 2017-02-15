@@ -22,7 +22,7 @@ Also you can download minified file from [the release page](https://github.com/d
 
 ## API
 
-### bowser()`:Object`
+### bowser`:Object`
 Use it to get object with detected flags of your current browser.
 
 ### bowser._detect(ua `:String`)`:Object`

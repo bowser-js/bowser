@@ -1,13 +1,17 @@
 {
   "name": "bowser",
-  "description": "a browser detector",
+  "description": "Lightweight browser detector",
   "keywords": [
-    "ender",
     "browser",
-    "sniff",
-    "detection"
+    "useragent",
+    "user-agent",
+    "parser",
+    "ua",
+    "detection",
+    "ender",
+    "sniff"
   ],
-  "version": "1.6.0",
+  "version": "1.6.1",
   "homepage": "https://github.com/ded/bowser",
   "scripts": [
     "src/bowser.js"

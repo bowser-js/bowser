@@ -19,4 +19,5 @@ test('test', t => {
 test('_parseBrowser', t => {
   const b = parser._parseBrowser();
   t.is(b.name, 'Opera');
+  t.is(b.version, '43.0.2442.1165');
 });

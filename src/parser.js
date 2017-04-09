@@ -30,13 +30,9 @@ class Parser {
    * Get parsed browser object
    * @return {Object}
    *
-   * @public
+   * @private
    */
-  parseBrowser() {
-    if (this.parsedResult.browser) {
-      return this.parsedResult.browser;
-    }
-
+  _parseBrowser() {
     this.parsedResult.browser = {};
 
     const browser = browsersList.find((browser) => {
@@ -48,6 +44,20 @@ class Parser {
     }
 
     return this.parsedResult.browser;
+  }
+
+  /**
+   * Get parsed browser object
+   * @return {Object}
+   *
+   * @public
+   */
+  getBrowser() {
+    if (this.parsedResult.browser) {
+      return this.parsedResult.browser;
+    }
+
+    return this._parseBrowser();
   }
 
   /**

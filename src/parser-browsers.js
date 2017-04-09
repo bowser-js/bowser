@@ -1,5 +1,6 @@
 import {
-  getFirstMatch
+  getFirstMatch,
+  getSecondMatch
 } from './utils';
 
 const commonVersionIdentifier = /version\/(\d+(\.\d+)?)/i;
@@ -213,7 +214,7 @@ const browsersList = [
   {
     test: [/blackberry|\bbb\d+/i, /rim\stablet/i],
     detect(ua) {
-      const version = commonVersionIdentifier || getFirstMatch(/blackberry[\d]+\/(\d+(\.\d+)?)/i, ua);
+      const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/blackberry[\d]+\/(\d+(\.\d+)?)/i, ua);
 
       return {
         name: 'BlackBerry',
@@ -224,7 +225,7 @@ const browsersList = [
   {
     test: [/(web|hpw)os/i],
     detect(ua) {
-      const version = commonVersionIdentifier || getFirstMatch(/w(?:eb)?osbrowser\/(\d+(\.\d+)?)/i, ua);
+      const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/w(?:eb)?osbrowser\/(\d+(\.\d+)?)/i, ua);
 
       return {
         name: 'WebOS Browser',
@@ -246,7 +247,7 @@ const browsersList = [
   {
     test: [/tizen/i],
     detect(ua) {
-      const version = getFirstMatch(/(?:tizen\s?)?browser\/(\d+(\.\d+)?)/i, ua) || commonVersionIdentifier;
+      const version = getFirstMatch(/(?:tizen\s?)?browser\/(\d+(\.\d+)?)/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
 
       return {
         name: 'Tizen',
@@ -257,7 +258,7 @@ const browsersList = [
   {
     test: [/qupzilla/i],
     detect(ua) {
-      const version = getFirstMatch(/(?:qupzilla)[\s\/](\d+(?:\.\d+)+)/i, ua) || commonVersionIdentifier;
+      const version = getFirstMatch(/(?:qupzilla)[\s\/](\d+(?:\.\d+)+)/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
 
       return {
         name: 'QupZilla',
@@ -268,7 +269,7 @@ const browsersList = [
   {
     test: [/chromium/i],
     detect(ua) {
-      const version = getFirstMatch(/(?:chromium)[\s\/](\d+(?:\.\d+)?)/i, ua) || commonVersionIdentifier;
+      const version = getFirstMatch(/(?:chromium)[\s\/](\d+(?:\.\d+)?)/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
 
       return {
         name: 'Chromium',
@@ -287,31 +288,60 @@ const browsersList = [
       }
     }
   },
+
+  /* Android Browser */
   {
     test(parser) {
-      const UA = parser.getUA();
-      return UA.test(/^((?!like android).)*$/i);
+      const notLikeAndroid = !parser.test(/^((?!like android).)*$/i);
+      const butAndroid = parser.test(/android/i);
+      return notLikeAndroid && butAndroid;
     },
     detect(ua) {
-      const version = /phantomjs\/(\d+(\.\d+)?)/i;
+      const version = getFirstMatch(commonVersionIdentifier, ua);
 
       return {
-        name: 'PhantomJS',
+        name: 'Android Browser',
         version
       }
     }
   },
+
+  /* Safari */
   {
-    test: [/phantom/i],
+    test: [/safari|applewebkit/i],
     detect(ua) {
-      const version = /phantomjs\/(\d+(\.\d+)?)/i;
+      const version = getFirstMatch(commonVersionIdentifier, ua);
 
       return {
-        name: 'PhantomJS',
+        name: 'Safari',
         version
       }
     }
   },
+
+  /* Googlebot */
+  {
+    test: [/googlebot/i],
+    detect(ua) {
+      const version = getFirstMatch(/googlebot\/(\d+(\.\d+))/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
+
+      return {
+        name: 'Googlebot',
+        version
+      }
+    }
+  },
+
+  /* Something else */
+  {
+    test: [/.*/i],
+    detect(ua) {
+      return {
+        name: getFirstMatch(/^(.*)\/(.*) /, ua),
+        version: getSecondMatch(/^(.*)\/(.*) /, ua)
+      };
+    }
+  }
 ];
 
 export default browsersList;

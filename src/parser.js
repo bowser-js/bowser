@@ -35,12 +35,22 @@ class Parser {
   _parseBrowser() {
     this.parsedResult.browser = {};
 
-    const browser = browsersList.find((browser) => {
-      return browser.test(this);
+    const browser = browsersList.find(_browser => {
+      if (typeof _browser.test === 'function') {
+        return _browser.test(this);
+      }
+
+      if (_browser.test instanceof Array) {
+        return _browser.test.some((condition) => {
+          return this.test(condition);
+        });
+      }
+
+      throw new Error("Browser's test function is not valid");
     });
 
     if (browser) {
-      this.parsedResult.browser = browser.parse(this.getUA());
+      this.parsedResult.browser = browser.detect(this.getUA());
     }
 
     return this.parsedResult.browser;

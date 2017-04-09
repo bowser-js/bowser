@@ -15,3 +15,8 @@ test('getUA', t => {
 test('test', t => {
   t.truthy(parser.test(/Chrome/i));
 });
+
+test('_parseBrowser', t => {
+  const b = parser._parseBrowser();
+  t.is(b.name, 'Opera');
+});

@@ -13,6 +13,7 @@ class Utils {
   /**
    * Get second matched item for a string
    * @param regexp
+   * @param {String} ua
    * @return {Array|{index: number, input: string}|*|boolean|string}
    */
   static getSecondMatch(regexp, ua) {

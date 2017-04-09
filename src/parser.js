@@ -1,19 +1,62 @@
-var browsers = require('./parser-browsers');
+import browsersList from './parser-browsers';
 
 class Parser {
+  /**
+   * Create instance of Parser
+   * @param UA
+   * @throw
+   * @constructor
+   */
   constructor(UA) {
-    this._ua = UA;
-    this.result = {};
-  }
-
-  parseBrowser() {
-    if (this.result.browser) {
-      return this.result.browser;
+    if (UA === void(0) || UA === null || UA === '') {
+      throw new Error("UserAgent parameter can't be empty");
     }
 
-    const browser = browsers.find((browser) => {
-      return browser.test.some((result, item) => { item.test(this._ua)});
+    this._ua = UA;
+    this.parsedResult = {};
+  }
+
+  /**
+   * Get UserAgent string of current Parser instance
+   * @return {String}
+   *
+   * @public
+   */
+  getUA() {
+    return this._ua;
+  }
+
+  /**
+   * Get parsed browser object
+   * @return {Object}
+   *
+   * @public
+   */
+  parseBrowser() {
+    if (this.parsedResult.browser) {
+      return this.parsedResult.browser;
+    }
+
+    this.parsedResult.browser = {};
+
+    const browser = browsersList.find((browser) => {
+      return browser.test(this);
     });
+
+    if (browser) {
+      this.parsedResult.browser = browser.parse(this.getUA());
+    }
+
+    return this.parsedResult.browser;
+  }
+
+  /**
+   * Test a UA string for a regexp
+   * @param {RegExp} regex
+   * @return {Boolean}
+   */
+  test(regex) {
+    return regex.test(this._ua);
   }
 
   parseBrowserName() {}
@@ -25,4 +68,4 @@ class Parser {
   parseFullInfo(){}
 }
 
-module.exports = Parser;
+export default Parser;

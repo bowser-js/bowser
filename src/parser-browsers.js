@@ -1,4 +1,6 @@
-const getFirstMatch = require('./utils').getFirstMatch;
+import {
+  getFirstMatch
+} from './utils';
 
 const commonVersionIdentifier = /version\/(\d+(\.\d+)?)/i;
 
@@ -179,7 +181,7 @@ const browsersList = [
   {
     test: [/silk/i],
     detect(ua) {
-      const version = getFirstMatch(/silk\/(\d+(\.\d+)?)/i);
+      const version = getFirstMatch(/silk\/(\d+(\.\d+)?)/i, ua);
       return {
         name: 'Amazon Silk',
         version
@@ -189,7 +191,7 @@ const browsersList = [
   {
     test: [/phantom/i],
     detect(ua) {
-      const version = /phantomjs\/(\d+(\.\d+)?)/i;
+      const version = getFirstMatch(/phantomjs\/(\d+(\.\d+)?)/i, ua);
 
       return {
         name: 'PhantomJS',
@@ -200,7 +202,7 @@ const browsersList = [
   {
     test: [/slimerjs/i],
     detect(ua) {
-      const version = /slimerjs\/(\d+(\.\d+)?)/i;
+      const version = getFirstMatch(/slimerjs\/(\d+(\.\d+)?)/i, ua);
 
       return {
         name: 'SlimerJS',
@@ -211,27 +213,85 @@ const browsersList = [
   {
     test: [/blackberry|\bbb\d+/i, /rim\stablet/i],
     detect(ua) {
-      const version = /phantomjs\/(\d+(\.\d+)?)/i;
+      const version = commonVersionIdentifier || getFirstMatch(/blackberry[\d]+\/(\d+(\.\d+)?)/i, ua);
 
       return {
-        name: 'PhantomJS',
+        name: 'BlackBerry',
         version
       }
     }
   },
   {
-    test: [/phantom/i],
+    test: [/(web|hpw)os/i],
     detect(ua) {
-      const version = /phantomjs\/(\d+(\.\d+)?)/i;
+      const version = commonVersionIdentifier || getFirstMatch(/w(?:eb)?osbrowser\/(\d+(\.\d+)?)/i, ua);
 
       return {
-        name: 'PhantomJS',
+        name: 'WebOS Browser',
         version
       }
     }
   },
   {
-    test: [/phantom/i],
+    test: [/bada/i],
+    detect(ua) {
+      const version = getFirstMatch(/dolfin\/(\d+(\.\d+)?)/i, ua);
+
+      return {
+        name: 'Bada',
+        version
+      }
+    }
+  },
+  {
+    test: [/tizen/i],
+    detect(ua) {
+      const version = getFirstMatch(/(?:tizen\s?)?browser\/(\d+(\.\d+)?)/i, ua) || commonVersionIdentifier;
+
+      return {
+        name: 'Tizen',
+        version
+      }
+    }
+  },
+  {
+    test: [/qupzilla/i],
+    detect(ua) {
+      const version = getFirstMatch(/(?:qupzilla)[\s\/](\d+(?:\.\d+)+)/i, ua) || commonVersionIdentifier;
+
+      return {
+        name: 'QupZilla',
+        version
+      }
+    }
+  },
+  {
+    test: [/chromium/i],
+    detect(ua) {
+      const version = getFirstMatch(/(?:chromium)[\s\/](\d+(?:\.\d+)?)/i, ua) || commonVersionIdentifier;
+
+      return {
+        name: 'Chromium',
+        version
+      }
+    }
+  },
+  {
+    test: [/chrome|crios|crmo/i],
+    detect(ua) {
+      const version = getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i, ua);
+
+      return {
+        name: 'Chrome',
+        version
+      }
+    }
+  },
+  {
+    test(parser) {
+      const UA = parser.getUA();
+      return UA.test(/^((?!like android).)*$/i);
+    },
     detect(ua) {
       const version = /phantomjs\/(\d+(\.\d+)?)/i;
 
@@ -254,4 +314,4 @@ const browsersList = [
   },
 ];
 
-module.exports = browsersList;
+export default browsersList;

@@ -27,6 +27,15 @@ class Parser {
   }
 
   /**
+   * Test a UA string for a regexp
+   * @param {RegExp} regex
+   * @return {Boolean}
+   */
+  test(regex) {
+    return regex.test(this._ua);
+  }
+
+  /**
    * Get parsed browser object
    * @return {Object}
    *
@@ -71,18 +80,22 @@ class Parser {
   }
 
   /**
-   * Test a UA string for a regexp
-   * @param {RegExp} regex
-   * @return {Boolean}
+   * Get browser's name
+   * @return {String} Browser's name
+   *
+   * @public
    */
-  test(regex) {
-    return regex.test(this._ua);
+  getBrowserName() {
+    return this.getBrowser().name;
   }
 
-  parseBrowserName() {}
-  parseBrowserVersion() {}
-  parsePlatform(){}
-  parseOS(){}
+
+  getBrowserVersion() {
+    return this.getBrowser().version;
+  }
+
+  getPlatform(){}
+  getOS(){}
   parseOSName(){}
   parseOSVersion(){}
   parseFullInfo(){}

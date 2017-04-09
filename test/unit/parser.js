@@ -23,4 +23,13 @@ test('_parseBrowser', t => {
   t.truthy(spy.called);
   t.is(b.name, 'Opera');
   t.is(b.version, '43.0.2442.1165');
+  parser._parseBrowser.restore();
+});
+
+test('getBrowserName', t => {
+  t.is(parser.getBrowserName(), 'Opera');
+});
+
+test('getBrowserVersion', t => {
+  t.is(parser.getBrowserVersion(), '43.0.2442.1165');
 });

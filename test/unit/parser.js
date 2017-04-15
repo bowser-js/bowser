@@ -33,3 +33,18 @@ test('getBrowserName', t => {
 test('getBrowserVersion', t => {
   t.is(parser.getBrowserVersion(), '43.0.2442.1165');
 });
+
+test('_parseOS', t => {
+  const spy = sinon.spy(parser, '_parseOS');
+  parser.getOS();
+  t.truthy(spy.called);
+  parser._parseOS.restore();
+});
+
+test('getOSName', t => {
+  t.is(parser.getOSName(), 'macOS');
+});
+
+test('getOSVersion', t => {
+  t.is(parser.getOSVersion(), '10.12.4');
+});

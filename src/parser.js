@@ -1,4 +1,5 @@
 import browsersList from './parser-browsers';
+import osList from './parser-os';
 
 class Parser {
   /**
@@ -95,9 +96,47 @@ class Parser {
   }
 
   getPlatform(){}
-  getOS(){}
-  parseOSName(){}
-  parseOSVersion(){}
+
+  getOS() {
+    if (this.parsedResult.os) {
+      return this.parsedResult.os;
+    }
+
+    return this._parseOS();
+  }
+
+  _parseOS() {
+    this.parsedResult.os = {};
+
+    const os = osList.find(_os => {
+      if (typeof _os.test === 'function') {
+        return _os.test(this);
+      }
+
+      if (_os.test instanceof Array) {
+        return _os.test.some((condition) => {
+          return this.test(condition);
+        });
+      }
+
+      throw new Error("Browser's test function is not valid");
+    });
+
+    if (os) {
+      this.parsedResult.os = os.detect(this.getUA());
+    }
+
+    return this.parsedResult.os;
+  }
+
+  getOSName(){
+    return this.getOS().name;
+  }
+
+  getOSVersion(){
+    return this.getOS().version;
+  }
+
   parseFullInfo(){}
 }
 

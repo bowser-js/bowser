@@ -20,6 +20,9 @@
     "type": "git",
     "url": "git+https://github.com/ded/bowser.git"
   },
+  "scripts": {
+    "test": "mocha test/test.js"
+  },
   "devDependencies": {
     "smoosh": "*",
     "mocha": "*"

@@ -155,7 +155,7 @@ If detected, one of these flags may be set to true:
 
 `osversion` may also be set:
 
-  * `osversion` - for Android, iOS, Windows Phone, WebOS, Bada, and Tizen.  If included in UA string.
+  * `osversion` - for Android, iOS, MacOS, Windows, Windows Phone, WebOS, Bada, and Tizen.  If included in UA string.
 
 iOS is always reported as `ios` and additionally as `iphone`/`ipad`/`ipod`, whichever one matches best.
 If WebOS device is an HP TouchPad the flag `touchpad` is additionally set.

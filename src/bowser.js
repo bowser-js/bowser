@@ -358,6 +358,9 @@
       osVersion = getWindowsVersion(getFirstMatch(/Windows ((NT|XP)( \d\d?.\d)?)/i))
     } else if (result.windowsphone) {
       osVersion = getFirstMatch(/windows phone (?:os)?\s?(\d+(\.\d+)*)/i);
+    } else if (result.mac) {
+      osVersion = getFirstMatch(/Mac OS X (\d+([_\.\s]\d+)*)/i);
+      osVersion = osVersion.replace(/[_\s]/g, '.');
     } else if (iosdevice) {
       osVersion = getFirstMatch(/os (\d+([_\s]\d+)*) like mac os x/i);
       osVersion = osVersion.replace(/[_\s]/g, '.');

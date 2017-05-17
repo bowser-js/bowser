@@ -125,6 +125,7 @@ module.exports.useragents = {
         chrome: true
       , version: '11.0'
       , mac: true
+      , osversion: '10.6.7'
       , webkit: true
       , c: true
       }
@@ -285,6 +286,7 @@ module.exports.useragents = {
         opera: true
       , version: '11.01'
       , mac: true
+      , osversion: '10.6.7'
       , a: true
       }
     , 'Opera/9.80 (Windows NT 5.2; U; zh-cn) Presto/2.6.30 Version/10.63': {
@@ -356,6 +358,7 @@ module.exports.useragents = {
       , blink: true
       , version: '15.4'
       , mac: true
+      , osversion: '10.10.3'
       , a: true
     },
       'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 5 Build/LMY48B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 YaBrowser/15.4.2272.3608.00 Mobile Safari/537.36': {
@@ -373,6 +376,7 @@ module.exports.useragents = {
         safari: true
       , version: '5.1'
       , mac: true
+      , osversion: '10.6.8'
       , webkit: true
       , c: true
       }
@@ -380,6 +384,7 @@ module.exports.useragents = {
         safari: true
       , version: '5.0'
       , mac: true
+      , osversion: '10.6.7'
       , webkit: true
       , c: true
       }
@@ -410,6 +415,7 @@ module.exports.useragents = {
         safari: true
       , version: '4.0'
       , mac: true
+      , osversion: '10.6.1'
       , webkit: true
       , c: true
       }
@@ -417,6 +423,7 @@ module.exports.useragents = {
         safari: true
       , version: '3.2'
       , mac: true
+      , osversion: '10.5.7'
       , webkit: true
       , c: true
       }
@@ -751,6 +758,7 @@ module.exports.useragents = {
       , firefox: true
       , version: '24.0'
       , mac: true
+      , osversion: '10.8'
       , a: true
       }
     , 'Mozilla/5.0 (X11; Linux i686; rv:21.0) Gecko/20100101 Firefox/21.0': {
@@ -810,6 +818,7 @@ module.exports.useragents = {
       , firefox: true
       , version: '4.0'
       , mac: true
+      , osversion: '10.6'
       , c: true
       }
     , 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2b1) Gecko/20091014 Firefox/3.6b1 GTB5': {
@@ -860,6 +869,7 @@ module.exports.useragents = {
       , seamonkey: true
       , version: '2.7'
       , mac: true
+      , osversion: '10.5'
       , x: true
       }
     , 'Mozilla/5.0 (X11; Linux i686; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 SeaMonkey/2.7.1': {
@@ -1193,6 +1203,7 @@ module.exports.useragents = {
 			vivaldi: true
 			, version: '1.0'
 			, mac: true
+      , osversion: '10.11.1'
 			, blink: true
 			, a: true
 		},

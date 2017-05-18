@@ -85,6 +85,7 @@ module.exports.useragents = {
         chrome: true
       , version: '30.0'
       , windows: true
+      , osversion: '8'
       , blink: true
       , a: true
       }
@@ -92,6 +93,7 @@ module.exports.useragents = {
         chrome: true
       , version: '29.0'
       , windows: true
+      , osversion: '7'
       , blink: true
       , a: true
       }
@@ -107,6 +109,7 @@ module.exports.useragents = {
         chrome: true
       , version: '29.0'
       , windows: true
+      , osversion: '8'
       , blink: true
       , a: true
       }
@@ -114,6 +117,7 @@ module.exports.useragents = {
         chrome: true
       , version: '28.0'
       , windows: true
+      , osversion: '7'
       , blink: true
       , a: true
       }
@@ -121,6 +125,7 @@ module.exports.useragents = {
         chrome: true
       , version: '11.0'
       , mac: true
+      , osversion: '10.6.7'
       , webkit: true
       , c: true
       }
@@ -222,6 +227,7 @@ module.exports.useragents = {
     , 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.52 Safari/537.36 OPR/15.0.1147.100': {
         opera: true
       , windows: true
+      , osversion: '7'
       , blink: true
       , version: '15.0'
       , a: true
@@ -246,24 +252,28 @@ module.exports.useragents = {
         opera: true
       , version: '12.14'
       , windows: true
+      , osversion: 'Vista'
       , a: true
       }
     , 'Mozilla/5.0 (Windows NT 6.0; rv:2.0) Gecko/20100101 Firefox/4.0 Opera 12.14': {
         opera: true
       , version: '12.14'
       , windows: true
+      , osversion: 'Vista'
       , a: true
       }
     , 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.0) Opera 12.14': {
         opera: true
       , version: '12.14'
       , windows: true
+      , osversion: 'Vista'
       , a: true
       }
     , 'Opera/12.80 (Windows NT 5.1; U; en) Presto/2.10.289 Version/12.02': {
         opera: true
       , version: '12.02'
       , windows: true
+      , osversion: 'XP'
       , a: true
       }
     , 'Opera/9.80 (X11; Linux i686; U; es-ES) Presto/2.8.131 Version/11.11': {
@@ -276,12 +286,14 @@ module.exports.useragents = {
         opera: true
       , version: '11.01'
       , mac: true
+      , osversion: '10.6.7'
       , a: true
       }
     , 'Opera/9.80 (Windows NT 5.2; U; zh-cn) Presto/2.6.30 Version/10.63': {
         opera: true
       , version: '10.63'
       , windows: true
+      , osversion: '2003'
       , a: true
       }
     , 'Opera/9.80 (X11; Linux i686; U; it) Presto/2.5.24 Version/10.54': {
@@ -346,6 +358,7 @@ module.exports.useragents = {
       , blink: true
       , version: '15.4'
       , mac: true
+      , osversion: '10.10.3'
       , a: true
     },
       'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 5 Build/LMY48B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 YaBrowser/15.4.2272.3608.00 Mobile Safari/537.36': {
@@ -363,6 +376,7 @@ module.exports.useragents = {
         safari: true
       , version: '5.1'
       , mac: true
+      , osversion: '10.6.8'
       , webkit: true
       , c: true
       }
@@ -370,6 +384,7 @@ module.exports.useragents = {
         safari: true
       , version: '5.0'
       , mac: true
+      , osversion: '10.6.7'
       , webkit: true
       , c: true
       }
@@ -377,6 +392,7 @@ module.exports.useragents = {
         safari: true
       , version: '5.0'
       , windows: true
+      , osversion: 'XP'
       , webkit: true
       , c: true
       }
@@ -391,6 +407,7 @@ module.exports.useragents = {
         safari: true
       , version: '4.1'
       , windows: true
+      , osversion: '2000'
       , webkit: true
       , c: true
       }
@@ -398,6 +415,7 @@ module.exports.useragents = {
         safari: true
       , version: '4.0'
       , mac: true
+      , osversion: '10.6.1'
       , webkit: true
       , c: true
       }
@@ -405,6 +423,7 @@ module.exports.useragents = {
         safari: true
       , version: '3.2'
       , mac: true
+      , osversion: '10.5.7'
       , webkit: true
       , c: true
       }
@@ -575,72 +594,84 @@ module.exports.useragents = {
         msie: true
       , version: '11.0'
       , windows: true
+      , osversion: '8.1'
       , a: true
       }
     , 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; rv:11.0) like Gecko': {
         msie: true
       , version: '11.0'
       , windows: true
+      , osversion: '8.1'
       , a: true
       }
     , 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; ARM; Touch; WPDesktop)': {
         msie: true
       , version: '10.0'
       , windows: true
+      , osversion: '8'
       , a: true
       }
     , 'Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; .NET4.0E; .NET4.0C; Media Center PC 6.0; rv:11.0) like Gecko': {
         msie: true
       , version: '11.0'
       , windows: true
+      , osversion: '8.1'
       , a: true
       }
     , 'Mozilla/5.0 (compatible; MSIE 10.6; Windows NT 6.1; Trident/5.0; InfoPath.2; SLCC1; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET CLR 2.0.50727) 3gpp-gba UNTRUSTED/1.0': {
         msie: true
       , version: '10.6'
       , windows: true
+      , osversion: '7'
       , a: true
       }
     , 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/4.0; InfoPath.2; SV1; .NET CLR 2.0.50727; WOW64)': {
         msie: true
       , version: '10.0'
       , windows: true
+      , osversion: '7'
       , a: true
       }
     , 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET CLR 2.0.50727; Media Center PC 6.0)': {
         msie: true
       , version: '9.0'
       , windows: true
+      , osversion: '7'
       , c: true
       }
     , 'Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/5.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C)': {
         msie: true
       , version: '8.0'
       , windows: true
+      , osversion: '7'
       , c: true
       }
     , 'Mozilla/4.0 (compatible; MSIE 7.0b; Windows NT 5.1; .NET CLR 1.1.4322; InfoPath.1; .NET CLR 2.0.50727)': {
         msie: true
       , version: '7.0'
       , windows: true
+      , osversion: 'XP'
       , c: true
       }
     , 'Mozilla/4.0 (compatible; MSIE 6.1; Windows XP; .NET CLR 1.1.4322; .NET CLR 2.0.50727)': {
         msie: true
       , version: '6.1'
       , windows: true
+      , osversion: 'XP'
       , c: true
       }
     , 'Mozilla/4.0 (Compatible; Windows NT 5.1; MSIE 6.0) (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)': {
         msie: true
       , version: '6.0'
       , windows: true
+      , osversion: 'XP'
       , c: true
       }
     , 'Mozilla/4.0 (compatible; MSIE 5.01; Windows NT)': {
         msie: true
       , version: '5.01'
       , windows: true
+      , osversion: 'NT'
       , c: true
       }
     , 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0; Xbox; Xbox One)': {
@@ -654,12 +685,14 @@ module.exports.useragents = {
       , version: '11.0'
       , a: true
       , windows: true
+      , osversion: '8.1'
       }
     , 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; Touch; LCTE; rv:11.0)': {
         msie: true
       , version: '11.0'
       , a: true
       , windows: true
+      , osversion: '10'
       }
     }
   , 'Microsoft Edge': {
@@ -667,6 +700,7 @@ module.exports.useragents = {
         msedge: true
       , version: '12.0'
       , windows: true
+      , osversion: '10'
       , a: true
       }
     }
@@ -716,6 +750,7 @@ module.exports.useragents = {
       , firefox: true
       , version: '25.0'
       , windows: true
+      , osversion: '7'
       , a: true
       }
     , 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:24.0) Gecko/20100101 Firefox/24.0': {
@@ -723,6 +758,7 @@ module.exports.useragents = {
       , firefox: true
       , version: '24.0'
       , mac: true
+      , osversion: '10.8'
       , a: true
       }
     , 'Mozilla/5.0 (X11; Linux i686; rv:21.0) Gecko/20100101 Firefox/21.0': {
@@ -751,6 +787,7 @@ module.exports.useragents = {
       , firefox: true
       , version: '15.0'
       , windows: true
+      , osversion: '8'
       , c: true
       }
     , 'Mozilla/5.0 (Windows; U; Windows NT 6.1; WOW64; en-US; rv:2.0.4) Gecko/20120718 AskTbAVR-IDW/3.12.5.17700 Firefox/14.0.1': {
@@ -758,6 +795,7 @@ module.exports.useragents = {
       , firefox: true
       , version: '14.0'
       , windows: true
+      , osversion: '7'
       , c: true
       }
     , 'Mozilla/5.0 (Windows NT 5.1; rv:6.0) Gecko/20100101 Firefox/6.0 FirePHP/0.6': {
@@ -765,6 +803,7 @@ module.exports.useragents = {
       , firefox: true
       , version: '6.0'
       , windows: true
+      , osversion: 'XP'
       , c: true
       }
     , 'Mozilla/5.0 (X11; Linux x86_64; rv:2.2a1pre) Gecko/20100101 Firefox/4.2a1pre': {
@@ -779,6 +818,7 @@ module.exports.useragents = {
       , firefox: true
       , version: '4.0'
       , mac: true
+      , osversion: '10.6'
       , c: true
       }
     , 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US; rv:1.9.2b1) Gecko/20091014 Firefox/3.6b1 GTB5': {
@@ -786,6 +826,7 @@ module.exports.useragents = {
       , firefox: true
       , version: '3.6'
       , windows: true
+      , osversion: '7'
       , c: true
       }
     , 'Mozilla/5.0 (Windows; U; Windows NT 6.0; de; rv:1.9.0.15) Gecko/2009101601 Firefox 2.1 (.NET CLR 3.5.30729)': {
@@ -793,6 +834,7 @@ module.exports.useragents = {
       , firefox: true
       , version: '2.1'
       , windows: true
+      , osversion: 'Vista'
       , c: true
       }
     , 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.0.7) Gecko/20061014 Firefox/1.5.0.7': {
@@ -819,6 +861,7 @@ module.exports.useragents = {
       , seamonkey: true
       , version: '2.7'
       , windows: true
+      , osversion: '2003'
       , x: true
       }
     , 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.5; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 SeaMonkey/2.7.1': {
@@ -826,6 +869,7 @@ module.exports.useragents = {
       , seamonkey: true
       , version: '2.7'
       , mac: true
+      , osversion: '10.5'
       , x: true
       }
     , 'Mozilla/5.0 (X11; Linux i686; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 SeaMonkey/2.7.1': {
@@ -1159,6 +1203,7 @@ module.exports.useragents = {
 			vivaldi: true
 			, version: '1.0'
 			, mac: true
+      , osversion: '10.11.1'
 			, blink: true
 			, a: true
 		},
@@ -1166,6 +1211,7 @@ module.exports.useragents = {
 			vivaldi: true
 			, version: '1.0'
 			, windows: true
+      , osversion: '10'
 			, blink: true
 			, a: true
 		}
@@ -1225,6 +1271,7 @@ module.exports.useragents = {
     },
     'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.21 (KHTML, like Gecko) QupZilla/1.8.6 Safari/537.21': {
       windows: true,
+      osversion: '8',
       qupzilla: true,
       version: '1.8.6',
       webkit: true,
@@ -1265,6 +1312,7 @@ module.exports.useragents = {
       sleipnir: true
       , blink: true
       , windows: true
+      , osversion: '7'
       , x: true
       , version: '6.1.4'
     }
@@ -1272,6 +1320,7 @@ module.exports.useragents = {
   , 'K-Meleon': {
     'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:24.0) Gecko/20140105 Firefox/24.0 K-Meleon/74.0': {
       windows: true
+      , osversion: '7'
       , kMeleon: true
       , version: '74.0'
       , gecko: true

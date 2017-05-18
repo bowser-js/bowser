@@ -1,4 +1,6 @@
-import { getFirstMatch } from './utils';
+import {
+  getFirstMatch
+} from './utils';
 
 function getWindowsVersionName(version) {
   switch (version) {
@@ -17,6 +19,7 @@ function getWindowsVersionName(version) {
 }
 
 export default [
+  /* Windows Phone */
   {
     test: [/windows phone/i],
     describe(ua) {
@@ -27,6 +30,8 @@ export default [
       }
     }
   },
+
+  /* Windows */
   {
     test: [/windows/i],
     describe(ua) {
@@ -40,6 +45,8 @@ export default [
       };
     }
   },
+
+  /* macOS */
   {
     test: [/macintosh/i],
     describe(ua) {
@@ -47,7 +54,89 @@ export default [
       return {
         name: 'macOS',
         version
-      }
+      };
+    }
+  },
+
+  /* iOS */
+  {
+    test: [/(ipod|iphone|ipad)/i],
+    describe(ua) {
+      const version = getFirstMatch(/os (\d+([_\s]\d+)*) like mac os x/i, ua).replace(/[_\s]/g, '.');
+
+      return {
+        name: 'iOS',
+        version
+      };
+    }
+  },
+
+  /* Android */
+  {
+    test(parser) {
+      const notLikeAndroid = !parser.test(/^((?!like android).)*$/i);
+      const butAndroid = parser.test(/android/i);
+      return notLikeAndroid && butAndroid;
+    },
+    describe(ua) {
+      const version = getFirstMatch(/android[ \/-](\d+(\.\d+)*)/i, ua);
+      return {
+        name: 'Android',
+        version
+      };
+    }
+  },
+
+  /* WebOS */
+  {
+    test: [/(web|hpw)os/i],
+    describe(ua) {
+      const version = getFirstMatch(/(?:web|hpw)os\/(\d+(\.\d+)*)/i, ua);
+      return {
+        name: 'WebOS',
+        version
+      };
+    }
+  },
+
+  /* BlackBerry */
+  {
+    test: [/blackberry|\bbb\d+/i, /rim\stablet/i],
+    describe(ua) {
+      const version = getFirstMatch(/rim\stablet\sos\s(\d+(\.\d+)*)/i, ua)
+        || getFirstMatch(/blackberry\d+\/(\d+([_\s]\d+)*)/i, ua)
+        || getFirstMatch(/\bbb(\d+)/i, ua);
+
+      return {
+        name: 'BlackBerry',
+        version
+      };
+    }
+  },
+
+  /* Bada */
+  {
+    test: [/bada/i],
+    describe(ua) {
+      const version = getFirstMatch(/bada\/(\d+(\.\d+)*)/i, ua);
+
+      return {
+        name: 'Bada',
+        version
+      };
+    }
+  },
+
+  /* Tizen */
+  {
+    test: [/tizen/i],
+    describe(ua) {
+      const version = getFirstMatch(/tizen[\/\s](\d+(\.\d+)*)/i, ua);
+
+      return {
+        name: 'Tizen',
+        version
+      };
     }
   }
 ]

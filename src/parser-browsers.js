@@ -1,3 +1,28 @@
+/**
+ * Browsers' descriptors
+ *
+ * The idea of descriptors is simple. You should know about them two simple things:
+ * 1. Every descriptor has a method or property called `test` and a `describe` method.
+ * 2. Order of descriptors is important.
+ *
+ * More details:
+ * 1. Method or property `test` serves as a way to detect whether the UA string
+ * matches some certain browser or not. The `describe` method helps to make a result
+ * object with params that show some browser-specific things: name, version, etc.
+ * 2. Order of descriptors is important because a Parser goes through them one by one
+ * in course. For example, if you insert Chrome's descriptor as the first one,
+ * more then a half of browsers will be described as Chrome, because they will pass
+ * the Chrome descriptor's test.
+ *
+ * Descriptor's `test` could be a property with an array of RegExps, where every RegExp
+ * will be applied to a UA string to test it whether it matches or not.
+ * If a descriptor has two or more regexps in the `test` array it tests them one by one
+ * with a logical sum operation. Parser stops if it has found any RegExp that matches the UA.
+ *
+ * Or `test` could be a method. In that case it gets a Parser instance and should
+ * return true/false to get the Parser know if this browser descriptor matches the UA or not.
+ */
+
 import {
   getFirstMatch,
   getSecondMatch
@@ -8,7 +33,7 @@ const commonVersionIdentifier = /version\/(\d+(\.\d+)?)/i;
 const browsersList = [
   {
     test: [/opera/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:opera)[\s\/](\S+)/i, ua);
 
       return {
@@ -19,7 +44,7 @@ const browsersList = [
   },
   {
     test: [/opr|opios/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(/(?:opr|opios)[\s\/](\S+)/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
 
       return {
@@ -30,7 +55,7 @@ const browsersList = [
   },
   {
     test: [/SamsungBrowser/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:SamsungBrowser)[\s\/](\S+)/i, ua);
 
       return {
@@ -41,7 +66,7 @@ const browsersList = [
   },
   {
     test: [/coast/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:coast)[\s\/](\S+)/i, ua);
 
       return {
@@ -52,7 +77,7 @@ const browsersList = [
   },
   {
     test: [/yabrowser/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:yabrowser)[\s\/](\S+)/i, ua);
 
       return {
@@ -63,7 +88,7 @@ const browsersList = [
   },
   {
     test: [/ucbrowser/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:ucbrowser)[\s\/](\S+)/i, ua);
 
       return {
@@ -74,7 +99,7 @@ const browsersList = [
   },
   {
     test: [/mxios/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:mxios)[\s\/](\S+)/i, ua);
 
       return {
@@ -85,7 +110,7 @@ const browsersList = [
   },
   {
     test: [/epiphany/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:epiphany)[\s\/](\S+)/i, ua);
 
       return {
@@ -96,7 +121,7 @@ const browsersList = [
   },
   {
     test: [/puffin/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:puffin)[\s\/](\S+)/i, ua);
 
       return {
@@ -107,7 +132,7 @@ const browsersList = [
   },
   {
     test: [/sleipnir/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:sleipnir)[\s\/](\S+)/i, ua);
 
       return {
@@ -118,7 +143,7 @@ const browsersList = [
   },
   {
     test: [/k-meleon/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:k-meleon)[\s\/](\S+)/i, ua);
 
       return {
@@ -129,7 +154,7 @@ const browsersList = [
   },
   {
     test: [/msie|trident/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(/(?:msie |rv:)(\S+)/i, ua);
 
       return {
@@ -140,7 +165,7 @@ const browsersList = [
   },
   {
     test: [/chrome.+? edge/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(/edge\/(\S+)/i, ua);
 
       return {
@@ -151,7 +176,7 @@ const browsersList = [
   },
   {
     test: [/vivaldi/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(/vivaldi\/(\S+)/i, ua);
 
       return {
@@ -162,7 +187,7 @@ const browsersList = [
   },
   {
     test: [/seamonkey/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(/seamonkey\/(\S+)/i, ua);
       return {
         name: 'SeaMonkey',
@@ -172,7 +197,7 @@ const browsersList = [
   },
   {
     test: [/firefox|iceweasel|fxios/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(/(?:firefox|iceweasel|fxios)[ \/](\S+)/i, ua);
       return {
         name: 'Firefox'
@@ -181,7 +206,7 @@ const browsersList = [
   },
   {
     test: [/silk/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(/silk\/(\S+)/i, ua);
       return {
         name: 'Amazon Silk',
@@ -191,7 +216,7 @@ const browsersList = [
   },
   {
     test: [/phantom/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(/phantomjs\/(\S+)/i, ua);
 
       return {
@@ -202,7 +227,7 @@ const browsersList = [
   },
   {
     test: [/slimerjs/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(/slimerjs\/(\S+)/i, ua);
 
       return {
@@ -213,7 +238,7 @@ const browsersList = [
   },
   {
     test: [/blackberry|\bbb\d+/i, /rim\stablet/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/blackberry[\d]+\/(\S+)/i, ua);
 
       return {
@@ -224,7 +249,7 @@ const browsersList = [
   },
   {
     test: [/(web|hpw)os/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/w(?:eb)?osbrowser\/(\S+)/i, ua);
 
       return {
@@ -235,7 +260,7 @@ const browsersList = [
   },
   {
     test: [/bada/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(/dolfin\/(\S+)/i, ua);
 
       return {
@@ -246,7 +271,7 @@ const browsersList = [
   },
   {
     test: [/tizen/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(/(?:tizen\s?)?browser\/(\S+)/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
 
       return {
@@ -257,7 +282,7 @@ const browsersList = [
   },
   {
     test: [/qupzilla/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(/(?:qupzilla)[\s\/](\S+)/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
 
       return {
@@ -268,7 +293,7 @@ const browsersList = [
   },
   {
     test: [/chromium/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(/(?:chromium)[\s\/](\S+)/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
 
       return {
@@ -279,7 +304,7 @@ const browsersList = [
   },
   {
     test: [/chrome|crios|crmo/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(/(?:chrome|crios|crmo)\/(\S+)/i, ua);
 
       return {
@@ -296,7 +321,7 @@ const browsersList = [
       const butAndroid = parser.test(/android/i);
       return notLikeAndroid && butAndroid;
     },
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(commonVersionIdentifier, ua);
 
       return {
@@ -309,7 +334,7 @@ const browsersList = [
   /* Safari */
   {
     test: [/safari|applewebkit/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(commonVersionIdentifier, ua);
 
       return {
@@ -322,7 +347,7 @@ const browsersList = [
   /* Googlebot */
   {
     test: [/googlebot/i],
-    detect(ua) {
+    describe(ua) {
       const version = getFirstMatch(/googlebot\/(\d+(\.\d+))/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
 
       return {
@@ -335,7 +360,7 @@ const browsersList = [
   /* Something else */
   {
     test: [/.*/i],
-    detect(ua) {
+    describe(ua) {
       return {
         name: getFirstMatch(/^(.*)\/(.*) /, ua),
         version: getSecondMatch(/^(.*)\/(.*) /, ua)

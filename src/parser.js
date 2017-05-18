@@ -1,5 +1,5 @@
-import browsersList from './parser-browsers';
-import osList from './parser-os';
+import browserParsersList from './parser-browsers';
+import osParsersList from './parser-os';
 
 class Parser {
   /**
@@ -45,7 +45,7 @@ class Parser {
   _parseBrowser() {
     this.parsedResult.browser = {};
 
-    const browser = browsersList.find(_browser => {
+    const browserDescriptor = browserParsersList.find(_browser => {
       if (typeof _browser.test === 'function') {
         return _browser.test(this);
       }
@@ -59,8 +59,8 @@ class Parser {
       throw new Error("Browser's test function is not valid");
     });
 
-    if (browser) {
-      this.parsedResult.browser = browser.detect(this.getUA());
+    if (browserDescriptor) {
+      this.parsedResult.browser = browserDescriptor.describe(this.getUA());
     }
 
     return this.parsedResult.browser;
@@ -108,7 +108,7 @@ class Parser {
   _parseOS() {
     this.parsedResult.os = {};
 
-    const os = osList.find(_os => {
+    const os = osParsersList.find(_os => {
       if (typeof _os.test === 'function') {
         return _os.test(this);
       }
@@ -123,21 +123,29 @@ class Parser {
     });
 
     if (os) {
-      this.parsedResult.os = os.detect(this.getUA());
+      this.parsedResult.os = os.describe(this.getUA());
     }
 
     return this.parsedResult.os;
   }
 
-  getOSName(){
+  getOSName() {
     return this.getOS().name;
   }
 
-  getOSVersion(){
+  getOSVersion() {
     return this.getOS().version;
   }
 
-  parseFullInfo(){}
+  /**
+   * Parse full information about the browser
+   */
+  parse(){
+    this._parseBrowser();
+    this._parseOS();
+
+    return this.parsedResult;
+  }
 }
 
 export default Parser;

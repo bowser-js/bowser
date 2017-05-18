@@ -22,7 +22,7 @@ Also you can download minified file from [the release page](https://github.com/d
 
 ## API
 
-### bowser()`:Object`
+### bowser`:Object`
 Use it to get object with detected flags of your current browser.
 
 ### bowser._detect(ua `:String`)`:Object`
@@ -155,7 +155,7 @@ If detected, one of these flags may be set to true:
 
 `osversion` may also be set:
 
-  * `osversion` - for Android, iOS, Windows Phone, WebOS, Bada, and Tizen.  If included in UA string.
+  * `osversion` - for Android, iOS, MacOS, Windows, Windows Phone, WebOS, Bada, and Tizen.  If included in UA string.
 
 iOS is always reported as `ios` and additionally as `iphone`/`ipad`/`ipod`, whichever one matches best.
 If WebOS device is an HP TouchPad the flag `touchpad` is additionally set.
@@ -200,6 +200,9 @@ See the list in `src/useragents.js` with example user agents and their expected 
 
 Whenever you add support for new browsers or notice a bug / mismatch, please update the list and
 check if all tests are still passing.
+
+### Similar Projects
+* [Kong](https://github.com/BigBadBleuCheese/Kong) - A C# port of Bowser.
 
 ### License
 Licensed as MIT. All rights not explicitly granted in the MIT license are reserved. See the included LICENSE file for more details.

@@ -12,7 +12,7 @@
     "ender",
     "sniff"
   ],
-  "homepage": "https://github.com/ded/bowser",
+  "homepage": "https://github.com/lancedikson/bowser",
   "author": "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)",
   "main": "./src/bowser.js",
   "typings": "./typings.d.ts",

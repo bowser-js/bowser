@@ -12,12 +12,13 @@
     "sniff"
   ],
   "version": "1.7.0",
-  "homepage": "https://github.com/ded/bowser",
+  "homepage": "https://github.com/lancedikson/bowser",
   "scripts": [
     "src/bowser.js"
   ],
   "authors": [
-    "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)"
+    "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)",
+    "Denis Demchenko <lance@dikson.me>"
   ],
   "moduleType": [],
   "license": "MIT",

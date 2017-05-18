@@ -1,5 +1,8 @@
 # Bowser Changelog
 
+### 1.7.0 (May 18, 2017)
+- [ADD] Add OS version support for Windows and macOS (#178)
+
 ### 1.6.0 (December 5, 2016)
 - [ADD] Add some tests for Windows devices (#89)
 - [ADD] Add `root` to initialization process (#170)

@@ -1,19 +1,24 @@
 {
   "name": "bowser",
-  "description": "a browser detector",
+  "description": "Lightweight browser detector",
   "keywords": [
-    "ender",
     "browser",
-    "sniff",
-    "detection"
+    "useragent",
+    "user-agent",
+    "parser",
+    "ua",
+    "detection",
+    "ender",
+    "sniff"
   ],
-  "version": "1.6.0",
-  "homepage": "https://github.com/ded/bowser",
+  "version": "1.7.0",
+  "homepage": "https://github.com/lancedikson/bowser",
   "scripts": [
     "src/bowser.js"
   ],
   "authors": [
-    "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)"
+    "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)",
+    "Denis Demchenko <lance@dikson.me>"
   ],
   "moduleType": [],
   "license": "MIT",

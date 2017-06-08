@@ -27,55 +27,11 @@ class Bowser {
     if (!UA) {
       throw new Error('UserAgent is not defined');
     }
-    this._ua = UA;
-    this._parser = new Parser(UA);
+    return new Parser(UA);
   }
 
-  /**
-   * Get browser's version
-   * @returns {String}
-   */
-  getBrowserVersion() {
-    return this._parser.getBrowserVersion();
-  }
-
-  /**
-   * Get a browser's name
-   * @returns {String}
-   */
-  getBrowserName() {
-    return this._parser.getBrowserName();
-  }
-
-  /**
-   * Get an object with a name and version of the browser
-   * @returns {Object}
-   */
-  getBrowser() {
-    return this._parser.getBrowser();
-  }
-
-  /**
-   * Get an object with a name and version of the OS if it's defined
-   * @returns {Object}
-   */
-  getOS() {
-    return this._parser.getOS();
-  }
-
-  /**
-   * Get name of OS
-   * @returns {String}
-   */
-  getOSName() {
-    return this._parser.getOSName();
-  }
-
-  /**
-   * Get OS version
-   */
-  getOSVersion() {
-    return this._parser.getOSVersion();
+  static parse(UA) {
+    return new this.constructor(UA).getResult();
   }
 
   /**

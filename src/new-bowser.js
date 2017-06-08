@@ -31,50 +31,59 @@ class Bowser {
     this._parser = new Parser(UA);
   }
 
-  // static filter(UACollection, range) {}
-  // static inRange(range, UACollection) {}
-
   /**
    * Get browser's version
    * @returns {String}
    */
-  getBrowserVersion() {}
+  getBrowserVersion() {
+    return this._parser.getBrowserVersion();
+  }
 
   /**
    * Get a browser's name
    * @returns {String}
    */
-  getBrowserName() {}
+  getBrowserName() {
+    return this._parser.getBrowserName();
+  }
 
   /**
    * Get an object with a name and version of the browser
    * @returns {Object}
    */
-  getBrowser() {}
+  getBrowser() {
+    return this._parser.getBrowser();
+  }
 
   /**
    * Get an object with a name and version of the OS if it's defined
    * @returns {Object}
    */
-  getOS() {}
+  getOS() {
+    return this._parser.getOS();
+  }
 
   /**
    * Get name of OS
    * @returns {String}
    */
-  getOSName() {}
+  getOSName() {
+    return this._parser.getOSName();
+  }
 
   /**
    * Get OS version
    */
-  getOSVersion() {}
+  getOSVersion() {
+    return this._parser.getOSVersion();
+  }
 
   /**
    * Check if the browser is in range or not
    * @param {Object} range
    * @returns {Boolean}
    */
-  inRange(range) {
+  static inRange(range) {
     if (!range) {
       throw new Error('Range can not be empty');
     }
@@ -85,5 +94,9 @@ class Bowser {
    * @param {Object} range
    * @returns {Boolean}
    */
-  notInRange(range) {}
+  static notInRange(range) {}
+
+
+  // static filter(UACollection, range) {}
+  // static inRange(range, UACollection) {}
 }

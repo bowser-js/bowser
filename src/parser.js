@@ -1,5 +1,6 @@
 import browserParsersList from './parser-browsers';
 import osParsersList from './parser-os';
+import platformParsersList from './parser-platforms';
 
 class Parser {
   /**
@@ -101,8 +102,6 @@ class Parser {
     return this.getBrowser().version;
   }
 
-  getPlatform(){}
-
   /**
    * Get OS
    * @return {Object}
@@ -153,10 +152,17 @@ class Parser {
 
   /**
    * Get OS name
+   * @param {Boolean} [toLowerCase] return lower-cased value
    * @return {String} name of the OS — macOS, Windows, Linux, etc.
    */
-  getOSName() {
-    return this.getOS().name;
+  getOSName(toLowerCase) {
+    const name = this.getOS().name;
+
+    if (toLowerCase) {
+      return String(name).toLowerCase();
+    }
+
+    return name;
   }
 
   /**
@@ -167,13 +173,50 @@ class Parser {
     return this.getOS().version;
   }
 
+  getPlatform() {
+    if (this.parsedResult.platform) {
+      return this.parsedResult.platform;
+    }
+
+    return this._parsePlatform();
+  }
+
+  _parsePlatform() {
+    this.parsedResult.platform = {};
+
+    const platform = platformParsersList.find(_platform => {
+      if (typeof _platform.test === 'function') {
+        return _platform.test(this);
+      }
+
+      if (_platform.test instanceof Array) {
+        return _platform.test.some((condition) => {
+          return this.test(condition);
+        });
+      }
+
+      throw new Error("Browser's test function is not valid");
+    });
+
+    if (platform) {
+      this.parsedResult.platform = platform.describe(this.getUA());
+    }
+
+    return this.parsedResult.platform;
+  }
+
   /**
    * Parse full information about the browser
    */
-  parse(){
+  parse() {
     this._parseBrowser();
     this._parseOS();
+    this._parsePlatform();
 
+    return this;
+  }
+
+  getResult() {
     return this.parsedResult;
   }
 }

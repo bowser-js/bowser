@@ -91,12 +91,29 @@ class Parser {
   }
 
 
+  /**
+   * Get browser's version
+   * @return {String} version of browser
+   *
+   * @public
+   */
   getBrowserVersion() {
     return this.getBrowser().version;
   }
 
   getPlatform(){}
 
+  /**
+   * Get OS
+   * @return {Object}
+   *
+   * @example
+   * this.getOS();
+   * {
+   *   name: 'macOS',
+   *   version: '10.11.12'
+   * }
+   */
   getOS() {
     if (this.parsedResult.os) {
       return this.parsedResult.os;
@@ -105,6 +122,11 @@ class Parser {
     return this._parseOS();
   }
 
+  /**
+   * Parse OS and save it to this.parsedResult.os
+   * @return {*|{}}
+   * @private
+   */
   _parseOS() {
     this.parsedResult.os = {};
 
@@ -129,10 +151,18 @@ class Parser {
     return this.parsedResult.os;
   }
 
+  /**
+   * Get OS name
+   * @return {String} name of the OS — macOS, Windows, Linux, etc.
+   */
   getOSName() {
     return this.getOS().name;
   }
 
+  /**
+   * Get OS version
+   * @return {String} full version with dots ('10.11.12', '5.6', etc)
+   */
   getOSVersion() {
     return this.getOS().version;
   }

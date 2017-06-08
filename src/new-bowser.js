@@ -1,10 +1,10 @@
-var Parser = require('./parser');
 /*!
  * Bowser - a browser detector
  * https://github.com/ded/bowser
  * MIT License | (c) Dustin Diaz 2012-2015
  * MIT License | (c) Denis Demchenko 2015-2017
  */
+import Parser from './parser';
 
 /*
 * Ideas

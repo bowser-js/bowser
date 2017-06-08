@@ -29,6 +29,13 @@ import {
 } from './utils';
 
 const commonVersionIdentifier = /version\/(\d+(\.\d+)?)/i;
+const RENDERING_ENGINES_NAMES = {
+  blink: 'Blink',
+  webkit: 'WebKit',
+  gecko: 'Gecko',
+  presto: 'Presto',
+  edgehtml: 'EdgeHTML'
+};
 
 const browsersList = [
   {
@@ -170,6 +177,7 @@ const browsersList = [
 
       return {
         name: 'Microsoft Edge',
+        engine: 'EdgeHTML',
         version
       }
     }
@@ -191,6 +199,7 @@ const browsersList = [
       const version = getFirstMatch(/seamonkey\/(\S+)/i, ua);
       return {
         name: 'SeaMonkey',
+        engine: RENDERING_ENGINES_NAMES.gecko,
         version
       }
     }
@@ -200,7 +209,9 @@ const browsersList = [
     describe(ua) {
       const version = getFirstMatch(/(?:firefox|iceweasel|fxios)[ \/](\S+)/i, ua);
       return {
-        name: 'Firefox'
+        name: 'Firefox',
+        engine: RENDERING_ENGINES_NAMES.gecko,
+        version
       }
     }
   },
@@ -306,9 +317,16 @@ const browsersList = [
     test: [/chrome|crios|crmo/i],
     describe(ua) {
       const version = getFirstMatch(/(?:chrome|crios|crmo)\/(\S+)/i, ua);
+      let engine;
+      if (/(apple)?webkit\/537\.36/i.test(ua)) {
+        engine = RENDERING_ENGINES_NAMES.blink;
+      } else {
+        engine = RENDERING_ENGINES_NAMES.webkit;
+      }
 
       return {
         name: 'Chrome',
+        engine,
         version
       }
     }
@@ -339,6 +357,7 @@ const browsersList = [
 
       return {
         name: 'Safari',
+        engine: RENDERING_ENGINES_NAMES.webkit,
         version
       }
     }

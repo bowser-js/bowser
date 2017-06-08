@@ -138,5 +138,15 @@ export default [
         version
       };
     }
+  },
+
+  /* Linux */
+  {
+    test: [/linux/i],
+    describe() {
+      return {
+        name: 'Linux'
+      }
+    }
   }
 ]

@@ -74,7 +74,7 @@ export default [
   /* Android */
   {
     test(parser) {
-      const notLikeAndroid = !parser.test(/^((?!like android).)*$/i);
+      const notLikeAndroid = !parser.test(/like android/i);
       const butAndroid = parser.test(/android/i);
       return notLikeAndroid && butAndroid;
     },

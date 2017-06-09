@@ -8,6 +8,11 @@ const TYPES = {
   desktop: 'desktop'
 };
 
+/*
+ * Tablets go first since usually they have more specific
+ * signs to detect.
+ */
+
 export default [
   /* Nexus Tablet */
   {

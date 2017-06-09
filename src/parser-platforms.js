@@ -37,12 +37,25 @@ export default [
     }
   },
 
-  /* Silk Tablet */
+  /* Amazon Kindle Fire */
+  {
+    test: [/kftt build/i],
+    describe() {
+      return {
+        type: TYPES.tablet,
+        vendor: 'Amazon',
+        model: 'Kindle Fire HD 7'
+      }
+    }
+  },
+
+  /* Another Amazon Tablet with Silk */
   {
     test: [/silk/i],
     describe() {
       return {
-        type: TYPES.tablet
+        type: TYPES.tablet,
+        vendor: 'Amazon'
       }
     }
   },

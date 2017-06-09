@@ -72,7 +72,11 @@ export default [
 
   /* iPod/iPhone */
   {
-    test: [/ipod|iphone/i],
+    test(parser) {
+      const iDevice = parser.test(/ipod|iphone/i);
+      const likeIDevice = parser.test(/like (ipod|iphone)/i);
+      return iDevice && !likeIDevice;
+    },
     describe(ua) {
       const model = getFirstMatch(/(ipod|iphone)/i, ua);
       return {

@@ -1,6 +1,7 @@
 import browserParsersList from './parser-browsers';
 import osParsersList from './parser-os';
 import platformParsersList from './parser-platforms';
+import enginesParsersList from './parser-engines';
 
 class Parser {
   /**
@@ -87,7 +88,10 @@ class Parser {
    *
    * @public
    */
-  getBrowserName() {
+  getBrowserName(toLowerCase) {
+    if (toLowerCase) {
+      return String(this.getBrowser().name).toLowerCase();
+    }
     return this.getBrowser().name;
   }
 
@@ -215,12 +219,54 @@ class Parser {
   }
 
   /**
+   * Get parsed engine
+   * @return {{}}
+   */
+  getEngine() {
+    if (this.parsedResult.engine) {
+      return this.parsedResult.engine;
+    }
+
+    return this._parseEngine();
+  }
+
+  /**
+   * Get parsed platform
+   * @return {{}}
+   * @private
+   */
+  _parseEngine() {
+    this.parsedResult.engine = {};
+
+    const engine = enginesParsersList.find(_engine => {
+      if (typeof _engine.test === 'function') {
+        return _engine.test(this);
+      }
+
+      if (_engine.test instanceof Array) {
+        return _engine.test.some((condition) => {
+          return this.test(condition);
+        });
+      }
+
+      throw new Error("Browser's test function is not valid");
+    });
+
+    if (engine) {
+      this.parsedResult.engine = engine.describe(this.getUA());
+    }
+
+    return this.parsedResult.engine;
+  }
+
+  /**
    * Parse full information about the browser
    */
   parse() {
     this._parseBrowser();
     this._parseOS();
     this._parsePlatform();
+    this._parseEngine();
 
     return this;
   }

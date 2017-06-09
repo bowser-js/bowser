@@ -72,7 +72,7 @@ export default [
 
   /* Nexus Mobile */
   {
-    test: [/nexus\s*[0-6]\s*/i],
+    test: [/nexus\s*[0-6]\s*/i, /galaxy nexus/i],
     describe() {
       return {
         type: TYPES.mobile,

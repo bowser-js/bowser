@@ -173,6 +173,10 @@ class Parser {
     return this.getOS().version;
   }
 
+  /**
+   * Get parsed platform
+   * @return {{}}
+   */
   getPlatform() {
     if (this.parsedResult.platform) {
       return this.parsedResult.platform;
@@ -181,6 +185,11 @@ class Parser {
     return this._parsePlatform();
   }
 
+  /**
+   * Get parsed platform
+   * @return {{}}
+   * @private
+   */
   _parsePlatform() {
     this.parsedResult.platform = {};
 

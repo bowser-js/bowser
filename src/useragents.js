@@ -588,6 +588,16 @@ module.exports.useragents = {
       , a: true
       , webkit: true
     }
+    , 'Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.21 (KHTML, like Gecko) Version/10.0 Mobile/15A5278f Safari/602.1': {
+        version: '10.0'
+      , iphone: true
+      , safari: true
+      , ios: true
+      , mobile: true
+      , osversion: '11.0'
+      , a: true
+      , webkit: true
+    }
   }
   , 'Internet Explorer': {
       'Mozilla/5.0 (Windows NT 6.3; Win64; x64; Trident/7.0; MAARJS; rv:11.0) like Gecko': {

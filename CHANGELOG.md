@@ -1,5 +1,8 @@
 # Bowser Changelog
 
+### 1.7.1 (July 13, 2017)
+- [ADD] Fix detecting of Tablet PC as tablet (#183)
+
 ### 1.7.0 (May 18, 2017)
 - [ADD] Add OS version support for Windows and macOS (#178)
 

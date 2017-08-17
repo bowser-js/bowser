@@ -1,5 +1,8 @@
 # Bowser Changelog
 
+### 1.7.1 (August 17, 2017)
+- [FIX] Fix typings.d.ts according to #185
+
 ### 1.7.1 (July 13, 2017)
 - [ADD] Fix detecting of Tablet PC as tablet (#183)
 

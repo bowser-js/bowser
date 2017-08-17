@@ -50,7 +50,7 @@ export default [
   {
     test: [/macintosh/i],
     describe(ua) {
-      const version = getFirstMatch(/mac os x (\d+([_\s]\d+)*)/i, ua).replace(/[_\s]/g, '.');
+      const version = getFirstMatch(/mac os x (\d+(\.\d+)*)/i, ua).replace(/[_\s]/g, '.');
       return {
         name: 'macOS',
         version

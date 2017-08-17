@@ -192,7 +192,7 @@
           version: "11.0.696.57"
         os: 
           name: "macOS"
-          version: "10"
+          version: "10.6.7"
         platform: 
           type: "desktop"
           vendor: "Apple"
@@ -309,7 +309,7 @@
           version: "1.0.22.153_10033210"
         os: 
           name: "macOS"
-          version: "10"
+          version: "10.6.3"
         platform: 
           type: "tablet"
           vendor: "Amazon"
@@ -591,7 +591,7 @@
           version: "15.4.2272.3420"
         os: 
           name: "macOS"
-          version: "10"
+          version: "10.10.3"
         platform: 
           type: "desktop"
           vendor: "Apple"
@@ -620,7 +620,7 @@
           version: "5.1.7"
         os: 
           name: "macOS"
-          version: "10"
+          version: "10.6.8"
         platform: 
           type: "desktop"
           vendor: "Apple"
@@ -635,7 +635,7 @@
           version: "5.0.5"
         os: 
           name: "macOS"
-          version: "10"
+          version: "10.6.7"
         platform: 
           type: "desktop"
           vendor: "Apple"
@@ -693,7 +693,7 @@
           version: "4.0.4"
         os: 
           name: "macOS"
-          version: "10"
+          version: "10.6.1"
         platform: 
           type: "desktop"
           vendor: "Apple"
@@ -708,7 +708,7 @@
           version: "3.2.3"
         os: 
           name: "macOS"
-          version: "10"
+          version: "10.5.7"
         platform: 
           type: "desktop"
           vendor: "Apple"
@@ -786,7 +786,7 @@
           version: "3.1"
         os: 
           name: "macOS"
-          version: "10"
+          version: "10.5.2"
         platform: 
           type: "mobile"
           vendor: "Apple"
@@ -2073,7 +2073,7 @@
           version: "1.0.303.52"
         os: 
           name: "macOS"
-          version: "10"
+          version: "10.11.1"
         platform: 
           type: "desktop"
           vendor: "Apple"

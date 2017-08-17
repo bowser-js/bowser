@@ -1,7 +1,7 @@
 const fs = require('fs');
-const UAList = require('./src/useragents').useragents;
+const UAList = require('../src/useragents').useragents;
 const json2yaml = require('json2yaml');
-const Parser = require('./lib/parser').default;
+const Parser = require('../lib/parser').default;
 
 const newBrowserList = {};
 

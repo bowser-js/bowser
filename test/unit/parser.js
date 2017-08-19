@@ -9,15 +9,15 @@ test('constructor', t => {
   t.truthy(parser instanceof Parser);
 });
 
-test('getUA', t => {
+test('Parser.getUA returns a correct UA', t => {
   t.is(parser.getUA(), UA);
 });
 
-test('test', t => {
+test('Parser.test', t => {
   t.truthy(parser.test(/Chrome/i));
 });
 
-test('_parseBrowser', t => {
+test('Parser._parseBrowser is being called when the Parser.getBrowser() is called', t => {
   const spy = sinon.spy(parser, '_parseBrowser');
   const b = parser.getBrowser();
   t.truthy(spy.called);
@@ -26,25 +26,29 @@ test('_parseBrowser', t => {
   parser._parseBrowser.restore();
 });
 
-test('getBrowserName', t => {
+test('Parser.getBrowserName returns a correct result', t => {
   t.is(parser.getBrowserName(), 'Opera');
 });
 
-test('getBrowserVersion', t => {
+test('Parser.getBrowserVersion returns a correct result', t => {
   t.is(parser.getBrowserVersion(), '43.0.2442.1165');
 });
 
-test('_parseOS', t => {
+test('Parser._parseOS is being called when getOS() called', t => {
   const spy = sinon.spy(parser, '_parseOS');
   parser.getOS();
   t.truthy(spy.called);
   parser._parseOS.restore();
 });
 
-test('getOSName', t => {
+test('Parser.getOSName gives a name of the browser', t => {
   t.is(parser.getOSName(), 'macOS');
 });
 
-test('getOSVersion', t => {
+test('Parser.getOSName gives a lower-cased name of the browser', t => {
+  t.is(parser.getOSName(true), 'macos');
+});
+
+test('Parser.getOSVersion returns a correct result', t => {
   t.is(parser.getOSVersion(), '10.12.4');
 });

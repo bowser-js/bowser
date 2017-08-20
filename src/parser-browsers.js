@@ -257,12 +257,13 @@ const browsersList = [
     }
   },
   {
-    test: [/firefox|iceweasel|fxios/i],
+    test: [/sailfish/i],
     describe(ua) {
       const browser = {
-        name: 'Firefox'
+        name: 'Sailfish'
       };
-      const version = getFirstMatch(/(?:firefox|iceweasel|fxios)[ \/](\d+(\.?_?\d+)+)/i, ua);
+
+      const version = getFirstMatch(/sailfish\s?browser\/(\d+(\.\d+)?)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -392,6 +393,21 @@ const browsersList = [
     }
   },
   {
+    test: [/firefox|iceweasel|fxios/i],
+    describe(ua) {
+      const browser = {
+        name: 'Firefox'
+      };
+      const version = getFirstMatch(/(?:firefox|iceweasel|fxios)[ \/](\d+(\.?_?\d+)+)/i, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    }
+  },
+  {
     test: [/chromium/i],
     describe(ua) {
       const browser = {
@@ -425,7 +441,7 @@ const browsersList = [
   /* Android Browser */
   {
     test(parser) {
-      const notLikeAndroid = !parser.test(/^((?!like android).)*$/i);
+      const notLikeAndroid = !parser.test(/like android/i);
       const butAndroid = parser.test(/android/i);
       return notLikeAndroid && butAndroid;
     },

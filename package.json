@@ -43,8 +43,7 @@
   },
   "scripts": {
     "test": "testem",
-    "watch-tests": "./node_modules/.bin/ava --watch",
-    "prepublish": "make boosh"
+    "watch-tests": "./node_modules/.bin/ava --watch"
   },
   "license": "MIT"
 }

@@ -56,3 +56,5 @@ class Bowser {
   // static filter(UACollection, range) {}
   // static inRange(range, UACollection) {}
 }
+
+export default Bowser;

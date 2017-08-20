@@ -42,8 +42,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "testem",
-    "watch-tests": "./node_modules/.bin/ava --watch"
+    "testem": "testem",
+    "test": "./node_modules/.bin/ava"
   },
   "license": "MIT"
 }

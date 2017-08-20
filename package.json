@@ -26,7 +26,8 @@
     "babel-preset-env": "^1.5.2",
     "babel-register": "^6.24.1",
     "sinon": "^2.1.0",
-    "testem": "^1.16.2"
+    "testem": "^1.16.2",
+    "yamljs": "^0.3.0"
   },
   "ava": {
     "require": [
@@ -42,6 +43,7 @@
   },
   "scripts": {
     "test": "testem",
+    "watch-tests": "./node_modules/.bin/ava --watch",
     "prepublish": "make boosh"
   },
   "license": "MIT"

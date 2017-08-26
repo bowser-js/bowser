@@ -7,7 +7,16 @@
  */
 module.exports.useragents = {
     Chrome: {
-      'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 9 Build/LMY48T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Safari/537.36': {
+      'Mozilla/5.0 (Linux; Android 8.0.0; Nexus 6P Build/OPR6.170623.013) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.107 Mobile Safari/537.36': {
+        chrome: true
+      , android: true
+      , osversion: '8.0.0'
+      , mobile: true
+      , version: '60.0'
+      , blink: true
+      , a: true
+      }
+    , 'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 9 Build/LMY48T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Safari/537.36': {
         chrome: true
       , android: true
       , osversion: '5.1.1'
@@ -206,7 +215,24 @@ module.exports.useragents = {
       }
     }
   , Opera: {
-      'Mozilla/5.0 (Linux; Android 4.4.2; Nexus 7 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.72 Safari/537.36 OPR/19.0.1340.69721': {
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.78 Safari/537.36 OPR/47.0.2631.55': {
+        opera: true
+      , blink: true
+      , mac: true
+      , osversion: '10.11.6'
+      , version: '47.0'
+      , a: true
+      }
+    , 'Mozilla/5.0 (Linux; Android 8.0; Nexus 6P Build/OPR6.170623.013) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.91 Mobile Safari/537.36 OPR/42.7.2246.114996': {
+        opera: true
+      , blink: true
+      , android: true
+      , osversion: '8.0'
+      , mobile: true
+      , version: '42.7'
+      , a: true
+      }
+    , 'Mozilla/5.0 (Linux; Android 4.4.2; Nexus 7 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.72 Safari/537.36 OPR/19.0.1340.69721': {
         opera: true
       , blink: true
       , android: true

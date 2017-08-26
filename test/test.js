@@ -101,46 +101,67 @@ describe('Browser versions comparision', function() {
   }
 });
 
-describe('Unsupported browser check', function() {
+describe('Unsupported browser check', function () {
 
-  before(function() {
+  before(function () {
     this.ie10_6 = "Mozilla/5.0 (compatible; MSIE 10.6; Windows NT 6.1; Trident/5.0; InfoPath.2; SLCC1; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET CLR 2.0.50727) 3gpp-gba UNTRUSTED/1.0";
   });
 
-  it('should be passed by #isUnsupportedBrowser for IE10.6 and for IE10 miminal version specified', function() {
-    var unsupported = browser.isUnsupportedBrowser({msie: "10"}, this.ie10_6);
+  it('should be passed by #isUnsupportedBrowser for IE10.6 and for IE10 miminal version specified', function () {
+    var unsupported = browser.isUnsupportedBrowser({ msie: "10" }, this.ie10_6);
     assert.equal(unsupported, false);
   });
 
-  it('should be passed by #isUnsupportedBrowser for IE10.6 and for IE10 miminal version specified in strict mode', function() {
-    var unsupported = browser.isUnsupportedBrowser({msie: "10"}, true, this.ie10_6);
+  it('should be passed by #isUnsupportedBrowser for IE10.6 and for IE10 miminal version specified in strict mode', function () {
+    var unsupported = browser.isUnsupportedBrowser({ msie: "10" }, true, this.ie10_6);
     assert.equal(unsupported, false);
   });
 
-  it('should NOT be passed by #check for IE10.6 and for IE11 miminal version specified', function() {
-    var supported = browser.check({msie: "11"}, this.ie10_6);
+  it('should NOT be passed by #check for IE10.6 and for IE11 miminal version specified', function () {
+    var supported = browser.check({ msie: "11" }, this.ie10_6);
     assert.equal(supported, false);
   });
 
-  it('should NOT be passed by #check for IE10.6 and for IE11 miminal version specified in strict mode', function() {
-    var supported = browser.check({msie: "11"}, true, this.ie10_6);
+  it('should NOT be passed by #check for IE10.6 and for IE11 miminal version specified in strict mode', function () {
+    var supported = browser.check({ msie: "11" }, true, this.ie10_6);
     assert.equal(supported, false);
   });
 
-  it('should throw an error when minVersion map has a number, but not a string', function() {
+  it('should throw an error when minVersion map has a number, but not a string', function () {
     assert.throws(() => {
-      browser.check({msie: 11}, this.ie10_6);
+      browser.check({ msie: 11 }, this.ie10_6);
     }, /Browser version in the minVersion map should be a string/);
   });
 
-  it('should be passed by #check for IE10.6 when version was not specified', function() {
+  it('should be passed by #check for IE10.6 when version was not specified', function () {
     var supported = browser.check({}, this.ie10_6);
     assert.equal(supported, true);
   });
 
-  it('should NOT be passed by #check for IE10.6 when version was not specified in strict mode', function() {
+  it('should NOT be passed by #check for IE10.6 when version was not specified in strict mode', function () {
     var supported = browser.check({}, true, this.ie10_6);
     assert.equal(supported, false);
   });
+});
 
-})
+describe('Android 8.0.0 OPR6 build type not confused for the Opera browser', function () {
+
+  before(function () {
+    this.android8_opr6_ua = "Mozilla/5.0 (Linux; Android 8.0.0; Nexus 6P Build/OPR6.170623.013) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.107 Mobile Safari/537.36";
+    this.opera_ua = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.78 Safari/537.36 OPR/47.0.2631.55";
+  });
+
+  it('Android 8 Chrome 60 user agent should be detected as Chrome 60', function () {
+    var flags = browser._detect(this.android8_opr6_ua);
+    assert.equal(flags.chrome, true);
+    assert.equal(flags.version, "60.0");
+    assert.equal(flags.opera, undefined);
+  });
+
+  it('Opera user agent should be detected as Opera 47', function () {
+    var flags = browser._detect(this.opera_ua);
+    assert.equal(flags.opera, true);
+    assert.equal(flags.version, "47.0");
+    assert.equal(flags.chrome, undefined);
+  });
+});

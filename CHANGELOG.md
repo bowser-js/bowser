@@ -1,5 +1,8 @@
 # Bowser Changelog
 
+### 1.7.3 (August 30, 2017)
+- [FIX] Fix detection of Chrome on Android 8 OPR6 (#193)
+
 ### 1.7.2 (August 17, 2017)
 - [FIX] Fix typings.d.ts according to #185
 

@@ -11,7 +11,7 @@
     "ender",
     "sniff"
   ],
-  "version": "1.7.2",
+  "version": "1.7.3",
   "homepage": "https://github.com/lancedikson/bowser",
   "scripts": [
     "src/bowser.js"

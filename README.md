@@ -153,8 +153,9 @@ If detected, one of these flags may be set to true:
   * `tizen`
   * `sailfish`
 
-`osversion` may also be set:
+`osname` and `osversion` may also be set:
 
+  * `osname` - for the OS flags detected above: macOS, Windows, Windows Phone, Linux, Chrome OS, Android, iOS, Blackberry OS, Firefox OS, WebOS, Bada, Tizen, Sailfish OS, and Xbox
   * `osversion` - for Android, iOS, MacOS, Windows, Windows Phone, WebOS, Bada, and Tizen.  If included in UA string.
 
 iOS is always reported as `ios` and additionally as `iphone`/`ipad`/`ipod`, whichever one matches best.

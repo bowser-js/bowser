@@ -1,5 +1,8 @@
 # Bowser Changelog
 
+### 1.8.0 (October 7, 2017)
+- [ADD] Add `osname` into result object (#200)
+
 ### 1.7.3 (August 30, 2017)
 - [FIX] Fix detection of Chrome on Android 8 OPR6 (#193)
 

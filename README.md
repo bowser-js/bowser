@@ -1,7 +1,7 @@
 ## Bowser
 A Browser detector. Because sometimes, there is no other way, and not even good modern browsers always provide good feature detection mechanisms.
 
-[![bowser ci](https://secure.travis-ci.org/ded/bowser.png)](https://travis-ci.org/ded/bowser/)
+[![Build Status](https://travis-ci.org/lancedikson/bowser.svg?branch=master)](https://travis-ci.org/lancedikson/bowser)
 
 So... it works like this:
 
@@ -153,8 +153,9 @@ If detected, one of these flags may be set to true:
   * `tizen`
   * `sailfish`
 
-`osversion` may also be set:
+`osname` and `osversion` may also be set:
 
+  * `osname` - for the OS flags detected above: macOS, Windows, Windows Phone, Linux, Chrome OS, Android, iOS, Blackberry OS, Firefox OS, WebOS, Bada, Tizen, Sailfish OS, and Xbox
   * `osversion` - for Android, iOS, MacOS, Windows, Windows Phone, WebOS, Bada, and Tizen.  If included in UA string.
 
 iOS is always reported as `ios` and additionally as `iphone`/`ipad`/`ipod`, whichever one matches best.

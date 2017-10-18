@@ -816,6 +816,25 @@ module.exports.useragents = {
       , osversion: '10'
       , a: true
     }
+    , 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_2 like Mac OS X) AppleWebKit/603.2.4 (KHTML, like Gecko) Mobile/14F89 Safari/603.2.4 EdgiOS/41.1.35.1': {
+      osname: 'iOS'
+      , msedge: true
+      , version: '41.1'
+      , ios: true
+      , iphone: true
+      , mobile: true
+      , osversion: '10.3.2'
+      , a: true
+    }
+    , 'Mozilla/5.0 (Linux; Android 8.0; Pixel XL Build/OPP3.170518.006) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.0 Mobile Safari/537.36 EdgA/41.1.35.1': {
+      osname: 'Android'
+      , msedge: true
+      , version: '41.1'
+      , android: true
+      , mobile: true
+      , osversion: '8.0'
+      , a: true
+    }
   }
   , Firefox: {
     'Mozilla/5.0 (Mobile; rv:26.0) Gecko/26.0 Firefox/26.0': {

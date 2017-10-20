@@ -1,5 +1,8 @@
 # Bowser Changelog
 
+### 1.8.1 (October 7, 2017)
+- [FIX] Fix detection of MS Edge on Android and iOS (#201)
+
 ### 1.8.0 (October 7, 2017)
 - [ADD] Add `osname` into result object (#200)
 

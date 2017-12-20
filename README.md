@@ -112,6 +112,7 @@ If detected, one of these flags may be set to true:
 If detected, one of these flags may be set to true.  The rendering engine flag is shown in []'s:
 
   * `chrome` - [`webkit`|`blink`]
+  * `chromium` - [`webkit`|`blink`]
   * `firefox` - [`gecko`]
   * `msie`
   * `msedge`

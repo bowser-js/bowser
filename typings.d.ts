@@ -96,6 +96,7 @@ declare namespace bowser {
         (): IBowserDetection;
         test(browserList: string[]): boolean;
         _detect(ua: string): IBowser;
+        detect(ua: string): IBowser;
         compareVersions(versions: string[]): number;
         check(minVersions: IBowserMinVersions, strictMode?: boolean|string, ua?: string): Boolean;
         isUnsupportedBrowser(minVersions: IBowserMinVersions, strictMode?: boolean|string, ua?: string): boolean;

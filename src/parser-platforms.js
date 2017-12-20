@@ -2,7 +2,7 @@ import {
   getFirstMatch
 } from './utils';
 
-const TYPES = {
+const TYPES_LABELS = {
   tablet: 'tablet',
   mobile: 'mobile',
   desktop: 'desktop'
@@ -19,7 +19,7 @@ export default [
     test: [/nexus\s*[0-9]+/i],
     describe() {
       return {
-        type: TYPES.tablet,
+        type: TYPES_LABELS.tablet,
         vendor: 'Nexus',
       };
     }
@@ -30,7 +30,7 @@ export default [
     test: [/ipad/i],
     describe() {
       return {
-        type: TYPES.tablet,
+        type: TYPES_LABELS.tablet,
         vendor: 'Apple',
         model: 'iPad'
       }
@@ -42,7 +42,7 @@ export default [
     test: [/kftt build/i],
     describe() {
       return {
-        type: TYPES.tablet,
+        type: TYPES_LABELS.tablet,
         vendor: 'Amazon',
         model: 'Kindle Fire HD 7'
       }
@@ -54,7 +54,7 @@ export default [
     test: [/silk/i],
     describe() {
       return {
-        type: TYPES.tablet,
+        type: TYPES_LABELS.tablet,
         vendor: 'Amazon'
       }
     }
@@ -65,7 +65,7 @@ export default [
     test: [/tablet/i],
     describe() {
       return {
-        type: TYPES.tablet
+        type: TYPES_LABELS.tablet
       };
     }
   },
@@ -80,7 +80,7 @@ export default [
     describe(ua) {
       const model = getFirstMatch(/(ipod|iphone)/i, ua);
       return {
-        type: TYPES.mobile,
+        type: TYPES_LABELS.mobile,
         vendor: 'Apple',
         model: model
       };
@@ -92,7 +92,7 @@ export default [
     test: [/nexus\s*[0-6]\s*/i, /galaxy nexus/i],
     describe() {
       return {
-        type: TYPES.mobile,
+        type: TYPES_LABELS.mobile,
         vendor: 'Nexus'
       };
     }
@@ -103,7 +103,7 @@ export default [
     test: [/[^-]mobi/i],
     describe() {
       return {
-        type: TYPES.mobile
+        type: TYPES_LABELS.mobile
       };
     }
   },
@@ -115,7 +115,7 @@ export default [
     },
     describe() {
       return {
-        type: TYPES.mobile,
+        type: TYPES_LABELS.mobile,
         vendor: 'BlackBerry'
       };
     }
@@ -128,7 +128,7 @@ export default [
     },
     describe() {
       return {
-        type: TYPES.mobile
+        type: TYPES_LABELS.mobile
       }
     }
   },
@@ -140,7 +140,7 @@ export default [
     },
     describe() {
       return {
-        type: TYPES.mobile,
+        type: TYPES_LABELS.mobile,
         vendor: 'Microsoft'
       }
     }
@@ -154,7 +154,7 @@ export default [
     },
     describe() {
       return {
-        type: TYPES.tablet
+        type: TYPES_LABELS.tablet
       }
     }
   },
@@ -166,7 +166,7 @@ export default [
     },
     describe() {
       return {
-        type: TYPES.mobile
+        type: TYPES_LABELS.mobile
       }
     }
   },
@@ -178,7 +178,7 @@ export default [
     },
     describe() {
       return {
-        type: TYPES.desktop,
+        type: TYPES_LABELS.desktop,
         vendor: 'Apple'
       };
     }
@@ -191,7 +191,7 @@ export default [
     },
     describe() {
       return {
-        type: TYPES.desktop
+        type: TYPES_LABELS.desktop
       }
     }
   },
@@ -203,7 +203,7 @@ export default [
     },
     describe() {
       return {
-        type: TYPES.desktop
+        type: TYPES_LABELS.desktop
       }
     }
   }

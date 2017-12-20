@@ -31,6 +31,7 @@ import {
 const commonVersionIdentifier = /version\/(\d+(\.?_?\d+)+)/i;
 
 const browsersList = [
+  /* Opera < 13.0 */
   {
     test: [/opera/i],
     describe(ua) {
@@ -46,6 +47,8 @@ const browsersList = [
       return browser;
     }
   },
+
+  /* Opera > 13.0 */
   {
     test: [/opr|opios/i],
     describe(ua) {
@@ -212,12 +215,13 @@ const browsersList = [
     }
   },
   {
-    test: [/chrome.+? edge/i],
+    test: [/edg([ea]|ios)/i],
     describe(ua) {
       const browser = {
         name: 'Microsoft Edge'
       };
-      const version = getFirstMatch(/edge\/(\d+(\.?_?\d+)+)/i, ua);
+
+      const version = getSecondMatch(/edg([ea]|ios)\/(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;

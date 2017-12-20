@@ -1,5 +1,5 @@
 import {
-  getFirstMatch
+  getFirstMatch,
 } from './utils';
 
 function getWindowsVersionName(version) {
@@ -26,9 +26,9 @@ export default [
       const version = getFirstMatch(/windows phone (?:os)?\s?(\d+(\.\d+)*)/i, ua);
       return {
         name: 'Windows Phone',
-        version
-      }
-    }
+        version,
+      };
+    },
   },
 
   /* Windows */
@@ -41,9 +41,9 @@ export default [
       return {
         name: 'Windows',
         version,
-        versionName
+        versionName,
       };
-    }
+    },
   },
 
   /* macOS */
@@ -53,9 +53,9 @@ export default [
       const version = getFirstMatch(/mac os x (\d+(\.?_?\d+)+)/i, ua).replace(/[_\s]/g, '.');
       return {
         name: 'macOS',
-        version
+        version,
       };
-    }
+    },
   },
 
   /* iOS */
@@ -66,9 +66,9 @@ export default [
 
       return {
         name: 'iOS',
-        version
+        version,
       };
-    }
+    },
   },
 
   /* Android */
@@ -79,12 +79,12 @@ export default [
       return notLikeAndroid && butAndroid;
     },
     describe(ua) {
-      const version = getFirstMatch(/android[ \/-](\d+(\.\d+)*)/i, ua);
+      const version = getFirstMatch(/android[\s/-](\d+(\.\d+)*)/i, ua);
       return {
         name: 'Android',
-        version
+        version,
       };
-    }
+    },
   },
 
   /* WebOS */
@@ -94,9 +94,9 @@ export default [
       const version = getFirstMatch(/(?:web|hpw)os\/(\d+(\.\d+)*)/i, ua);
       return {
         name: 'WebOS',
-        version
+        version,
       };
-    }
+    },
   },
 
   /* BlackBerry */
@@ -109,9 +109,9 @@ export default [
 
       return {
         name: 'BlackBerry',
-        version
+        version,
       };
-    }
+    },
   },
 
   /* Bada */
@@ -122,22 +122,22 @@ export default [
 
       return {
         name: 'Bada',
-        version
+        version,
       };
-    }
+    },
   },
 
   /* Tizen */
   {
     test: [/tizen/i],
     describe(ua) {
-      const version = getFirstMatch(/tizen[\/\s](\d+(\.\d+)*)/i, ua);
+      const version = getFirstMatch(/tizen[/\s](\d+(\.\d+)*)/i, ua);
 
       return {
         name: 'Tizen',
-        version
+        version,
       };
-    }
+    },
   },
 
   /* Linux */
@@ -145,8 +145,8 @@ export default [
     test: [/linux/i],
     describe() {
       return {
-        name: 'Linux'
-      }
-    }
-  }
-]
+        name: 'Linux',
+      };
+    },
+  },
+];

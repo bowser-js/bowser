@@ -1,11 +1,11 @@
 import {
-  getFirstMatch
+  getFirstMatch,
 } from './utils';
 
 const TYPES_LABELS = {
   tablet: 'tablet',
   mobile: 'mobile',
-  desktop: 'desktop'
+  desktop: 'desktop',
 };
 
 /*
@@ -22,7 +22,7 @@ export default [
         type: TYPES_LABELS.tablet,
         vendor: 'Nexus',
       };
-    }
+    },
   },
 
   /* iPad */
@@ -32,9 +32,9 @@ export default [
       return {
         type: TYPES_LABELS.tablet,
         vendor: 'Apple',
-        model: 'iPad'
-      }
-    }
+        model: 'iPad',
+      };
+    },
   },
 
   /* Amazon Kindle Fire */
@@ -44,9 +44,9 @@ export default [
       return {
         type: TYPES_LABELS.tablet,
         vendor: 'Amazon',
-        model: 'Kindle Fire HD 7'
-      }
-    }
+        model: 'Kindle Fire HD 7',
+      };
+    },
   },
 
   /* Another Amazon Tablet with Silk */
@@ -55,9 +55,9 @@ export default [
     describe() {
       return {
         type: TYPES_LABELS.tablet,
-        vendor: 'Amazon'
-      }
-    }
+        vendor: 'Amazon',
+      };
+    },
   },
 
   /* Tablet */
@@ -65,9 +65,9 @@ export default [
     test: [/tablet/i],
     describe() {
       return {
-        type: TYPES_LABELS.tablet
+        type: TYPES_LABELS.tablet,
       };
-    }
+    },
   },
 
   /* iPod/iPhone */
@@ -82,9 +82,9 @@ export default [
       return {
         type: TYPES_LABELS.mobile,
         vendor: 'Apple',
-        model: model
+        model,
       };
-    }
+    },
   },
 
   /* Nexus Mobile */
@@ -93,9 +93,9 @@ export default [
     describe() {
       return {
         type: TYPES_LABELS.mobile,
-        vendor: 'Nexus'
+        vendor: 'Nexus',
       };
-    }
+    },
   },
 
   /* Mobile */
@@ -103,9 +103,9 @@ export default [
     test: [/[^-]mobi/i],
     describe() {
       return {
-        type: TYPES_LABELS.mobile
+        type: TYPES_LABELS.mobile,
       };
-    }
+    },
   },
 
   /* BlackBerry */
@@ -116,9 +116,9 @@ export default [
     describe() {
       return {
         type: TYPES_LABELS.mobile,
-        vendor: 'BlackBerry'
+        vendor: 'BlackBerry',
       };
-    }
+    },
   },
 
   /* Bada */
@@ -128,9 +128,9 @@ export default [
     },
     describe() {
       return {
-        type: TYPES_LABELS.mobile
-      }
-    }
+        type: TYPES_LABELS.mobile,
+      };
+    },
   },
 
   /* Windows Phone */
@@ -141,9 +141,9 @@ export default [
     describe() {
       return {
         type: TYPES_LABELS.mobile,
-        vendor: 'Microsoft'
-      }
-    }
+        vendor: 'Microsoft',
+      };
+    },
   },
 
   /* Android Tablet */
@@ -154,9 +154,9 @@ export default [
     },
     describe() {
       return {
-        type: TYPES_LABELS.tablet
-      }
-    }
+        type: TYPES_LABELS.tablet,
+      };
+    },
   },
 
   /* Android Mobile */
@@ -166,9 +166,9 @@ export default [
     },
     describe() {
       return {
-        type: TYPES_LABELS.mobile
-      }
-    }
+        type: TYPES_LABELS.mobile,
+      };
+    },
   },
 
   /* desktop */
@@ -179,9 +179,9 @@ export default [
     describe() {
       return {
         type: TYPES_LABELS.desktop,
-        vendor: 'Apple'
+        vendor: 'Apple',
       };
-    }
+    },
   },
 
   /* Windows */
@@ -191,9 +191,9 @@ export default [
     },
     describe() {
       return {
-        type: TYPES_LABELS.desktop
-      }
-    }
+        type: TYPES_LABELS.desktop,
+      };
+    },
   },
 
   /* Linux */
@@ -203,8 +203,8 @@ export default [
     },
     describe() {
       return {
-        type: TYPES_LABELS.desktop
-      }
-    }
-  }
+        type: TYPES_LABELS.desktop,
+      };
+    },
+  },
 ];

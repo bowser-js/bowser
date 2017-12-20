@@ -1,0 +1,6 @@
+extends: airbnb-base
+rules:
+  no-underscore-dangle: 0
+  no-void: 0
+plugins:
+  - ava

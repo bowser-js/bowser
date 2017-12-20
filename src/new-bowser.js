@@ -50,7 +50,7 @@ class Bowser {
    * @param {Object} range
    * @returns {Boolean}
    */
-  static notInRange(range) {}
+  // static notInRange(range) {}
 
 
   // static filter(UACollection, range) {}

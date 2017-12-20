@@ -11,7 +11,7 @@ class Parser {
    * @constructor
    */
   constructor(UA) {
-    if (UA === void(0) || UA === null || UA === '') {
+    if (UA === void (0) || UA === null || UA === '') {
       throw new Error("UserAgent parameter can't be empty");
     }
 
@@ -47,15 +47,13 @@ class Parser {
   _parseBrowser() {
     this.parsedResult.browser = {};
 
-    const browserDescriptor = browserParsersList.find(_browser => {
+    const browserDescriptor = browserParsersList.find((_browser) => {
       if (typeof _browser.test === 'function') {
         return _browser.test(this);
       }
 
       if (_browser.test instanceof Array) {
-        return _browser.test.some((condition) => {
-          return this.test(condition);
-        });
+        return _browser.test.some(condition => this.test(condition));
       }
 
       throw new Error("Browser's test function is not valid");
@@ -133,15 +131,13 @@ class Parser {
   _parseOS() {
     this.parsedResult.os = {};
 
-    const os = osParsersList.find(_os => {
+    const os = osParsersList.find((_os) => {
       if (typeof _os.test === 'function') {
         return _os.test(this);
       }
 
       if (_os.test instanceof Array) {
-        return _os.test.some((condition) => {
-          return this.test(condition);
-        });
+        return _os.test.some(condition => this.test(condition));
       }
 
       throw new Error("Browser's test function is not valid");
@@ -160,7 +156,7 @@ class Parser {
    * @return {String} name of the OS — macOS, Windows, Linux, etc.
    */
   getOSName(toLowerCase) {
-    const name = this.getOS().name;
+    const { name } = this.getOS();
 
     if (toLowerCase) {
       return String(name).toLowerCase();
@@ -197,15 +193,13 @@ class Parser {
   _parsePlatform() {
     this.parsedResult.platform = {};
 
-    const platform = platformParsersList.find(_platform => {
+    const platform = platformParsersList.find((_platform) => {
       if (typeof _platform.test === 'function') {
         return _platform.test(this);
       }
 
       if (_platform.test instanceof Array) {
-        return _platform.test.some((condition) => {
-          return this.test(condition);
-        });
+        return _platform.test.some(condition => this.test(condition));
       }
 
       throw new Error("Browser's test function is not valid");
@@ -238,15 +232,13 @@ class Parser {
   _parseEngine() {
     this.parsedResult.engine = {};
 
-    const engine = enginesParsersList.find(_engine => {
+    const engine = enginesParsersList.find((_engine) => {
       if (typeof _engine.test === 'function') {
         return _engine.test(this);
       }
 
       if (_engine.test instanceof Array) {
-        return _engine.test.some((condition) => {
-          return this.test(condition);
-        });
+        return _engine.test.some(condition => this.test(condition));
       }
 
       throw new Error("Browser's test function is not valid");

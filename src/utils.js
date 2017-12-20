@@ -32,7 +32,7 @@ class Utils {
     if (regexp.test(ua)) {
       return _const;
     }
-    return void(0);
+    return void (0);
   }
 }
 

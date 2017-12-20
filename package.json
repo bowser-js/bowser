@@ -25,6 +25,11 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
+    "eslint": "^4.13.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-ava": "^4.4.0",
+    "eslint-plugin-import": "^2.8.0",
+    "husky": "^0.14.3",
     "sinon": "^2.4.1",
     "testem": "^1.18.4",
     "yamljs": "^0.3.0"
@@ -42,6 +47,7 @@
     "test": "test"
   },
   "scripts": {
+    "lint": "./node_modules/.bin/eslint ./src --fix",
     "testem": "testem",
     "test": "./node_modules/.bin/ava"
   },

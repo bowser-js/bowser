@@ -1,5 +1,5 @@
 import {
-  getFirstMatch
+  getFirstMatch,
 } from './utils';
 
 /*
@@ -15,9 +15,9 @@ export default [
       const version = getFirstMatch(/edge\/(\d+(\.?_?\d+)+)/i, ua);
       return {
         name: 'EdgeHTML',
-        version
+        version,
       };
-    }
+    },
   },
 
   /* Trident */
@@ -25,7 +25,7 @@ export default [
     test: [/trident/i],
     describe(ua) {
       const engine = {
-        name: 'Trident'
+        name: 'Trident',
       };
 
       const version = getFirstMatch(/trident\/(\d+(\.?_?\d+)+)/i, ua);
@@ -35,7 +35,7 @@ export default [
       }
 
       return engine;
-    }
+    },
   },
 
   /* Presto */
@@ -45,7 +45,7 @@ export default [
     },
     describe(ua) {
       const engine = {
-        name: 'Presto'
+        name: 'Presto',
       };
 
       const version = getFirstMatch(/presto\/(\d+(\.?_?\d+)+)/i, ua);
@@ -55,7 +55,7 @@ export default [
       }
 
       return engine;
-    }
+    },
   },
 
   /* Gecko */
@@ -67,7 +67,7 @@ export default [
     },
     describe(ua) {
       const engine = {
-        name: 'Gecko'
+        name: 'Gecko',
       };
 
       const version = getFirstMatch(/gecko\/(\d+(\.?_?\d+)+)/i, ua);
@@ -77,7 +77,7 @@ export default [
       }
 
       return engine;
-    }
+    },
   },
 
   /* Blink */
@@ -85,9 +85,9 @@ export default [
     test: [/(apple)?webkit\/537\.36/i],
     describe() {
       return {
-        name: 'Blink'
+        name: 'Blink',
       };
-    }
+    },
   },
 
   /* WebKit */
@@ -95,7 +95,7 @@ export default [
     test: [/(apple)?webkit/i],
     describe(ua) {
       const engine = {
-        name: 'WebKit'
+        name: 'WebKit',
       };
 
       const version = getFirstMatch(/webkit\/(\d+(\.?_?\d+)+)/i, ua);
@@ -105,6 +105,6 @@ export default [
       }
 
       return engine;
-    }
-  }
+    },
+  },
 ];

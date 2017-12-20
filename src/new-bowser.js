@@ -16,7 +16,7 @@ import Parser from './parser';
  */
 class Bowser {
   /**
-   * Creates an object that parse UA
+   * Creates an object that parses UA
    * @param UA
    *
    * @example
@@ -31,7 +31,7 @@ class Bowser {
   }
 
   static parse(UA) {
-    return new this.constructor(UA).getResult();
+    return (new this.constructor(UA)).getResult();
   }
 
   /**

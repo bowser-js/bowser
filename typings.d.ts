@@ -31,6 +31,7 @@ declare namespace bowser {
 
     export interface IBowserVersions {
         chrome: boolean;
+        chromium: boolean;
         firefox: boolean;
         msie: boolean;
         msedge: boolean;

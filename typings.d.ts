@@ -79,10 +79,13 @@ declare namespace bowser {
         c: boolean;
         /** Grade X browser */
         x: boolean;
-        /**A human readable name for this browser. E.g. 'Chrome', '' */
+        /** A human readable name for this browser. E.g. 'Chrome', '' */
         name: string;
-        /**Version number for the browser. E.g. '32.0' */
+        /** Version number for the browser. E.g. '32.0' */
         version: string|number;
+        /** Name for this operating system. E.g. 'macOS' */
+        osname: string;
+        /** Version number for this operating system. E.g. '10.12.6' */ 
         osversion: string|number;
     }
 

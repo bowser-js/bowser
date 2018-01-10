@@ -2,6 +2,8 @@
 A Browser detector. Because sometimes, there is no other way, and not even good modern browsers always provide good feature detection mechanisms.
 
 [![Build Status](https://travis-ci.org/lancedikson/bowser.svg?branch=master)](https://travis-ci.org/lancedikson/bowser)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 So... it works like this:
 

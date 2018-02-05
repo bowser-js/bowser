@@ -1,7 +1,10 @@
 # Bowser Changelog
 
+### 1.9.2 (February 5, 2018)
+- [FIX] Fix `typings.d.ts` — add `osname` flag to the interface
+
 ### 1.9.1 (December 22, 2017)
-- [FIX] Fix `typings.d.ts` — add `chromium` flag to interface
+- [FIX] Fix `typings.d.ts` — add `chromium` flag to the interface
 
 ### 1.9.0 (December 20, 2017)
 - [ADD] Add a public method `.detect()` (#205)

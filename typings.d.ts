@@ -39,6 +39,7 @@ declare namespace bowser {
         android: boolean;
         ios: boolean;
         opera: boolean;
+        samsungBrowser: boolean;
         phantom: boolean;
         blackberry: boolean;
         webos: boolean;

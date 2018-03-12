@@ -1,5 +1,8 @@
 # Bowser Changelog
 
+### 1.9.3 (March 12, 2018)
+- [FIX] Fix `typings.d.ts` — add `ipad`, `iphone`, `ipod` flags to the interface
+
 ### 1.9.2 (February 5, 2018)
 - [FIX] Fix `typings.d.ts` — add `osname` flag to the interface
 

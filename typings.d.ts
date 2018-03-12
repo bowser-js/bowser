@@ -8,6 +8,15 @@ export = bowser;
 export as namespace bowser;
 
 declare namespace bowser {
+    export interface IBowserPlatform {
+        ipad: boolean;
+        ipod: boolean;
+        iphone: boolean;
+        /** If a tablet device is detected, the flag tablet is set instead of mobile. */
+        tablet: boolean;
+        /** All detected mobile OSes are additionally flagged mobile, unless it's a tablet */
+        mobile: boolean;
+    }
 
     export interface IBowserOS {
         mac: boolean;
@@ -39,6 +48,7 @@ declare namespace bowser {
         android: boolean;
         ios: boolean;
         opera: boolean;
+        samsungBrowser: boolean;
         phantom: boolean;
         blackberry: boolean;
         webos: boolean;
@@ -65,11 +75,6 @@ declare namespace bowser {
         gecko: boolean;
         /** IE > 11 */
         msedge: boolean;
-        /** If a tablet device is detected, the flag tablet is set instead of mobile. */
-        tablet: boolean;
-        /** All detected mobile OSes are additionally flagged mobile, unless it's a tablet */
-        mobile: boolean;
-
     }
 
     export interface IBowserGrade {
@@ -89,7 +94,7 @@ declare namespace bowser {
         osversion: string|number;
     }
 
-    export interface IBowserDetection extends IBowserGrade, IBowserEngines, IBowserOS, IBowserVersions { }
+    export interface IBowserDetection extends IBowserGrade, IBowserEngines, IBowserOS, IBowserVersions, IBowserPlatform { }
 
     export interface IBowserMinVersions {
         // { msie: "11", "firefox": "4" }

@@ -62,6 +62,7 @@ declare namespace bowser {
         vivaldi: boolean;
         sleipnir: boolean;
         kMeleon: boolean;
+        whale: boolean;
     }
 
     export interface IBowserEngines {
@@ -90,7 +91,7 @@ declare namespace bowser {
         version: string|number;
         /** Name for this operating system. E.g. 'macOS' */
         osname: string;
-        /** Version number for this operating system. E.g. '10.12.6' */ 
+        /** Version number for this operating system. E.g. '10.12.6' */
         osversion: string|number;
     }
 

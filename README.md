@@ -134,6 +134,7 @@ If detected, one of these flags may be set to true.  The rendering engine flag i
   * `vivaldi` — [`blink`]
   * `sleipnir` — [`blink`]
   * `kMeleon` — [`gecko`]
+  * `Whale` — [`blink`]
 
 For all detected browsers the browser version is set in the `version` field.
 

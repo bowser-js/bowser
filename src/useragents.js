@@ -1573,5 +1573,15 @@ module.exports.useragents = {
       , a: true
       , blink: true
     }
+  }, 'NAVER Whale browser' : {
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Whale/1.0.40.10 Safari/537.36': {
+      osname: 'macOS'
+      , whale: true
+      , mac: true
+      , osversion: '10.12.6'
+      , version: '1.0.40.10'
+      , blink: true
+      , a: true
+    }
   }
 }

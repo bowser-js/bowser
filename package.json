@@ -14,11 +14,17 @@
   ],
   "homepage": "https://github.com/lancedikson/bowser",
   "author": "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)",
+  "contributors": [
+    {
+      "name": "Denis Demchenko",
+      "url": "http://twitter.com/lancedikson"
+    }
+  ],
   "main": "./src/bowser.js",
   "typings": "./typings.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ded/bowser.git"
+    "url": "git+https://github.com/lancedikson/bowser.git"
   },
   "devDependencies": {
     "ava": "^0.25.0",

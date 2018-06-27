@@ -5,7 +5,9 @@ import Bowser from '../../src/bowser';
 
 const listOfUA = yaml.load(path.join(__dirname, 'useragentstrings.yml'));
 
-for (const browserName in listOfUA) {
+const browserNames = Object.keys(listOfUA);
+
+browserNames.forEach((browserName) => {
   listOfUA[browserName].forEach((browser) => {
     test('Check all the test browsers', (t) => {
       const parsed = new Bowser(browser.ua).parse().getResult();
@@ -13,4 +15,4 @@ for (const browserName in listOfUA) {
       t.is(parsed.browser.name, browserName, `${browser.ua}`);
     });
   });
-}
+});

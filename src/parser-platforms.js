@@ -1,6 +1,4 @@
-import {
-  getFirstMatch,
-} from './utils';
+import { getFirstMatch } from './utils';
 
 const TYPES_LABELS = {
   tablet: 'tablet',

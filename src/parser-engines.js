@@ -1,6 +1,4 @@
-import {
-  getFirstMatch,
-} from './utils';
+import { getFirstMatch } from './utils';
 
 /*
  * More specific goes first

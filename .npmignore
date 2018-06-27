@@ -1,3 +1,4 @@
 make
 src/useragents.js
 Makefile
+.nyc_output

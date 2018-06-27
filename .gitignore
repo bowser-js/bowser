@@ -3,3 +3,4 @@ node_modules/
 /bowser.js
 /bowser.min.js
 /lib/
+.nyc_output

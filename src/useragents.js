@@ -1230,6 +1230,14 @@ module.exports.useragents = {
       , mobile: true
       , x: true
     }
+    , 'Mozilla/5.0 (Web0S; Linux/SmartTV) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.122 Safari/537.36 WebAppManager': {
+      osname: 'WebOS'
+      , blink: true
+      , webos: true
+      , mobile: true
+      , version: ''
+      , x: true
+    }
   }
   , Android: {
     'Mozilla/5.0 (Linux; U; Android 4.4.2; de-de; Nexus 7 Build/KOT49H) AppleWebKit/537.16 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.16': {
@@ -1573,5 +1581,39 @@ module.exports.useragents = {
       , a: true
       , blink: true
     }
+  }, 'NAVER Whale browser' : {
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Whale/1.0.40.10 Safari/537.36': {
+      osname: 'macOS'
+      , whale: true
+      , mac: true
+      , osversion: '10.12.6'
+      , version: '1.0.40.10'
+      , blink: true
+      , a: true
+    }
   }
-}
+  , 'MZ Browser': {
+    'Mozilla/5.0 (Linux; U; Android 6.0; zh-CN; MZ-PRO 6 Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/40.0.2214.89 MZBrowser/6.9.511-2018012510 UWS/2.11.0.33 Mobile Safari/537.36': {
+      osname: 'Android'
+      , mzbrowser: true
+      , android: true
+      , mobile: true
+      , osversion: '6.0'
+      , version: '6.9.511'
+      , blink: true
+      , a: true
+    }
+  }
+  , 'Focus' : {
+    'Mozilla/5.0 (Linux; Android 7.1.1) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Focus/1.2.1 Chrome/59.0.3071.125': {
+      osname: 'Android'
+      , focus: true
+      , android: true
+      , tablet: true
+      , osversion: '7.1.1'
+      , version: '1.2.1'
+      , blink: true
+      , a: true
+    }
+  }
+};

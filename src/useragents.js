@@ -1584,4 +1584,16 @@ module.exports.useragents = {
       , a: true
     }
   }
+  , 'MZ Browser': {
+    'Mozilla/5.0 (Linux; U; Android 6.0; zh-CN; MZ-PRO 6 Build/MRA58K) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/40.0.2214.89 MZBrowser/6.9.511-2018012510 UWS/2.11.0.33 Mobile Safari/537.36': {
+      osname: 'Android'
+      , mzbrowser: true
+      , android: true
+      , mobile: true
+      , osversion: '6.0'
+      , version: '6.9.511'
+      , blink: true
+      , a: true
+    }
+  }
 }

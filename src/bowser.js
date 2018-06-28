@@ -92,6 +92,13 @@
         , version: versionIdentifier || getFirstMatch(/(?:coast)[\s\/](\d+(\.\d+)?)/i)
       }
     }
+    else if (/focus/i.test(ua)) {
+      result = {
+        name: 'Focus'
+        , focus: t
+        , version: getFirstMatch(/(?:focus)[\s\/](\d+(?:\.\d+)+)/i)
+      }
+    }
     else if (/yabrowser/i.test(ua)) {
       result = {
         name: 'Yandex Browser'
@@ -440,6 +447,7 @@
         (result.samsungBrowser && result.version >= 4) ||
         (result.whale && compareVersions([result.version, '1.0']) === 1) ||
         (result.mzbrowser && compareVersions([result.version, '6.0']) === 1) ||
+        (result.focus && compareVersions([result.version, '1.0']) === 1) ||
         (result.firefox && result.version >= 20.0) ||
         (result.safari && result.version >= 6) ||
         (result.opera && result.version >= 10.0) ||

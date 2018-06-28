@@ -1596,4 +1596,16 @@ module.exports.useragents = {
       , a: true
     }
   }
-}
+  , 'Focus' : {
+    'Mozilla/5.0 (Linux; Android 7.1.1) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Focus/1.2.1 Chrome/59.0.3071.125': {
+      osname: 'Android'
+      , focus: true
+      , android: true
+      , tablet: true
+      , osversion: '7.1.1'
+      , version: '1.2.1'
+      , blink: true
+      , a: true
+    }
+  }
+};

@@ -1,5 +1,11 @@
 # Bowser Changelog
 
+### 1.9.4 (June 28, 2018)
+- [FIX] Fix NAVER Whale browser detection (#220)
+- [FIX] Fix MZ Browser browser detection (#219)
+- [FIX] Fix Firefox Focus browser detection (#191)
+- [FIX] Fix webOS browser detection (#186)
+
 ### 1.9.3 (March 12, 2018)
 - [FIX] Fix `typings.d.ts` — add `ipad`, `iphone`, `ipod` flags to the interface
 

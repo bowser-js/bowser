@@ -40,7 +40,7 @@ bowser.check({msie: "9.0"}); // false
 
 /**
  * specific user agent
- */ 
+ */
 bowser.check({chrome: "45"}, window.navigator.userAgent); // true
 
 /**
@@ -134,6 +134,7 @@ If detected, one of these flags may be set to true.  The rendering engine flag i
   * `vivaldi` — [`blink`]
   * `sleipnir` — [`blink`]
   * `kMeleon` — [`gecko`]
+  * `whale` — [`blink`]
 
 For all detected browsers the browser version is set in the `version` field.
 

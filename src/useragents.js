@@ -1230,6 +1230,14 @@ module.exports.useragents = {
       , mobile: true
       , x: true
     }
+    , 'Mozilla/5.0 (Web0S; Linux/SmartTV) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.122 Safari/537.36 WebAppManager': {
+      osname: 'WebOS'
+      , blink: true
+      , webos: true
+      , mobile: true
+      , version: ''
+      , x: true
+    }
   }
   , Android: {
     'Mozilla/5.0 (Linux; U; Android 4.4.2; de-de; Nexus 7 Build/KOT49H) AppleWebKit/537.16 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.16': {

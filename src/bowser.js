@@ -36,7 +36,7 @@
       , silk = /silk/i.test(ua)
       , sailfish = /sailfish/i.test(ua)
       , tizen = /tizen/i.test(ua)
-      , webos = /(web|hpw)os/i.test(ua)
+      , webos = /(web|hpw)(o|0)s/i.test(ua)
       , windowsphone = /windows phone/i.test(ua)
       , samsungBrowser = /SamsungBrowser/i.test(ua)
       , windows = !windowsphone && /windows/i.test(ua)

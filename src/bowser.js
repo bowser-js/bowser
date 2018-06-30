@@ -25,8 +25,8 @@ class Bowser {
    * bowser.getBrowser()
    */
   constructor(UA, skipParsing=false) {
-    if (!UA) {
-      throw new Error('UserAgent is not defined');
+    if (typeof UA !== 'string') {
+      throw new Error('UserAgent should be a string');
     }
     return new Parser(UA, skipParsing);
   }

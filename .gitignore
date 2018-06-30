@@ -4,3 +4,4 @@ node_modules/
 /bowser.min.js
 /lib/
 .nyc_output
+coverage

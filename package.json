@@ -56,7 +56,7 @@
   "scripts": {
     "lint": "eslint ./src --fix",
     "testem": "testem",
-    "test": "nyc --reporter=html --reporter=text ava",
+    "test": "eslint ./src & nyc --reporter=html --reporter=text ava",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "license": "MIT"

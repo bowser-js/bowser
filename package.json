@@ -31,6 +31,7 @@
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
+    "coveralls": "^3.0.2",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-ava": "^4.5.1",
@@ -53,9 +54,10 @@
     "test": "test"
   },
   "scripts": {
-    "lint": "./node_modules/.bin/eslint ./src --fix",
+    "lint": "eslint ./src --fix",
     "testem": "testem",
-    "test": "./node_modules/.bin/ava"
+    "test": "nyc --reporter=html --reporter=text ava",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "license": "MIT"
 }

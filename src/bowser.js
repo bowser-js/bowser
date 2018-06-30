@@ -40,11 +40,11 @@ class Bowser {
    * @param {Object} range
    * @returns {Boolean}
    */
-  static inRange(range) {
-    if (!range) {
-      throw new Error('Range can not be empty');
-    }
-  }
+  // static inRange(range) {
+  //   if (!range) {
+  //     throw new Error('Range can not be empty');
+  //   }
+  // }
 
   /**
    * Check if the browser is NOT in range or not

@@ -17,21 +17,22 @@ import Parser from './parser';
 class Bowser {
   /**
    * Creates an object that parses UA
-   * @param UA
+   * @param {String} UA — UserAgent string
+   * @param {Boolean} [skipParsing=false] — same as skipParsing for Parser
    *
    * @example
    * const bowser = new Bowser(window.navigator.userAgent);
    * bowser.getBrowser()
    */
-  constructor(UA) {
+  constructor(UA, skipParsing=false) {
     if (!UA) {
       throw new Error('UserAgent is not defined');
     }
-    return new Parser(UA);
+    return new Parser(UA, skipParsing);
   }
 
   static parse(UA) {
-    return (new this.constructor(UA)).getResult();
+    return (new Bowser(UA)).getResult();
   }
 
   /**

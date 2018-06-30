@@ -6,17 +6,27 @@ import enginesParsersList from './parser-engines';
 class Parser {
   /**
    * Create instance of Parser
-   * @param UA
-   * @throw
+   *
+   * @param {String} UA — User-Agent string
+   * @param {Boolean} [skipParsing=false] — parser can skip parsing in purpose of performance
+   * improvements if you need to make a more particular parsing
+   * like `.parseBrowser()` or `.parsePlatform()`
+   *
+   * @throw {Error} in case of empty UA String
+   *
    * @constructor
    */
-  constructor(UA) {
+  constructor(UA, skipParsing = false) {
     if (UA === void (0) || UA === null || UA === '') {
       throw new Error("UserAgent parameter can't be empty");
     }
 
     this._ua = UA;
     this.parsedResult = {};
+
+    if (skipParsing !== true) {
+      this.parse();
+    }
   }
 
   /**
@@ -41,10 +51,8 @@ class Parser {
   /**
    * Get parsed browser object
    * @return {Object}
-   *
-   * @private
    */
-  _parseBrowser() {
+  parseBrowser() {
     this.parsedResult.browser = {};
 
     const browserDescriptor = browserParsersList.find((_browser) => {
@@ -77,7 +85,7 @@ class Parser {
       return this.parsedResult.browser;
     }
 
-    return this._parseBrowser();
+    return this.parseBrowser();
   }
 
   /**
@@ -120,15 +128,14 @@ class Parser {
       return this.parsedResult.os;
     }
 
-    return this._parseOS();
+    return this.parseOS();
   }
 
   /**
    * Parse OS and save it to this.parsedResult.os
    * @return {*|{}}
-   * @private
    */
-  _parseOS() {
+  parseOS() {
     this.parsedResult.os = {};
 
     const os = osParsersList.find((_os) => {
@@ -182,15 +189,14 @@ class Parser {
       return this.parsedResult.platform;
     }
 
-    return this._parsePlatform();
+    return this.parsePlatform();
   }
 
   /**
    * Get parsed platform
    * @return {{}}
-   * @private
    */
-  _parsePlatform() {
+  parsePlatform() {
     this.parsedResult.platform = {};
 
     const platform = platformParsersList.find((_platform) => {
@@ -221,15 +227,14 @@ class Parser {
       return this.parsedResult.engine;
     }
 
-    return this._parseEngine();
+    return this.parseEngine();
   }
 
   /**
    * Get parsed platform
    * @return {{}}
-   * @private
    */
-  _parseEngine() {
+  parseEngine() {
     this.parsedResult.engine = {};
 
     const engine = enginesParsersList.find((_engine) => {
@@ -255,10 +260,10 @@ class Parser {
    * Parse full information about the browser
    */
   parse() {
-    this._parseBrowser();
-    this._parseOS();
-    this._parsePlatform();
-    this._parseEngine();
+    this.parseBrowser();
+    this.parseOS();
+    this.parsePlatform();
+    this.parseEngine();
 
     return this;
   }

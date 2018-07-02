@@ -1,3 +1,4 @@
+import semver from 'semver';
 import browserParsersList from './parser-browsers';
 import osParsersList from './parser-os';
 import platformParsersList from './parser-platforms';
@@ -270,6 +271,47 @@ class Parser {
 
   getResult() {
     return this.parsedResult;
+  }
+
+  /**
+   * Check if parsed browser matches certain conditions
+   *
+   * @param {Object} checkTree — It's one or two layered object,
+   * which can include a platform or an OS on the first layer
+   * and should have browsers specs on the bottom-laying layer
+   *
+   * @example
+   * const browser = new Bowser(UA);
+   * if (browser.check({chrome: '>118.01.1322' }))
+   * // or with os
+   * if (browser.check({windows: { chrome: '>118.01.1322' } }))
+   * // or with platforms
+   * if (browser.check({desktop: { chrome: '>118.01.1322' } }))
+   */
+  check(checkTree) {
+    const thisVersion = this.getBrowser().version;
+    if (!semver.valid(semver.coerce(thisVersion))) {
+      throw new Error(`Version of current browser doesn't seem applicable: ${thisVersion}`);
+    }
+    const keysToProcess = Object.keys(checkTree);
+    keysToProcess.some((browserAttribute) => {
+      const objectOrVersion = checkTree[browserAttribute];
+
+      if (typeof objectOrVersion === 'object') {
+        return (this.isOs(browserAttribute) || this.isPlatform(browserAttribute))
+          && this.check(objectOrVersion);
+      }
+
+      return this.isBrowser(browserAttribute) && this.matches(objectOrVersion);
+    });
+  }
+
+  isBrowser(browserName) {
+    return this.getBrowser().name === browserName;
+  }
+
+  satisfies(version) {
+    return semver.satisfies(this.getBrowser().version, version);
   }
 }
 

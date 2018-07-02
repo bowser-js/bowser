@@ -60,5 +60,8 @@
     "test": "eslint ./src & nyc --reporter=html --reporter=text ava",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "semver": "^5.5.0"
+  }
 }

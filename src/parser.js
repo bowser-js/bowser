@@ -1,8 +1,8 @@
-import semver from 'semver';
 import browserParsersList from './parser-browsers';
 import osParsersList from './parser-os';
 import platformParsersList from './parser-platforms';
 import enginesParsersList from './parser-engines';
+import { compareVersions } from './utils';
 
 class Parser {
   /**
@@ -303,18 +303,14 @@ class Parser {
    * // or with platforms
    * if (browser.check({desktop: { chrome: '>118.01.1322' } }))
    */
-  semverCheck(checkTree) {
-    const thisVersion = this.getBrowser().version;
-    if (!semver.valid(semver.coerce(thisVersion))) {
-      throw new Error(`Version of current browser doesn't seem applicable: ${thisVersion}`);
-    }
+  check(checkTree) {
     const keysToProcess = Object.keys(checkTree);
     return keysToProcess.some((browserAttribute) => {
       const objectOrVersion = checkTree[browserAttribute];
 
       if (typeof objectOrVersion === 'object') {
         return (this.isOs(browserAttribute) || this.isPlatform(browserAttribute))
-          && this.semverCheck(objectOrVersion);
+          && this.check(objectOrVersion);
       }
 
       return this.isBrowser(browserAttribute) && this.satisfies(objectOrVersion);
@@ -326,7 +322,19 @@ class Parser {
   }
 
   satisfies(version) {
-    return semver.satisfies(semver.coerce(this.getBrowser().version), version);
+    let expectedResult = 0;
+    let comparableVersion = version;
+
+    if (version[0] === '>') {
+      expectedResult = 1;
+      comparableVersion = version.substr(1);
+    } else if (version[0] === '<') {
+      expectedResult = -1;
+      comparableVersion = version.substr(1);
+    } else if (version[0] === '=') {
+      comparableVersion = version.substr(1);
+    }
+    return compareVersions(this.getBrowserVersion(), comparableVersion) === expectedResult;
   }
 
   isOs(osName) {

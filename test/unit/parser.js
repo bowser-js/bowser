@@ -58,13 +58,17 @@ test('Skip parsing shouldn\'t parse', (t) => {
 });
 
 test('Parser.check should make simple check', (t) => {
-  t.is(parser.semverCheck({ opera: '>42' }), true);
+  t.is(parser.check({ opera: '>42' }), true);
 });
 
 test('Parser.check should make simple check', (t) => {
-  t.is(parser.semverCheck({
+  t.is(parser.check({
     macos: {
-      opera: '>42',
+      safari: '>11',
     },
+    ios: {
+      safari: '>10',
+    },
+    opera: '>42',
   }), true);
 });

@@ -17,7 +17,7 @@ test('Parser.test', (t) => {
   t.truthy(parser.test(/Chrome/i));
 });
 
-test('Parser._parseBrowser is being called when the Parser.getBrowser() is called', (t) => {
+test('Parser.parseBrowser is being called when the Parser.getBrowser() is called', (t) => {
   const spy = sinon.spy(parser, 'parseBrowser');
   const b = parser.getBrowser();
   t.truthy(spy.called);
@@ -34,7 +34,7 @@ test('Parser.getBrowserVersion returns a correct result', (t) => {
   t.is(parser.getBrowserVersion(), '43.0.2442.1165');
 });
 
-test('Parser._parseOS is being called when getOS() called', (t) => {
+test('Parser.parseOS is being called when getOS() called', (t) => {
   const spy = sinon.spy(parser, 'parseOS');
   parser.getOS();
   t.truthy(spy.called);
@@ -55,4 +55,16 @@ test('Parser.getOSVersion returns a correct result', (t) => {
 
 test('Skip parsing shouldn\'t parse', (t) => {
   t.deepEqual((new Parser(UA, true)).getResult(), {});
+});
+
+test('Parser.check should make simple check', (t) => {
+  t.is(parser.semverCheck({ opera: '>42' }), true);
+});
+
+test('Parser.check should make simple check', (t) => {
+  t.is(parser.semverCheck({
+    macos: {
+      opera: '>42',
+    },
+  }), true);
 });

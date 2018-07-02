@@ -91,15 +91,15 @@ class Parser {
 
   /**
    * Get browser's name
-   * @return {String} Browser's name
+   * @return {String} Browser's name or an empty string
    *
    * @public
    */
   getBrowserName(toLowerCase) {
     if (toLowerCase) {
-      return String(this.getBrowser().name).toLowerCase();
+      return String(this.getBrowser().name).toLowerCase() || '';
     }
-    return this.getBrowser().name;
+    return this.getBrowser().name || '';
   }
 
 
@@ -167,10 +167,10 @@ class Parser {
     const { name } = this.getOS();
 
     if (toLowerCase) {
-      return String(name).toLowerCase();
+      return String(name).toLowerCase() || '';
     }
 
-    return name;
+    return name || '';
   }
 
   /**
@@ -191,6 +191,21 @@ class Parser {
     }
 
     return this.parsePlatform();
+  }
+
+  /**
+   * Get platform name
+   * @param {Boolean} toLowerCase
+   * @return {*}
+   */
+  getPlatformName(toLowerCase) {
+    const { name } = this.getPlatform();
+
+    if (toLowerCase) {
+      return String(name).toLowerCase() || '';
+    }
+
+    return name || '';
   }
 
   /**
@@ -288,30 +303,38 @@ class Parser {
    * // or with platforms
    * if (browser.check({desktop: { chrome: '>118.01.1322' } }))
    */
-  check(checkTree) {
+  semverCheck(checkTree) {
     const thisVersion = this.getBrowser().version;
     if (!semver.valid(semver.coerce(thisVersion))) {
       throw new Error(`Version of current browser doesn't seem applicable: ${thisVersion}`);
     }
     const keysToProcess = Object.keys(checkTree);
-    keysToProcess.some((browserAttribute) => {
+    return keysToProcess.some((browserAttribute) => {
       const objectOrVersion = checkTree[browserAttribute];
 
       if (typeof objectOrVersion === 'object') {
         return (this.isOs(browserAttribute) || this.isPlatform(browserAttribute))
-          && this.check(objectOrVersion);
+          && this.semverCheck(objectOrVersion);
       }
 
-      return this.isBrowser(browserAttribute) && this.matches(objectOrVersion);
+      return this.isBrowser(browserAttribute) && this.satisfies(objectOrVersion);
     });
   }
 
   isBrowser(browserName) {
-    return this.getBrowser().name === browserName;
+    return this.getBrowserName(true) === String(browserName).toLowerCase();
   }
 
   satisfies(version) {
-    return semver.satisfies(this.getBrowser().version, version);
+    return semver.satisfies(semver.coerce(this.getBrowser().version), version);
+  }
+
+  isOs(osName) {
+    return this.getOSName(true) === String(osName).toLowerCase();
+  }
+
+  isPlatform(platformName) {
+    return this.getPlatformName(true) === String(platformName).toLowerCase();
   }
 }
 

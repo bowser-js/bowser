@@ -57,12 +57,12 @@ test('Skip parsing shouldn\'t parse', (t) => {
   t.deepEqual((new Parser(UA, true)).getResult(), {});
 });
 
-test('Parser.check should make simple check', (t) => {
-  t.is(parser.check({ opera: '>42' }), true);
+test('Parser.check should make simple comparison', (t) => {
+  t.is(parser.compare({ opera: '>42' }), true);
 });
 
-test('Parser.check should make simple check', (t) => {
-  t.is(parser.check({
+test('Parser.check should make complex comparison', (t) => {
+  t.is(parser.compare({
     macos: {
       safari: '>11',
     },

@@ -118,28 +118,28 @@ describe('Unsupported browser check', function() {
   });
 
   it('should NOT be passed by #check for IE10.6 and for IE11 miminal version specified', function() {
-    var supported = browser.check({msie: "11"}, this.ie10_6);
+    var supported = browser.compare({msie: "11"}, this.ie10_6);
     assert.equal(supported, false);
   });
 
   it('should NOT be passed by #check for IE10.6 and for IE11 miminal version specified in strict mode', function() {
-    var supported = browser.check({msie: "11"}, true, this.ie10_6);
+    var supported = browser.compare({msie: "11"}, true, this.ie10_6);
     assert.equal(supported, false);
   });
 
   it('should throw an error when minVersion map has a number, but not a string', function() {
     assert.throws(() => {
-      browser.check({msie: 11}, this.ie10_6);
+      browser.compare({msie: 11}, this.ie10_6);
     }, /Browser version in the minVersion map should be a string/);
   });
 
   it('should be passed by #check for IE10.6 when version was not specified', function() {
-    var supported = browser.check({}, this.ie10_6);
+    var supported = browser.compare({}, this.ie10_6);
     assert.equal(supported, true);
   });
 
   it('should NOT be passed by #check for IE10.6 when version was not specified in strict mode', function() {
-    var supported = browser.check({}, true, this.ie10_6);
+    var supported = browser.compare({}, true, this.ie10_6);
     assert.equal(supported, false);
   });
 

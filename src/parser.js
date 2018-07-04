@@ -285,6 +285,7 @@ class Parser {
   }
 
   getResult() {
+    /* TODO: Make this function pure, return a new object instead of the reference */
     return this.parsedResult;
   }
 
@@ -303,14 +304,14 @@ class Parser {
    * // or with platforms
    * if (browser.check({desktop: { chrome: '>118.01.1322' } }))
    */
-  check(checkTree) {
+  compare(checkTree) {
     const keysToProcess = Object.keys(checkTree);
     return keysToProcess.some((browserAttribute) => {
       const objectOrVersion = checkTree[browserAttribute];
 
       if (typeof objectOrVersion === 'object') {
         return (this.isOs(browserAttribute) || this.isPlatform(browserAttribute))
-          && this.check(objectOrVersion);
+          && this.compare(objectOrVersion);
       }
 
       return this.isBrowser(browserAttribute) && this.satisfies(objectOrVersion);

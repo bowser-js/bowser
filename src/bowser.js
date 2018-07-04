@@ -6,23 +6,24 @@
  */
 import Parser from './parser';
 
-/*
-* Ideas
-* - Cacheable response
-* */
-
 /**
  * Bowser class
+ * Keep it simple as much as it can be
+ * It's supposed to work with collections of Parser instances
+ * rather then solve one-instance problems.
+ * All the one-instance stuff is located in Parser class.
  */
 class Bowser {
   /**
-   * Creates an object that parses UA
+   * Creates a Parser instance instead of Bowser's one
+   *
    * @param {String} UA — UserAgent string
    * @param {Boolean} [skipParsing=false] — same as skipParsing for Parser
+   * @returns {Parser}
    *
    * @example
    * const bowser = new Bowser(window.navigator.userAgent);
-   * bowser.getBrowser()
+   * bowser.getResult()
    */
   constructor(UA, skipParsing=false) {
     if (typeof UA !== 'string') {
@@ -34,28 +35,6 @@ class Bowser {
   static parse(UA) {
     return (new Bowser(UA)).getResult();
   }
-
-  /**
-   * Check if the browser is in range or not
-   * @param {Object} range
-   * @returns {Boolean}
-   */
-  // static inRange(range) {
-  //   if (!range) {
-  //     throw new Error('Range can not be empty');
-  //   }
-  // }
-
-  /**
-   * Check if the browser is NOT in range or not
-   * @param {Object} range
-   * @returns {Boolean}
-   */
-  // static notInRange(range) {}
-
-
-  // static filter(UACollection, range) {}
-  // static inRange(range, UACollection) {}
 }
 
 export default Bowser;

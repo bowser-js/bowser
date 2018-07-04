@@ -198,14 +198,14 @@ class Parser {
    * @param {Boolean} toLowerCase
    * @return {*}
    */
-  getPlatformName(toLowerCase) {
-    const { name } = this.getPlatform();
+  getPlatformType(toLowerCase) {
+    const { type } = this.getPlatform();
 
     if (toLowerCase) {
-      return String(name).toLowerCase() || '';
+      return String(type).toLowerCase() || '';
     }
 
-    return name || '';
+    return type || '';
   }
 
   /**
@@ -342,8 +342,18 @@ class Parser {
     return this.getOSName(true) === String(osName).toLowerCase();
   }
 
-  isPlatform(platformName) {
-    return this.getPlatformName(true) === String(platformName).toLowerCase();
+  isPlatform(platformType) {
+    return this.getPlatformType(true) === String(platformType).toLowerCase();
+  }
+
+  /**
+   * Is anything? Check if the browser is called "anything",
+   * the OS called "anything" or the platform called "anything"
+   * @param {String} anything
+   * @returns {Boolean}
+   */
+  is(anything) {
+    return this.isBrowser(anything) || this.isOs(anything) || this.isPlatform(anything);
   }
 }
 

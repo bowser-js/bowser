@@ -72,3 +72,9 @@ test('Parser.check should make complex comparison', (t) => {
     opera: '>42',
   }), true);
 });
+
+test('Parser.is should pass', (t) => {
+  t.is(parser.is('opera'), true);
+  t.is(parser.is('desktop'), true);
+  t.is(parser.is('macos'), true);
+});

@@ -40,7 +40,7 @@ class Bowser {
    * @return {ParsedResult}
    */
   static parse(UA) {
-    return (new Bowser(UA)).getResult();
+    return (new Parser(UA)).getResult();
   }
 }
 

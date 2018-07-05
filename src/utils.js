@@ -78,6 +78,7 @@ class Utils {
    * @return {Number} comparison result: -1 when versionA is lower,
    * 1 when versionA is bigger, 0 when both equal
    */
+  /* eslint consistent-return: 1 */
   static compareVersions(versionA, versionB) {
     // 1) get common precision for both versions, for example for "10.0" and "9" it should be 2
     let precision = Math.max(

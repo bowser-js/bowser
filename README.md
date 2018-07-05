@@ -108,12 +108,6 @@ Read more details in the [API section]()
 
 # API
 
-
------------
-OLD DOCS
-
-## API
-
 ### new Bowser(`:Object`)
 Use it to get object with detected flags of your current browser.
 

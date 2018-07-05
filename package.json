@@ -33,10 +33,12 @@
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "coveralls": "^3.0.2",
+    "docdash": "^0.4.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-ava": "^4.5.1",
     "eslint-plugin-import": "^2.13.0",
+    "jsdoc": "^3.5.5",
     "nyc": "^12.0.2",
     "sinon": "^2.4.1",
     "testem": "^1.18.5",
@@ -58,7 +60,8 @@
     "lint": "eslint ./src --fix",
     "testem": "testem",
     "test": "eslint ./src & nyc --reporter=html --reporter=text ava",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "docs": "jsdoc -c jsdoc.json"
   },
   "license": "MIT",
   "dependencies": {

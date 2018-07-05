@@ -1,13 +1,12 @@
 ## Bowser
 A Browser detector. Because sometimes, there is no other way, and not even good modern browsers always provide good feature detection mechanisms.
 
-[![bowser ci](https://secure.travis-ci.org/ded/bowser.png)](https://travis-ci.org/ded/bowser/)
+[![bowser ci](https://secure.travis-ci.org/lancedikson/bowser.png)](https://travis-ci.org/lancedikson/bowser/)
 
 # Contents
 - Overview
 - Use cases
 - API
-- Changes history
 - How can I help?
 
 # Overview
@@ -17,10 +16,10 @@ to filter the users somehow depending on their browsers.
 
 # Use cases
 
-First of all let's require the lib to the project:
+First of all, require the library:
 
 ```
-const Bowser = require('bowser')
+const Bowser = require('bowser');
 ```
 
 ## Browser props detection
@@ -31,8 +30,8 @@ the version, the rendering engine and so on. Here is an example how to make it w
 ```
 const browser = new Bowser(window.navigator.userAgent);
 
-console.log(`Current browser name is ${browser.getBrowserName()}`);
-// Current browser name is Internet Explorer
+console.log(`The current browser name is "${browser.getBrowserName()}"`);
+// The current browser name is "Internet Explorer"
 ```
 
 or
@@ -52,6 +51,25 @@ or
 const browser = new Bowser(window.navigator.userAgent);
 impression.userTechData = browser.parse();
 console.log(impression.userTechData);
+// outputs
+{
+  browser: {
+    name: "Internet Explorer"
+    version: "11.0"
+  },
+  os: {
+    name: "Windows"
+    version: "NT 6.3"
+    versionName: "8.1"
+  },
+  platform: {
+    type: "desktop"
+  },
+  engine: {
+    name: "Trident"
+    version: "7.0"
+  }
+}
 ```
 
 
@@ -62,38 +80,27 @@ support for them or make any workarounds.
 It could look like this:
 
 ```
-const isValidBrowser = Bowser.match({
+const browser = new Bowser(window.navigator.userAgent);
+const isValidBrowser = bowser.compare({
+  // declare browsers per OS
   windows: {
-    ie: "> 10",
+    "internet explorer": ">10",
   },
   macos: {
-    safari: ">= 10"
+    safari: ">10.1"
   },
-  any: {
-    chrome: "> 20",
-    ff: ">= 31",
-    opera: ">= 22"
-  }
-}, window.navigator.userAgent);
-```
 
-or you can either get to know if it's a blacklisted browser
+  // per platform (mobile, desktop or tablet)
+  mobile: {
+    safari: '>9',
+    'android browser': '>3.10'
+  },
 
-```
-const isValidBrowser = Bowser.match({
-  any: {
-    chrome: "< 25"
-  },
-  ios: {
-    chrome: "< 20"
-  }
-  windows: {
-    ie: "<= 9",
-  },
-  macos: {
-    safari: "5"
-  }
-}, window.navigator.userAgent);
+  // or in general
+  chrome: ">20.1.1432",
+  firefox: ">31",
+  opera: ">22"
+});
 ```
 
 As you can see, settings for any particular OS has more priority and redefines settings of `any` property.
@@ -107,7 +114,7 @@ OLD DOCS
 
 ## API
 
-### bowser`:Object`
+### new Bowser(`:Object`)
 Use it to get object with detected flags of your current browser.
 
 ### bowser._detect(ua `:String`)`:Object`

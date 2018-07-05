@@ -49,7 +49,7 @@
     "babel": "inherit"
   },
   "bugs": {
-    "url": "https://github.com/ded/bowser/issues"
+    "url": "https://github.com/lancedikson/bowser/issues"
   },
   "directories": {
     "test": "test"

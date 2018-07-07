@@ -331,17 +331,17 @@ class Parser {
    * // or with platforms
    * if (browser.check({desktop: { chrome: '>118.01.1322' } }))
    */
-  compare(checkTree) {
+  satisfies(checkTree) {
     const keysToProcess = Object.keys(checkTree);
     return keysToProcess.some((browserAttribute) => {
       const objectOrVersion = checkTree[browserAttribute];
 
       if (typeof objectOrVersion === 'object') {
         return (this.isOs(browserAttribute) || this.isPlatform(browserAttribute))
-          && this.compare(objectOrVersion);
+          && this.satisfies(objectOrVersion);
       }
 
-      return this.isBrowser(browserAttribute) && this.satisfies(objectOrVersion);
+      return this.isBrowser(browserAttribute) && this.compareVersion(objectOrVersion);
     });
   }
 
@@ -349,7 +349,7 @@ class Parser {
     return this.getBrowserName(true) === String(browserName).toLowerCase();
   }
 
-  satisfies(version) {
+  compareVersion(version) {
     let expectedResult = 0;
     let comparableVersion = version;
 

@@ -58,11 +58,11 @@ test('Skip parsing shouldn\'t parse', (t) => {
 });
 
 test('Parser.check should make simple comparison', (t) => {
-  t.is(parser.compare({ opera: '>42' }), true);
+  t.is(parser.satisfies({ opera: '>42' }), true);
 });
 
 test('Parser.check should make complex comparison', (t) => {
-  t.is(parser.compare({
+  t.is(parser.satisfies({
     macos: {
       safari: '>11',
     },
@@ -71,6 +71,15 @@ test('Parser.check should make complex comparison', (t) => {
     },
     opera: '>42',
   }), true);
+});
+
+test('Parser.check should respect platform and OS specific declarations', (t) => {
+  t.is(parser.satisfies({
+    macos: {
+      safari: '>45',
+    },
+    opera: '>42',
+  }), false);
 });
 
 test('Parser.is should pass', (t) => {

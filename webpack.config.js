@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   mode: 'production', // "production" | "development" | "none"
   // Chosen mode tells webpack to use its built-in optimizations accordingly.
-  entry: ['./src/bowser.js'], // string | object | array
+  entry: ['babel-polyfill', './src/bowser.js'], // string | object | array
   // defaults to ./src
   // Here the application starts executing
   // and webpack starts bundling

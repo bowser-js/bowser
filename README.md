@@ -6,6 +6,7 @@ A Browser detector. Because sometimes, there is no other way, and not even good 
 # Contents
 - [Overview](#overview)
 - [Use cases](#use-cases)
+- [Advanced usage](#advanced-usage)
 - [How can I help?](#contributing)
 
 # Overview
@@ -106,6 +107,12 @@ Settings for any particular OS or platform has more priority and redefines setti
 Thus, you can define OS or platform specific rules and they will have more priority in the end.
 
 More of API and possibilities you will find in the `docs` folder.
+
+# Advanced Usage
+By default, `require('bowser')` requires the pre-compiled file, which can
+include useless for you polyfills. In case you don't need that, you can choose
+using source file requiring bowser like that: `require('bowser/src/bowser`);
+Then you get ES2015 file, which is not precompiled and can be easier to debug.
 
 # Contributing
 If you'd like to contribute a change to bowser, modify the files in `src/`, then run the following (you'll need node + npm installed):

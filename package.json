@@ -20,7 +20,7 @@
       "url": "http://twitter.com/lancedikson"
     }
   ],
-  "main": "./src/bowser.js",
+  "main": "./dist/bowser.compiled.js",
   "typings": "./typings.d.ts",
   "repository": {
     "type": "git",

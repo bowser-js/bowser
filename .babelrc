@@ -1,5 +1,13 @@
 {
-  "presets": ["env"],
+  "presets": [["env", {
+    "useBuiltIns": true,
+    "modules": "umd",
+    "targets": {
+      "ie": "8",
+      "browsers": ">2%"
+    },
+    "debug": true
+  }]],
   "plugins": [
     "add-module-exports"
   ],

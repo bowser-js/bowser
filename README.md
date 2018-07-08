@@ -104,9 +104,6 @@ const isValidBrowser = bowser.compare({
 ```
 
 As you can see, settings for any particular OS has more priority and redefines settings of `any` property.
-Read more details in the [API section]()
-
-# API
 
 ### new Bowser(`:Object`)
 Use it to get object with detected flags of your current browser.

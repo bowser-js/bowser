@@ -22,7 +22,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Bowser.html">Bowser</a><ul class='methods'><li data-type='method'><a href="Bowser.html#.getParser">getParser</a></li><li data-type='method'><a href="Bowser.html#.parse">parse</a></li></ul></li><li><a href="Parser.html">Parser</a><ul class='methods'><li data-type='method'><a href="Parser.html#compare">compare</a></li><li data-type='method'><a href="Parser.html#getBrowser">getBrowser</a></li><li data-type='method'><a href="Parser.html#getBrowserName">getBrowserName</a></li><li data-type='method'><a href="Parser.html#getBrowserVersion">getBrowserVersion</a></li><li data-type='method'><a href="Parser.html#getEngine">getEngine</a></li><li data-type='method'><a href="Parser.html#getOS">getOS</a></li><li data-type='method'><a href="Parser.html#getOSName">getOSName</a></li><li data-type='method'><a href="Parser.html#getOSVersion">getOSVersion</a></li><li data-type='method'><a href="Parser.html#getPlatform">getPlatform</a></li><li data-type='method'><a href="Parser.html#getPlatformType">getPlatformType</a></li><li data-type='method'><a href="Parser.html#getResult">getResult</a></li><li data-type='method'><a href="Parser.html#getUA">getUA</a></li><li data-type='method'><a href="Parser.html#is">is</a></li><li data-type='method'><a href="Parser.html#parse">parse</a></li><li data-type='method'><a href="Parser.html#parseBrowser">parseBrowser</a></li><li data-type='method'><a href="Parser.html#parseEngine">parseEngine</a></li><li data-type='method'><a href="Parser.html#parseOS">parseOS</a></li><li data-type='method'><a href="Parser.html#parsePlatform">parsePlatform</a></li><li data-type='method'><a href="Parser.html#test">test</a></li></ul></li></ul><h3><a href="global.html">Global</a></h3>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Bowser.html">Bowser</a><ul class='methods'><li data-type='method'><a href="Bowser.html#.getParser">getParser</a></li><li data-type='method'><a href="Bowser.html#.parse">parse</a></li></ul></li><li><a href="Parser.html">Parser</a><ul class='methods'><li data-type='method'><a href="Parser.html#getBrowser">getBrowser</a></li><li data-type='method'><a href="Parser.html#getBrowserName">getBrowserName</a></li><li data-type='method'><a href="Parser.html#getBrowserVersion">getBrowserVersion</a></li><li data-type='method'><a href="Parser.html#getEngine">getEngine</a></li><li data-type='method'><a href="Parser.html#getOS">getOS</a></li><li data-type='method'><a href="Parser.html#getOSName">getOSName</a></li><li data-type='method'><a href="Parser.html#getOSVersion">getOSVersion</a></li><li data-type='method'><a href="Parser.html#getPlatform">getPlatform</a></li><li data-type='method'><a href="Parser.html#getPlatformType">getPlatformType</a></li><li data-type='method'><a href="Parser.html#getResult">getResult</a></li><li data-type='method'><a href="Parser.html#getUA">getUA</a></li><li data-type='method'><a href="Parser.html#is">is</a></li><li data-type='method'><a href="Parser.html#parse">parse</a></li><li data-type='method'><a href="Parser.html#parseBrowser">parseBrowser</a></li><li data-type='method'><a href="Parser.html#parseEngine">parseEngine</a></li><li data-type='method'><a href="Parser.html#parseOS">parseOS</a></li><li data-type='method'><a href="Parser.html#parsePlatform">parsePlatform</a></li><li data-type='method'><a href="Parser.html#satisfies">satisfies</a></li><li data-type='method'><a href="Parser.html#test">test</a></li></ul></li></ul><h3><a href="global.html">Global</a></h3>
 </nav>
 
 <div id="main">
@@ -259,173 +259,6 @@ like <a href="Parser.html#parseBrowser">Parser#parseBrowser</a> or <a href="Pars
 
     
         <h3 class="subsection-title">Methods</h3>
-
-        
-            
-
-    
-
-    <h4 class="name" id="compare"><span class="type-signature"></span>compare<span class="signature">(checkTree)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="parser.js.html">parser.js</a>, <a href="parser.js.html#line334">line 334</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    <p>Check if parsed browser matches certain conditions</p>
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Example</h5>
-    
-    <pre class="prettyprint"><code>const browser = new Bowser(UA);
-if (browser.check({chrome: '>118.01.1322' }))
-// or with os
-if (browser.check({windows: { chrome: '>118.01.1322' } }))
-// or with platforms
-if (browser.check({desktop: { chrome: '>118.01.1322' } }))</code></pre>
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>checkTree</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>It's one or two layered object,
-which can include a platform or an OS on the first layer
-and should have browsers specs on the bottom-laying layer</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <p>whether the browser satisfies the set conditions or not</p>
-</div>
-
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Boolean</span>
-
-
-    </dd>
-</dl>
-
-    
-
 
         
             
@@ -1334,7 +1167,7 @@ and should have browsers specs on the bottom-laying layer</p></td>
 
     
 
-    <h4 class="name" id="getPlatformType"><span class="type-signature"></span>getPlatformType<span class="signature">(toLowerCase)</span><span class="type-signature"> &rarr; {*}</span></h4>
+    <h4 class="name" id="getPlatformType"><span class="type-signature"></span>getPlatformType<span class="signature">(toLowerCase<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {*}</span></h4>
 
     
 
@@ -1412,7 +1245,11 @@ and should have browsers specs on the bottom-laying layer</p></td>
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -1437,7 +1274,23 @@ and should have browsers specs on the bottom-laying layer</p></td>
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>false</code>
+                
+                </td>
             
 
             <td class="description last"></td>
@@ -1705,7 +1558,7 @@ and should have browsers specs on the bottom-laying layer</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="parser.js.html">parser.js</a>, <a href="parser.js.html#line382">line 382</a>
+        <a href="parser.js.html">parser.js</a>, <a href="parser.js.html#line422">line 422</a>
     </li></ul></dd>
     
 
@@ -2340,6 +2193,177 @@ the OS called &quot;anything&quot; or the platform called &quot;anything&quot;</
 
     
 
+    <h4 class="name" id="satisfies"><span class="type-signature"></span>satisfies<span class="signature">(checkTree)</span><span class="type-signature"> &rarr; {Boolean|undefined}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="parser.js.html">parser.js</a>, <a href="parser.js.html#line335">line 335</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <p>Check if parsed browser matches certain conditions</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const browser = new Bowser(UA);
+if (browser.check({chrome: '>118.01.1322' }))
+// or with os
+if (browser.check({windows: { chrome: '>118.01.1322' } }))
+// or with platforms
+if (browser.check({desktop: { chrome: '>118.01.1322' } }))</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>checkTree</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>It's one or two layered object,
+which can include a platform or an OS on the first layer
+and should have browsers specs on the bottom-laying layer</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>Whether the browser satisfies the set conditions or not.
+Returns <code>undefined</code> when the browser is no described in the checkTree object.</p>
+</div>
+
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+|
+
+<span class="param-type">undefined</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+        
+            
+
+    
+
     <h4 class="name" id="test"><span class="type-signature"></span>test<span class="signature">(regex)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
 
     
@@ -2504,7 +2528,7 @@ the OS called &quot;anything&quot; or the platform called &quot;anything&quot;</
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Thu Jul 05 2018 22:44:07 GMT+0300 (EEST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Jul 08 2018 12:09:12 GMT+0300 (EEST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

@@ -103,7 +103,7 @@ const isValidBrowser = bowser.compare({
 });
 ```
 
-As you can see, settings for any particular OS has more priority and redefines settings of `any` property.
+Settings for any particular OS has more priority and redefines settings of standalone browsers.
 
 ### new Bowser(`:Object`)
 Use it to get object with detected flags of your current browser.
@@ -170,11 +170,6 @@ For unknown browsers, Bowser makes a best guess from the UA string.  So, these m
 ### Rendering engine flags
 If detected, one of these flags may be set to true:
 
-  * `webkit` - Chrome 0-27, Android <4.4, iOs, BB, etc.
-  * `blink` - Chrome >=28, Android >=4.4, Opera, etc.
-  * `gecko` - Firefox, etc.
-  * `msie`  - IE <= 11
-  * `msedge` - IE > 11
 
 Safari, Chrome and some other minor browsers will report that they have `webkit` engines.
 Firefox and Seamonkey will report that they have `gecko` engines.

@@ -30,19 +30,24 @@ class Parser {
     /**
      * @typedef ParsedResult
      * @property {Object} browser
-     * @property {String} [browser.name]
-     * @property {String} [browser.version]
+     * @property {String|undefined} [browser.name]
+     * Browser name, like `"Chrome"` or `"Internet Explorer"`
+     * @property {String|undefined} [browser.version] Browser version as a String `"12.01.45334.10"`
      * @property {Object} os
-     * @property {String} [os.name]
-     * @property {String} [os.version]
-     * @property {String} [os.versionName]
+     * @property {String|undefined} [os.name] OS name, like `"Windows"` or `"macOS"`
+     * @property {String|undefined} [os.version] OS version, like `"NT 5.1"` or `"10.11.1"`
+     * @property {String|undefined} [os.versionName] OS name, like `"XP"` or `"High Sierra"`
      * @property {Object} platform
-     * @property {String} [platform.type]
-     * @property {String} [platform.vendor]
-     * @property {String} [platform.model]
+     * @property {String|undefined} [platform.type]
+     * platform type, can be either `"desktop"`, `"tablet"` or `"mobile"`
+     * @property {String|undefined} [platform.vendor] Vendor of the device,
+     * like `"Apple"` or `"Samsung"`
+     * @property {String|undefined} [platform.model] Device model,
+     * like `"iPhone"` or `"Kindle Fire HD 7"`
      * @property {Object} engine
-     * @property {String} [engine.name]
-     * @property {String} [engine.version]
+     * @property {String|undefined} [engine.name]
+     * Can be any of this: `WebKit`, `Blink`, `Gecko`, `Trident`, `Presto`, `EdgeHTML`
+     * @property {String|undefined} [engine.version] String version of the engine
      */
     this.parsedResult = {};
 

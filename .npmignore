@@ -3,3 +3,4 @@ src/useragents.js
 Makefile
 .nyc_output
 coverage
+dist

@@ -216,10 +216,10 @@ class Parser {
 
   /**
    * Get platform name
-   * @param {Boolean} toLowerCase
+   * @param {Boolean} [toLowerCase=false]
    * @return {*}
    */
-  getPlatformType(toLowerCase) {
+  getPlatformType(toLowerCase = false) {
     const { type } = this.getPlatform();
 
     if (toLowerCase) {
@@ -321,7 +321,8 @@ class Parser {
    * which can include a platform or an OS on the first layer
    * and should have browsers specs on the bottom-laying layer
    *
-   * @returns {Boolean} whether the browser satisfies the set conditions or not
+   * @returns {Boolean|undefined} Whether the browser satisfies the set conditions or not.
+   * Returns `undefined` when the browser is no described in the checkTree object.
    *
    * @example
    * const browser = new Bowser(UA);
@@ -332,17 +333,56 @@ class Parser {
    * if (browser.check({desktop: { chrome: '>118.01.1322' } }))
    */
   satisfies(checkTree) {
-    const keysToProcess = Object.keys(checkTree);
-    return keysToProcess.some((browserAttribute) => {
-      const objectOrVersion = checkTree[browserAttribute];
+    const platformsAndOSes = {};
+    let platformsAndOSCounter = 0;
+    const browsers = {};
+    let browsersCounter = 0;
 
-      if (typeof objectOrVersion === 'object') {
-        return (this.isOs(browserAttribute) || this.isPlatform(browserAttribute))
-          && this.satisfies(objectOrVersion);
+    const allDefinitions = Object.keys(checkTree);
+
+    allDefinitions.forEach((key) => {
+      const currentDefinition = checkTree[key];
+      if (typeof currentDefinition === 'string') {
+        browsers[key] = currentDefinition;
+        browsersCounter += 1;
+      } else if (typeof currentDefinition === 'object') {
+        platformsAndOSes[key] = currentDefinition;
+        platformsAndOSCounter += 1;
+      }
+    });
+
+    if (platformsAndOSCounter > 0) {
+      const platformsAndOSNames = Object.keys(platformsAndOSes);
+      const OSMatchingDefinition = platformsAndOSNames.find(name => (this.isOS(name)));
+
+      if (OSMatchingDefinition) {
+        const osResult = this.satisfies(platformsAndOSes[OSMatchingDefinition]);
+
+        if (osResult !== void 0) {
+          return osResult;
+        }
       }
 
-      return this.isBrowser(browserAttribute) && this.compareVersion(objectOrVersion);
-    });
+      const platformMatchingDefinition = platformsAndOSNames.find(name => (this.isPlatform(name)));
+      if (platformMatchingDefinition) {
+        const platformResult = this.satisfies(platformsAndOSes[platformMatchingDefinition]);
+
+        if (platformResult !== void 0) {
+          return platformResult;
+        }
+      }
+    }
+
+    if (browsersCounter > 0) {
+      const browserNames = Object.keys(browsers);
+      const matchingDefinition = browserNames.find(name => (this.isBrowser(name)));
+
+      if (matchingDefinition !== void 0) {
+        return this.compareVersion(browsers[matchingDefinition]);
+      }
+    }
+
+    return undefined;
   }
 
   isBrowser(browserName) {
@@ -365,7 +405,7 @@ class Parser {
     return compareVersions(this.getBrowserVersion(), comparableVersion) === expectedResult;
   }
 
-  isOs(osName) {
+  isOS(osName) {
     return this.getOSName(true) === String(osName).toLowerCase();
   }
 
@@ -380,7 +420,7 @@ class Parser {
    * @returns {Boolean}
    */
   is(anything) {
-    return this.isBrowser(anything) || this.isOs(anything) || this.isPlatform(anything);
+    return this.isBrowser(anything) || this.isOS(anything) || this.isPlatform(anything);
   }
 }
 

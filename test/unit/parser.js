@@ -76,10 +76,37 @@ test('Parser.check should make complex comparison', (t) => {
 test('Parser.check should respect platform and OS specific declarations', (t) => {
   t.is(parser.satisfies({
     macos: {
-      safari: '>45',
+      opera: '>45',
     },
     opera: '>42',
   }), false);
+
+  t.is(parser.satisfies({
+    desktop: {
+      opera: '>45',
+    },
+    opera: '>42',
+  }), false);
+
+  t.is(parser.satisfies({
+    macos: {
+      opera: '>45',
+    },
+    desktop: {
+      opera: '>42',
+    },
+    opera: '>42',
+  }), false);
+
+  t.is(parser.satisfies({
+    macos: {
+      chrome: '>45',
+    },
+    desktop: {
+      chrome: '>42',
+    },
+    firefox: '>42',
+  }), void 0);
 });
 
 test('Parser.is should pass', (t) => {

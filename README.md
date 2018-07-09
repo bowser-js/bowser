@@ -22,7 +22,7 @@ The upcoming 2.0 version has drastically changed API. All available methods can 
 
 First of all, require the library:
 
-```
+```javascript
 const bowser = require('bowser');
 ```
 
@@ -30,7 +30,7 @@ const bowser = require('bowser');
 
 Often we need to pick users' browser properties such as the name, the version, the rendering engine and so on. Here is an example how to make it with Bowser:
 
-```
+```javascript
 const browser = bowser.getParser(window.navigator.userAgent);
 
 console.log(`The current browser name is "${browser.getBrowserName()}"`);
@@ -39,7 +39,7 @@ console.log(`The current browser name is "${browser.getBrowserName()}"`);
 
 or
 
-```
+```javascript
 const impression = new Impression();
 
 const browser = bowser.getParser(window.navigator.userAgent);
@@ -50,7 +50,7 @@ impression.brVer = browserInfo.version;
 
 or
 
-```
+```javascript
 const browser = bowser.getParser(window.navigator.userAgent);
 impression.userTechData = browser.parse();
 console.log(impression.userTechData);
@@ -81,7 +81,7 @@ console.log(impression.userTechData);
 You could want to filter some particular browsers to provide any special support for them or make any workarounds.
 It could look like this:
 
-```
+```javascript
 const browser = bowser.getParsers(window.navigator.userAgent);
 const isValidBrowser = browser.satisfies({
   // declare browsers per OS

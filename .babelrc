@@ -1,0 +1,19 @@
+{
+  "presets": [["env", {
+    "useBuiltIns": true,
+    "modules": "umd",
+    "targets": {
+      "ie": "8",
+      "browsers": ">2%"
+    }
+  }]],
+  "plugins": [
+    "add-module-exports"
+  ],
+  "env": {
+    "test": {
+      "plugins": [ "istanbul" ],
+      "presets": [["env", { "targets": { "node": "current" } }]]
+    }
+  }
+}

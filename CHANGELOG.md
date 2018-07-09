@@ -1,5 +1,12 @@
 # Bowser Changelog
 
+### 2.0.0-alpha.1 (July 9, 2018)
+- [ADD] `Bowser.getParser()`
+- [ADD] `Bowser.parse`
+- [ADD] `Parser` class which describes parsing process
+- [CHANGE] Change bowser's returning object
+- [REMOVE] Remove bower support
+
 ### 1.9.4 (June 28, 2018)
 - [FIX] Fix NAVER Whale browser detection (#220)
 - [FIX] Fix MZ Browser browser detection (#219)

@@ -1,6 +1,6 @@
 {
   "name": "bowser",
-  "version": "1.9.4",
+  "version": "2.0.0-alpha.1",
   "description": "Lightweight browser detector",
   "keywords": [
     "browser",
@@ -14,25 +14,62 @@
   ],
   "homepage": "https://github.com/lancedikson/bowser",
   "author": "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)",
-  "main": "./src/bowser.js",
+  "contributors": [
+    {
+      "name": "Denis Demchenko",
+      "url": "http://twitter.com/lancedikson"
+    }
+  ],
+  "main": "./dist/bowser.compiled.js",
   "typings": "./typings.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ded/bowser.git"
+    "url": "git+https://github.com/lancedikson/bowser.git"
   },
   "devDependencies": {
-    "smoosh": "*",
-    "mocha": "*"
+    "ava": "^0.25.0",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-add-module-exports": "^0.3.1",
+    "babel-plugin-istanbul": "^4.1.6",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "coveralls": "^3.0.2",
+    "docdash": "^0.4.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-ava": "^4.5.1",
+    "eslint-plugin-import": "^2.13.0",
+    "jsdoc": "^3.5.5",
+    "nyc": "^12.0.2",
+    "sinon": "^2.4.1",
+    "testem": "^1.18.5",
+    "webpack": "^4.15.1",
+    "webpack-cli": "^3.0.8",
+    "yamljs": "^0.3.0"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
   },
   "bugs": {
-    "url": "https://github.com/ded/bowser/issues"
+    "url": "https://github.com/lancedikson/bowser/issues"
   },
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "make test",
-    "prepublish": "make boosh"
+    "build": "webpack --config webpack.config.js",
+    "prepublish": "npm run build",
+    "lint": "eslint ./src --fix",
+    "testem": "testem",
+    "test": "eslint ./src & nyc --reporter=html --reporter=text ava",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "docs": "jsdoc -c jsdoc.json"
   },
   "license": "MIT"
 }

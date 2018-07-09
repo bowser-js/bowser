@@ -63,6 +63,8 @@
     "test": "test"
   },
   "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "prepublish": "npm run build",
     "lint": "eslint ./src --fix",
     "testem": "testem",
     "test": "eslint ./src & nyc --reporter=html --reporter=text ava",

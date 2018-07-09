@@ -11,8 +11,9 @@ A Browser detector. Because sometimes, there is no other way, and not even good 
 
 # Overview
 
-The library is made to help to detect what browser your user has and gives you a convenient API
-to filter the users somehow depending on their browsers.
+The library is made to help to detect what browser your user has and gives you a convenient API to filter the users somehow depending on their browsers.
+
+_Please, note that this is an alpha version. Check out the [1.x](https://github.com/lancedikson/bowser/tree/v1.x) branch for a stable version._
 
 # Use cases
 
@@ -24,8 +25,7 @@ const bowser = require('bowser');
 
 ## Browser props detection
 
-Often we need to pick users' browser properties such as the name,
-the version, the rendering engine and so on. Here is an example how to make it with Bowser:
+Often we need to pick users' browser properties such as the name, the version, the rendering engine and so on. Here is an example how to make it with Bowser:
 
 ```
 const browser = bowser.getParser(window.navigator.userAgent);
@@ -75,8 +75,7 @@ console.log(impression.userTechData);
 
 ## Filtering browsers
 
-You could want to filter some particular browsers to provide any special
-support for them or make any workarounds.
+You could want to filter some particular browsers to provide any special support for them or make any workarounds.
 It could look like this:
 
 ```

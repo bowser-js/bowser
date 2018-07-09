@@ -15,6 +15,9 @@ The library is made to help to detect what browser your user has and gives you a
 
 _Please, note that this is an alpha version. Check out the [1.x](https://github.com/lancedikson/bowser/tree/v1.x) branch for a stable version._
 
+**Changes of the 2.0**
+The upcoming 2.0 version has drastically changed API. All available methods can be found in the `docs` folder from now on and on a webpage soon.
+
 # Use cases
 
 First of all, require the library:

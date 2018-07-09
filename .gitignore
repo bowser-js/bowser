@@ -1,8 +1,5 @@
 node_modules/
 .idea/
-/bowser.js
-/bowser.min.js
-/lib/
 .nyc_output
 coverage
 dist

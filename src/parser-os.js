@@ -74,13 +74,17 @@ export default [
 
   /* WebOS */
   {
-    test: [/(web|hpw)os/i],
+    test: [/(web|hpw)[o0]s/i],
     describe(ua) {
-      const version = getFirstMatch(/(?:web|hpw)os\/(\d+(\.\d+)*)/i, ua);
-      return {
+      const version = getFirstMatch(/(?:web|hpw)[o0]s\/(\d+(\.\d+)*)/i, ua);
+      const os = {
         name: 'WebOS',
-        version,
       };
+
+      if (version && version.length) {
+        os.version = version;
+      }
+      return os;
     },
   },
 

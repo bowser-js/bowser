@@ -80,6 +80,51 @@ const browsersList = [
     },
   },
   {
+    test: [/Whale/i],
+    describe(ua) {
+      const browser = {
+        name: 'NAVER Whale Browser',
+      };
+      const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:whale)[\s/](\d+(?:\.\d+)+)/i, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
+    test: [/MZBrowser/i],
+    describe(ua) {
+      const browser = {
+        name: 'MZ Browser',
+      };
+      const version = getFirstMatch(/(?:MZBrowser)[\s/](\d+(?:\.\d+)+)/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
+    test: [/focus/i],
+    describe(ua) {
+      const browser = {
+        name: 'Focus',
+      };
+      const version = getFirstMatch(/(?:focus)[\s/](\d+(?:\.\d+)+)/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
     test: [/coast/i],
     describe(ua) {
       const browser = {
@@ -337,12 +382,12 @@ const browsersList = [
     },
   },
   {
-    test: [/(web|hpw)os/i],
+    test: [/(web|hpw)[o0]s/i],
     describe(ua) {
       const browser = {
         name: 'WebOS Browser',
       };
-      const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/w(?:eb)?osbrowser\/(\d+(\.?_?\d+)+)/i, ua);
+      const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/w(?:eb)?[o0]sbrowser\/(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;

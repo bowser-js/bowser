@@ -1,5 +1,39 @@
 # Bowser Changelog
 
+### 1.9.4 (June 28, 2018)
+- [FIX] Fix NAVER Whale browser detection (#220)
+- [FIX] Fix MZ Browser browser detection (#219)
+- [FIX] Fix Firefox Focus browser detection (#191)
+- [FIX] Fix webOS browser detection (#186)
+
+### 1.9.3 (March 12, 2018)
+- [FIX] Fix `typings.d.ts` — add `ipad`, `iphone`, `ipod` flags to the interface
+
+### 1.9.2 (February 5, 2018)
+- [FIX] Fix `typings.d.ts` — add `osname` flag to the interface
+
+### 1.9.1 (December 22, 2017)
+- [FIX] Fix `typings.d.ts` — add `chromium` flag to the interface
+
+### 1.9.0 (December 20, 2017)
+- [ADD] Add a public method `.detect()` (#205)
+- [DOCS] Fix description of `chromium` flag in docs (#206)
+
+### 1.8.1 (October 7, 2017)
+- [FIX] Fix detection of MS Edge on Android and iOS (#201)
+
+### 1.8.0 (October 7, 2017)
+- [ADD] Add `osname` into result object (#200)
+
+### 1.7.3 (August 30, 2017)
+- [FIX] Fix detection of Chrome on Android 8 OPR6 (#193)
+
+### 1.7.2 (August 17, 2017)
+- [FIX] Fix typings.d.ts according to #185
+
+### 1.7.1 (July 13, 2017)
+- [ADD] Fix detecting of Tablet PC as tablet (#183)
+
 ### 1.7.0 (May 18, 2017)
 - [ADD] Add OS version support for Windows and macOS (#178)
 

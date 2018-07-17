@@ -14,7 +14,7 @@ const TYPES_LABELS = {
 export default [
   /* Nexus Tablet */
   {
-    test: [/nexus\s*[0-9]+/i],
+    test: [/nexus\s*(?:7|8|9|10).*/i],
     describe() {
       return {
         type: TYPES_LABELS.tablet,
@@ -87,7 +87,7 @@ export default [
 
   /* Nexus Mobile */
   {
-    test: [/nexus\s*[0-6]\s*/i, /galaxy nexus/i],
+    test: [/nexus\s*[0-6].*/i, /galaxy nexus/i],
     describe() {
       return {
         type: TYPES_LABELS.mobile,

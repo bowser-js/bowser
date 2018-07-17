@@ -427,6 +427,15 @@ class Parser {
   is(anything) {
     return this.isBrowser(anything) || this.isOS(anything) || this.isPlatform(anything);
   }
+
+  /**
+   * Check if any of the given values satifies this.is(anything)
+   * @param {String[]} anythings
+   * @returns {Boolean}
+   */
+  some(anythings = []) {
+    return anythings.some(anything => this.is(anything));
+  }
 }
 
 export default Parser;

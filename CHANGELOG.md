@@ -1,5 +1,11 @@
 # Bowser Changelog
 
+### 2.0.0-alpha.2 (July 17, 2018)
+- [CHANGE] Make `src/bowser` main file instead of the bundled one
+- [CHANGE] Move the bundled file to the root of the package to make it possible to `require('bowser/compiled')` (#231)
+- [REMOVE] Remove `typings.d.ts` before stable release (#232)
+- [FIX] Improve Nexus devices detection (#233)
+
 ### 2.0.0-alpha.1 (July 9, 2018)
 - [ADD] `Bowser.getParser()`
 - [ADD] `Bowser.parse`

@@ -9,10 +9,10 @@ module.exports = {
   // and webpack starts bundling
   output: {
     // options related to how webpack emits results
-    path: path.resolve(__dirname, 'dist'), // string
+    path: path.resolve(__dirname, './'), // string
     // the target directory for all output files
     // must be an absolute path (use the Node.js path module)
-    filename: 'bowser.compiled.js', // string
+    filename: 'compiled.js', // string
     // the filename template for entry chunks
     library: 'bowser',
     libraryTarget: 'umd', // universal module definition

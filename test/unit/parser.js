@@ -114,3 +114,11 @@ test('Parser.is should pass', (t) => {
   t.is(parser.is('desktop'), true);
   t.is(parser.is('macos'), true);
 });
+
+test('Parser.some should pass', (t) => {
+  t.is(parser.some(['opera', 'chrome', 'firefox']), true);
+  t.is(parser.some(['macos', 'windows']), true);
+  t.is(parser.some(['chrome', 'firefox']), false);
+  t.is(parser.some([]), false);
+  t.is(parser.some(), false);
+});

@@ -47,29 +47,37 @@
 
     <section class="readme">
         <article><h2>Bowser</h2><p>A Browser detector. Because sometimes, there is no other way, and not even good modern browsers always provide good feature detection mechanisms.</p>
-<p><a href="https://travis-ci.org/lancedikson/bowser/"><img src="https://secure.travis-ci.org/lancedikson/bowser.png" alt="bowser ci"></a></p>
+<p><a href="https://travis-ci.org/lancedikson/bowser/"><img src="https://travis-ci.org/lancedikson/bowser.svg?branch=master" alt="Build Status"></a></p>
 <h1>Contents</h1><ul>
-<li>Overview</li>
-<li>Use cases</li>
-<li>API</li>
-<li>How can I help?</li>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#use-cases">Use cases</a></li>
+<li><a href="#advanced-usage">Advanced usage</a></li>
+<li><a href="#contributing">How can I help?</a></li>
 </ul>
-<h1>Overview</h1><p>The library is made to help to detect what browser your user has and gives you a convenient API
-to filter the users somehow depending on their browsers.</p>
+<h1>Overview</h1><p>The library is made to help to detect what browser your user has and gives you a convenient API to filter the users somehow depending on their browsers.</p>
+<p><em>Please, note that this is an alpha version. Check out the <a href="https://github.com/lancedikson/bowser/tree/v1.x">1.x</a> branch for a stable version.</em></p>
+<p><strong>Changes of the 2.0</strong>
+The upcoming 2.0 version has drastically changed API. All available methods can be found in the <code>docs</code> folder from now on and on a webpage soon.</p>
 <h1>Use cases</h1><p>First of all, require the library:</p>
-<pre class="prettyprint source"><code>const Bowser = require('bowser');</code></pre><h2>Browser props detection</h2><p>Often we need to pick users' browser properties such as the name,
-the version, the rendering engine and so on. Here is an example how to make it with Bowser:</p>
-<pre class="prettyprint source"><code>const browser = new Bowser(window.navigator.userAgent);
+<pre class="prettyprint source lang-javascript"><code>const bowser = require('bowser');</code></pre><p>By default, <code>require('bowser')</code> requires the <em>ES6 version of files</em>, which
+<strong>do not</strong> include any polyfills.</p>
+<p>In case if you don't use your own <code>babel-polyfill</code> you may need to have pre-built bundle with all needed polyfills.
+So, for you it's suitable to require bowser like this: <code>require('bowser/bundled')</code>.
+As the result, you get a ES5 version of bowser with <code>babel-polyfill</code> bundled together.</p>
+<p>If you use bowser for Node.js, you'd better use <code>require('bowser/es5')</code>,
+since source files have <code>import</code> statements, which are not compatible with Node.js yet.</p>
+<h2>Browser props detection</h2><p>Often we need to pick users' browser properties such as the name, the version, the rendering engine and so on. Here is an example how to make it with Bowser:</p>
+<pre class="prettyprint source lang-javascript"><code>const browser = bowser.getParser(window.navigator.userAgent);
 
 console.log(`The current browser name is &quot;${browser.getBrowserName()}&quot;`);
 // The current browser name is &quot;Internet Explorer&quot;</code></pre><p>or</p>
-<pre class="prettyprint source"><code>const impression = new Impression();
+<pre class="prettyprint source lang-javascript"><code>const impression = new Impression();
 
-const browser = new Bowser(window.navigator.userAgent);
+const browser = bowser.getParser(window.navigator.userAgent);
 const browserInfo = browser.getBrowser();
 impression.brName = browserInfo.name;
 impression.brVer = browserInfo.version;</code></pre><p>or</p>
-<pre class="prettyprint source"><code>const browser = new Bowser(window.navigator.userAgent);
+<pre class="prettyprint source lang-javascript"><code>const browser = bowser.getParser(window.navigator.userAgent);
 impression.userTechData = browser.parse();
 console.log(impression.userTechData);
 // outputs
@@ -90,11 +98,10 @@ console.log(impression.userTechData);
     name: &quot;Trident&quot;
     version: &quot;7.0&quot;
   }
-}</code></pre><h2>Filtering browsers</h2><p>You could want to filter some particular browsers to provide any special
-support for them or make any workarounds.
+}</code></pre><h2>Filtering browsers</h2><p>You could want to filter some particular browsers to provide any special support for them or make any workarounds.
 It could look like this:</p>
-<pre class="prettyprint source"><code>const browser = new Bowser(window.navigator.userAgent);
-const isValidBrowser = bowser.compare({
+<pre class="prettyprint source lang-javascript"><code>const browser = bowser.getParsers(window.navigator.userAgent);
+const isValidBrowser = browser.satisfies({
   // declare browsers per OS
   windows: {
     &quot;internet explorer&quot;: &quot;>10&quot;,
@@ -113,111 +120,12 @@ const isValidBrowser = bowser.compare({
   chrome: &quot;>20.1.1432&quot;,
   firefox: &quot;>31&quot;,
   opera: &quot;>22&quot;
-});</code></pre><p>Settings for any particular OS has more priority and redefines settings of standalone browsers.</p>
-<h3>new Bowser(<code>:Object</code>)</h3><p>Use it to get object with detected flags of your current browser.</p>
-<h3>bowser._detect(ua <code>:String</code>)<code>:Object</code></h3><p>Use it to get object with detected flags from User Agent string.</p>
-<h3>bowser.check(minVersions<code>:Object</code>, strictMode<code>:Boolean</code>, [ua]<code>:String</code>)<code>:Boolean</code></h3><p>Use it to check if browser is supported. In default non-strict mode any browser family not present in <code>minVersions</code> will pass the check (like Chrome in the third call in the sample bellow). When strict mode is enabled then any not specified browser family in <code>minVersions</code> will cause <code>check</code> to return <code>false</code> (in the sample it is the fourth call, the last one).</p>
-<pre class="prettyprint source lang-js"><code>/**
- * in case of using IE10
- */
-bowser.check({msie: &quot;11&quot;});  // true
-bowser.check({msie: &quot;9.0&quot;}); // false
-
-/**
- * specific user agent
- */ 
-bowser.check({chrome: &quot;45&quot;}, window.navigator.userAgent); // true
-
-/**
- * but false in strict mode
- */
-bowser.check({chrome: &quot;45&quot;}, true, window.navigator.userAgent); // false</code></pre><h3>bowser.compareVersions(versions<code>:Array&lt;String&gt;</code>)<code>:Number</code></h3><p>Use it to compare two versions.</p>
-<pre class="prettyprint source lang-js"><code>bowser.compareVersions(['9.0', '10']);
-// -1</code></pre><h3>bowser.isUnsupportedBrowser(minVersions<code>:Object</code>, [strictMode]<code>:Boolean</code>, [ua]<code>:string</code>)<code>:Boolean</code></h3><p>Use it to check if browser is unsupported.</p>
-<pre class="prettyprint source lang-js"><code>bowser.isUnsupportedBrowser({msie: &quot;10&quot;}, window.navigator.userAgent);
-// true / false</code></pre><p>See more examples in <a href="test/test.js">tests</a>.</p>
-<hr>
-<h2>Bowser Flags</h2><p>Your mileage may vary, but these flags should be set.  See Contributing below.</p>
-<pre class="prettyprint source lang-js"><code>alert('Hello ' + bowser.name + ' ' + bowser.version);</code></pre><h3>All detected browsers</h3><p>These flags are set for all detected browsers:</p>
-<ul>
-<li><code>name</code> - A human readable name for this browser.  E.g. 'Chrome', ''</li>
-<li><code>version</code> - Version number for the browser.  E.g. '32.0'</li>
-</ul>
-<p>For unknown browsers, Bowser makes a best guess from the UA string.  So, these may not be set.</p>
-<h3>Rendering engine flags</h3><p>If detected, one of these flags may be set to true:</p>
-<p>Safari, Chrome and some other minor browsers will report that they have <code>webkit</code> engines.
-Firefox and Seamonkey will report that they have <code>gecko</code> engines.</p>
-<pre class="prettyprint source lang-js"><code>if (bowser.webkit) {
-  // do stuff with safari & chrome & opera & android & blackberry & webos & silk
-}</code></pre><h3>Device flags</h3><p>If detected, one of these flags may be set to true:</p>
-<ul>
-<li><code>mobile</code> - All detected mobile OSes are additionally flagged <code>mobile</code>, <strong>unless it's a tablet</strong></li>
-<li><code>tablet</code> - If a tablet device is detected, the flag <code>tablet</code> is <strong>set instead of <code>mobile</code></strong>.</li>
-</ul>
-<h3>Browser flags</h3><p>If detected, one of these flags may be set to true.  The rendering engine flag is shown in []'s:</p>
-<ul>
-<li><code>chrome</code> - [<code>webkit</code>|<code>blink</code>]</li>
-<li><code>firefox</code> - [<code>gecko</code>]</li>
-<li><code>msie</code></li>
-<li><code>msedge</code></li>
-<li><code>safari</code> - [<code>webkit</code>]</li>
-<li><code>android</code> - native browser - [<code>webkit</code>|<code>blink</code>]</li>
-<li><code>ios</code> - native browser - [<code>webkit</code>]</li>
-<li><code>opera</code> - [<code>blink</code> if &gt;=15]</li>
-<li><code>samsungBrowser</code> - [<code>blink</code>]</li>
-<li><code>phantom</code> - [<code>webkit</code>]</li>
-<li><code>blackberry</code> - native browser - [<code>webkit</code>]</li>
-<li><code>webos</code> - native browser - [<code>webkit</code>]</li>
-<li><code>silk</code> - Amazon Kindle browser  - [<code>webkit</code>]</li>
-<li><code>bada</code> - [<code>webkit</code>]</li>
-<li><code>tizen</code> - [<code>webkit</code>]</li>
-<li><code>seamonkey</code> - [<code>gecko</code>]</li>
-<li><code>sailfish</code> - [<code>gecko</code>]</li>
-<li><code>ucbrowser</code> — [<code>webkit</code>]</li>
-<li><code>qupzilla</code> — [<code>webkit</code>]</li>
-<li><code>vivaldi</code> — [<code>blink</code>]</li>
-<li><code>sleipnir</code> — [<code>blink</code>]</li>
-<li><code>kMeleon</code> — [<code>gecko</code>]</li>
-</ul>
-<p>For all detected browsers the browser version is set in the <code>version</code> field.</p>
-<h3>OS Flags</h3><p>If detected, one of these flags may be set to true:</p>
-<ul>
-<li><code>mac</code></li>
-<li><code>windows</code> - other than Windows Phone</li>
-<li><code>windowsphone</code></li>
-<li><code>linux</code> - other than <code>android</code>, <code>chromeos</code>, <code>webos</code>, <code>tizen</code>, and <code>sailfish</code></li>
-<li><code>chromeos</code></li>
-<li><code>android</code></li>
-<li><code>ios</code> - also sets one of <code>iphone</code>/<code>ipad</code>/<code>ipod</code></li>
-<li><code>blackberry</code></li>
-<li><code>firefoxos</code></li>
-<li><code>webos</code> - may also set <code>touchpad</code></li>
-<li><code>bada</code></li>
-<li><code>tizen</code></li>
-<li><code>sailfish</code></li>
-</ul>
-<p><code>osversion</code> may also be set:</p>
-<ul>
-<li><code>osversion</code> - for Android, iOS, MacOS, Windows, Windows Phone, WebOS, Bada, and Tizen.  If included in UA string.</li>
-</ul>
-<p>iOS is always reported as <code>ios</code> and additionally as <code>iphone</code>/<code>ipad</code>/<code>ipod</code>, whichever one matches best.
-If WebOS device is an HP TouchPad the flag <code>touchpad</code> is additionally set.</p>
-<h3>Browser capability grading</h3><p>One of these flags may be set:</p>
-<ul>
-<li><code>a</code> - This browser has full capabilities</li>
-<li><code>c</code> - This browser has degraded capabilities.  Serve simpler version</li>
-<li><code>x</code> - This browser has minimal capabilities and is probably not well detected.</li>
-</ul>
-<p>There is no <code>b</code>.  For unknown browsers, none of these flags may be set.</p>
-<h3>Ender Support</h3><p><code>package.json</code></p>
-<pre class="prettyprint source lang-json"><code>&quot;dependencies&quot;: {
-  &quot;bowser&quot;: &quot;x.x.x&quot;
-}</code></pre><pre class="prettyprint source lang-js"><code>if (require('bowser').chrome) {
-  alert('Hello Silicon Valley')
-}</code></pre><h3>Contributing</h3><p>If you'd like to contribute a change to bowser, modify the files in <code>src/</code>, then run the following (you'll need node + npm installed):</p>
+});</code></pre><p>Settings for any particular OS or platform has more priority and redefines settings of standalone browsers.
+Thus, you can define OS or platform specific rules and they will have more priority in the end.</p>
+<p>More of API and possibilities you will find in the <code>docs</code> folder.</p>
+<h1>Contributing</h1><p>If you'd like to contribute a change to bowser, modify the files in <code>src/</code>, then run the following (you'll need node + npm installed):</p>
 <pre class="prettyprint source lang-sh"><code>$ npm install
-$ make test</code></pre><p>Please do not check-in the built files <code>bowser.js</code> and <code>bowser.min.js</code> in pull requests.</p>
-<h3>Adding tests</h3><p>See the list in <code>src/useragents.js</code> with example user agents and their expected bowser object.</p>
+$ npm test</code></pre><h3>Adding tests</h3><p>See the list in <code>test/acceptance/useragentstrings.yml</code> with example user agents and their expected bowser object.</p>
 <p>Whenever you add support for new browsers or notice a bug / mismatch, please update the list and
 check if all tests are still passing.</p>
 <h3>Similar Projects</h3><ul>
@@ -236,7 +144,7 @@ check if all tests are still passing.</p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Jul 08 2018 12:30:49 GMT+0300 (EEST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Jul 22 2018 19:38:05 GMT+0300 (EEST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

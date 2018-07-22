@@ -1,5 +1,9 @@
 # Bowser Changelog
 
+### 2.0.0-alpha.3 (July 22, 2018)
+- [CHANGE] Rename split and rename `compiled.js` to `es5.js` and `bundled.js` (#231, #236, #237)
+- [ADD] Add `Parser.some` (#235)
+
 ### 2.0.0-alpha.2 (July 17, 2018)
 - [CHANGE] Make `src/bowser` main file instead of the bundled one
 - [CHANGE] Move the bundled file to the root of the package to make it possible to `require('bowser/compiled')` (#231)

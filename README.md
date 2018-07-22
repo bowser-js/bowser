@@ -26,6 +26,16 @@ First of all, require the library:
 const bowser = require('bowser');
 ```
 
+By default, `require('bowser')` requires the *ES6 version of files*, which
+**do not** include any polyfills.
+
+In case if you don't use your own `babel-polyfill` you may need to have pre-built bundle with all needed polyfills.
+So, for you it's suitable to require bowser like this: `require('bowser/bundled')`.
+As the result, you get a ES5 version of bowser with `babel-polyfill` bundled together.
+
+If you use bowser for Node.js, you'd better use `require('bowser/es5')`,
+since source files have `import` statements, which are not compatible with Node.js yet.
+
 ## Browser props detection
 
 Often we need to pick users' browser properties such as the name, the version, the rendering engine and so on. Here is an example how to make it with Bowser:
@@ -109,13 +119,6 @@ Settings for any particular OS or platform has more priority and redefines setti
 Thus, you can define OS or platform specific rules and they will have more priority in the end.
 
 More of API and possibilities you will find in the `docs` folder.
-
-# Advanced Usage
-By default, `require('bowser')` requires the *ES6 version of files*, which
-**don't** include any polyfills. In case if you don't use your own `babel-polyfill`
-you may need to have pre-built bundle with all needed polyfills.
-It's possible requiring bowser like that: `require('bowser/compiled');`
-As result you get a ES5 file with `babel-polyfill` bundled in it.
 
 # Contributing
 If you'd like to contribute a change to bowser, modify the files in `src/`, then run the following (you'll need node + npm installed):

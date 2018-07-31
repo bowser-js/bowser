@@ -92,7 +92,7 @@ You could want to filter some particular browsers to provide any special support
 It could look like this:
 
 ```javascript
-const browser = bowser.getParsers(window.navigator.userAgent);
+const browser = bowser.getParser(window.navigator.userAgent);
 const isValidBrowser = browser.satisfies({
   // declare browsers per OS
   windows: {

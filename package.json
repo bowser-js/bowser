@@ -20,7 +20,7 @@
       "url": "http://twitter.com/lancedikson"
     }
   ],
-  "main": "src/bowser.js",
+  "main": "es5.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lancedikson/bowser.git"

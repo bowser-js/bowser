@@ -26,7 +26,7 @@ class Bowser {
    * const bowser = new Bowser(window.navigator.userAgent);
    * bowser.getResult()
    */
-  static getParser(UA, skipParsing=false) {
+  static getParser(UA, skipParsing = false) {
     if (typeof UA !== 'string') {
       throw new Error('UserAgent should be a string');
     }

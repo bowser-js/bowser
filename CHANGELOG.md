@@ -1,5 +1,9 @@
 # Bowser Changelog
 
+### 2.0.0-alpha.4 (August 2, 2018)
+- [DOCS] Fix usage docs (#238)
+- [CHANGE] Make `./es5.js` the main file of the package (#239)
+
 ### 2.0.0-alpha.3 (July 22, 2018)
 - [CHANGE] Rename split and rename `compiled.js` to `es5.js` and `bundled.js` (#231, #236, #237)
 - [ADD] Add `Parser.some` (#235)

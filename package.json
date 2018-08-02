@@ -1,6 +1,6 @@
 {
   "name": "bowser",
-  "version": "2.0.0-alpha.3",
+  "version": "2.0.0-alpha.4",
   "description": "Lightweight browser detector",
   "keywords": [
     "browser",
@@ -20,7 +20,7 @@
       "url": "http://twitter.com/lancedikson"
     }
   ],
-  "main": "src/bowser.js",
+  "main": "es5.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lancedikson/bowser.git"

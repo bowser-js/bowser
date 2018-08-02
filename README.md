@@ -26,15 +26,14 @@ First of all, require the library:
 const bowser = require('bowser');
 ```
 
-By default, `require('bowser')` requires the *ES6 version of files*, which
+By default, `require('bowser')` requires the *ES5 version of files*, which
 **do not** include any polyfills.
 
 In case if you don't use your own `babel-polyfill` you may need to have pre-built bundle with all needed polyfills.
 So, for you it's suitable to require bowser like this: `require('bowser/bundled')`.
 As the result, you get a ES5 version of bowser with `babel-polyfill` bundled together.
 
-If you use bowser for Node.js, you'd better use `require('bowser/es5')`,
-since source files have `import` statements, which are not compatible with Node.js yet.
+You may need to use the source files, so they will be available in the package as well.
 
 ## Browser props detection
 
@@ -92,7 +91,7 @@ You could want to filter some particular browsers to provide any special support
 It could look like this:
 
 ```javascript
-const browser = bowser.getParsers(window.navigator.userAgent);
+const browser = bowser.getParser(window.navigator.userAgent);
 const isValidBrowser = browser.satisfies({
   // declare browsers per OS
   windows: {

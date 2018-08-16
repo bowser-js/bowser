@@ -57,8 +57,13 @@ test('Skip parsing shouldn\'t parse', (t) => {
   t.deepEqual((new Parser(UA, true)).getResult(), {});
 });
 
-test('Parser.check should make simple comparison', (t) => {
+test('Parser.check should make simple comparisons', (t) => {
+  // also covers Parser.compareVersion() method
   t.is(parser.satisfies({ opera: '>42' }), true);
+  t.is(parser.satisfies({ opera: '<44' }), true);
+  t.is(parser.satisfies({ opera: '=43.0.2442.1165' }), true);
+  t.is(parser.satisfies({ opera: '~43.0' }), true);
+  t.is(parser.satisfies({ opera: '~43' }), true);
 });
 
 test('Parser.check should make complex comparison', (t) => {

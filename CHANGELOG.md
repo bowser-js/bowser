@@ -1,5 +1,10 @@
 # Bowser Changelog
 
+### 2.0.0-beta.1 (August 18, 2018)
+- [ADD] Add loose version comparison to `Parser.compareVersion()` and `Parser.satisfies()`
+- [CHORE] Add CONTRIBUTING.md
+- [DOCS] Regenerate docs
+
 ### 2.0.0-alpha.4 (August 2, 2018)
 - [DOCS] Fix usage docs (#238)
 - [CHANGE] Make `./es5.js` the main file of the package (#239)

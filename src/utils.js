@@ -68,23 +68,26 @@ class Utils {
    * Calculate browser version weight
    *
    * @example
-   *   compareVersions(['1.10.2.1',  '1.8.2.1.90'])    // 1
-   *   compareVersions(['1.010.2.1', '1.09.2.1.90']);  // 1
-   *   compareVersions(['1.10.2.1',  '1.10.2.1']);     // 0
-   *   compareVersions(['1.10.2.1',  '1.0800.2']);     // -1
+   *   compareVersions('1.10.2.1',  '1.8.2.1.90')    // 1
+   *   compareVersions('1.010.2.1', '1.09.2.1.90');  // 1
+   *   compareVersions('1.10.2.1',  '1.10.2.1');     // 0
+   *   compareVersions('1.10.2.1',  '1.0800.2');     // -1
+   *   compareVersions('1.10.2.1',  '1.10',  true);  // 0
    *
    * @param {String} versionA versions versions to compare
    * @param {String} versionB versions versions to compare
+   * @param {boolean} [isLoose] enable loose comparison
    * @return {Number} comparison result: -1 when versionA is lower,
    * 1 when versionA is bigger, 0 when both equal
    */
   /* eslint consistent-return: 1 */
-  static compareVersions(versionA, versionB) {
+  static compareVersions(versionA, versionB, isLoose = false) {
     // 1) get common precision for both versions, for example for "10.0" and "9" it should be 2
-    let precision = Math.max(
-      Utils.getVersionPrecision(versionA),
-      Utils.getVersionPrecision(versionB),
-    );
+    const versionAPrecision = Utils.getVersionPrecision(versionA);
+    const versionBPrecision = Utils.getVersionPrecision(versionB);
+
+    let precision = Math.max(versionAPrecision, versionBPrecision);
+    let lastPrecision = 0;
 
     const chunks = Utils.map([versionA, versionB], (version) => {
       const delta = precision - Utils.getVersionPrecision(version);
@@ -96,14 +99,19 @@ class Utils {
       return Utils.map(_version.split('.'), chunk => new Array(20 - chunk.length).join('0') + chunk).reverse();
     });
 
+    // adjust precision for loose comparison
+    if (isLoose) {
+      lastPrecision = precision - Math.min(versionAPrecision, versionBPrecision);
+    }
+
     // iterate in reverse order by reversed chunks array
     precision -= 1;
-    while (precision >= 0) {
+    while (precision >= lastPrecision) {
       // 4) compare: "000000009" > "000000010" = false (but "9" > "10" = true)
       if (chunks[0][precision] > chunks[1][precision]) {
         return 1;
       } else if (chunks[0][precision] === chunks[1][precision]) {
-        if (precision === 0) {
+        if (precision === lastPrecision) {
           // all version chunks are same
           return 0;
         }

@@ -22,6 +22,9 @@ test('compareVersions', (t) => {
     ['1.10.2.1', '1.8.2.1.90', 1],
     ['1.010.2.1', '1.08.2.1.90', 1],
     ['1.10.2.1', '1.10.2.1', 0],
+    ['1.10.2.1', '1.10.2', 0, true],
+    ['1.10.2.1', '1.10', 0, true],
+    ['1.10.2.1', '1', 0, true],
     ['1.10.2.1', '1.0800.2', -1],
     ['1.0.0-alpha', '1.0.0-alpha.1', -1],
     ['1.0.0-alpha.1', '1.0.0-alpha.beta', -1],
@@ -35,7 +38,8 @@ test('compareVersions', (t) => {
     const versionA = testingParams[0];
     const versionB = testingParams[1];
     const result = testingParams[2];
-    let matching = ' == ';
+    const isLoose = testingParams.length > 3 ? testingParams[3] : false;
+    let matching = isLoose ? '~' : ' == ';
 
     if (result > 0) {
       matching = ' > ';
@@ -43,6 +47,6 @@ test('compareVersions', (t) => {
       matching = ' < ';
     }
 
-    t.is(compareVersions(versionA, versionB), result, `version ${versionA} should be ${matching} version ${versionB}`);
+    t.is(compareVersions(versionA, versionB, isLoose), result, `version ${versionA} should be ${matching} version ${versionB}`);
   });
 });

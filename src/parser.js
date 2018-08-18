@@ -397,6 +397,7 @@ class Parser {
   compareVersion(version) {
     let expectedResult = 0;
     let comparableVersion = version;
+    let isLoose = false;
 
     if (version[0] === '>') {
       expectedResult = 1;
@@ -406,8 +407,12 @@ class Parser {
       comparableVersion = version.substr(1);
     } else if (version[0] === '=') {
       comparableVersion = version.substr(1);
+    } else if (version[0] === '~') {
+      isLoose = true;
+      comparableVersion = version.substr(1);
     }
-    return compareVersions(this.getBrowserVersion(), comparableVersion) === expectedResult;
+
+    return compareVersions(this.getBrowserVersion(), comparableVersion, isLoose) === expectedResult;
   }
 
   isOS(osName) {

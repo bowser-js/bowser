@@ -1,7 +1,7 @@
 ## Bowser
 A Browser detector. Because sometimes, there is no other way, and not even good modern browsers always provide good feature detection mechanisms.
 
-[![Build Status](https://travis-ci.org/lancedikson/bowser.svg?branch=master)](https://travis-ci.org/lancedikson/bowser/)
+[![Build Status](https://travis-ci.org/lancedikson/bowser.svg?branch=master)](https://travis-ci.org/lancedikson/bowser/) [![Greenkeeper badge](https://badges.greenkeeper.io/lancedikson/bowser.svg)](https://greenkeeper.io/)
 
 # Contents
 - [Overview](#overview)

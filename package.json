@@ -64,7 +64,7 @@
   "scripts": {
     "build": "webpack --config webpack.config.js",
     "prepublish": "npm run build",
-    "lint": "eslint ./src --fix",
+    "lint": "eslint ./src",
     "testem": "testem",
     "test": "eslint ./src & nyc --reporter=html --reporter=text ava",
     "coverage": "nyc report --reporter=text-lcov | coveralls",

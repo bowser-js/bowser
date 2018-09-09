@@ -110,15 +110,18 @@ class Utils {
       // 4) compare: "000000009" > "000000010" = false (but "9" > "10" = true)
       if (chunks[0][precision] > chunks[1][precision]) {
         return 1;
-      } else if (chunks[0][precision] === chunks[1][precision]) {
+      }
+
+      if (chunks[0][precision] === chunks[1][precision]) {
         if (precision === lastPrecision) {
           // all version chunks are same
           return 0;
         }
-      } else {
+
+        precision -= 1;
+      } else if (chunks[0][precision] < chunks[1][precision]) {
         return -1;
       }
-      precision -= 1;
     }
   }
 

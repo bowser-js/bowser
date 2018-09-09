@@ -57,7 +57,7 @@ test('Skip parsing shouldn\'t parse', (t) => {
   t.deepEqual((new Parser(UA, true)).getResult(), {});
 });
 
-test('Parser.check should make simple comparisons', (t) => {
+test('Parser.satisfies should make simple comparisons', (t) => {
   // also covers Parser.compareVersion() method
   t.is(parser.satisfies({ opera: '>42' }), true);
   t.is(parser.satisfies({ opera: '<44' }), true);
@@ -66,7 +66,7 @@ test('Parser.check should make simple comparisons', (t) => {
   t.is(parser.satisfies({ opera: '~43' }), true);
 });
 
-test('Parser.check should make complex comparison', (t) => {
+test('Parser.satisfies should make complex comparison', (t) => {
   t.is(parser.satisfies({
     macos: {
       safari: '>11',
@@ -78,7 +78,7 @@ test('Parser.check should make complex comparison', (t) => {
   }), true);
 });
 
-test('Parser.check should respect platform and OS specific declarations', (t) => {
+test('Parser.satisfies should respect platform and OS specific declarations', (t) => {
   t.is(parser.satisfies({
     macos: {
       opera: '>45',
@@ -111,6 +111,14 @@ test('Parser.check should respect platform and OS specific declarations', (t) =>
       chrome: '>42',
     },
     firefox: '>42',
+  }), void 0);
+});
+
+test('Parser.satisfies for versionless UA strings', (t) => {
+  const _parser = new Parser('Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 [FBAN/FBIOS;FBDV/iPhone7,2;FBMD/iPhone;FBSN/iOS;FBSV/11.4.1;FBSS/2;FBCR/vfnl;FBID/phone;FBLC/nl_NL;FBOP/5;FBRV/0]');
+
+  t.is(_parser.satisfies({
+    safari: '>9',
   }), void 0);
 });
 

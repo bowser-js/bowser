@@ -984,6 +984,20 @@
         engine: 
           name: "WebKit"
           version: "601.1.46"
+    - ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 [FBAN/FBIOS;FBDV/iPhone7,2;FBMD/iPhone;FBSN/iOS;FBSV/11.4.1;FBSS/2;FBCR/vfnl;FBID/phone;FBLC/nl_NL;FBOP/5;FBRV/0]"
+      spec:
+        browser:
+          name: "Safari"
+        os:
+          name: "iOS"
+          version: "11.4.1"
+        platform:
+          type: "mobile"
+          vendor: "Apple"
+          model: "iPhone"
+        engine:
+          name: "WebKit"
+          version: "605.1.15"
   Internet Explorer: 
     - 
       ua: "Mozilla/5.0 (Windows NT 6.3; Win64; x64; Trident/7.0; MAARJS; rv:11.0) like Gecko"
@@ -2261,6 +2275,21 @@
         engine: 
           name: "WebKit"
           version: "601.1.46"
+    -
+      ua: "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Maxthon/4.1.0.4000 Chrome/26.0.1410.43 Safari/537.1"
+      spec: 
+        browser: 
+          name: "Maxthon"
+          version: "4.1.0.4000"
+        os: 
+          name: "Windows"
+          version: "NT 6.1"
+          versionName: "7"
+        platform: 
+          type: "desktop"
+        engine: 
+          name: "WebKit"
+          version: "537.1"
   Epiphany: 
     - 
       ua: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/602.1 (KHTML, like Gecko) Version/8.0 Safari/602.1 Debian/buildd-unstable (3.18.5-1) Epiphany/3.18.5"
@@ -2413,5 +2442,20 @@
           version: "7.1.1"
         platform:
           type: "tablet"
+        engine:
+          name: "Blink"
+  Swing:
+    -
+      ua: "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.105 Safari/537.36 Swing/4.2.4.0"
+      spec:
+        browser:
+          name: "Swing"
+          version: "4.2.4.0"
+        os:
+          name: "Windows"
+          version: "NT 10.0"
+          versionName: "10"
+        platform:
+          type: "desktop"
         engine:
           name: "Blink"

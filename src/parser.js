@@ -399,6 +399,12 @@ class Parser {
     let comparableVersion = version;
     let isLoose = false;
 
+    const currentBrowserVersion = this.getBrowserVersion();
+
+    if (typeof currentBrowserVersion !== 'string') {
+      return void 0;
+    }
+
     if (version[0] === '>') {
       expectedResult = 1;
       comparableVersion = version.substr(1);
@@ -412,7 +418,7 @@ class Parser {
       comparableVersion = version.substr(1);
     }
 
-    return compareVersions(this.getBrowserVersion(), comparableVersion, isLoose) === expectedResult;
+    return compareVersions(currentBrowserVersion, comparableVersion, isLoose) === expectedResult;
   }
 
   isOS(osName) {

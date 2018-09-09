@@ -67,7 +67,7 @@
     "prepublish": "npm run build",
     "lint": "eslint ./src",
     "testem": "testem",
-    "test": "eslint ./src & nyc --reporter=html --reporter=text ava",
+    "test": "nyc --reporter=html --reporter=text ava",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "docs": "jsdoc -c jsdoc.json"
   },

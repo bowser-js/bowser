@@ -1,5 +1,12 @@
 # Bowser Changelog
 
+### 2.0.0-beta.2 (September 9, 2018)
+- [FIX] Fix failing comparing version through `Parser.satisfies` (#243)
+- [FIX] Fix travis testing, include eslint into CI testing
+- [FIX] Add support for Maxthon desktop browser (#246)
+- [FIX] Add support for Swing browser (#248)
+- [DOCS] Regenerate docs
+
 ### 2.0.0-beta.1 (August 18, 2018)
 - [ADD] Add loose version comparison to `Parser.compareVersion()` and `Parser.satisfies()`
 - [CHORE] Add CONTRIBUTING.md

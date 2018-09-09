@@ -125,6 +125,21 @@ const browsersList = [
     },
   },
   {
+    test: [/swing/i],
+    describe(ua) {
+      const browser = {
+        name: 'Swing',
+      };
+      const version = getFirstMatch(/(?:swing)[\s/](\d+(?:\.\d+)+)/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
     test: [/coast/i],
     describe(ua) {
       const browser = {

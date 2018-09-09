@@ -2444,3 +2444,18 @@
           type: "tablet"
         engine:
           name: "Blink"
+  Swing:
+    -
+      ua: "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.105 Safari/537.36 Swing/4.2.4.0"
+      spec:
+        browser:
+          name: "Swing"
+          version: "4.2.4.0"
+        os:
+          name: "Windows"
+          version: "NT 10.0"
+          versionName: "10"
+        platform:
+          type: "desktop"
+        engine:
+          name: "Blink"

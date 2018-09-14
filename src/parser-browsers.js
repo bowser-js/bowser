@@ -50,7 +50,7 @@ const browsersList = [
 
   /* Opera > 13.0 */
   {
-    test: [/opr|opios/i],
+    test: [/opr\/|opios/i],
     describe(ua) {
       const browser = {
         name: 'Opera',

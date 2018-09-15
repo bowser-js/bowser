@@ -1,5 +1,10 @@
 # Bowser Changelog
 
+### 2.0.0-beta.3 (September 15, 2018)
+- [FIX] Fix Chrome Mobile detection (#253)
+- [FIX] Use built bowser for CI (#252)
+- [FIX] Update babel-plugin-add-module-exports (#251)
+
 ### 2.0.0-beta.2 (September 9, 2018)
 - [FIX] Fix failing comparing version through `Parser.satisfies` (#243)
 - [FIX] Fix travis testing, include eslint into CI testing

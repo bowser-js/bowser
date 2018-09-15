@@ -268,6 +268,19 @@
           vendor: "Nexus"
         engine:
           name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Linux; Android 8.0.0; LG-H870 Build/OPR1.170623.032) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.91 Mobile Safari/537.36"
+      spec:
+        browser:
+          name: "Chrome"
+          version: "68.0.3440.91"
+        os:
+          name: "Android"
+          version: "8.0.0"
+        platform:
+          type: "mobile"
+        engine:
+          name: "Blink"
   Amazon Silk:
     - 
       ua: "Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; KFTT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.4 Mobile Safari/535.19 Silk-Accelerated=true"

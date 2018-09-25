@@ -29,7 +29,7 @@
     "ava": "^0.25.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
-    "babel-eslint": "^9.0.0",
+    "babel-eslint": "^10.0.0",
     "babel-loader": "^7.1.5",
     "babel-plugin-add-module-exports": "^1.0.0",
     "babel-plugin-istanbul": "^4.1.6",

@@ -260,6 +260,21 @@ const browsersList = [
     },
   },
   {
+    test: [/micromessenger/i],
+    describe(ua) {
+      const browser = {
+        name: 'WeChat',
+      };
+      const version = getFirstMatch(/(?:micromessenger)[\s/](\d+(\.?_?\d+)+)/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
     test: [/msie|trident/i],
     describe(ua) {
       const browser = {

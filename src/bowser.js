@@ -23,8 +23,8 @@ class Bowser {
    * @throws {Error} when UA is not a String
    *
    * @example
-   * const bowser = new Bowser(window.navigator.userAgent);
-   * bowser.getResult()
+   * const parser = Bowser.getParser(window.navigator.userAgent);
+   * const result = parser.getResult();
    */
   static getParser(UA, skipParsing = false) {
     if (typeof UA !== 'string') {
@@ -38,6 +38,9 @@ class Bowser {
    *
    * @param UA
    * @return {ParsedResult}
+   *
+   * @example
+   * const result = Bowser.parse(window.navigator.userAgent);
    */
   static parse(UA) {
     return (new Parser(UA)).getResult();

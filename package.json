@@ -68,6 +68,7 @@
     "lint": "eslint ./src",
     "testem": "testem",
     "test": "nyc --reporter=html --reporter=text ava",
+    "test:watch": "ava --watch",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "docs": "jsdoc -c jsdoc.json"
   },

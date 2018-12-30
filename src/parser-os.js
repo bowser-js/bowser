@@ -69,7 +69,7 @@ export default [
       const versionName = getAndroidVersionName(version);
       const os = {
         name: 'Android',
-        version
+        version,
       };
       if (versionName) {
         os.versionName = versionName;

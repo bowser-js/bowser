@@ -16,13 +16,13 @@ export default [
   {
     test: [/huawei/i],
     describe(ua) {
-      const model = getFirstMatch(/(can\-l01)/i, ua) && "Nova";
+      const model = getFirstMatch(/(can-l01)/i, ua) && 'Nova';
       const platform = {
         type: TYPES_LABELS.mobile,
-        vendor: 'Huawei'
+        vendor: 'Huawei',
       };
       if (model) {
-          platform.model = model;
+        platform.model = model;
       }
       return platform;
     },

@@ -76,24 +76,24 @@ class Utils {
    * @return {string} versionName
    */
   static getAndroidVersionName(version) {
-    const v = version.split('.').splice(0, 2).map(function(s) {
-        return parseInt(s) || 0;
+    const v = version.split('.').splice(0, 2).map((s) => {
+      return parseInt(s, 10) || 0;
     });
     v.push(0);
-    if (v[0] == 1 && v[1] < 5) return undefined;
-    if (v[0] == 1 && v[1] < 6) return "Cupcake";
-    if (v[0] == 1 && v[1] >= 6) return "Donut";
-    if (v[0] == 2 && v[1] < 2) return "Eclair";
-    if (v[0] == 2 && v[1] == 2) return "Froyo";
-    if (v[0] == 2 && v[1] > 2) return "Gingerbread";
-    if (v[0] == 3) return "Honeycomb";
-    if (v[0] == 4 && v[1] < 1) return "Ice Cream Sandwich";
-    if (v[0] == 4 && v[1] < 4) return "Jelly Bean";
-    if (v[0] == 4 && v[1] >= 4) return "KitKat";
-    if (v[0] == 5) return "Lollipop";
-    if (v[0] == 6) return "Marshmallow";
-    if (v[0] == 7) return "Nougat";
-    if (v[0] == 8) return "Oreo";
+    if (v[0] === 1 && v[1] < 5) return undefined;
+    if (v[0] === 1 && v[1] < 6) return "Cupcake";
+    if (v[0] === 1 && v[1] >= 6) return "Donut";
+    if (v[0] === 2 && v[1] < 2) return "Eclair";
+    if (v[0] === 2 && v[1] === 2) return "Froyo";
+    if (v[0] === 2 && v[1] > 2) return "Gingerbread";
+    if (v[0] === 3) return "Honeycomb";
+    if (v[0] === 4 && v[1] < 1) return "Ice Cream Sandwich";
+    if (v[0] === 4 && v[1] < 4) return "Jelly Bean";
+    if (v[0] === 4 && v[1] >= 4) return "KitKat";
+    if (v[0] === 5) return "Lollipop";
+    if (v[0] === 6) return "Marshmallow";
+    if (v[0] === 7) return "Nougat";
+    if (v[0] === 8) return "Oreo";
     return undefined;
   }
 

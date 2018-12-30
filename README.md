@@ -132,6 +132,7 @@ If you'd like to contribute a change to bowser, modify the files in `src/`, then
 ``` sh
 $ npm install #build
 $ npm test #run tests
+$ npm run lint #check lint rules
 ```
 
 ### Adding tests

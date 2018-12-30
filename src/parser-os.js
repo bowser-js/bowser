@@ -72,7 +72,7 @@ export default [
         version
       };
       if (versionName) {
-          os.versionName = versionName;
+        os.versionName = versionName;
       }
       return os;
     },

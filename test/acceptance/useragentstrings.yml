@@ -1944,6 +1944,7 @@
         os: 
           name: "Android"
           version: "4.4.2"
+          versionName: "KitKat"
         platform: 
           type: "tablet"
           vendor: "Nexus"
@@ -1959,6 +1960,7 @@
         os: 
           name: "Android"
           version: "4.3"
+          versionName: "Jelly Bean"
         platform: 
           type: "mobile"
           vendor: "Nexus"
@@ -1974,6 +1976,7 @@
         os: 
           name: "Android"
           version: "4.2"
+          versionName: "Jelly Bean"
         platform: 
           type: "tablet"
           vendor: "Nexus"
@@ -1989,6 +1992,7 @@
         os: 
           name: "Android"
           version: "3.2"
+          versionName: "Honeycomb"
         platform: 
           type: "tablet"
         engine: 
@@ -2003,6 +2007,7 @@
         os: 
           name: "Android"
           version: "2.3.4"
+          versionName: "Gingerbread"
         platform: 
           type: "mobile"
         engine: 
@@ -2017,6 +2022,7 @@
         os: 
           name: "Android"
           version: "1.6"
+          versionName: "Donut"
         platform: 
           type: "mobile"
         engine: 
@@ -2254,6 +2260,7 @@
         os: 
           name: "Android"
           version: "4.1.2"
+          versionName: "Jelly Bean"
         platform: 
           type: "tablet"
         engine: 
@@ -2445,6 +2452,7 @@
         os: 
           name: "Android"
           version: "5.0.2"
+          versionName: "Lollipop"
         platform: 
           type: "mobile"
         engine: 
@@ -2474,6 +2482,7 @@
         os:
           name: "Android"
           version: "6.0"
+          versionName: "Marshmallow"
         platform:
           type: "mobile"
         engine:
@@ -2488,6 +2497,7 @@
         os:
           name: "Android"
           version: "7.1.1"
+          versionName: "Nougat"
         platform:
           type: "tablet"
         engine:

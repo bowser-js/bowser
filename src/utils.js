@@ -78,7 +78,8 @@ class Utils {
   static getAndroidVersionName(version) {
     const v = version.split('.').splice(0, 2).map(function(s) {
         return parseInt(s) || 0;
-    }).push(0);
+    });
+    v.push(0);
     if (v[0] == 1 && v[1] < 5) return undefined;
     if (v[0] == 1 && v[1] < 6) return "Cupcake";
     if (v[0] == 1 && v[1] >= 6) return "Donut";

@@ -1,6 +1,6 @@
 {
-  "presets": [["env", {
-    "useBuiltIns": true,
+  "presets": [["@babel/preset-env", {
+    "useBuiltIns": "entry",
     "modules": "umd",
     "targets": {
       "ie": "8",
@@ -13,7 +13,7 @@
   "env": {
     "test": {
       "plugins": [ "istanbul" ],
-      "presets": [["env", { "targets": { "node": "current" } }]]
+      "presets": [["@babel/preset-env", { "targets": { "node": "current" } }]]
     }
   }
 }

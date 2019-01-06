@@ -395,7 +395,7 @@ class Parser {
   }
 
   compareVersion(version) {
-    let expectedResult = 0;
+    let expectedResults = [0];
     let comparableVersion = version;
     let isLoose = false;
 
@@ -405,12 +405,19 @@ class Parser {
       return void 0;
     }
 
-    if (version[0] === '>') {
-      expectedResult = 1;
+    if (version[0] === '>' || version[0] === '<') {
       comparableVersion = version.substr(1);
-    } else if (version[0] === '<') {
-      expectedResult = -1;
-      comparableVersion = version.substr(1);
+      if (version[1] === '=') {
+        isLoose = true;
+        comparableVersion = version.substr(2);
+      } else {
+        expectedResults = [];
+      }
+      if (version[0] === '>') {
+        expectedResults.push(1);
+      } else {
+        expectedResults.push(-1);
+      }
     } else if (version[0] === '=') {
       comparableVersion = version.substr(1);
     } else if (version[0] === '~') {
@@ -418,7 +425,9 @@ class Parser {
       comparableVersion = version.substr(1);
     }
 
-    return compareVersions(currentBrowserVersion, comparableVersion, isLoose) === expectedResult;
+    return expectedResults.indexOf(
+      compareVersions(currentBrowserVersion, comparableVersion, isLoose),
+    ) > -1;
   }
 
   isOS(osName) {

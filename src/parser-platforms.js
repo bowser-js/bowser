@@ -12,6 +12,22 @@ const TYPES_LABELS = {
  */
 
 export default [
+  /* Huawei */
+  {
+    test: [/huawei/i],
+    describe(ua) {
+      const model = getFirstMatch(/(can-l01)/i, ua) && 'Nova';
+      const platform = {
+        type: TYPES_LABELS.mobile,
+        vendor: 'Huawei',
+      };
+      if (model) {
+        platform.model = model;
+      }
+      return platform;
+    },
+  },
+
   /* Nexus Tablet */
   {
     test: [/nexus\s*(?:7|8|9|10).*/i],

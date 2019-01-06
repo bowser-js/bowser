@@ -130,8 +130,9 @@ More of API and possibilities you will find in the `docs` folder.
 If you'd like to contribute a change to bowser, modify the files in `src/`, then run the following (you'll need node + npm installed):
 
 ``` sh
-$ npm install
-$ npm test
+$ npm install #build
+$ npm test #run tests
+$ npm run lint #check lint rules
 ```
 
 ### Adding tests

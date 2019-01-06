@@ -1,6 +1,7 @@
 import {
   getFirstMatch,
   getWindowsVersionName,
+  getAndroidVersionName,
 } from './utils';
 
 export default [
@@ -65,10 +66,15 @@ export default [
     },
     describe(ua) {
       const version = getFirstMatch(/android[\s/-](\d+(\.\d+)*)/i, ua);
-      return {
+      const versionName = getAndroidVersionName(version);
+      const os = {
         name: 'Android',
         version,
       };
+      if (versionName) {
+        os.versionName = versionName;
+      }
+      return os;
     },
   },
 

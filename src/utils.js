@@ -52,6 +52,50 @@ class Utils {
   }
 
   /**
+   * Get Android version name
+   *    1.5 - Cupcake
+   *    1.6 - Donut
+   *    2.0 - Eclair
+   *    2.1 - Eclair
+   *    2.2 - Froyo
+   *    2.x - Gingerbread
+   *    3.x - Honeycomb
+   *    4.0 - Ice Cream Sandwich
+   *    4.1 - Jelly Bean
+   *    4.4 - KitKat
+   *    5.x - Lollipop
+   *    6.x - Marshmallow
+   *    7.x - Nougat
+   *    8.x - Oreo
+   *    9.x - ?
+   *
+   * @example
+   *   getAndroidVersionName("7.0") // 'Nougat'
+   *
+   * @param  {string} version
+   * @return {string} versionName
+   */
+  static getAndroidVersionName(version) {
+    const v = version.split('.').splice(0, 2).map(s => parseInt(s, 10) || 0);
+    v.push(0);
+    if (v[0] === 1 && v[1] < 5) return undefined;
+    if (v[0] === 1 && v[1] < 6) return 'Cupcake';
+    if (v[0] === 1 && v[1] >= 6) return 'Donut';
+    if (v[0] === 2 && v[1] < 2) return 'Eclair';
+    if (v[0] === 2 && v[1] === 2) return 'Froyo';
+    if (v[0] === 2 && v[1] > 2) return 'Gingerbread';
+    if (v[0] === 3) return 'Honeycomb';
+    if (v[0] === 4 && v[1] < 1) return 'Ice Cream Sandwich';
+    if (v[0] === 4 && v[1] < 4) return 'Jelly Bean';
+    if (v[0] === 4 && v[1] >= 4) return 'KitKat';
+    if (v[0] === 5) return 'Lollipop';
+    if (v[0] === 6) return 'Marshmallow';
+    if (v[0] === 7) return 'Nougat';
+    if (v[0] === 8) return 'Oreo';
+    return undefined;
+  }
+
+  /**
    * Get version precisions count
    *
    * @example

@@ -1,6 +1,22 @@
 ---
   Chrome: 
     - 
+      ua: "Mozilla/5.0 (Linux; Android 7.0; HUAWEI CAN-L01) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.99 Mobile Safari/537.36"
+      spec:
+        browser:
+          name: "Chrome"
+          version: "71.0.3578.99"
+        os:
+          name: "Android"
+          version: "7.0"
+          versionName: "Nougat"
+        platform:
+          type: "mobile"
+          vendor: "Huawei"
+          model: "Nova"
+        engine:
+          name: "Blink"
+    - 
       ua: "Mozilla/5.0 (Linux; Android 5.1.1; Nexus 9 Build/LMY48T) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.83 Safari/537.36"
       spec: 
         browser: 
@@ -9,6 +25,7 @@
         os: 
           name: "Android"
           version: "5.1.1"
+          versionName: "Lollipop"
         platform: 
           type: "tablet"
           vendor: "Nexus"
@@ -23,6 +40,7 @@
         os: 
           name: "Android"
           version: "4.4.2"
+          versionName: "KitKat"
         platform: 
           type: "tablet"
           vendor: "Nexus"
@@ -37,6 +55,7 @@
         os: 
           name: "Android"
           version: "4.3"
+          versionName: "Jelly Bean"
         platform: 
           type: "mobile"
           vendor: "Nexus"
@@ -51,6 +70,7 @@
         os: 
           name: "Android"
           version: "4.1"
+          versionName: "Jelly Bean"
         platform: 
           type: "mobile"
           vendor: "Nexus"
@@ -66,6 +86,7 @@
         os: 
           name: "Android"
           version: "4.0.3"
+          versionName: "Ice Cream Sandwich"
         platform: 
           type: "tablet"
         engine: 
@@ -80,6 +101,7 @@
         os: 
           name: "Android"
           version: "4.0.3"
+          versionName: "Ice Cream Sandwich"
         platform: 
           type: "mobile"
           vendor: "Nexus"
@@ -237,6 +259,7 @@
         os: 
           name: "Android"
           version: "5.0.2"
+          versionName: "Lollipop"
         platform: 
           type: "tablet"
         engine: 
@@ -250,6 +273,7 @@
         os: 
           name: "Android"
           version: "6.0.99"
+          versionName: "Marshmallow"
         platform: 
           type: "tablet"
         engine: 
@@ -263,6 +287,7 @@
         os:
           name: "Android"
           version: "7.0"
+          versionName: "Nougat"
         platform:
           type: "mobile"
           vendor: "Nexus"
@@ -277,6 +302,7 @@
         os:
           name: "Android"
           version: "8.0.0"
+          versionName: "Oreo"
         platform:
           type: "mobile"
         engine:
@@ -291,6 +317,7 @@
         os: 
           name: "Android"
           version: "4.0.3"
+          versionName: "Ice Cream Sandwich"
         platform: 
           type: "tablet"
           vendor: "Amazon"
@@ -322,6 +349,7 @@
         os: 
           name: "Android"
           version: "2.3.4"
+          versionName: "Gingerbread"
         platform: 
           type: "tablet"
           vendor: "Amazon"
@@ -353,6 +381,7 @@
         os: 
           name: "Android"
           version: "4.4.2"
+          versionName: "KitKat"
         platform: 
           type: "tablet"
           vendor: "Nexus"
@@ -367,6 +396,7 @@
         os: 
           name: "Android"
           version: "4.3"
+          versionName: "Jelly Bean"
         platform: 
           type: "mobile"
           vendor: "Nexus"
@@ -395,6 +425,7 @@
         os: 
           name: "Android"
           version: "4.3"
+          versionName: "Jelly Bean"
         platform: 
           type: "mobile"
         engine: 
@@ -409,6 +440,7 @@
         os: 
           name: "Android"
           version: "4.4.2"
+          versionName: "KitKat"
         platform: 
           type: "tablet"
         engine: 
@@ -588,6 +620,7 @@
         os: 
           name: "Android"
           version: "6.0"
+          versionName: "Marshmallow"
         platform: 
           type: "mobile"
         engine: 
@@ -633,6 +666,7 @@
         os: 
           name: "Android"
           version: "5.1.1"
+          versionName: "Lollipop"
         platform: 
           type: "mobile"
           vendor: "Nexus"
@@ -1309,6 +1343,7 @@
         os:
           name: "Android"
           version: "8.0"
+          versionName: "Oreo"
         platform:
           type: "mobile"
         engine:
@@ -1909,6 +1944,7 @@
         os: 
           name: "Android"
           version: "4.4.2"
+          versionName: "KitKat"
         platform: 
           type: "tablet"
           vendor: "Nexus"
@@ -1924,6 +1960,7 @@
         os: 
           name: "Android"
           version: "4.3"
+          versionName: "Jelly Bean"
         platform: 
           type: "mobile"
           vendor: "Nexus"
@@ -1939,6 +1976,7 @@
         os: 
           name: "Android"
           version: "4.2"
+          versionName: "Jelly Bean"
         platform: 
           type: "tablet"
           vendor: "Nexus"
@@ -1954,6 +1992,7 @@
         os: 
           name: "Android"
           version: "3.2"
+          versionName: "Honeycomb"
         platform: 
           type: "tablet"
         engine: 
@@ -1968,6 +2007,7 @@
         os: 
           name: "Android"
           version: "2.3.4"
+          versionName: "Gingerbread"
         platform: 
           type: "mobile"
         engine: 
@@ -1982,6 +2022,7 @@
         os: 
           name: "Android"
           version: "1.6"
+          versionName: "Donut"
         platform: 
           type: "mobile"
         engine: 
@@ -2266,6 +2307,7 @@
         os: 
           name: "Android"
           version: "4.1.2"
+          versionName: "Jelly Bean"
         platform: 
           type: "tablet"
         engine: 
@@ -2457,6 +2499,7 @@
         os: 
           name: "Android"
           version: "5.0.2"
+          versionName: "Lollipop"
         platform: 
           type: "mobile"
         engine: 
@@ -2486,6 +2529,7 @@
         os:
           name: "Android"
           version: "6.0"
+          versionName: "Marshmallow"
         platform:
           type: "mobile"
         engine:
@@ -2500,6 +2544,7 @@
         os:
           name: "Android"
           version: "7.1.1"
+          versionName: "Nougat"
         platform:
           type: "tablet"
         engine:

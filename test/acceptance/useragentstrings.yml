@@ -2193,6 +2193,53 @@
         os: {}
         platform: {}
         engine: {}
+  WeChat: 
+    - 
+      ua: "Mozilla/5.0 (iPad; U; CPU OS 9 like Mac OS X; en-us; iPad4,4) AppleWebKit/534.46 (KHTML, like Gecko) MicroMessenger/6.5.2.501 U3/1 Safari/7543.48.3"
+      spec: 
+        browser: 
+          name: "WeChat"
+          version: "6.5.2.501"
+        os: 
+          name: "iOS"
+          version: "9"
+        platform: 
+          type: "tablet"
+          vendor: "Apple"
+          model: "iPad"
+        engine: 
+          name: "WebKit"
+          version: "534.46"        
+    - 
+      ua: "Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; SM-T210R Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30 MicroMessenger/6.1.0"
+      spec: 
+        browser: 
+          name: "WeChat"
+          version: "6.1.0"
+        os: 
+          name: "Android"
+          version: "4.1.2"
+        platform: 
+          type: "tablet"
+        engine: 
+          name: "WebKit"
+          version: "534.30"
+    - 
+      ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X; en-US) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/13E238 MicroMessenger/6.6.1 Mobile"
+      spec: 
+        browser: 
+          name: "WeChat"
+          version: "6.6.1"
+        os: 
+          name: "iOS"
+          version: "9.3.1"
+        platform: 
+          type: "mobile"
+          vendor: "Apple"
+          model: "iPhone"
+        engine: 
+          name: "WebKit"
+          version: "537.51.1"          
   UC Browser: 
     - 
       ua: "Mozilla/5.0 (iPad; U; CPU OS 9 like Mac OS X; en-us; iPad4,4) AppleWebKit/534.46 (KHTML, like Gecko) UCBrowser/2.4.0.367 U3/1 Safari/7543.48.3"

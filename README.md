@@ -23,9 +23,9 @@ The upcoming 2.0 version has drastically changed API. All available methods can 
 First of all, require the library. This is a UMD Module, so it will work for AMD, Typescript and CommonJS module systems.
 
 ```javascript
-const Bowser = require('bowser'); // CommonJS
+const Bowser = require("bowser"); // CommonJS
 
-import Bowser = require('bowser'); // Typescript
+import * as Bowser from "bowser" // Typescript
 ```
 
 By default, the exported version is the *ES5 transpiled version*, which **do not** include any polyfills.

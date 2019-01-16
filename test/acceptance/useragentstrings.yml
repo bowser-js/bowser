@@ -2232,8 +2232,37 @@
           name: "Googlebot"
           version: "2.1"
         os: {}
-        platform: {}
+        platform:
+          type: "bot"
+          vendor: "Google"
         engine: {}
+    -
+      ua: "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+      spec:
+        browser:
+          name: "Googlebot"
+          version: "2.1"
+        os:
+          name: "Android"
+          version: "6.0.1"
+          versionName: "Marshmallow"
+        platform:
+          type: "bot"
+          vendor: "Google"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) Safari/537.36"
+      spec:
+        browser:
+          name: "Googlebot"
+          version: "2.1"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Google"
+        engine:
+          name: "Blink"
   WeChat:
     -
       ua: "Mozilla/5.0 (iPad; U; CPU OS 9 like Mac OS X; en-us; iPad4,4) AppleWebKit/534.46 (KHTML, like Gecko) MicroMessenger/6.5.2.501 U3/1 Safari/7543.48.3"

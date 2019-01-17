@@ -12,6 +12,17 @@ const TYPES_LABELS = {
  */
 
 export default [
+  /* Googlebot */
+  {
+    test: [/googlebot/i],
+    describe() {
+      return {
+        type: 'bot',
+        vendor: 'Google',
+      };
+    },
+  },
+
   /* Huawei */
   {
     test: [/huawei/i],

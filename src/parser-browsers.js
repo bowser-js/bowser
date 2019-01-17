@@ -31,6 +31,23 @@ import {
 const commonVersionIdentifier = /version\/(\d+(\.?_?\d+)+)/i;
 
 const browsersList = [
+  /* Googlebot */
+  {
+    test: [/googlebot/i],
+    describe(ua) {
+      const browser = {
+        name: 'Googlebot',
+      };
+      const version = getFirstMatch(/googlebot\/(\d+(\.\d+))/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
   /* Opera < 13.0 */
   {
     test: [/opera/i],
@@ -546,23 +563,6 @@ const browsersList = [
         name: 'Safari',
       };
       const version = getFirstMatch(commonVersionIdentifier, ua);
-
-      if (version) {
-        browser.version = version;
-      }
-
-      return browser;
-    },
-  },
-
-  /* Googlebot */
-  {
-    test: [/googlebot/i],
-    describe(ua) {
-      const browser = {
-        name: 'Googlebot',
-      };
-      const version = getFirstMatch(/googlebot\/(\d+(\.\d+))/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;

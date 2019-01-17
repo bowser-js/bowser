@@ -20,14 +20,15 @@ The upcoming 2.0 version has drastically changed API. All available methods can 
 
 # Use cases
 
-First of all, require the library:
+First of all, require the library. This is a UMD Module, so it will work for AMD, Typescript and CommonJS module systems.
 
 ```javascript
-const bowser = require('bowser');
+const Bowser = require("bowser"); // CommonJS
+
+import * as Bowser from "bowser" // Typescript
 ```
 
-By default, `require('bowser')` requires the *ES5 version of files*, which
-**do not** include any polyfills.
+By default, the exported version is the *ES5 transpiled version*, which **do not** include any polyfills.
 
 In case you don't use your own `babel-polyfill` you may need to have pre-built bundle with all needed polyfills.
 So, for you it's suitable to require bowser like this: `require('bowser/bundled')`.
@@ -63,6 +64,7 @@ or
 const browser = bowser.getParser(window.navigator.userAgent);
 impression.userTechData = browser.parse();
 console.log(impression.userTechData);
+
 // outputs
 {
   browser: {

@@ -64,7 +64,7 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build",
     "lint": "eslint ./src",
     "testem": "testem",
     "test": "nyc --reporter=html --reporter=text ava",

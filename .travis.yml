@@ -4,5 +4,5 @@ node_js:
   - "8.4.0"
 script:
 - npm run lint
-- npm build
+- npm run build
 - npm test

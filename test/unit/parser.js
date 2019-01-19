@@ -63,6 +63,14 @@ test('Parser.satisfies should make simple comparisons', (t) => {
   t.is(parser.satisfies({ opera: '<44' }), true);
   t.is(parser.satisfies({ opera: '=43.0.2442.1165' }), true);
   t.is(parser.satisfies({ opera: '~43.0' }), true);
+  t.is(parser.satisfies({ opera: '>=43' }), true);
+  t.is(parser.satisfies({ opera: '<=43' }), true);
+  t.is(parser.satisfies({ opera: '>=43.0' }), true);
+  t.is(parser.satisfies({ opera: '>=43.0.2442.1165' }), true);
+  t.is(parser.satisfies({ opera: '<=43.0.2442.1165' }), true);
+  t.is(parser.satisfies({ opera: '>=43.0.2443' }), false);
+  t.is(parser.satisfies({ opera: '<=43.0.2443' }), true);
+  t.is(parser.satisfies({ opera: '>=43.0.2441' }), true);
   t.is(parser.satisfies({ opera: '~43' }), true);
 });
 

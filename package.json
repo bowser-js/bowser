@@ -1,6 +1,6 @@
 {
   "name": "bowser",
-  "version": "2.0.0-beta.3",
+  "version": "2.0.0",
   "description": "Lightweight browser detector",
   "keywords": [
     "browser",
@@ -26,35 +26,34 @@
     "url": "git+https://github.com/lancedikson/bowser.git"
   },
   "devDependencies": {
-    "ava": "^0.25.0",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^9.0.0",
-    "babel-loader": "^7.1.5",
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/register": "^7.0.0",
+    "ava": "^1.1.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
     "babel-plugin-add-module-exports": "^1.0.0",
-    "babel-plugin-istanbul": "^4.1.6",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0",
+    "babel-plugin-istanbul": "^5.1.1",
     "coveralls": "^3.0.2",
     "docdash": "^1.0.0",
     "eslint": "^5.4.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-ava": "^5.1.0",
-    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-import": "^2.14.0",
     "jsdoc": "^3.5.5",
     "nyc": "^12.0.2",
     "sinon": "^6.1.5",
     "testem": "^2.9.3",
-    "webpack": "^4.15.1",
-    "webpack-cli": "^3.0.8",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1",
     "yamljs": "^0.3.0"
   },
   "ava": {
     "require": [
-      "babel-register"
-    ],
-    "babel": "inherit"
+      "@babel/register"
+    ]
   },
   "bugs": {
     "url": "https://github.com/lancedikson/bowser/issues"
@@ -64,10 +63,11 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build",
     "lint": "eslint ./src",
     "testem": "testem",
     "test": "nyc --reporter=html --reporter=text ava",
+    "test:watch": "ava --watch",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "docs": "jsdoc -c jsdoc.json"
   },

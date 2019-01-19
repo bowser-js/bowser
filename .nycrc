@@ -1,4 +1,10 @@
 {
   "sourceMap": false,
-  "instrument": false
+  "instrument": false,
+  "include": [
+    "src/**/*.js"
+  ],
+  "exclude": [
+    "*.js"
+  ]
 }

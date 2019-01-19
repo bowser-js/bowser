@@ -1,5 +1,12 @@
 # Bowser Changelog
 
+### 2.0.0 (January 19, 2019)
+- [ADD] Support a non strict equality in `Parser.satisfies()` (#275)
+- [ADD] Add Android versions names (#276)
+- [ADD] Add a typings file (#277)
+- [ADD] Added support for Googlebot recognition (#278)
+- [FIX] Update building tools, avoid security issues
+
 ### 2.0.0-beta.3 (September 15, 2018)
 - [FIX] Fix Chrome Mobile detection (#253)
 - [FIX] Use built bowser for CI (#252)
@@ -82,7 +89,7 @@
 
 ### 1.5.0 (October 31, 2016)
 - [ADD] Throw an error when `minVersion` map has not a string as a version and fix readme (#165)
-- [FIX] Fix truly detection of Windows Phones (#167) 
+- [FIX] Fix truly detection of Windows Phones (#167)
 
 ### 1.4.6 (September 19, 2016)
 - [FIX] Fix mobile Opera's version detection on Android
@@ -120,4 +127,4 @@
 - [FEATURE] Add `bowser.check` method
 - [DOC] Changelog started
 - [DOC] Add API section to README
-- [FIX] Fix detection of browser type (A/C/X) for Chromium 
+- [FIX] Fix detection of browser type (A/C/X) for Chromium

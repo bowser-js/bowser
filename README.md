@@ -1,7 +1,7 @@
 ## Bowser
-A Browser detector. Because sometimes, there is no other way, and not even good modern browsers always provide good feature detection mechanisms.
+A browser detector. Because sometimes, there is no other way, and not even good modern browsers always provide good feature detection mechanisms.
 
-[![Build Status](https://travis-ci.org/lancedikson/bowser.svg?branch=master)](https://travis-ci.org/lancedikson/bowser/) [![Greenkeeper badge](https://badges.greenkeeper.io/lancedikson/bowser.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/lancedikson/bowser.svg?branch=master)](https://travis-ci.org/lancedikson/bowser/) [![Greenkeeper badge](https://badges.greenkeeper.io/lancedikson/bowser.svg)](https://greenkeeper.io/)[![Coverage Status](https://coveralls.io/repos/github/lancedikson/bowser/badge.svg?branch=master)](https://coveralls.io/github/lancedikson/bowser?branch=master)
 
 # Contents
 - [Overview](#overview)
@@ -15,21 +15,22 @@ The library is made to help to detect what browser your user has and gives you a
 
 _Please, note that this is an alpha version. Check out the [1.x](https://github.com/lancedikson/bowser/tree/v1.x) branch for a stable version._
 
-**Changes of the 2.0**
+**Changes of version 2.0**
 The upcoming 2.0 version has drastically changed API. All available methods can be found in the `docs` folder from now on and on a webpage soon.
 
 # Use cases
 
-First of all, require the library:
+First of all, require the library. This is a UMD Module, so it will work for AMD, Typescript and CommonJS module systems.
 
 ```javascript
-const bowser = require('bowser');
+const Bowser = require("bowser"); // CommonJS
+
+import * as Bowser from "bowser" // Typescript
 ```
 
-By default, `require('bowser')` requires the *ES5 version of files*, which
-**do not** include any polyfills.
+By default, the exported version is the *ES5 transpiled version*, which **do not** include any polyfills.
 
-In case if you don't use your own `babel-polyfill` you may need to have pre-built bundle with all needed polyfills.
+In case you don't use your own `babel-polyfill` you may need to have pre-built bundle with all needed polyfills.
 So, for you it's suitable to require bowser like this: `require('bowser/bundled')`.
 As the result, you get a ES5 version of bowser with `babel-polyfill` bundled together.
 
@@ -37,7 +38,7 @@ You may need to use the source files, so they will be available in the package a
 
 ## Browser props detection
 
-Often we need to pick users' browser properties such as the name, the version, the rendering engine and so on. Here is an example how to make it with Bowser:
+Often we need to pick users' browser properties such as the name, the version, the rendering engine and so on. Here is an example how to do it with Bowser:
 
 ```javascript
 const browser = bowser.getParser(window.navigator.userAgent);
@@ -63,6 +64,7 @@ or
 const browser = bowser.getParser(window.navigator.userAgent);
 impression.userTechData = browser.parse();
 console.log(impression.userTechData);
+
 // outputs
 {
   browser: {
@@ -103,15 +105,15 @@ const isValidBrowser = browser.satisfies({
 
   // per platform (mobile, desktop or tablet)
   mobile: {
-    safari: '>9',
+    safari: '>=9',
     'android browser': '>3.10'
   },
 
   // or in general
-  chrome: ">20.1.1432",
+  chrome: "~20.1.1432",
   firefox: ">31",
-  opera: ">22"
-  
+  opera: ">=22"
+
   // also supports equality operator
   chrome: "=20.1.1432", // will match particular build only
 
@@ -127,11 +129,16 @@ Thus, you can define OS or platform specific rules and they will have more prior
 More of API and possibilities you will find in the `docs` folder.
 
 # Contributing
+
+We're always open to pull requests or code reviews. Everyone can become a permanent contributor. Just ping @lancedikson in the issues or on Twitter ❤️
+
 If you'd like to contribute a change to bowser, modify the files in `src/`, then run the following (you'll need node + npm installed):
 
 ``` sh
 $ npm install
-$ npm test
+$ npm run build #build
+$ npm test #run tests
+$ npm run lint #check lint rules
 ```
 
 ### Adding tests

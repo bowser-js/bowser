@@ -315,8 +315,7 @@ class Parser {
    * @return {ParsedResult}
    */
   getResult() {
-    /* TODO: Make this function pure, return a new object instead of the reference */
-    return this.parsedResult;
+    return Object.assign({}, this.parsedResult);
   }
 
   /**
@@ -395,7 +394,7 @@ class Parser {
   }
 
   compareVersion(version) {
-    let expectedResult = 0;
+    let expectedResults = [0];
     let comparableVersion = version;
     let isLoose = false;
 
@@ -405,12 +404,19 @@ class Parser {
       return void 0;
     }
 
-    if (version[0] === '>') {
-      expectedResult = 1;
+    if (version[0] === '>' || version[0] === '<') {
       comparableVersion = version.substr(1);
-    } else if (version[0] === '<') {
-      expectedResult = -1;
-      comparableVersion = version.substr(1);
+      if (version[1] === '=') {
+        isLoose = true;
+        comparableVersion = version.substr(2);
+      } else {
+        expectedResults = [];
+      }
+      if (version[0] === '>') {
+        expectedResults.push(1);
+      } else {
+        expectedResults.push(-1);
+      }
     } else if (version[0] === '=') {
       comparableVersion = version.substr(1);
     } else if (version[0] === '~') {
@@ -418,7 +424,9 @@ class Parser {
       comparableVersion = version.substr(1);
     }
 
-    return compareVersions(currentBrowserVersion, comparableVersion, isLoose) === expectedResult;
+    return expectedResults.indexOf(
+      compareVersions(currentBrowserVersion, comparableVersion, isLoose),
+    ) > -1;
   }
 
   isOS(osName) {
@@ -440,7 +448,7 @@ class Parser {
   }
 
   /**
-   * Check if any of the given values satifies this.is(anything)
+   * Check if any of the given values satisfies this.is(anything)
    * @param {String[]} anythings
    * @returns {Boolean}
    */

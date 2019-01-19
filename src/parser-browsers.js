@@ -31,6 +31,23 @@ import {
 const commonVersionIdentifier = /version\/(\d+(\.?_?\d+)+)/i;
 
 const browsersList = [
+  /* Googlebot */
+  {
+    test: [/googlebot/i],
+    describe(ua) {
+      const browser = {
+        name: 'Googlebot',
+      };
+      const version = getFirstMatch(/googlebot\/(\d+(\.\d+))/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
   /* Opera < 13.0 */
   {
     test: [/opera/i],
@@ -251,6 +268,21 @@ const browsersList = [
         name: 'K-Meleon',
       };
       const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:k-meleon)[\s/](\d+(\.?_?\d+)+)/i, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
+    test: [/micromessenger/i],
+    describe(ua) {
+      const browser = {
+        name: 'WeChat',
+      };
+      const version = getFirstMatch(/(?:micromessenger)[\s/](\d+(\.?_?\d+)+)/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;
@@ -531,23 +563,6 @@ const browsersList = [
         name: 'Safari',
       };
       const version = getFirstMatch(commonVersionIdentifier, ua);
-
-      if (version) {
-        browser.version = version;
-      }
-
-      return browser;
-    },
-  },
-
-  /* Googlebot */
-  {
-    test: [/googlebot/i],
-    describe(ua) {
-      const browser = {
-        name: 'Googlebot',
-      };
-      const version = getFirstMatch(/googlebot\/(\d+(\.\d+))/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;

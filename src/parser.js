@@ -315,8 +315,7 @@ class Parser {
    * @return {ParsedResult}
    */
   getResult() {
-    /* TODO: Make this function pure, return a new object instead of the reference */
-    return this.parsedResult;
+    return Object.assign({}, this.parsedResult);
   }
 
   /**

@@ -448,7 +448,7 @@ class Parser {
   }
 
   /**
-   * Check if any of the given values satifies this.is(anything)
+   * Check if any of the given values satisfies this.is(anything)
    * @param {String[]} anythings
    * @returns {Boolean}
    */

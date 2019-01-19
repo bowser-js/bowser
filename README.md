@@ -105,15 +105,15 @@ const isValidBrowser = browser.satisfies({
 
   // per platform (mobile, desktop or tablet)
   mobile: {
-    safari: '>9',
+    safari: '>=9',
     'android browser': '>3.10'
   },
 
   // or in general
-  chrome: ">20.1.1432",
+  chrome: "~20.1.1432",
   firefox: ">31",
-  opera: ">22"
-  
+  opera: ">=22"
+
   // also supports equality operator
   chrome: "=20.1.1432", // will match particular build only
 

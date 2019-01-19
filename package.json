@@ -26,6 +26,7 @@
     "url": "git+https://github.com/lancedikson/bowser.git"
   },
   "devDependencies": {
+    "@babel/register": "^7.0.0",
     "ava": "^1.1.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
@@ -52,9 +53,8 @@
   },
   "ava": {
     "require": [
-      "babel-register"
-    ],
-    "babel": "inherit"
+      "@babel/register"
+    ]
   },
   "bugs": {
     "url": "https://github.com/lancedikson/bowser/issues"

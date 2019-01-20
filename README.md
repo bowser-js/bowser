@@ -13,10 +13,12 @@ A browser detector. Because sometimes, there is no other way, and not even good 
 
 The library is made to help to detect what browser your user has and gives you a convenient API to filter the users somehow depending on their browsers.
 
-_Please, note that this is an alpha version. Check out the [1.x](https://github.com/lancedikson/bowser/tree/v1.x) branch for a stable version._
-
 **Changes of version 2.0**
-The upcoming 2.0 version has drastically changed API. All available methods can be found in the `docs` folder from now on and on a webpage soon.
+
+The version 2.0 has drastically changed API. All available methods can be found in the `docs` folder from now on and on a webpage soon.
+
+_For legacy code, check out the [1.x](https://github.com/lancedikson/bowser/tree/v1.x) branch and install it through `npm install bowser@1.9.4`._
+
 
 # Use cases
 

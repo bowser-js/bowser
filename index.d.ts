@@ -13,7 +13,7 @@ declare namespace Bowser {
 	 * @param {boolean} skipParsing
 	 */
 
-  function getParser(UA: string, skipParsing?: boolean): Parser.Parser;
+	function getParser(UA: string, skipParsing?: boolean): Parser.Parser;
 
 	/**
 	 * Creates a Parser instance and runs Parser.getResult immediately
@@ -26,28 +26,28 @@ declare namespace Bowser {
 
 declare namespace Parser {
 	class Parser {
-    constructor(UA: string, skipParsing?: boolean);
+		constructor(UA: string, skipParsing?: boolean);
 
 		/**
 		 * Get parsed browser object
 		 * @return {BrowserDetails} Browser's details
 		 */
 
-    getBrowser(): BrowserDetails;
+		getBrowser(): BrowserDetails;
 
 		/**
 		 * Get browser's name
 		 * @return {String} Browser's name or an empty string
 		 */
 
-    getBrowserName(): string;
+		getBrowserName(): string;
 
 		/**
 		 * Get browser's version
 		 * @return {String} version of browser
 		 */
 
-    getBrowserVersion(): string;
+		getBrowserVersion(): string;
 
 		/**
 		 * Get OS
@@ -60,7 +60,7 @@ declare namespace Parser {
 		 * // }
 		 */
 
-    getOS(): OSDetails;
+		getOS(): OSDetails;
 
 		/**
 		 * Get OS name
@@ -68,49 +68,49 @@ declare namespace Parser {
 		 * @return {String} name of the OS — macOS, Windows, Linux, etc.
 		 */
 
-    getOSName(toLowerCase?: boolean): string;
+		getOSName(toLowerCase?: boolean): string;
 
 		/**
 		 * Get OS version
 		 * @return {String} full version with dots ('10.11.12', '5.6', etc)
 		 */
 
-    getOSVersion(): string;
+		getOSVersion(): string;
 
 		/**
 		 * Get parsed platform
 		 * @returns {PlatformDetails}
 		 */
 
-    getPlatform(): PlatformDetails;
+		getPlatform(): PlatformDetails;
 
 		/**
 		 * Get platform name
 		 * @param {boolean} toLowerCase
 		 */
 
-    getPlatformType(toLowerCase?: boolean): string;
+		getPlatformType(toLowerCase?: boolean): string;
 
 		/**
 		 * Get parsed engine
 		 * @returns {EngineDetails}
 		 */
 
-    getEngine(): EngineDetails;
+		getEngine(): EngineDetails;
 
 		/**
 		 * Get parsed result
 		 * @return {ParsedResult}
 		 */
 
-    getResult(): ParsedResult;
+		getResult(): ParsedResult;
 
 		/**
 		 * Get UserAgent string of current Parser instance
 		 * @return {String} User-Agent String of the current <Parser> object
 		 */
 
-    getUA(): string;
+		getUA(): string;
 
 		/**
 		 * Is anything? Check if the browser is called "anything",
@@ -119,41 +119,41 @@ declare namespace Parser {
 		 * @returns {Boolean}
 		 */
 
-    is(anything: any): boolean;
+		is(anything: any): boolean;
 
 		/**
 		 * Parse full information about the browser
 		 */
 
-    parse(): void;
+		parse(): void;
 
 		/**
 		 * Get parsed browser object
 		 * @returns {BrowserDetails}
 		 */
 
-    parseBrowser(): BrowserDetails;
+		parseBrowser(): BrowserDetails;
 
 		/**
 		 * Get parsed engine
 		 * @returns {EngineDetails}
 		 */
 
-    parseEngine(): EngineDetails;
+		parseEngine(): EngineDetails;
 
 		/**
 		 * Parse OS and save it to this.parsedResult.os
 		 * @returns {OSDetails}
 		 */
 
-    parseOS(): OSDetails;
+		parseOS(): OSDetails;
 
 		/**
 		 * Get parsed platform
 		 * @returns {PlatformDetails}
 		 */
 
-    parsePlatform(): PlatformDetails;
+		parsePlatform(): PlatformDetails;
 
 		/**
 		 * Check if parsed browser matches certain conditions
@@ -174,7 +174,7 @@ declare namespace Parser {
 		 * if (browser.check({desktop: { chrome: '>118.01.1322' } }))
 		 */
 
-    satisfies(checkTree: checkTree): boolean | undefined;
+		satisfies(checkTree: checkTree): boolean | undefined;
 
 		/**
 		 * Check if any of the given values satifies `.is(anything)`
@@ -182,7 +182,7 @@ declare namespace Parser {
 		 * @returns {boolean} true if at least one condition is satisfied, false otherwise.
 		 */
 
-    some(anythings: string[]): boolean | undefined;
+		some(anythings: string[]): boolean | undefined;
 
 		/**
 		 * Test a UA string for a regexp
@@ -191,34 +191,34 @@ declare namespace Parser {
 		 */
 
 		test(regex: RegExp): boolean;
-  }
+	}
 
 	interface ParsedResult {
 		browser: BrowserDetails;
 		os: OSDetails;
 		platform: PlatformDetails;
 		engine: EngineDetails;
-  }
+	}
 
 	interface Details {
 		name?: string;
 		version?: string;
-  }
+	}
 
 	interface OSDetails extends Details {
 		versionName?: string;
-  }
+	}
 
 	interface PlatformDetails {
 		type?: string;
 		vendor?: string;
 		model?: string;
-  }
+	}
 
 	type BrowserDetails = Details;
 	type EngineDetails = Details;
 
-  interface checkTree {
+	interface checkTree {
 		[key: string]: any;
 	}
 }

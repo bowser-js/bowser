@@ -41,7 +41,7 @@ You may need to use the source files, so they will be available in the package a
 Often we need to pick users' browser properties such as the name, the version, the rendering engine and so on. Here is an example how to do it with Bowser:
 
 ```javascript
-const browser = bowser.getParser(window.navigator.userAgent);
+const browser = Bowser.getParser(window.navigator.userAgent);
 
 console.log(`The current browser name is "${browser.getBrowserName()}"`);
 // The current browser name is "Internet Explorer"
@@ -52,7 +52,7 @@ or
 ```javascript
 const impression = new Impression();
 
-const browser = bowser.getParser(window.navigator.userAgent);
+const browser = Bowser.getParser(window.navigator.userAgent);
 const browserInfo = browser.getBrowser();
 impression.brName = browserInfo.name;
 impression.brVer = browserInfo.version;
@@ -61,7 +61,7 @@ impression.brVer = browserInfo.version;
 or
 
 ```javascript
-const browser = bowser.getParser(window.navigator.userAgent);
+const browser = Bowser.getParser(window.navigator.userAgent);
 impression.userTechData = browser.parse();
 console.log(impression.userTechData);
 
@@ -93,7 +93,7 @@ You could want to filter some particular browsers to provide any special support
 It could look like this:
 
 ```javascript
-const browser = bowser.getParser(window.navigator.userAgent);
+const browser = Bowser.getParser(window.navigator.userAgent);
 const isValidBrowser = browser.satisfies({
   // declare browsers per OS
   windows: {

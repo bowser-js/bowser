@@ -130,25 +130,6 @@ Thus, you can define OS or platform specific rules and they will have more prior
 
 More of API and possibilities you will find in the `docs` folder.
 
-# Contributing
-
-We're always open to pull requests or code reviews. Everyone can become a permanent contributor. Just ping @lancedikson in the issues or on Twitter ❤️
-
-If you'd like to contribute a change to bowser, modify the files in `src/`, then run the following (you'll need node + npm installed):
-
-``` sh
-$ npm install
-$ npm run build #build
-$ npm test #run tests
-$ npm run lint #check lint rules
-```
-
-### Adding tests
-See the list in `test/acceptance/useragentstrings.yml` with example user agents and their expected bowser object.
-
-Whenever you add support for new browsers or notice a bug / mismatch, please update the list and
-check if all tests are still passing.
-
 ### Similar Projects
 * [Kong](https://github.com/BigBadBleuCheese/Kong) - A C# port of Bowser.
 

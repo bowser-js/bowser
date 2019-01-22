@@ -22,12 +22,14 @@ _For legacy code, check out the [1.x](https://github.com/lancedikson/bowser/tree
 
 # Use cases
 
-First of all, require the library. This is a UMD Module, so it will work for AMD, Typescript and CommonJS module systems.
+First of all, require the library. This is a UMD Module, so it will work for AMD, TypeScript, ES6, and CommonJS module systems.
 
 ```javascript
 const Bowser = require("bowser"); // CommonJS
 
-import * as Bowser from "bowser" // Typescript
+import * as Bowser from "bowser"; // TypeScript
+
+import Bowser from "bowser"; // ES6 (and TypeScript with --esModuleInterop enabled)
 ```
 
 By default, the exported version is the *ES5 transpiled version*, which **do not** include any polyfills.

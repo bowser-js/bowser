@@ -53,6 +53,21 @@ test('Parser.getOSVersion returns a correct result', (t) => {
   t.is(parser.getOSVersion(), '10.12.4');
 });
 
+test('Parser.parseEngine is being called when getEngine() called', (t) => {
+  const spy = sinon.spy(parser, 'parseEngine');
+  parser.getEngine();
+  t.truthy(spy.called);
+  parser.parseEngine.restore();
+});
+
+test('Parser.getEngineName gives a name of the engine', (t) => {
+  t.is(parser.getEngineName(), 'Blink');
+});
+
+test('Parser.getEngineName gives a lower-cased name of the engine', (t) => {
+  t.is(parser.getEngineName(true), 'blink');
+});
+
 test('Skip parsing shouldn\'t parse', (t) => {
   t.deepEqual((new Parser(UA, true)).getResult(), {});
 });

@@ -273,6 +273,19 @@ class Parser {
   }
 
   /**
+   * Get engines's name
+   * @return {String} Engines's name or an empty string
+   *
+   * @public
+   */
+  getEngineName(toLowerCase) {
+    if (toLowerCase) {
+      return String(this.getEngine().name).toLowerCase() || '';
+    }
+    return this.getEngine().name || '';
+  }
+
+  /**
    * Get parsed platform
    * @return {{}}
    */
@@ -435,6 +448,10 @@ class Parser {
 
   isPlatform(platformType) {
     return this.getPlatformType(true) === String(platformType).toLowerCase();
+  }
+
+  isEngine(engineName) {
+    return this.getEngineName(true) === String(engineName).toLowerCase();
   }
 
   /**

@@ -144,4 +144,14 @@ export default [
       };
     },
   },
+
+  /* Chrome OS */
+  {
+    test: [/CrOS/],
+    describe() {
+      return {
+        name: 'Chrome OS',
+      };
+    },
+  },
 ];

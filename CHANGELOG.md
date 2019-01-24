@@ -1,5 +1,10 @@
 # Bowser Changelog
 
+### 2.1.0 (January 24, 2019)
+- [ADD] Add new `Parser.getEngineName()` method (#288)
+- [ADD] Add detection of ChromeOS (#287)
+- [FIX] Fix README
+
 ### 2.0.0 (January 19, 2019)
 - [ADD] Support a non strict equality in `Parser.satisfies()` (#275)
 - [ADD] Add Android versions names (#276)

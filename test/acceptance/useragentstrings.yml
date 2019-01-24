@@ -174,7 +174,8 @@
         browser:
           name: "Chrome"
           version: "29.0.1547.57"
-        os: {}
+        os:
+          name: "Chrome OS"
         platform: {}
         engine:
           name: "Blink"

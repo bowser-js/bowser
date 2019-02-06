@@ -552,6 +552,23 @@ const browsersList = [
     },
   },
 
+  /* PlayStation 4 */
+  {
+    test: [/playstation 4/i],
+    describe(ua) {
+      const browser = {
+        name: 'PlayStation 4',
+      };
+      const version = getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
   /* Safari */
   {
     test: [/safari|applewebkit/i],

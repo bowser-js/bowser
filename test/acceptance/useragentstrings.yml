@@ -2595,3 +2595,17 @@
           type: "desktop"
         engine:
           name: "Blink"
+  PlayStation 4:
+    -
+      ua: "Mozilla/5.0 (PlayStation 4 6.20) AppleWebKit/605.1.15 (KHTML, like Gecko) "
+      spec:
+        browser:
+          name: "PlayStation 4"
+        os:
+          name: "PlayStation 4"
+          version: "6.20"
+        platform:
+          type: "tv"
+        engine:
+          name: "WebKit"
+          version: "605.1.15"

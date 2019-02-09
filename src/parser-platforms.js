@@ -4,6 +4,7 @@ const TYPES_LABELS = {
   tablet: 'tablet',
   mobile: 'mobile',
   desktop: 'desktop',
+  tv: 'tv',
 };
 
 /*
@@ -229,6 +230,18 @@ export default [
     describe() {
       return {
         type: TYPES_LABELS.desktop,
+      };
+    },
+  },
+
+  /* PlayStation 4 */
+  {
+    test(parser) {
+      return parser.getOSName(true) === 'playstation 4';
+    },
+    describe() {
+      return {
+        type: TYPES_LABELS.tv,
       };
     },
   },

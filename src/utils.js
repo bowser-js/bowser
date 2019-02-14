@@ -1,4 +1,4 @@
-class Utils {
+export default class Utils {
   /**
    * Get first matched item for a string
    * @param {RegExp} regexp
@@ -188,5 +188,3 @@ class Utils {
     return result;
   }
 }
-
-module.exports = Utils;

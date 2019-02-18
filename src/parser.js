@@ -392,7 +392,7 @@ class Parser {
 
     if (browsersCounter > 0) {
       const browserNames = Object.keys(browsers);
-      const matchingDefinition = browserNames.find(name => (this.isBrowser(name)));
+      const matchingDefinition = browserNames.find(name => (this.isBrowser(name, true)));
 
       if (matchingDefinition !== void 0) {
         return this.compareVersion(browsers[matchingDefinition]);
@@ -402,8 +402,15 @@ class Parser {
     return undefined;
   }
 
-  isBrowser(browserName) {
-    return this.getBrowserName(true) === String(browserName).toLowerCase();
+  isBrowser(browserName, loosely = false) {
+    const defaultBrowserName = this.getBrowserName();
+    const possibleNames = [defaultBrowserName.toLowerCase()];
+
+    if (loosely) {
+      possibleNames.push(getBrowserAlias(defaultBrowserName).toLowerCase());
+    }
+
+    return possibleNames.indexOf(browserName.toLowerCase()) !== -1;
   }
 
   compareVersion(version) {

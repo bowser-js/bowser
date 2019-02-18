@@ -1,0 +1,41 @@
+// NOTE: this list must be up-to-date with browsers listed in
+// test/acceptance/useragentstrings.yml
+const BROWSER_ALIASES_MAP = {
+  'Amazon Silk': 'amazonSilk',
+  'Android Browser': 'android',
+  Bada: 'bada',
+  BlackBerry: 'blackBerry',
+  Chrome: 'chrome',
+  Chromium: 'chromium',
+  Epiphany: 'epiphany',
+  Firefox: 'firefox',
+  Focus: 'focus',
+  Generic: 'generic',
+  Googlebot: 'googlebot',
+  'Internet Explorer': 'ie',
+  'K-Meleon': 'kMeleon',
+  Maxthon: 'maxthon',
+  'Microsoft Edge': 'edge',
+  'MZ Browser': 'mz',
+  'NAVER Whale Browser': 'naver',
+  Opera: 'opera',
+  'Opera Coast': 'operaCoast',
+  PhantomJS: 'phantomJS',
+  Puffin: 'puffin',
+  QupZilla: 'qupZilla',
+  Safari: 'safari',
+  Sailfish: 'sailfish',
+  SeaMonkey: 'seaMonkey',
+  Sleipnir: 'sleipnir',
+  Swing: 'swing',
+  Tizen: 'tizen',
+  'UC Browser': 'uc',
+  Vivaldi: 'vivaldi',
+  'WebOS Browser': 'webOS',
+  WeChat: 'weChat',
+  'Yandex Browser': 'yandex',
+};
+
+module.exports = {
+  BROWSER_ALIASES_MAP,
+};

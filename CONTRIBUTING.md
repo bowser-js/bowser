@@ -12,12 +12,17 @@ If it's a small hot-fix, an improvement to the docs, or added support for a new 
 
 Following these simple rules will really help maintain the repo! Thanks ❤️
 
-## Adding Tests
+## Adding Browser Support and Tests
 
 See the list in `test/acceptance/useragentstrings.yml` with example user agents and their expected `bowser` object.
 
-Whenever you add support for new browsers or notice a bug / mismatch, please update the list and
-check if all tests are still passing.
+Whenever you add support for new browsers or notice a bug / mismatch, please update the list and check if all tests are still passing. Also, make sure to keep the list of browser aliases up-to-date in `src/constants.js`.
+
+For creating aliases, keep the following guidelines in mind:
+ - use camelcase style for names
+ - whenever possible drop the word `browser` from the original browser name
+ - remove all dashes from the original browser name
+ - always check for possible duplicates
 
 ## Testing
 

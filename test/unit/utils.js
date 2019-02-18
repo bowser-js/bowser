@@ -1,5 +1,6 @@
 import test from 'ava';
 import {
+  getBrowserAlias,
   getFirstMatch,
   getWindowsVersionName,
   compareVersions,
@@ -49,4 +50,9 @@ test('compareVersions', (t) => {
 
     t.is(compareVersions(versionA, versionB, isLoose), result, `version ${versionA} should be ${matching} version ${versionB}`);
   });
+});
+
+test('getBrowserAlias', (t) => {
+  t.is(getBrowserAlias('Microsoft Edge'), 'edge');
+  t.is(getBrowserAlias('Unexisting Browser'), void 0);
 });

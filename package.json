@@ -44,7 +44,7 @@
     "eslint-plugin-import": "^2.14.0",
     "jsdoc": "^3.5.5",
     "nyc": "^13.2.0",
-    "sinon": "^6.1.5",
+    "sinon": "^7.2.4",
     "testem": "^2.9.3",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",

@@ -42,6 +42,7 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-ava": "^5.1.0",
     "eslint-plugin-import": "^2.14.0",
+    "gh-pages": "^2.0.1",
     "jsdoc": "^3.5.5",
     "nyc": "^13.2.0",
     "sinon": "^6.1.5",
@@ -63,6 +64,7 @@
   },
   "scripts": {
     "build": "webpack --config webpack.config.js",
+    "deploy": "jsdoc -c jsdoc.json && gh-pages --dist docs --dest docs",
     "prepublishOnly": "npm run build",
     "lint": "eslint ./src",
     "testem": "testem",

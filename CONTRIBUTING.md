@@ -19,10 +19,17 @@ See the list in `test/acceptance/useragentstrings.yml` with example user agents 
 Whenever you add support for new browsers or notice a bug / mismatch, please update the list and check if all tests are still passing. Also, make sure to keep the list of browser aliases up-to-date in `src/constants.js`.
 
 For creating aliases, keep the following guidelines in mind:
- - use camelcase style for names
+ - use snake_case style for names
  - whenever possible drop the word `browser` from the original browser name
- - remove all dashes from the original browser name
+ - replace dashes with underscore
+ - avoid capital letters
  - always check for possible duplicates
+ - aliases are supposed to also be a shorter version of the original name
+
+Examples:
+`Opera Coast` --> `opera_coast`
+`UC Browser`  --> `uc`
+`SeaMonkey`   --> `sea_monkey`
 
 ## Testing
 

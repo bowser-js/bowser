@@ -1,10 +1,10 @@
 // NOTE: this list must be up-to-date with browsers listed in
 // test/acceptance/useragentstrings.yml
 const BROWSER_ALIASES_MAP = {
-  'Amazon Silk': 'amazonSilk',
+  'Amazon Silk': 'amazon_silk',
   'Android Browser': 'android',
   Bada: 'bada',
-  BlackBerry: 'blackBerry',
+  BlackBerry: 'black_berry',
   Chrome: 'chrome',
   Chromium: 'chromium',
   Epiphany: 'epiphany',
@@ -13,27 +13,27 @@ const BROWSER_ALIASES_MAP = {
   Generic: 'generic',
   Googlebot: 'googlebot',
   'Internet Explorer': 'ie',
-  'K-Meleon': 'kMeleon',
+  'K-Meleon': 'k_meleon',
   Maxthon: 'maxthon',
   'Microsoft Edge': 'edge',
   'MZ Browser': 'mz',
   'NAVER Whale Browser': 'naver',
   Opera: 'opera',
-  'Opera Coast': 'operaCoast',
-  PhantomJS: 'phantomJS',
+  'Opera Coast': 'opera_coast',
+  PhantomJS: 'phantom_js',
   Puffin: 'puffin',
-  QupZilla: 'qupZilla',
+  QupZilla: 'qup_zilla',
   Safari: 'safari',
   Sailfish: 'sailfish',
-  SeaMonkey: 'seaMonkey',
+  SeaMonkey: 'sea_monkey',
   Sleipnir: 'sleipnir',
   Swing: 'swing',
   Tizen: 'tizen',
   'UC Browser': 'uc',
   Vivaldi: 'vivaldi',
-  'WebOS Browser': 'webOS',
-  WeChat: 'weChat',
-  'Yandex Browser': 'yandex',
+  'WebOS Browser': 'web_os',
+  WeChat: 'we_chat',
+  'Yandex Browser': 'yandex'
 };
 
 module.exports = {

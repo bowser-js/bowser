@@ -3,6 +3,11 @@ extends: airbnb-base
 rules:
   no-underscore-dangle: 0
   no-void: 0
+  import/extensions:
+    - 'error'
+    - 'ignorePackages'
+    - {js: 'always'}
+
 plugins:
   - ava
   - import

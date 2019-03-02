@@ -1,4 +1,4 @@
-import { getFirstMatch } from './utils';
+import Utils from './utils.js';
 
 /*
  * More specific goes first
@@ -10,7 +10,7 @@ export default [
       return parser.getBrowserName(true) === 'microsoft edge';
     },
     describe(ua) {
-      const version = getFirstMatch(/edge\/(\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(/edge\/(\d+(\.?_?\d+)+)/i, ua);
       return {
         name: 'EdgeHTML',
         version,
@@ -26,7 +26,7 @@ export default [
         name: 'Trident',
       };
 
-      const version = getFirstMatch(/trident\/(\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(/trident\/(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         engine.version = version;
@@ -46,7 +46,7 @@ export default [
         name: 'Presto',
       };
 
-      const version = getFirstMatch(/presto\/(\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(/presto\/(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         engine.version = version;
@@ -68,7 +68,7 @@ export default [
         name: 'Gecko',
       };
 
-      const version = getFirstMatch(/gecko\/(\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(/gecko\/(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         engine.version = version;
@@ -96,7 +96,7 @@ export default [
         name: 'WebKit',
       };
 
-      const version = getFirstMatch(/webkit\/(\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(/webkit\/(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         engine.version = version;

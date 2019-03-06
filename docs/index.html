@@ -26,7 +26,7 @@
 
 <nav>
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Bowser.html">Bowser</a><ul class='methods'><li data-type='method'><a href="Bowser.html#.getParser">getParser</a></li><li data-type='method'><a href="Bowser.html#.parse">parse</a></li></ul></li><li><a href="Parser.html">Parser</a><ul class='methods'><li data-type='method'><a href="Parser.html#getBrowser">getBrowser</a></li><li data-type='method'><a href="Parser.html#getBrowserName">getBrowserName</a></li><li data-type='method'><a href="Parser.html#getBrowserVersion">getBrowserVersion</a></li><li data-type='method'><a href="Parser.html#getEngine">getEngine</a></li><li data-type='method'><a href="Parser.html#getEngineName">getEngineName</a></li><li data-type='method'><a href="Parser.html#getOS">getOS</a></li><li data-type='method'><a href="Parser.html#getOSName">getOSName</a></li><li data-type='method'><a href="Parser.html#getOSVersion">getOSVersion</a></li><li data-type='method'><a href="Parser.html#getPlatform">getPlatform</a></li><li data-type='method'><a href="Parser.html#getPlatformType">getPlatformType</a></li><li data-type='method'><a href="Parser.html#getResult">getResult</a></li><li data-type='method'><a href="Parser.html#getUA">getUA</a></li><li data-type='method'><a href="Parser.html#is">is</a></li><li data-type='method'><a href="Parser.html#parse">parse</a></li><li data-type='method'><a href="Parser.html#parseBrowser">parseBrowser</a></li><li data-type='method'><a href="Parser.html#parseEngine">parseEngine</a></li><li data-type='method'><a href="Parser.html#parseOS">parseOS</a></li><li data-type='method'><a href="Parser.html#parsePlatform">parsePlatform</a></li><li data-type='method'><a href="Parser.html#satisfies">satisfies</a></li><li data-type='method'><a href="Parser.html#some">some</a></li><li data-type='method'><a href="Parser.html#test">test</a></li></ul></li></ul><h3><a href="global.html">Global</a></h3>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Bowser.html">Bowser</a><ul class='methods'><li data-type='method'><a href="Bowser.html#.getParser">getParser</a></li><li data-type='method'><a href="Bowser.html#.parse">parse</a></li></ul></li><li><a href="Parser.html">Parser</a><ul class='methods'><li data-type='method'><a href="Parser.html#getBrowser">getBrowser</a></li><li data-type='method'><a href="Parser.html#getBrowserName">getBrowserName</a></li><li data-type='method'><a href="Parser.html#getBrowserVersion">getBrowserVersion</a></li><li data-type='method'><a href="Parser.html#getEngine">getEngine</a></li><li data-type='method'><a href="Parser.html#getEngineName">getEngineName</a></li><li data-type='method'><a href="Parser.html#getOS">getOS</a></li><li data-type='method'><a href="Parser.html#getOSName">getOSName</a></li><li data-type='method'><a href="Parser.html#getOSVersion">getOSVersion</a></li><li data-type='method'><a href="Parser.html#getPlatform">getPlatform</a></li><li data-type='method'><a href="Parser.html#getPlatformType">getPlatformType</a></li><li data-type='method'><a href="Parser.html#getResult">getResult</a></li><li data-type='method'><a href="Parser.html#getUA">getUA</a></li><li data-type='method'><a href="Parser.html#is">is</a></li><li data-type='method'><a href="Parser.html#parse">parse</a></li><li data-type='method'><a href="Parser.html#parseBrowser">parseBrowser</a></li><li data-type='method'><a href="Parser.html#parseEngine">parseEngine</a></li><li data-type='method'><a href="Parser.html#parseOS">parseOS</a></li><li data-type='method'><a href="Parser.html#parsePlatform">parsePlatform</a></li><li data-type='method'><a href="Parser.html#satisfies">satisfies</a></li><li data-type='method'><a href="Parser.html#some">some</a></li><li data-type='method'><a href="Parser.html#test">test</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#getAndroidVersionName">getAndroidVersionName</a></li><li><a href="global.html#getFirstMatch">getFirstMatch</a></li><li><a href="global.html#getSecondMatch">getSecondMatch</a></li><li><a href="global.html#getVersionPrecision">getVersionPrecision</a></li><li><a href="global.html#map">map</a></li><li><a href="global.html#matchAndReturnConst">matchAndReturnConst</a></li></ul>
 </nav>
 
 <div id="main">
@@ -59,8 +59,7 @@
 <li><a href="#contributing">How can I help?</a></li>
 </ul>
 <h1>Overview</h1><p>The library is made to help to detect what browser your user has and gives you a convenient API to filter the users somehow depending on their browsers.</p>
-<p><strong>Changes of version 2.0</strong></p>
-<p>The version 2.0 has drastically changed API. All available methods can be found in the <code>docs</code> folder from now on and on a webpage soon.</p>
+<h3>⚠️ Version 2.0 breaking changes ⚠️</h3><p>Version 2.0 has drastically changed the API. All available methods are on the <a href="https://lancedikson.github.io/bowser/docs">docs page</a>.</p>
 <p><em>For legacy code, check out the <a href="https://github.com/lancedikson/bowser/tree/v1.x">1.x</a> branch and install it through <code>npm install bowser@1.9.4</code>.</em></p>
 <h1>Use cases</h1><p>First of all, require the library. This is a UMD Module, so it will work for AMD, TypeScript, ES6, and CommonJS module systems.</p>
 <pre class="prettyprint source lang-javascript"><code>const Bowser = require(&quot;bowser&quot;); // CommonJS
@@ -77,15 +76,15 @@ As the result, you get a ES5 version of bowser with <code>babel-polyfill</code> 
 
 console.log(`The current browser name is &quot;${browser.getBrowserName()}&quot;`);
 // The current browser name is &quot;Internet Explorer&quot;</code></pre><p>or</p>
-<pre class="prettyprint source lang-javascript"><code>const impression = new Impression();
-
-const browser = Bowser.getParser(window.navigator.userAgent);
-const browserInfo = browser.getBrowser();
-impression.brName = browserInfo.name;
-impression.brVer = browserInfo.version;</code></pre><p>or</p>
 <pre class="prettyprint source lang-javascript"><code>const browser = Bowser.getParser(window.navigator.userAgent);
-impression.userTechData = browser.parse();
-console.log(impression.userTechData);
+console.log(browser.getBrowser());
+
+// outputs
+{
+  name: &quot;Internet Explorer&quot;
+  version: &quot;11.0&quot;
+}</code></pre><p>or</p>
+<pre class="prettyprint source lang-javascript"><code>console.log(Bowser.parse(window.navigator.userAgent));
 
 // outputs
 {
@@ -155,7 +154,7 @@ Thus, you can define OS or platform specific rules and they will have more prior
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Feb 13 2019 19:42:10 GMT-0800 (Pacific Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Mar 06 2019 14:31:23 GMT+0200 (EET) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

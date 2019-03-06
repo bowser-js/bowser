@@ -1,6 +1,9 @@
 # Bowser Changelog
 
-### 2.1.1 (January 24, 2019)
+### 2.1.2 (March 6, 2019)
+- [FIX] Fix buggy `getFirstMatch` reference
+
+### 2.1.1 (March 6, 2019)
 - [ADD] Add detection of PlayStation 4 (#291)
 - [ADD] Deploy docs on GH Pages (#293)
 - [FIX] Fix files extensions for importing (#294)

@@ -155,7 +155,7 @@ export default [
   {
     test: [/PlayStation 4/],
     describe(ua) {
-      const version = getFirstMatch(/PlayStation 4[/\s](\d+(\.\d+)*)/i, ua);
+      const version = Utils.getFirstMatch(/PlayStation 4[/\s](\d+(\.\d+)*)/i, ua);
       return {
         name: 'PlayStation 4',
         version,

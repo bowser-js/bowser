@@ -559,7 +559,7 @@ const browsersList = [
       const browser = {
         name: 'PlayStation 4',
       };
-      const version = getFirstMatch(commonVersionIdentifier, ua);
+      const version = Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;

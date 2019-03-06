@@ -1,0 +1,19 @@
+{
+  "presets": [["@babel/preset-env", {
+    "useBuiltIns": "entry",
+    "modules": "umd",
+    "targets": {
+      "ie": "8",
+      "browsers": ">2%"
+    }
+  }]],
+  "plugins": [
+    "add-module-exports"
+  ],
+  "env": {
+    "test": {
+      "plugins": [ "istanbul" ],
+      "presets": [["@babel/preset-env", { "targets": { "node": "current" } }]]
+    }
+  }
+}

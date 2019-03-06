@@ -1,0 +1,14 @@
+{
+  "framework": "custom",
+  "src_files": [
+    "src/**/*.js",
+    "test/**/*.js"
+  ],
+  "launchers": {
+    "tap": {
+      "command": "ava test/**/*.js --tap",
+      "protocol": "tap"
+    }
+  },
+  "launch_in_dev": [ "tap" ]
+}

@@ -1,0 +1,77 @@
+{
+  "name": "bowser",
+  "version": "2.1.1",
+  "description": "Lightweight browser detector",
+  "keywords": [
+    "browser",
+    "useragent",
+    "user-agent",
+    "parser",
+    "ua",
+    "detection",
+    "ender",
+    "sniff"
+  ],
+  "homepage": "https://github.com/lancedikson/bowser",
+  "author": "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)",
+  "contributors": [
+    {
+      "name": "Denis Demchenko",
+      "url": "http://twitter.com/lancedikson"
+    }
+  ],
+  "main": "es5.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lancedikson/bowser.git"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/polyfill": "^7.2.5",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/register": "^7.0.0",
+    "ava": "^1.1.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-add-module-exports": "^1.0.0",
+    "babel-plugin-istanbul": "^5.1.1",
+    "coveralls": "^3.0.2",
+    "docdash": "^1.0.0",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-ava": "^5.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "gh-pages": "^2.0.1",
+    "jsdoc": "^3.5.5",
+    "nyc": "^13.2.0",
+    "sinon": "^6.1.5",
+    "testem": "^2.9.3",
+    "webpack": "^4.28.4",
+    "webpack-cli": "^3.2.1",
+    "yamljs": "^0.3.0"
+  },
+  "ava": {
+    "require": [
+      "@babel/register"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/lancedikson/bowser/issues"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "deploy": "jsdoc -c jsdoc.json && gh-pages --dist docs --dest docs",
+    "prepublishOnly": "npm run build",
+    "lint": "eslint ./src",
+    "testem": "testem",
+    "test": "nyc --reporter=html --reporter=text ava",
+    "test:watch": "ava --watch",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "docs": "jsdoc -c jsdoc.json"
+  },
+  "license": "MIT"
+}

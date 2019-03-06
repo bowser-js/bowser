@@ -53,20 +53,20 @@ console.log(`The current browser name is "${browser.getBrowserName()}"`);
 or
 
 ```javascript
-const impression = new Impression();
-
 const browser = Bowser.getParser(window.navigator.userAgent);
-const browserInfo = browser.getBrowser();
-impression.brName = browserInfo.name;
-impression.brVer = browserInfo.version;
+console.log(browser.getBrowser());
+
+// outputs
+{
+  name: "Internet Explorer"
+  version: "11.0"
+}
 ```
 
 or
 
 ```javascript
-const browser = Bowser.getParser(window.navigator.userAgent);
-impression.userTechData = browser.parse();
-console.log(impression.userTechData);
+console.log(Bowser.parse(window.navigator.userAgent));
 
 // outputs
 {

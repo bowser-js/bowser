@@ -1,15 +1,11 @@
-import {
-  getFirstMatch,
-  getWindowsVersionName,
-  getAndroidVersionName,
-} from './utils';
+import Utils from './utils.js';
 
 export default [
   /* Windows Phone */
   {
     test: [/windows phone/i],
     describe(ua) {
-      const version = getFirstMatch(/windows phone (?:os)?\s?(\d+(\.\d+)*)/i, ua);
+      const version = Utils.getFirstMatch(/windows phone (?:os)?\s?(\d+(\.\d+)*)/i, ua);
       return {
         name: 'Windows Phone',
         version,
@@ -21,8 +17,8 @@ export default [
   {
     test: [/windows/i],
     describe(ua) {
-      const version = getFirstMatch(/Windows ((NT|XP)( \d\d?.\d)?)/i, ua);
-      const versionName = getWindowsVersionName(version);
+      const version = Utils.getFirstMatch(/Windows ((NT|XP)( \d\d?.\d)?)/i, ua);
+      const versionName = Utils.getWindowsVersionName(version);
 
       return {
         name: 'Windows',
@@ -36,7 +32,7 @@ export default [
   {
     test: [/macintosh/i],
     describe(ua) {
-      const version = getFirstMatch(/mac os x (\d+(\.?_?\d+)+)/i, ua).replace(/[_\s]/g, '.');
+      const version = Utils.getFirstMatch(/mac os x (\d+(\.?_?\d+)+)/i, ua).replace(/[_\s]/g, '.');
       return {
         name: 'macOS',
         version,
@@ -48,7 +44,7 @@ export default [
   {
     test: [/(ipod|iphone|ipad)/i],
     describe(ua) {
-      const version = getFirstMatch(/os (\d+([_\s]\d+)*) like mac os x/i, ua).replace(/[_\s]/g, '.');
+      const version = Utils.getFirstMatch(/os (\d+([_\s]\d+)*) like mac os x/i, ua).replace(/[_\s]/g, '.');
 
       return {
         name: 'iOS',
@@ -65,8 +61,8 @@ export default [
       return notLikeAndroid && butAndroid;
     },
     describe(ua) {
-      const version = getFirstMatch(/android[\s/-](\d+(\.\d+)*)/i, ua);
-      const versionName = getAndroidVersionName(version);
+      const version = Utils.getFirstMatch(/android[\s/-](\d+(\.\d+)*)/i, ua);
+      const versionName = Utils.getAndroidVersionName(version);
       const os = {
         name: 'Android',
         version,
@@ -82,7 +78,7 @@ export default [
   {
     test: [/(web|hpw)[o0]s/i],
     describe(ua) {
-      const version = getFirstMatch(/(?:web|hpw)[o0]s\/(\d+(\.\d+)*)/i, ua);
+      const version = Utils.getFirstMatch(/(?:web|hpw)[o0]s\/(\d+(\.\d+)*)/i, ua);
       const os = {
         name: 'WebOS',
       };
@@ -98,9 +94,9 @@ export default [
   {
     test: [/blackberry|\bbb\d+/i, /rim\stablet/i],
     describe(ua) {
-      const version = getFirstMatch(/rim\stablet\sos\s(\d+(\.\d+)*)/i, ua)
-        || getFirstMatch(/blackberry\d+\/(\d+([_\s]\d+)*)/i, ua)
-        || getFirstMatch(/\bbb(\d+)/i, ua);
+      const version = Utils.getFirstMatch(/rim\stablet\sos\s(\d+(\.\d+)*)/i, ua)
+        || Utils.getFirstMatch(/blackberry\d+\/(\d+([_\s]\d+)*)/i, ua)
+        || Utils.getFirstMatch(/\bbb(\d+)/i, ua);
 
       return {
         name: 'BlackBerry',
@@ -113,7 +109,7 @@ export default [
   {
     test: [/bada/i],
     describe(ua) {
-      const version = getFirstMatch(/bada\/(\d+(\.\d+)*)/i, ua);
+      const version = Utils.getFirstMatch(/bada\/(\d+(\.\d+)*)/i, ua);
 
       return {
         name: 'Bada',
@@ -126,7 +122,7 @@ export default [
   {
     test: [/tizen/i],
     describe(ua) {
-      const version = getFirstMatch(/tizen[/\s](\d+(\.\d+)*)/i, ua);
+      const version = Utils.getFirstMatch(/tizen[/\s](\d+(\.\d+)*)/i, ua);
 
       return {
         name: 'Tizen',
@@ -159,7 +155,7 @@ export default [
   {
     test: [/PlayStation 4/],
     describe(ua) {
-      const version = getFirstMatch(/PlayStation 4[/\s](\d+(\.\d+)*)/i, ua);
+      const version = Utils.getFirstMatch(/PlayStation 4[/\s](\d+(\.\d+)*)/i, ua);
       return {
         name: 'PlayStation 4',
         version,

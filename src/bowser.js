@@ -4,7 +4,7 @@
  * MIT License | (c) Dustin Diaz 2012-2015
  * MIT License | (c) Denis Demchenko 2015-2017
  */
-import Parser from './parser';
+import Parser from './parser.js';
 
 /**
  * Bowser class.

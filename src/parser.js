@@ -1,8 +1,8 @@
-import browserParsersList from './parser-browsers';
-import osParsersList from './parser-os';
-import platformParsersList from './parser-platforms';
-import enginesParsersList from './parser-engines';
-import { compareVersions } from './utils';
+import browserParsersList from './parser-browsers.js';
+import osParsersList from './parser-os.js';
+import platformParsersList from './parser-platforms.js';
+import enginesParsersList from './parser-engines.js';
+import Utils from './utils.js';
 
 /**
  * The main class that arranges the whole parsing process.
@@ -438,7 +438,7 @@ class Parser {
     }
 
     return expectedResults.indexOf(
-      compareVersions(currentBrowserVersion, comparableVersion, isLoose),
+      Utils.compareVersions(currentBrowserVersion, comparableVersion, isLoose),
     ) > -1;
   }
 

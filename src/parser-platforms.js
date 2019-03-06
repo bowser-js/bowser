@@ -1,4 +1,4 @@
-import { getFirstMatch } from './utils';
+import Utils from './utils.js';
 
 const TYPES_LABELS = {
   tablet: 'tablet',
@@ -28,7 +28,7 @@ export default [
   {
     test: [/huawei/i],
     describe(ua) {
-      const model = getFirstMatch(/(can-l01)/i, ua) && 'Nova';
+      const model = Utils.getFirstMatch(/(can-l01)/i, ua) && 'Nova';
       const platform = {
         type: TYPES_LABELS.mobile,
         vendor: 'Huawei',
@@ -104,7 +104,7 @@ export default [
       return iDevice && !likeIDevice;
     },
     describe(ua) {
-      const model = getFirstMatch(/(ipod|iphone)/i, ua);
+      const model = Utils.getFirstMatch(/(ipod|iphone)/i, ua);
       return {
         type: TYPES_LABELS.mobile,
         vendor: 'Apple',

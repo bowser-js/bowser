@@ -13,12 +13,11 @@ A browser detector. Because sometimes, there is no other way, and not even good 
 
 The library is made to help to detect what browser your user has and gives you a convenient API to filter the users somehow depending on their browsers.
 
-**Changes of version 2.0**
+### ⚠️ Version 2.0 breaking changes ⚠️
 
-The version 2.0 has drastically changed API. All available methods can be found in the `docs` folder from now on and on a webpage soon.
+Version 2.0 has drastically changed the API. All available methods are on the [docs page](https://lancedikson.github.io/bowser/docs).
 
 _For legacy code, check out the [1.x](https://github.com/lancedikson/bowser/tree/v1.x) branch and install it through `npm install bowser@1.9.4`._
-
 
 # Use cases
 
@@ -54,20 +53,20 @@ console.log(`The current browser name is "${browser.getBrowserName()}"`);
 or
 
 ```javascript
-const impression = new Impression();
-
 const browser = Bowser.getParser(window.navigator.userAgent);
-const browserInfo = browser.getBrowser();
-impression.brName = browserInfo.name;
-impression.brVer = browserInfo.version;
+console.log(browser.getBrowser());
+
+// outputs
+{
+  name: "Internet Explorer"
+  version: "11.0"
+}
 ```
 
 or
 
 ```javascript
-const browser = Bowser.getParser(window.navigator.userAgent);
-impression.userTechData = browser.parse();
-console.log(impression.userTechData);
+console.log(Bowser.parse(window.navigator.userAgent));
 
 // outputs
 {

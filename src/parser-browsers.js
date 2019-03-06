@@ -23,10 +23,7 @@
  * return true/false to get the Parser know if this browser descriptor matches the UA or not.
  */
 
-import {
-  getFirstMatch,
-  getSecondMatch,
-} from './utils';
+import Utils from './utils.js';
 
 const commonVersionIdentifier = /version\/(\d+(\.?_?\d+)+)/i;
 
@@ -38,7 +35,7 @@ const browsersList = [
       const browser = {
         name: 'Googlebot',
       };
-      const version = getFirstMatch(/googlebot\/(\d+(\.\d+))/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
+      const version = Utils.getFirstMatch(/googlebot\/(\d+(\.\d+))/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;
@@ -55,7 +52,7 @@ const browsersList = [
       const browser = {
         name: 'Opera',
       };
-      const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:opera)[\s/](\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(commonVersionIdentifier, ua) || Utils.getFirstMatch(/(?:opera)[\s/](\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -72,7 +69,7 @@ const browsersList = [
       const browser = {
         name: 'Opera',
       };
-      const version = getFirstMatch(/(?:opr|opios)[\s/](\S+)/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
+      const version = Utils.getFirstMatch(/(?:opr|opios)[\s/](\S+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;
@@ -87,7 +84,7 @@ const browsersList = [
       const browser = {
         name: 'Samsung Internet for Android',
       };
-      const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:SamsungBrowser)[\s/](\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(commonVersionIdentifier, ua) || Utils.getFirstMatch(/(?:SamsungBrowser)[\s/](\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -102,7 +99,7 @@ const browsersList = [
       const browser = {
         name: 'NAVER Whale Browser',
       };
-      const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:whale)[\s/](\d+(?:\.\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(commonVersionIdentifier, ua) || Utils.getFirstMatch(/(?:whale)[\s/](\d+(?:\.\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -117,7 +114,7 @@ const browsersList = [
       const browser = {
         name: 'MZ Browser',
       };
-      const version = getFirstMatch(/(?:MZBrowser)[\s/](\d+(?:\.\d+)+)/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
+      const version = Utils.getFirstMatch(/(?:MZBrowser)[\s/](\d+(?:\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;
@@ -132,7 +129,7 @@ const browsersList = [
       const browser = {
         name: 'Focus',
       };
-      const version = getFirstMatch(/(?:focus)[\s/](\d+(?:\.\d+)+)/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
+      const version = Utils.getFirstMatch(/(?:focus)[\s/](\d+(?:\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;
@@ -147,7 +144,7 @@ const browsersList = [
       const browser = {
         name: 'Swing',
       };
-      const version = getFirstMatch(/(?:swing)[\s/](\d+(?:\.\d+)+)/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
+      const version = Utils.getFirstMatch(/(?:swing)[\s/](\d+(?:\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;
@@ -162,7 +159,7 @@ const browsersList = [
       const browser = {
         name: 'Opera Coast',
       };
-      const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:coast)[\s/](\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(commonVersionIdentifier, ua) || Utils.getFirstMatch(/(?:coast)[\s/](\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -177,7 +174,7 @@ const browsersList = [
       const browser = {
         name: 'Yandex Browser',
       };
-      const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:yabrowser)[\s/](\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(commonVersionIdentifier, ua) || Utils.getFirstMatch(/(?:yabrowser)[\s/](\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -192,7 +189,7 @@ const browsersList = [
       const browser = {
         name: 'UC Browser',
       };
-      const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:ucbrowser)[\s/](\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(commonVersionIdentifier, ua) || Utils.getFirstMatch(/(?:ucbrowser)[\s/](\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -207,7 +204,7 @@ const browsersList = [
       const browser = {
         name: 'Maxthon',
       };
-      const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:Maxthon|mxios)[\s/](\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(commonVersionIdentifier, ua) || Utils.getFirstMatch(/(?:Maxthon|mxios)[\s/](\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -222,7 +219,7 @@ const browsersList = [
       const browser = {
         name: 'Epiphany',
       };
-      const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:epiphany)[\s/](\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(commonVersionIdentifier, ua) || Utils.getFirstMatch(/(?:epiphany)[\s/](\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -237,7 +234,7 @@ const browsersList = [
       const browser = {
         name: 'Puffin',
       };
-      const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:puffin)[\s/](\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(commonVersionIdentifier, ua) || Utils.getFirstMatch(/(?:puffin)[\s/](\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -252,7 +249,7 @@ const browsersList = [
       const browser = {
         name: 'Sleipnir',
       };
-      const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:sleipnir)[\s/](\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(commonVersionIdentifier, ua) || Utils.getFirstMatch(/(?:sleipnir)[\s/](\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -267,7 +264,7 @@ const browsersList = [
       const browser = {
         name: 'K-Meleon',
       };
-      const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/(?:k-meleon)[\s/](\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(commonVersionIdentifier, ua) || Utils.getFirstMatch(/(?:k-meleon)[\s/](\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -282,7 +279,7 @@ const browsersList = [
       const browser = {
         name: 'WeChat',
       };
-      const version = getFirstMatch(/(?:micromessenger)[\s/](\d+(\.?_?\d+)+)/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
+      const version = Utils.getFirstMatch(/(?:micromessenger)[\s/](\d+(\.?_?\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;
@@ -297,7 +294,7 @@ const browsersList = [
       const browser = {
         name: 'Internet Explorer',
       };
-      const version = getFirstMatch(/(?:msie |rv:)(\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(/(?:msie |rv:)(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -313,7 +310,7 @@ const browsersList = [
         name: 'Microsoft Edge',
       };
 
-      const version = getSecondMatch(/edg([ea]|ios)\/(\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getSecondMatch(/edg([ea]|ios)\/(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -328,7 +325,7 @@ const browsersList = [
       const browser = {
         name: 'Vivaldi',
       };
-      const version = getFirstMatch(/vivaldi\/(\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(/vivaldi\/(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -343,7 +340,7 @@ const browsersList = [
       const browser = {
         name: 'SeaMonkey',
       };
-      const version = getFirstMatch(/seamonkey\/(\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(/seamonkey\/(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -359,7 +356,7 @@ const browsersList = [
         name: 'Sailfish',
       };
 
-      const version = getFirstMatch(/sailfish\s?browser\/(\d+(\.\d+)?)/i, ua);
+      const version = Utils.getFirstMatch(/sailfish\s?browser\/(\d+(\.\d+)?)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -374,7 +371,7 @@ const browsersList = [
       const browser = {
         name: 'Amazon Silk',
       };
-      const version = getFirstMatch(/silk\/(\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(/silk\/(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -389,7 +386,7 @@ const browsersList = [
       const browser = {
         name: 'PhantomJS',
       };
-      const version = getFirstMatch(/phantomjs\/(\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(/phantomjs\/(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -404,7 +401,7 @@ const browsersList = [
       const browser = {
         name: 'SlimerJS',
       };
-      const version = getFirstMatch(/slimerjs\/(\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(/slimerjs\/(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -419,7 +416,7 @@ const browsersList = [
       const browser = {
         name: 'BlackBerry',
       };
-      const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/blackberry[\d]+\/(\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(commonVersionIdentifier, ua) || Utils.getFirstMatch(/blackberry[\d]+\/(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -434,7 +431,7 @@ const browsersList = [
       const browser = {
         name: 'WebOS Browser',
       };
-      const version = getFirstMatch(commonVersionIdentifier, ua) || getFirstMatch(/w(?:eb)?[o0]sbrowser\/(\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(commonVersionIdentifier, ua) || Utils.getFirstMatch(/w(?:eb)?[o0]sbrowser\/(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -449,7 +446,7 @@ const browsersList = [
       const browser = {
         name: 'Bada',
       };
-      const version = getFirstMatch(/dolfin\/(\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(/dolfin\/(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -464,7 +461,7 @@ const browsersList = [
       const browser = {
         name: 'Tizen',
       };
-      const version = getFirstMatch(/(?:tizen\s?)?browser\/(\d+(\.?_?\d+)+)/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
+      const version = Utils.getFirstMatch(/(?:tizen\s?)?browser\/(\d+(\.?_?\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;
@@ -479,7 +476,7 @@ const browsersList = [
       const browser = {
         name: 'QupZilla',
       };
-      const version = getFirstMatch(/(?:qupzilla)[\s/](\d+(\.?_?\d+)+)/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
+      const version = Utils.getFirstMatch(/(?:qupzilla)[\s/](\d+(\.?_?\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;
@@ -494,7 +491,7 @@ const browsersList = [
       const browser = {
         name: 'Firefox',
       };
-      const version = getFirstMatch(/(?:firefox|iceweasel|fxios)[\s/](\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(/(?:firefox|iceweasel|fxios)[\s/](\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -509,7 +506,7 @@ const browsersList = [
       const browser = {
         name: 'Chromium',
       };
-      const version = getFirstMatch(/(?:chromium)[\s/](\d+(\.?_?\d+)+)/i, ua) || getFirstMatch(commonVersionIdentifier, ua);
+      const version = Utils.getFirstMatch(/(?:chromium)[\s/](\d+(\.?_?\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;
@@ -524,7 +521,7 @@ const browsersList = [
       const browser = {
         name: 'Chrome',
       };
-      const version = getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;
@@ -545,7 +542,24 @@ const browsersList = [
       const browser = {
         name: 'Android Browser',
       };
-      const version = getFirstMatch(commonVersionIdentifier, ua);
+      const version = Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* PlayStation 4 */
+  {
+    test: [/playstation 4/i],
+    describe(ua) {
+      const browser = {
+        name: 'PlayStation 4',
+      };
+      const version = Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;
@@ -579,7 +593,7 @@ const browsersList = [
       const browser = {
         name: 'Safari',
       };
-      const version = getFirstMatch(commonVersionIdentifier, ua);
+      const version = Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;
@@ -594,8 +608,8 @@ const browsersList = [
     test: [/.*/i],
     describe(ua) {
       return {
-        name: getFirstMatch(/^(.*)\/(.*) /, ua),
-        version: getSecondMatch(/^(.*)\/(.*) /, ua),
+        name: Utils.getFirstMatch(/^(.*)\/(.*) /, ua),
+        version: Utils.getSecondMatch(/^(.*)\/(.*) /, ua),
       };
     },
   },

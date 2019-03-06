@@ -1,5 +1,11 @@
 # Bowser Changelog
 
+### 2.1.1 (January 24, 2019)
+- [ADD] Add detection of PlayStation 4 (#291)
+- [ADD] Deploy docs on GH Pages (#293)
+- [FIX] Fix files extensions for importing (#294)
+- [FIX] Fix docs (#295)
+
 ### 2.1.0 (January 24, 2019)
 - [ADD] Add new `Parser.getEngineName()` method (#288)
 - [ADD] Add detection of ChromeOS (#287)

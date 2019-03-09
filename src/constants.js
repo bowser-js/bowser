@@ -33,7 +33,7 @@ const BROWSER_ALIASES_MAP = {
   Vivaldi: 'vivaldi',
   'WebOS Browser': 'webos',
   WeChat: 'wechat',
-  'Yandex Browser': 'yandex'
+  'Yandex Browser': 'yandex',
 };
 
 module.exports = {

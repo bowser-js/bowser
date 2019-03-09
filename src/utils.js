@@ -1,4 +1,4 @@
-import { BROWSER_ALIASES_MAP } from './constants';
+import { BROWSER_ALIASES_MAP } from './constants.js';
 
 export default class Utils {
   /**

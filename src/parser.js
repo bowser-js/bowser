@@ -407,7 +407,7 @@ class Parser {
     const possibleNames = [defaultBrowserName.toLowerCase()];
 
     if (loosely) {
-      possibleNames.push(getBrowserAlias(defaultBrowserName).toLowerCase());
+      possibleNames.push(Utils.getBrowserAlias(defaultBrowserName).toLowerCase());
     }
 
     return possibleNames.indexOf(browserName.toLowerCase()) !== -1;

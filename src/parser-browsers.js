@@ -591,8 +591,8 @@ const browsersList = [
     test: [/.*/i],
     describe(ua) {
       return {
-        name: Utils.getFirstMatch(/^(.*)\/(.*) /, ua),
-        version: Utils.getSecondMatch(/^(.*)\/(.*) /, ua),
+        name: Utils.getFirstMatch(/^(.*)\/(.*)\((.*) /, ua),
+        version: Utils.getSecondMatch(/^(.*)\/(.*)\((.*) /, ua),
       };
     },
   },

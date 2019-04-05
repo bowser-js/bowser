@@ -590,9 +590,10 @@ const browsersList = [
   {
     test: [/.*/i],
     describe(ua) {
+	  const regexp = ua.search("\\(") == -1 ? /^(.*)\/(.*) / : /^(.*)\/(.*)\((.*) /
       return {
-        name: Utils.getFirstMatch(/^(.*)\/(.*)\((.*) /, ua),
-        version: Utils.getSecondMatch(/^(.*)\/(.*)\((.*) /, ua),
+        name: Utils.getFirstMatch(regexp, ua),
+        version: Utils.getSecondMatch(regexp, ua),
       };
     },
   },

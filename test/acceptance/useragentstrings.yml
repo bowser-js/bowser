@@ -2217,6 +2217,15 @@
           name: "Blink"
   Generic:
     -
+      ua: "Generic/2.15 libww"
+      spec:
+        browser:
+          name: "Generic"
+          version: "2.15"
+        os: {}
+        platform: {}
+        engine: {}
+    -
       ua: "Generic/2.15 (Macintosh; Intel Mac OS X 10_6_8)"
       spec:
         browser:

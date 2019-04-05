@@ -2231,8 +2231,12 @@
         browser:
           name: "Generic"
           version: "2.15"
-        os: {}
-        platform: {}
+        os:
+          name: "macOS"
+          version: "10.6.8"
+        platform:
+          type: "desktop"
+          vendor: "Apple"
         engine: {}
   Googlebot:
     -

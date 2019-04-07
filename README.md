@@ -131,8 +131,14 @@ Thus, you can define OS or platform specific rules and they will have more prior
 
 More of API and possibilities you will find in the `docs` folder.
 
-### Similar Projects
+### Browser names for `.satisfies()`
+
+By default you are supposed to use the full browser name for `.satisfies`.
+But, there's a short way to define a browser using short aliases. The full
+list of aliases can be found in [the file](src/constants.js).
+
+## Similar Projects
 * [Kong](https://github.com/BigBadBleuCheese/Kong) - A C# port of Bowser.
 
-### License
+## License
 Licensed as MIT. All rights not explicitly granted in the MIT license are reserved. See the included LICENSE file for more details.

@@ -1,5 +1,9 @@
 # Bowser Changelog
 
+### 2.2.0 (April 7, 2019)
+- [ADD] Add short aliases for browser names (#295)
+- [FIX] Fix Yandex Browser version detection (#308)
+
 ### 2.1.2 (March 6, 2019)
 - [FIX] Fix buggy `getFirstMatch` reference
 

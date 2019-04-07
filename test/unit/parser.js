@@ -5,6 +5,9 @@ import Parser from '../../src/parser';
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36 OPR/43.0.2442.1165';
 const parser = new Parser(UA, true);
 
+const EDGE_UA = 'Mozilla/5.0 (Linux; Android 8.0; Pixel XL Build/OPP3.170518.006) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.0 Mobile Safari/537.36 EdgA/41.1.35.1';
+const edgeParser = new Parser(EDGE_UA, true);
+
 test('constructor', (t) => {
   t.truthy(parser instanceof Parser);
 });
@@ -145,6 +148,13 @@ test('Parser.satisfies for versionless UA strings', (t) => {
   }), void 0);
 });
 
+test('Parser.satisfies should consider aliases while handling browsers', (t) => {
+  t.is(edgeParser.satisfies({ 'Microsoft Edge': '=41.1.35.1' }), true);
+  t.is(edgeParser.satisfies({ 'microsoft edge': '=41.1.35.1' }), true);
+  t.is(edgeParser.satisfies({ 'edge': '=41.1.35.1' }), true);
+  t.is(edgeParser.satisfies({ 'Edge': '=41.1.35.1' }), true);
+});
+
 test('Parser.is should pass', (t) => {
   t.is(parser.is('opera'), true);
   t.is(parser.is('desktop'), true);
@@ -157,4 +167,20 @@ test('Parser.some should pass', (t) => {
   t.is(parser.some(['chrome', 'firefox']), false);
   t.is(parser.some([]), false);
   t.is(parser.some(), false);
+});
+
+test('Parser.isBrowser should pass when not loosely checking', (t) => {
+  t.is(edgeParser.isBrowser('Microsoft Edge', false), true);
+  t.is(edgeParser.isBrowser('microsoft edge', false), true);
+  t.is(edgeParser.isBrowser('mIcrosoft eDge', false), true);
+  t.is(edgeParser.isBrowser('edge', false), false);
+  t.is(edgeParser.isBrowser('Edge', false), false);
+});
+
+test('Parser.isBrowser should pass when loosely checking', (t) => {
+  t.is(edgeParser.isBrowser('Microsoft Edge', true), true);
+  t.is(edgeParser.isBrowser('microsoft edge', true), true);
+  t.is(edgeParser.isBrowser('mIcrosoft eDge', true), true);
+  t.is(edgeParser.isBrowser('edge', true), true);
+  t.is(edgeParser.isBrowser('Edge', true), true);
 });

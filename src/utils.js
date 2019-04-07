@@ -1,3 +1,5 @@
+import { BROWSER_ALIASES_MAP } from './constants.js';
+
 export default class Utils {
   /**
    * Get first matched item for a string
@@ -186,5 +188,18 @@ export default class Utils {
       result.push(iterator(arr[i]));
     }
     return result;
+  }
+
+  /**
+   * Get short version/alias for a browser name
+   *
+   * @example
+   *   getBrowserAlias('Microsoft Edge') // edge
+   *
+   * @param  {string} browserName
+   * @return {string}
+   */
+  static getBrowserAlias(browserName) {
+    return BROWSER_ALIASES_MAP[browserName];
   }
 }

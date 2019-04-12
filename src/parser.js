@@ -402,12 +402,13 @@ class Parser {
     return undefined;
   }
 
-  isBrowser(browserName, loosely = false) {
+  isBrowser(browserName, includingAlias = false) {
     const defaultBrowserName = this.getBrowserName();
     const possibleNames = [defaultBrowserName.toLowerCase()];
+    const alias = Utils.getBrowserAlias(defaultBrowserName);
 
-    if (loosely) {
-      possibleNames.push(Utils.getBrowserAlias(defaultBrowserName).toLowerCase());
+    if (includingAlias && typeof alias !== 'undefined') {
+      possibleNames.push(alias.toLowerCase());
     }
 
     return possibleNames.indexOf(browserName.toLowerCase()) !== -1;

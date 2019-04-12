@@ -343,11 +343,11 @@ class Parser {
    *
    * @example
    * const browser = new Bowser(UA);
-   * if (browser.check({chrome: '>118.01.1322' }))
+   * if (browser.satisfies({chrome: '>118.01.1322' }))
    * // or with os
-   * if (browser.check({windows: { chrome: '>118.01.1322' } }))
+   * if (browser.satisfies({windows: { chrome: '>118.01.1322' } }))
    * // or with platforms
-   * if (browser.check({desktop: { chrome: '>118.01.1322' } }))
+   * if (browser.satisfies({desktop: { chrome: '>118.01.1322' } }))
    */
   satisfies(checkTree) {
     const platformsAndOSes = {};
@@ -402,12 +402,19 @@ class Parser {
     return undefined;
   }
 
-  isBrowser(browserName, loosely = false) {
+  /**
+   * Check if the browser name equals the passed string
+   * @param browserName The string to compare with the browser name
+   * @param [includingAlias=false] The flag showing whether alias will be included into comparison
+   * @returns {boolean}
+   */
+  isBrowser(browserName, includingAlias = false) {
     const defaultBrowserName = this.getBrowserName();
     const possibleNames = [defaultBrowserName.toLowerCase()];
+    const alias = Utils.getBrowserAlias(defaultBrowserName);
 
-    if (loosely) {
-      possibleNames.push(Utils.getBrowserAlias(defaultBrowserName).toLowerCase());
+    if (includingAlias && typeof alias !== 'undefined') {
+      possibleNames.push(alias.toLowerCase());
     }
 
     return possibleNames.indexOf(browserName.toLowerCase()) !== -1;

@@ -25,6 +25,7 @@ const BROWSER_ALIASES_MAP = {
   QupZilla: 'qupzilla',
   Safari: 'safari',
   Sailfish: 'sailfish',
+  'Samsung Internet for Android': 'samsung_internet',
   SeaMonkey: 'seamonkey',
   Sleipnir: 'sleipnir',
   Swing: 'swing',

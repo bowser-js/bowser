@@ -402,6 +402,12 @@ class Parser {
     return undefined;
   }
 
+  /**
+   * Check if the browser name equals the passed string
+   * @param browserName The string to compare with the browser name
+   * @param [includingAlias=false] The flag showing whether alias will be included into comparison
+   * @returns {boolean}
+   */
   isBrowser(browserName, includingAlias = false) {
     const defaultBrowserName = this.getBrowserName();
     const possibleNames = [defaultBrowserName.toLowerCase()];

@@ -8,6 +8,9 @@ const parser = new Parser(UA, true);
 const EDGE_UA = 'Mozilla/5.0 (Linux; Android 8.0; Pixel XL Build/OPP3.170518.006) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.0 Mobile Safari/537.36 EdgA/41.1.35.1';
 const edgeParser = new Parser(EDGE_UA, true);
 
+const FOCUS_UA = 'Mozilla/5.0 (Linux; Android 7.1.1) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Focus/1.2.1 Chrome/59.0.3071.125';
+const focusParser = new Parser(FOCUS_UA, true);
+
 test('constructor', (t) => {
   t.truthy(parser instanceof Parser);
 });
@@ -183,4 +186,9 @@ test('Parser.isBrowser should pass when loosely checking', (t) => {
   t.is(edgeParser.isBrowser('mIcrosoft eDge', true), true);
   t.is(edgeParser.isBrowser('edge', true), true);
   t.is(edgeParser.isBrowser('Edge', true), true);
+});
+
+test('Parser.isBrowser should pass for non-aliased browsers', (t) => {
+  t.is(focusParser.isBrowser('Focus', true), true);
+  t.is(focusParser.isBrowser('Focus', false), true);
 });

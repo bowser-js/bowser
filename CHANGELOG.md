@@ -1,5 +1,9 @@
 # Bowser Changelog
 
+### 2.2.1 (April 12, 2019)
+- [ADD] Add an alias for Samsung Internet
+- [FIX] Fix browser name detection for browsers without an alias (#313)
+
 ### 2.2.0 (April 7, 2019)
 - [ADD] Add short aliases for browser names (#295)
 - [FIX] Fix Yandex Browser version detection (#308)

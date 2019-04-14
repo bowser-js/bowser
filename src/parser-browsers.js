@@ -304,6 +304,22 @@ const browsersList = [
     },
   },
   {
+    test: [/\sedg\//i],
+    describe(ua) {
+      const browser = {
+        name: 'Microsoft Edge',
+      };
+
+      const version = Utils.getFirstMatch(/\sedg\/(\d+(\.?_?\d+)+)/i, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
     test: [/edg([ea]|ios)/i],
     describe(ua) {
       const browser = {

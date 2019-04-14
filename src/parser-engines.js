@@ -10,7 +10,18 @@ export default [
       return parser.getBrowserName(true) === 'microsoft edge';
     },
     describe(ua) {
+      const isBlinkBased = /\sedg\//i.test(ua);
+
+      // return blink if it's blink-based one
+      if (isBlinkBased) {
+        return {
+          name: 'Blink',
+        };
+      }
+
+      // otherwise match the version and return EdgeHTML
       const version = Utils.getFirstMatch(/edge\/(\d+(\.?_?\d+)+)/i, ua);
+
       return {
         name: 'EdgeHTML',
         version,

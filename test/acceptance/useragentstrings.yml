@@ -1411,6 +1411,34 @@
         engine:
           name: "EdgeHTML"
           version: "12.0"
+    -
+      ua: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.48 Safari/537.36 Edg/74.1.96.24"
+      spec:
+        browser:
+          name: "Microsoft Edge"
+          version: "74.1.96.24"
+        os:
+          name: "Windows"
+          version: "NT 10.0"
+          versionName: "10"
+        platform:
+          type: "desktop"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3739.0 Safari/537.36 Edg/75.0.109.0"
+      spec:
+        browser:
+          name: "Microsoft Edge"
+          version: "75.0.109.0"
+        os:
+          name: "Windows"
+          version: "NT 10.0"
+          versionName: "10"
+        platform:
+          type: "desktop"
+        engine:
+          name: "Blink"
   Firefox:
     -
       ua: "Mozilla/5.0 (Mobile; rv:26.0) Gecko/26.0 Firefox/26.0"

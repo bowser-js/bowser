@@ -1,5 +1,11 @@
 # Bowser Changelog
 
+### 2.3.0 (April 14, 2019)
+- [ADD] Add support for Blink-based MS Edge (#311)
+- [ADD] Add more types for TS (#289)
+- [FIX] Update dev-dependencies
+- [FIX] Update docs
+
 ### 2.2.1 (April 12, 2019)
 - [ADD] Add an alias for Samsung Internet
 - [FIX] Fix browser name detection for browsers without an alias (#313)

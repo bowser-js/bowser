@@ -6,219 +6,218 @@ export = Bowser;
 export as namespace Bowser;
 
 declare namespace Bowser {
+  /**
+   * Creates a Parser instance
+   * @param {string} UA - User agent string
+   * @param {boolean} skipParsing
+   */
 
-	/**
-	 * Creates a Parser instance
-	 * @param {string} UA - User agent string
-	 * @param {boolean} skipParsing
-	 */
+  function getParser(UA: string, skipParsing?: boolean): Parser.Parser;
 
-	function getParser(UA: string, skipParsing?: boolean): Parser.Parser;
+  /**
+   * Creates a Parser instance and runs Parser.getResult immediately
+   * @param UA - User agent string
+   * @returns {Parser.ParsedResult}
+   */
 
-	/**
-	 * Creates a Parser instance and runs Parser.getResult immediately
-	 * @param UA - User agent string
-	 * @returns {Parser.ParsedResult}
-	 */
+  function parse(UA: string): Parser.ParsedResult;
 
-	function parse(UA: string): Parser.ParsedResult;
-}
+  namespace Parser {
+    interface Parser {
+      constructor(UA: string, skipParsing?: boolean): Parser.Parser;
 
-declare namespace Parser {
-	class Parser {
-		constructor(UA: string, skipParsing?: boolean);
+      /**
+       * Get parsed browser object
+       * @return {BrowserDetails} Browser's details
+       */
 
-		/**
-		 * Get parsed browser object
-		 * @return {BrowserDetails} Browser's details
-		 */
+      getBrowser(): BrowserDetails;
 
-		getBrowser(): BrowserDetails;
+      /**
+       * Get browser's name
+       * @return {String} Browser's name or an empty string
+       */
 
-		/**
-		 * Get browser's name
-		 * @return {String} Browser's name or an empty string
-		 */
+      getBrowserName(): string;
 
-		getBrowserName(): string;
+      /**
+       * Get browser's version
+       * @return {String} version of browser
+       */
 
-		/**
-		 * Get browser's version
-		 * @return {String} version of browser
-		 */
+      getBrowserVersion(): string;
 
-		getBrowserVersion(): string;
+      /**
+       * Get OS
+       * @return {OSDetails} - OS Details
+       *
+       * @example
+       * this.getOS(); // {
+       * //   name: 'macOS',
+       * //   version: '10.11.12',
+       * // }
+       */
 
-		/**
-		 * Get OS
-		 * @return {OSDetails} - OS Details
-		 *
-		 * @example
-		 * this.getOS(); // {
-		 * //   name: 'macOS',
-		 * //   version: '10.11.12',
-		 * // }
-		 */
+      getOS(): OSDetails;
 
-		getOS(): OSDetails;
+      /**
+       * Get OS name
+       * @param {Boolean} [toLowerCase] return lower-cased value
+       * @return {String} name of the OS — macOS, Windows, Linux, etc.
+       */
 
-		/**
-		 * Get OS name
-		 * @param {Boolean} [toLowerCase] return lower-cased value
-		 * @return {String} name of the OS — macOS, Windows, Linux, etc.
-		 */
+      getOSName(toLowerCase?: boolean): string;
 
-		getOSName(toLowerCase?: boolean): string;
+      /**
+       * Get OS version
+       * @return {String} full version with dots ('10.11.12', '5.6', etc)
+       */
 
-		/**
-		 * Get OS version
-		 * @return {String} full version with dots ('10.11.12', '5.6', etc)
-		 */
+      getOSVersion(): string;
 
-		getOSVersion(): string;
+      /**
+       * Get parsed platform
+       * @returns {PlatformDetails}
+       */
 
-		/**
-		 * Get parsed platform
-		 * @returns {PlatformDetails}
-		 */
+      getPlatform(): PlatformDetails;
 
-		getPlatform(): PlatformDetails;
+      /**
+       * Get platform name
+       * @param {boolean} toLowerCase
+       */
 
-		/**
-		 * Get platform name
-		 * @param {boolean} toLowerCase
-		 */
+      getPlatformType(toLowerCase?: boolean): string;
 
-		getPlatformType(toLowerCase?: boolean): string;
+      /**
+       * Get parsed engine
+       * @returns {EngineDetails}
+       */
 
-		/**
-		 * Get parsed engine
-		 * @returns {EngineDetails}
-		 */
+      getEngine(): EngineDetails;
 
-		getEngine(): EngineDetails;
+      /**
+       * Get parsed result
+       * @return {ParsedResult}
+       */
 
-		/**
-		 * Get parsed result
-		 * @return {ParsedResult}
-		 */
+      getResult(): ParsedResult;
 
-		getResult(): ParsedResult;
+      /**
+       * Get UserAgent string of current Parser instance
+       * @return {String} User-Agent String of the current <Parser> object
+       */
 
-		/**
-		 * Get UserAgent string of current Parser instance
-		 * @return {String} User-Agent String of the current <Parser> object
-		 */
+      getUA(): string;
 
-		getUA(): string;
+      /**
+       * Is anything? Check if the browser is called "anything",
+       * the OS called "anything" or the platform called "anything"
+       * @param {String} anything
+       * @returns {Boolean}
+       */
 
-		/**
-		 * Is anything? Check if the browser is called "anything",
-		 * the OS called "anything" or the platform called "anything"
-		 * @param {String} anything
-		 * @returns {Boolean}
-		 */
+      is(anything: any): boolean;
 
-		is(anything: any): boolean;
+      /**
+       * Parse full information about the browser
+       */
 
-		/**
-		 * Parse full information about the browser
-		 */
+      parse(): void;
 
-		parse(): void;
+      /**
+       * Get parsed browser object
+       * @returns {BrowserDetails}
+       */
 
-		/**
-		 * Get parsed browser object
-		 * @returns {BrowserDetails}
-		 */
+      parseBrowser(): BrowserDetails;
 
-		parseBrowser(): BrowserDetails;
+      /**
+       * Get parsed engine
+       * @returns {EngineDetails}
+       */
 
-		/**
-		 * Get parsed engine
-		 * @returns {EngineDetails}
-		 */
+      parseEngine(): EngineDetails;
 
-		parseEngine(): EngineDetails;
+      /**
+       * Parse OS and save it to this.parsedResult.os
+       * @returns {OSDetails}
+       */
 
-		/**
-		 * Parse OS and save it to this.parsedResult.os
-		 * @returns {OSDetails}
-		 */
+      parseOS(): OSDetails;
 
-		parseOS(): OSDetails;
+      /**
+       * Get parsed platform
+       * @returns {PlatformDetails}
+       */
 
-		/**
-		 * Get parsed platform
-		 * @returns {PlatformDetails}
-		 */
+      parsePlatform(): PlatformDetails;
 
-		parsePlatform(): PlatformDetails;
+      /**
+       * Check if parsed browser matches certain conditions
+       *
+       * @param {checkTree} checkTree It's one or two layered object,
+       * which can include a platform or an OS on the first layer
+       * and should have browsers specs on the bottom-laying layer
+       *
+       * @returns {Boolean|undefined} Whether the browser satisfies the set conditions or not.
+       * Returns `undefined` when the browser is no described in the checkTree object.
+       *
+       * @example
+       * const browser = new Bowser(UA);
+       * if (browser.check({chrome: '>118.01.1322' }))
+       * // or with os
+       * if (browser.check({windows: { chrome: '>118.01.1322' } }))
+       * // or with platforms
+       * if (browser.check({desktop: { chrome: '>118.01.1322' } }))
+       */
 
-		/**
-		 * Check if parsed browser matches certain conditions
-		 *
-		 * @param {checkTree} checkTree It's one or two layered object,
-		 * which can include a platform or an OS on the first layer
-		 * and should have browsers specs on the bottom-laying layer
-		 *
-		 * @returns {Boolean|undefined} Whether the browser satisfies the set conditions or not.
-		 * Returns `undefined` when the browser is no described in the checkTree object.
-		 *
-		 * @example
-		 * const browser = new Bowser(UA);
-		 * if (browser.check({chrome: '>118.01.1322' }))
-		 * // or with os
-		 * if (browser.check({windows: { chrome: '>118.01.1322' } }))
-		 * // or with platforms
-		 * if (browser.check({desktop: { chrome: '>118.01.1322' } }))
-		 */
+      satisfies(checkTree: checkTree): boolean | undefined;
 
-		satisfies(checkTree: checkTree): boolean | undefined;
+      /**
+       * Check if any of the given values satifies `.is(anything)`
+       * @param {string[]} anythings
+       * @returns {boolean} true if at least one condition is satisfied, false otherwise.
+       */
 
-		/**
-		 * Check if any of the given values satifies `.is(anything)`
-		 * @param {string[]} anythings
-		 * @returns {boolean} true if at least one condition is satisfied, false otherwise.
-		 */
+      some(anythings: string[]): boolean | undefined;
 
-		some(anythings: string[]): boolean | undefined;
+      /**
+       * Test a UA string for a regexp
+       * @param regex
+       * @returns {boolean} true if the regex matches the UA, false otherwise.
+       */
 
-		/**
-		 * Test a UA string for a regexp
-		 * @param regex
-		 * @returns {boolean} true if the regex matches the UA, false otherwise.
-		 */
+      test(regex: RegExp): boolean;
+    }
 
-		test(regex: RegExp): boolean;
-	}
+    interface ParsedResult {
+      browser: BrowserDetails;
+      os: OSDetails;
+      platform: PlatformDetails;
+      engine: EngineDetails;
+    }
 
-	interface ParsedResult {
-		browser: BrowserDetails;
-		os: OSDetails;
-		platform: PlatformDetails;
-		engine: EngineDetails;
-	}
+    interface Details {
+      name?: string;
+      version?: string;
+    }
 
-	interface Details {
-		name?: string;
-		version?: string;
-	}
+    interface OSDetails extends Details {
+      versionName?: string;
+    }
 
-	interface OSDetails extends Details {
-		versionName?: string;
-	}
+    interface PlatformDetails {
+      type?: string;
+      vendor?: string;
+      model?: string;
+    }
 
-	interface PlatformDetails {
-		type?: string;
-		vendor?: string;
-		model?: string;
-	}
+    type BrowserDetails = Details;
+    type EngineDetails = Details;
 
-	type BrowserDetails = Details;
-	type EngineDetails = Details;
-
-	interface checkTree {
-		[key: string]: any;
-	}
+    interface checkTree {
+      [key: string]: any;
+    }
+  }
 }

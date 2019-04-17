@@ -34,7 +34,7 @@
     "ava": "^1.4.1",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
-    "babel-plugin-add-module-exports": "^1.0.0",
+    "babel-plugin-add-module-exports": "^1.0.2",
     "babel-plugin-istanbul": "^5.1.1",
     "coveralls": "^3.0.2",
     "docdash": "^1.0.0",

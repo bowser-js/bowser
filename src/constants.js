@@ -1,6 +1,6 @@
 // NOTE: this list must be up-to-date with browsers listed in
 // test/acceptance/useragentstrings.yml
-export default {
+export const BROWSER_ALIASES_MAP = {
   'Amazon Silk': 'amazon_silk',
   'Android Browser': 'android',
   Bada: 'bada',

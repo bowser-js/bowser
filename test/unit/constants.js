@@ -1,5 +1,5 @@
 import test from 'ava';
-import BROWSER_ALIASES_MAP from '../../src/constants';
+import {BROWSER_ALIASES_MAP} from '../../src/constants';
 
 test('check duplicate aliases', (t) => {
   const aliasesList = Object.keys(BROWSER_ALIASES_MAP).map(value => (BROWSER_ALIASES_MAP[value]));

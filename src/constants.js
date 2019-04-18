@@ -35,4 +35,4 @@ export default {
   'WebOS Browser': 'webos',
   WeChat: 'wechat',
   'Yandex Browser': 'yandex',
-}
+};

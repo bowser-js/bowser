@@ -590,7 +590,11 @@ const browsersList = [
   {
     test: [/.*/i],
     describe(ua) {
-      const regexp = ua.search('\\(') === -1 ? /^(.*)\/(.*) / : /^(.*)\/(.*)[ \t]\((.*)/;
+	  // Define the regexp depending if the ua has device specifications
+	  const regexpWithoutParenthesis = /^(.*)\/(.*) /;
+	  const regexpWithParenthesis = /^(.*)\/(.*)[ \t]\((.*)/;
+	  const hasDeviceSpec = ua.search('\\(') !== -1;
+      const regexp = hasDeviceSpec ? regexpWithoutParenthesis : regexpWithParenthesis;
       return {
         name: Utils.getFirstMatch(regexp, ua),
         version: Utils.getSecondMatch(regexp, ua),

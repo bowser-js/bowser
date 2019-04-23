@@ -590,7 +590,10 @@ const browsersList = [
   {
     test: [/.*/i],
     describe(ua) {
-	  // Define the regexp depending if the ua has device specifications
+	  /* Here we try to make sure that there are explicit details about the device 
+	   * in order to decide what regexp exactly we want to apply 
+	   * (as there is a specific decision based on that conclusion)
+	   */
 	  const regexpWithoutParenthesis = /^(.*)\/(.*) /;
 	  const regexpWithParenthesis = /^(.*)\/(.*)[ \t]\((.*)/;
 	  const hasDeviceSpec = ua.search('\\(') !== -1;

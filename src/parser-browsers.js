@@ -594,10 +594,10 @@ const browsersList = [
 	   * in order to decide what regexp exactly we want to apply 
 	   * (as there is a specific decision based on that conclusion)
 	   */
-	  const regexpWithoutParenthesis = /^(.*)\/(.*) /;
-	  const regexpWithParenthesis = /^(.*)\/(.*)[ \t]\((.*)/;
+	  const regexpWithoutDeviceSpec = /^(.*)\/(.*) /;
+	  const regexpWithDeviceSpec = /^(.*)\/(.*)[ \t]\((.*)/;
 	  const hasDeviceSpec = ua.search('\\(') !== -1;
-      const regexp = hasDeviceSpec ? regexpWithoutParenthesis : regexpWithParenthesis;
+      const regexp = hasDeviceSpec ? regexpWithoutDeviceSpec : regexpWithDeviceSpec;
       return {
         name: Utils.getFirstMatch(regexp, ua),
         version: Utils.getSecondMatch(regexp, ua),

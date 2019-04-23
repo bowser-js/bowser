@@ -597,7 +597,7 @@ const browsersList = [
       const regexpWithoutDeviceSpec = /^(.*)\/(.*) /;
       const regexpWithDeviceSpec = /^(.*)\/(.*)[ \t]\((.*)/;
       const hasDeviceSpec = ua.search('\\(') !== -1;
-      const regexp = hasDeviceSpec ? regexpWithoutDeviceSpec : regexpWithDeviceSpec;
+      const regexp = hasDeviceSpec ? regexpWithDeviceSpec : regexpWithoutDeviceSpec;
       return {
         name: Utils.getFirstMatch(regexp, ua),
         version: Utils.getSecondMatch(regexp, ua),

@@ -1,6 +1,6 @@
 // NOTE: this list must be up-to-date with browsers listed in
 // test/acceptance/useragentstrings.yml
-const BROWSER_ALIASES_MAP = {
+export const BROWSER_ALIASES_MAP = {
   'Amazon Silk': 'amazon_silk',
   'Android Browser': 'android',
   Bada: 'bada',
@@ -35,8 +35,4 @@ const BROWSER_ALIASES_MAP = {
   'WebOS Browser': 'webos',
   WeChat: 'wechat',
   'Yandex Browser': 'yandex',
-};
-
-module.exports = {
-  BROWSER_ALIASES_MAP,
 };

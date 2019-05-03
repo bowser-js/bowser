@@ -1,5 +1,11 @@
 # Bowser Changelog
 
+### 2.4.0 (May 3, 2019)
+- [FIX] Update regexp for generic browsers (#310)
+- [FIX] Fix issues with module.exports (#318)
+- [FIX] Update devDependencies (#316, #321, #322)
+- [FIX] Fix docs (#320)
+
 ### 2.3.0 (April 14, 2019)
 - [ADD] Add support for Blink-based MS Edge (#311)
 - [ADD] Add more types for TS (#289)

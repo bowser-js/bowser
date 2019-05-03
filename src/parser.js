@@ -342,7 +342,7 @@ class Parser {
    * Returns `undefined` when the browser is no described in the checkTree object.
    *
    * @example
-   * const browser = new Bowser(UA);
+   * const browser = Bowser.getParser(window.navigator.userAgent);
    * if (browser.satisfies({chrome: '>118.01.1322' }))
    * // or with os
    * if (browser.satisfies({windows: { chrome: '>118.01.1322' } }))

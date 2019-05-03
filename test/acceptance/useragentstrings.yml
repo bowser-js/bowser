@@ -2269,6 +2269,19 @@
         os: {}
         platform: {}
         engine: {}
+    -
+      ua: "Generic/2.15 (Macintosh; Intel Mac OS X 10_6_8)"
+      spec:
+        browser:
+          name: "Generic"
+          version: "2.15"
+        os:
+          name: "macOS"
+          version: "10.6.8"
+        platform:
+          type: "desktop"
+          vendor: "Apple"
+        engine: {}
   Googlebot:
     -
       ua: "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"

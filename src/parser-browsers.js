@@ -606,9 +606,17 @@ const browsersList = [
   {
     test: [/.*/i],
     describe(ua) {
+      /* Here we try to make sure that there are explicit details about the device
+       * in order to decide what regexp exactly we want to apply
+       * (as there is a specific decision based on that conclusion)
+       */
+      const regexpWithoutDeviceSpec = /^(.*)\/(.*) /;
+      const regexpWithDeviceSpec = /^(.*)\/(.*)[ \t]\((.*)/;
+      const hasDeviceSpec = ua.search('\\(') !== -1;
+      const regexp = hasDeviceSpec ? regexpWithDeviceSpec : regexpWithoutDeviceSpec;
       return {
-        name: Utils.getFirstMatch(/^(.*)\/(.*) /, ua),
-        version: Utils.getSecondMatch(/^(.*)\/(.*) /, ua),
+        name: Utils.getFirstMatch(regexp, ua),
+        version: Utils.getSecondMatch(regexp, ua),
       };
     },
   },

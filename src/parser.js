@@ -409,15 +409,14 @@ class Parser {
    * @returns {boolean}
    */
   isBrowser(browserName, includingAlias = false) {
-    const defaultBrowserName = this.getBrowserName();
-    const possibleNames = [defaultBrowserName.toLowerCase()];
-    const alias = Utils.getBrowserAlias(defaultBrowserName);
+    const defaultBrowserName = this.getBrowserName().toLowerCase();
+    let browserNameLower = browserName.toLowerCase();
+    const alias = Utils.getBrowserTypeByAlias(browserNameLower);
 
-    if (includingAlias && typeof alias !== 'undefined') {
-      possibleNames.push(alias.toLowerCase());
+    if (includingAlias && alias) {
+      browserNameLower = alias.toLowerCase();
     }
-
-    return possibleNames.indexOf(browserName.toLowerCase()) !== -1;
+    return browserNameLower === defaultBrowserName;
   }
 
   compareVersion(version) {

@@ -5,6 +5,12 @@
  * MIT License | (c) Denis Demchenko 2015-2017
  */
 import Parser from './parser.js';
+import {
+  BROWSER_MAP,
+  ENGINE_MAP,
+  OS_MAP,
+  PLATFORMS_MAP,
+} from './constants.js';
 
 /**
  * Bowser class.
@@ -46,5 +52,10 @@ class Bowser {
     return (new Parser(UA)).getResult();
   }
 }
+
+Bowser.BROWSER_MAP = BROWSER_MAP;
+Bowser.ENGINE_MAP = ENGINE_MAP;
+Bowser.OS_MAP = OS_MAP;
+Bowser.PLATFORMS_MAP = PLATFORMS_MAP;
 
 export default Bowser;

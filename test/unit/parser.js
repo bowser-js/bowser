@@ -1,6 +1,7 @@
 import test from 'ava';
 import sinon from 'sinon';
 import Parser from '../../src/parser';
+import Bowser from '../../src/bowser';
 
 const UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36 OPR/43.0.2442.1165';
 const parser = new Parser(UA, true);
@@ -162,6 +163,12 @@ test('Parser.is should pass', (t) => {
   t.is(parser.is('opera'), true);
   t.is(parser.is('desktop'), true);
   t.is(parser.is('macos'), true);
+});
+
+test('Parser.is using constants should pass', (t) => {
+  t.is(parser.is(Bowser.BROWSER_MAP.opera), true);
+  t.is(parser.is(Bowser.PLATFORMS_MAP.desktop), true);
+  t.is(parser.is(Bowser.OS_MAP.MacOS), true);
 });
 
 test('Parser.some should pass', (t) => {

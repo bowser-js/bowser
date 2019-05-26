@@ -1,4 +1,4 @@
-import { BROWSER_ALIASES_MAP } from './constants.js';
+import { BROWSER_MAP, BROWSER_ALIASES_MAP } from './constants.js';
 
 export default class Utils {
   /**
@@ -201,5 +201,18 @@ export default class Utils {
    */
   static getBrowserAlias(browserName) {
     return BROWSER_ALIASES_MAP[browserName];
+  }
+
+  /**
+   * Get short version/alias for a browser name
+   *
+   * @example
+   *   getBrowserAlias('edge') // Microsoft Edge
+   *
+   * @param  {string} browserName
+   * @return {string}
+   */
+  static getBrowserTypeByAlias(browserAlia) {
+    return BROWSER_MAP[browserAlia] || '';
   }
 }

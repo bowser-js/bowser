@@ -1,6 +1,10 @@
 const path = require('path');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
+  plugins: [
+    new BundleAnalyzerPlugin(),
+  ],
   mode: 'production', // "production" | "development" | "none"
   // Chosen mode tells webpack to use its built-in optimizations accordingly.
   entry: {

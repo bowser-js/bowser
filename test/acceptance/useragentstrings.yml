@@ -308,6 +308,18 @@
           type: "mobile"
         engine:
           name: "Blink"
+    - ua: "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36 Roku/DVP-7.53 (147.53E04068A)"
+      spec:
+        browser:
+          name: "Chrome"
+          version: "60.0.3112.113"
+        os:
+          name: "Roku"
+          version: "7.53"
+        platform:
+          type: "tv"
+        engine:
+          name: "Blink"
   Amazon Silk:
     -
       ua: "Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; KFTT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.4 Mobile Safari/535.19 Silk-Accelerated=true"
@@ -2666,3 +2678,16 @@
         engine:
           name: "WebKit"
           version: "605.1.15"
+  Roku:
+    -
+      ua: "Roku/DVP-9.0 (047.00E09044A)"
+      spec:
+        browser:
+          name: "Roku"
+          version: "DVP-9.0"
+        os:
+          name: "Roku"
+          version: "9.0"
+        platform:
+          type: "tv"
+        engine: {}

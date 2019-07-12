@@ -239,4 +239,16 @@ export default [
       };
     },
   },
+
+  /* Roku */
+  {
+    test(parser) {
+      return parser.getOSName(true) === 'roku';
+    },
+    describe() {
+      return {
+        type: PLATFORMS_MAP.tv,
+      };
+    },
+  },
 ];

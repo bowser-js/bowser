@@ -2,6 +2,18 @@ import Utils from './utils.js';
 import { OS_MAP } from './constants.js';
 
 export default [
+  /* Roku */
+  {
+    test: [/Roku\/DVP/],
+    describe(ua) {
+      const version = Utils.getFirstMatch(/Roku\/DVP-(\d+\.\d+)/i, ua);
+      return {
+        name: OS_MAP.Roku,
+        version,
+      };
+    },
+  },
+
   /* Windows Phone */
   {
     test: [/windows phone/i],

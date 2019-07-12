@@ -35,6 +35,7 @@ export const BROWSER_ALIASES_MAP = {
   'WebOS Browser': 'webos',
   WeChat: 'wechat',
   'Yandex Browser': 'yandex',
+  Roku: 'roku',
 };
 
 export const BROWSER_MAP = {
@@ -94,6 +95,7 @@ export const OS_MAP = {
   Linux: 'Linux',
   ChromeOS: 'Chrome OS',
   PlayStation4: 'PlayStation 4',
+  Roku: 'Roku',
 };
 
 export const ENGINE_MAP = {

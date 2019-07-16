@@ -1,5 +1,11 @@
 # Bowser Changelog
 
+### 2.5.0 (July 16, 2019)
+- [ADD] Add constant output so that users can quickly get all types (#325)
+- [FIX] Add support for Roku OS (#332)
+- [FIX] Update devDependencies
+- [FIX] Fix docs, README and added funding information
+
 ### 2.4.0 (May 3, 2019)
 - [FIX] Update regexp for generic browsers (#310)
 - [FIX] Fix issues with module.exports (#318)

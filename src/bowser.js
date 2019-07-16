@@ -51,11 +51,22 @@ class Bowser {
   static parse(UA) {
     return (new Parser(UA)).getResult();
   }
-}
 
-Bowser.BROWSER_MAP = BROWSER_MAP;
-Bowser.ENGINE_MAP = ENGINE_MAP;
-Bowser.OS_MAP = OS_MAP;
-Bowser.PLATFORMS_MAP = PLATFORMS_MAP;
+  static get BROWSER_MAP() {
+    return BROWSER_MAP;
+  }
+
+  static get ENGINE_MAP() {
+    return ENGINE_MAP;
+  }
+
+  static get OS_MAP() {
+    return OS_MAP;
+  }
+
+  static get PLATFORMS_MAP() {
+    return PLATFORMS_MAP;
+  }
+}
 
 export default Bowser;

@@ -4,6 +4,7 @@ A small, fast and reach-API browser/platform/engine detector for both browser an
 - **Optimized.** Use only those parsers you need — it doesn't do useless work.
 - **Multi-platform.** It's browser- and node-ready, so you can use it in any environment.
 
+Don't hesitate to support the project on Github or [OpenCollective](https://opencollective.com/bowser) if you like it ❤️ Also, contributors are always welcome!
 
 [![Build Status](https://travis-ci.org/lancedikson/bowser.svg?branch=master)](https://travis-ci.org/lancedikson/bowser/)  [![Greenkeeper badge](https://badges.greenkeeper.io/lancedikson/bowser.svg)](https://greenkeeper.io/)  [![Coverage Status](https://coveralls.io/repos/github/lancedikson/bowser/badge.svg?branch=master)](https://coveralls.io/github/lancedikson/bowser?branch=master)
 

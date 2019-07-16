@@ -1,11 +1,5 @@
 import Utils from './utils.js';
-
-const TYPES_LABELS = {
-  tablet: 'tablet',
-  mobile: 'mobile',
-  desktop: 'desktop',
-  tv: 'tv',
-};
+import { PLATFORMS_MAP } from './constants.js';
 
 /*
  * Tablets go first since usually they have more specific
@@ -30,7 +24,7 @@ export default [
     describe(ua) {
       const model = Utils.getFirstMatch(/(can-l01)/i, ua) && 'Nova';
       const platform = {
-        type: TYPES_LABELS.mobile,
+        type: PLATFORMS_MAP.mobile,
         vendor: 'Huawei',
       };
       if (model) {
@@ -45,7 +39,7 @@ export default [
     test: [/nexus\s*(?:7|8|9|10).*/i],
     describe() {
       return {
-        type: TYPES_LABELS.tablet,
+        type: PLATFORMS_MAP.tablet,
         vendor: 'Nexus',
       };
     },
@@ -56,7 +50,7 @@ export default [
     test: [/ipad/i],
     describe() {
       return {
-        type: TYPES_LABELS.tablet,
+        type: PLATFORMS_MAP.tablet,
         vendor: 'Apple',
         model: 'iPad',
       };
@@ -68,7 +62,7 @@ export default [
     test: [/kftt build/i],
     describe() {
       return {
-        type: TYPES_LABELS.tablet,
+        type: PLATFORMS_MAP.tablet,
         vendor: 'Amazon',
         model: 'Kindle Fire HD 7',
       };
@@ -80,7 +74,7 @@ export default [
     test: [/silk/i],
     describe() {
       return {
-        type: TYPES_LABELS.tablet,
+        type: PLATFORMS_MAP.tablet,
         vendor: 'Amazon',
       };
     },
@@ -91,7 +85,7 @@ export default [
     test: [/tablet/i],
     describe() {
       return {
-        type: TYPES_LABELS.tablet,
+        type: PLATFORMS_MAP.tablet,
       };
     },
   },
@@ -106,7 +100,7 @@ export default [
     describe(ua) {
       const model = Utils.getFirstMatch(/(ipod|iphone)/i, ua);
       return {
-        type: TYPES_LABELS.mobile,
+        type: PLATFORMS_MAP.mobile,
         vendor: 'Apple',
         model,
       };
@@ -118,7 +112,7 @@ export default [
     test: [/nexus\s*[0-6].*/i, /galaxy nexus/i],
     describe() {
       return {
-        type: TYPES_LABELS.mobile,
+        type: PLATFORMS_MAP.mobile,
         vendor: 'Nexus',
       };
     },
@@ -129,7 +123,7 @@ export default [
     test: [/[^-]mobi/i],
     describe() {
       return {
-        type: TYPES_LABELS.mobile,
+        type: PLATFORMS_MAP.mobile,
       };
     },
   },
@@ -141,7 +135,7 @@ export default [
     },
     describe() {
       return {
-        type: TYPES_LABELS.mobile,
+        type: PLATFORMS_MAP.mobile,
         vendor: 'BlackBerry',
       };
     },
@@ -154,7 +148,7 @@ export default [
     },
     describe() {
       return {
-        type: TYPES_LABELS.mobile,
+        type: PLATFORMS_MAP.mobile,
       };
     },
   },
@@ -166,7 +160,7 @@ export default [
     },
     describe() {
       return {
-        type: TYPES_LABELS.mobile,
+        type: PLATFORMS_MAP.mobile,
         vendor: 'Microsoft',
       };
     },
@@ -180,7 +174,7 @@ export default [
     },
     describe() {
       return {
-        type: TYPES_LABELS.tablet,
+        type: PLATFORMS_MAP.tablet,
       };
     },
   },
@@ -192,7 +186,7 @@ export default [
     },
     describe() {
       return {
-        type: TYPES_LABELS.mobile,
+        type: PLATFORMS_MAP.mobile,
       };
     },
   },
@@ -204,7 +198,7 @@ export default [
     },
     describe() {
       return {
-        type: TYPES_LABELS.desktop,
+        type: PLATFORMS_MAP.desktop,
         vendor: 'Apple',
       };
     },
@@ -217,7 +211,7 @@ export default [
     },
     describe() {
       return {
-        type: TYPES_LABELS.desktop,
+        type: PLATFORMS_MAP.desktop,
       };
     },
   },
@@ -229,7 +223,7 @@ export default [
     },
     describe() {
       return {
-        type: TYPES_LABELS.desktop,
+        type: PLATFORMS_MAP.desktop,
       };
     },
   },
@@ -241,7 +235,19 @@ export default [
     },
     describe() {
       return {
-        type: TYPES_LABELS.tv,
+        type: PLATFORMS_MAP.tv,
+      };
+    },
+  },
+
+  /* Roku */
+  {
+    test(parser) {
+      return parser.getOSName(true) === 'roku';
+    },
+    describe() {
+      return {
+        type: PLATFORMS_MAP.tv,
       };
     },
   },

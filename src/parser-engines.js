@@ -1,4 +1,5 @@
 import Utils from './utils.js';
+import { ENGINE_MAP } from './constants.js';
 
 /*
  * More specific goes first
@@ -15,7 +16,7 @@ export default [
       // return blink if it's blink-based one
       if (isBlinkBased) {
         return {
-          name: 'Blink',
+          name: ENGINE_MAP.Blink,
         };
       }
 
@@ -23,7 +24,7 @@ export default [
       const version = Utils.getFirstMatch(/edge\/(\d+(\.?_?\d+)+)/i, ua);
 
       return {
-        name: 'EdgeHTML',
+        name: ENGINE_MAP.EdgeHTML,
         version,
       };
     },
@@ -34,7 +35,7 @@ export default [
     test: [/trident/i],
     describe(ua) {
       const engine = {
-        name: 'Trident',
+        name: ENGINE_MAP.Trident,
       };
 
       const version = Utils.getFirstMatch(/trident\/(\d+(\.?_?\d+)+)/i, ua);
@@ -54,7 +55,7 @@ export default [
     },
     describe(ua) {
       const engine = {
-        name: 'Presto',
+        name: ENGINE_MAP.Presto,
       };
 
       const version = Utils.getFirstMatch(/presto\/(\d+(\.?_?\d+)+)/i, ua);
@@ -76,7 +77,7 @@ export default [
     },
     describe(ua) {
       const engine = {
-        name: 'Gecko',
+        name: ENGINE_MAP.Gecko,
       };
 
       const version = Utils.getFirstMatch(/gecko\/(\d+(\.?_?\d+)+)/i, ua);
@@ -94,7 +95,7 @@ export default [
     test: [/(apple)?webkit\/537\.36/i],
     describe() {
       return {
-        name: 'Blink',
+        name: ENGINE_MAP.Blink,
       };
     },
   },
@@ -104,7 +105,7 @@ export default [
     test: [/(apple)?webkit/i],
     describe(ua) {
       const engine = {
-        name: 'WebKit',
+        name: ENGINE_MAP.WebKit,
       };
 
       const version = Utils.getFirstMatch(/webkit\/(\d+(\.?_?\d+)+)/i, ua);

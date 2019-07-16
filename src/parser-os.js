@@ -1,13 +1,26 @@
 import Utils from './utils.js';
+import { OS_MAP } from './constants.js';
 
 export default [
+  /* Roku */
+  {
+    test: [/Roku\/DVP/],
+    describe(ua) {
+      const version = Utils.getFirstMatch(/Roku\/DVP-(\d+\.\d+)/i, ua);
+      return {
+        name: OS_MAP.Roku,
+        version,
+      };
+    },
+  },
+
   /* Windows Phone */
   {
     test: [/windows phone/i],
     describe(ua) {
       const version = Utils.getFirstMatch(/windows phone (?:os)?\s?(\d+(\.\d+)*)/i, ua);
       return {
-        name: 'Windows Phone',
+        name: OS_MAP.WindowsPhone,
         version,
       };
     },
@@ -21,7 +34,7 @@ export default [
       const versionName = Utils.getWindowsVersionName(version);
 
       return {
-        name: 'Windows',
+        name: OS_MAP.Windows,
         version,
         versionName,
       };
@@ -34,7 +47,7 @@ export default [
     describe(ua) {
       const version = Utils.getFirstMatch(/mac os x (\d+(\.?_?\d+)+)/i, ua).replace(/[_\s]/g, '.');
       return {
-        name: 'macOS',
+        name: OS_MAP.MacOS,
         version,
       };
     },
@@ -47,7 +60,7 @@ export default [
       const version = Utils.getFirstMatch(/os (\d+([_\s]\d+)*) like mac os x/i, ua).replace(/[_\s]/g, '.');
 
       return {
-        name: 'iOS',
+        name: OS_MAP.iOS,
         version,
       };
     },
@@ -64,7 +77,7 @@ export default [
       const version = Utils.getFirstMatch(/android[\s/-](\d+(\.\d+)*)/i, ua);
       const versionName = Utils.getAndroidVersionName(version);
       const os = {
-        name: 'Android',
+        name: OS_MAP.Android,
         version,
       };
       if (versionName) {
@@ -80,7 +93,7 @@ export default [
     describe(ua) {
       const version = Utils.getFirstMatch(/(?:web|hpw)[o0]s\/(\d+(\.\d+)*)/i, ua);
       const os = {
-        name: 'WebOS',
+        name: OS_MAP.WebOS,
       };
 
       if (version && version.length) {
@@ -99,7 +112,7 @@ export default [
         || Utils.getFirstMatch(/\bbb(\d+)/i, ua);
 
       return {
-        name: 'BlackBerry',
+        name: OS_MAP.BlackBerry,
         version,
       };
     },
@@ -112,7 +125,7 @@ export default [
       const version = Utils.getFirstMatch(/bada\/(\d+(\.\d+)*)/i, ua);
 
       return {
-        name: 'Bada',
+        name: OS_MAP.Bada,
         version,
       };
     },
@@ -125,7 +138,7 @@ export default [
       const version = Utils.getFirstMatch(/tizen[/\s](\d+(\.\d+)*)/i, ua);
 
       return {
-        name: 'Tizen',
+        name: OS_MAP.Tizen,
         version,
       };
     },
@@ -136,7 +149,7 @@ export default [
     test: [/linux/i],
     describe() {
       return {
-        name: 'Linux',
+        name: OS_MAP.Linux,
       };
     },
   },
@@ -146,7 +159,7 @@ export default [
     test: [/CrOS/],
     describe() {
       return {
-        name: 'Chrome OS',
+        name: OS_MAP.ChromeOS,
       };
     },
   },
@@ -157,7 +170,7 @@ export default [
     describe(ua) {
       const version = Utils.getFirstMatch(/PlayStation 4[/\s](\d+(\.\d+)*)/i, ua);
       return {
-        name: 'PlayStation 4',
+        name: OS_MAP.PlayStation4,
         version,
       };
     },

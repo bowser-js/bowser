@@ -13,6 +13,7 @@
     <![endif]-->
     <link type="text/css" rel="stylesheet" href="styles/prettify.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -24,9 +25,9 @@
 
 <label for="nav-trigger" class="overlay"></label>
 
-<nav>
+<nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Bowser.html">Bowser</a><ul class='methods'><li data-type='method'><a href="Bowser.html#.getParser">getParser</a></li><li data-type='method'><a href="Bowser.html#.parse">parse</a></li></ul></li><li><a href="Parser.html">Parser</a><ul class='methods'><li data-type='method'><a href="Parser.html#getBrowser">getBrowser</a></li><li data-type='method'><a href="Parser.html#getBrowserName">getBrowserName</a></li><li data-type='method'><a href="Parser.html#getBrowserVersion">getBrowserVersion</a></li><li data-type='method'><a href="Parser.html#getEngine">getEngine</a></li><li data-type='method'><a href="Parser.html#getEngineName">getEngineName</a></li><li data-type='method'><a href="Parser.html#getOS">getOS</a></li><li data-type='method'><a href="Parser.html#getOSName">getOSName</a></li><li data-type='method'><a href="Parser.html#getOSVersion">getOSVersion</a></li><li data-type='method'><a href="Parser.html#getPlatform">getPlatform</a></li><li data-type='method'><a href="Parser.html#getPlatformType">getPlatformType</a></li><li data-type='method'><a href="Parser.html#getResult">getResult</a></li><li data-type='method'><a href="Parser.html#getUA">getUA</a></li><li data-type='method'><a href="Parser.html#is">is</a></li><li data-type='method'><a href="Parser.html#isBrowser">isBrowser</a></li><li data-type='method'><a href="Parser.html#parse">parse</a></li><li data-type='method'><a href="Parser.html#parseBrowser">parseBrowser</a></li><li data-type='method'><a href="Parser.html#parseEngine">parseEngine</a></li><li data-type='method'><a href="Parser.html#parseOS">parseOS</a></li><li data-type='method'><a href="Parser.html#parsePlatform">parsePlatform</a></li><li data-type='method'><a href="Parser.html#satisfies">satisfies</a></li><li data-type='method'><a href="Parser.html#some">some</a></li><li data-type='method'><a href="Parser.html#test">test</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#getAndroidVersionName">getAndroidVersionName</a></li><li><a href="global.html#getBrowserAlias">getBrowserAlias</a></li><li><a href="global.html#getFirstMatch">getFirstMatch</a></li><li><a href="global.html#getSecondMatch">getSecondMatch</a></li><li><a href="global.html#getVersionPrecision">getVersionPrecision</a></li><li><a href="global.html#map">map</a></li><li><a href="global.html#matchAndReturnConst">matchAndReturnConst</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Bowser.html">Bowser</a><ul class='methods'><li data-type='method'><a href="Bowser.html#.getParser">getParser</a></li><li data-type='method'><a href="Bowser.html#.parse">parse</a></li></ul></li><li><a href="BowserUAIsNotAStringError.html">BowserUAIsNotAStringError</a></li><li><a href="Parser.html">Parser</a><ul class='methods'><li data-type='method'><a href="Parser.html#getBrowser">getBrowser</a></li><li data-type='method'><a href="Parser.html#getBrowserName">getBrowserName</a></li><li data-type='method'><a href="Parser.html#getBrowserVersion">getBrowserVersion</a></li><li data-type='method'><a href="Parser.html#getEngine">getEngine</a></li><li data-type='method'><a href="Parser.html#getEngineName">getEngineName</a></li><li data-type='method'><a href="Parser.html#getOS">getOS</a></li><li data-type='method'><a href="Parser.html#getOSName">getOSName</a></li><li data-type='method'><a href="Parser.html#getOSVersion">getOSVersion</a></li><li data-type='method'><a href="Parser.html#getPlatform">getPlatform</a></li><li data-type='method'><a href="Parser.html#getPlatformType">getPlatformType</a></li><li data-type='method'><a href="Parser.html#getResult">getResult</a></li><li data-type='method'><a href="Parser.html#getUA">getUA</a></li><li data-type='method'><a href="Parser.html#is">is</a></li><li data-type='method'><a href="Parser.html#isBrowser">isBrowser</a></li><li data-type='method'><a href="Parser.html#parse">parse</a></li><li data-type='method'><a href="Parser.html#parseBrowser">parseBrowser</a></li><li data-type='method'><a href="Parser.html#parseEngine">parseEngine</a></li><li data-type='method'><a href="Parser.html#parseOS">parseOS</a></li><li data-type='method'><a href="Parser.html#parsePlatform">parsePlatform</a></li><li data-type='method'><a href="Parser.html#satisfies">satisfies</a></li><li data-type='method'><a href="Parser.html#some">some</a></li><li data-type='method'><a href="Parser.html#test">test</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#getAndroidVersionName">getAndroidVersionName</a></li><li><a href="global.html#getBrowserAlias">getBrowserAlias</a></li><li><a href="global.html#getBrowserTypeByAlias">getBrowserTypeByAlias</a></li><li><a href="global.html#getFirstMatch">getFirstMatch</a></li><li><a href="global.html#getSecondMatch">getSecondMatch</a></li><li><a href="global.html#getVersionPrecision">getVersionPrecision</a></li><li><a href="global.html#map">map</a></li><li><a href="global.html#matchAndReturnConst">matchAndReturnConst</a></li></ul>
 </nav>
 
 <div id="main">
@@ -452,15 +453,14 @@ class Parser {
    * @returns {boolean}
    */
   isBrowser(browserName, includingAlias = false) {
-    const defaultBrowserName = this.getBrowserName();
-    const possibleNames = [defaultBrowserName.toLowerCase()];
-    const alias = Utils.getBrowserAlias(defaultBrowserName);
+    const defaultBrowserName = this.getBrowserName().toLowerCase();
+    let browserNameLower = browserName.toLowerCase();
+    const alias = Utils.getBrowserTypeByAlias(browserNameLower);
 
-    if (includingAlias &amp;&amp; typeof alias !== 'undefined') {
-      possibleNames.push(alias.toLowerCase());
+    if (includingAlias &amp;&amp; alias) {
+      browserNameLower = alias.toLowerCase();
     }
-
-    return possibleNames.indexOf(browserName.toLowerCase()) !== -1;
+    return browserNameLower === defaultBrowserName;
   }
 
   compareVersion(version) {
@@ -546,11 +546,13 @@ export default Parser;
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Fri May 03 2019 21:50:23 GMT+0300 (EEST) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Tue Jul 16 2019 22:20:27 GMT+0300 (Eastern European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
 <script src="scripts/linenumber.js"></script>
+
 
 
 </body>

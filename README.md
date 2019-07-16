@@ -1,7 +1,11 @@
 ## Bowser
-A browser detector. Because sometimes, there is no other way, and not even good modern browsers always provide good feature detection mechanisms.
+A small, fast and reach-API browser/platform/engine detector for both browser and node.
+- **Small.** Use plain ES5-version which is ~4.8kB gzipped.
+- **Optimized.** Use only those parsers you need — it doesn't do useless work.
+- **Multi-platform.** It's browser- and node-ready, so you can use it in any environment.
 
-[![Build Status](https://travis-ci.org/lancedikson/bowser.svg?branch=master)](https://travis-ci.org/lancedikson/bowser/) [![Greenkeeper badge](https://badges.greenkeeper.io/lancedikson/bowser.svg)](https://greenkeeper.io/)[![Coverage Status](https://coveralls.io/repos/github/lancedikson/bowser/badge.svg?branch=master)](https://coveralls.io/github/lancedikson/bowser?branch=master)
+
+[![Build Status](https://travis-ci.org/lancedikson/bowser.svg?branch=master)](https://travis-ci.org/lancedikson/bowser/)  [![Greenkeeper badge](https://badges.greenkeeper.io/lancedikson/bowser.svg)](https://greenkeeper.io/)  [![Coverage Status](https://coveralls.io/repos/github/lancedikson/bowser/badge.svg?branch=master)](https://coveralls.io/github/lancedikson/bowser?branch=master)
 
 # Contents
 - [Overview](#overview)

@@ -46,10 +46,16 @@ export default [
     test: [/macintosh/i],
     describe(ua) {
       const version = Utils.getFirstMatch(/mac os x (\d+(\.?_?\d+)+)/i, ua).replace(/[_\s]/g, '.');
-      return {
+      const versionName = Utils.getMacOSVersionName(version);
+
+      const os = {
         name: OS_MAP.MacOS,
         version,
       };
+      if (versionName) {
+        os.versionName = versionName;
+      }
+      return os;
     },
   },
 

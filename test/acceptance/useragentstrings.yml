@@ -216,6 +216,7 @@
         os:
           name: "macOS"
           version: "10.6.7"
+          versionName: "Snow Leopard"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -378,6 +379,7 @@
         os:
           name: "macOS"
           version: "10.6.3"
+          versionName: "Snow Leopard"
         platform:
           type: "tablet"
           vendor: "Amazon"
@@ -539,6 +541,7 @@
         os:
           name: "macOS"
           version: "10.6.7"
+          versionName: "Snow Leopard"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -665,6 +668,7 @@
         os:
           name: "macOS"
           version: "10.10.3"
+          versionName: "Yosemite"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -711,6 +715,7 @@
         os:
           name: "macOS"
           version: "10.6.8"
+          versionName: "Snow Leopard"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -726,6 +731,7 @@
         os:
           name: "macOS"
           version: "10.6.7"
+          versionName: "Snow Leopard"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -784,6 +790,7 @@
         os:
           name: "macOS"
           version: "10.6.1"
+          versionName: "Snow Leopard"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -799,6 +806,7 @@
         os:
           name: "macOS"
           version: "10.5.7"
+          versionName: "Leopard"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -877,6 +885,7 @@
         os:
           name: "macOS"
           version: "10.5.2"
+          versionName: "Leopard"
         platform:
           type: "mobile"
           vendor: "Apple"
@@ -1540,6 +1549,7 @@
         os:
           name: "macOS"
           version: "10.8"
+          versionName: "Mountain Lion"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -1652,6 +1662,7 @@
         os:
           name: "macOS"
           version: "10.6"
+          versionName: "Snow Leopard"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -1717,6 +1728,22 @@
         engine:
           name: "WebKit"
           version: "601.1.46"
+    -
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:68.0) Gecko/20100101 Firefox/68.0"
+      spec:
+        browser:
+          name: "Firefox"
+          version: "68.0"
+        os:
+          name: "macOS"
+          version: "10.14"
+          versionName: "Mojave"
+        platform:
+          type: "desktop"
+          vendor: "Apple"
+        engine:
+          name: "Gecko"
+          version: "20100101"
   SeaMonkey:
     -
       ua: "Mozilla/5.0 (Windows NT 5.2; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 SeaMonkey/2.7.1"
@@ -1742,6 +1769,7 @@
         os:
           name: "macOS"
           version: "10.5"
+          versionName: "Leopard"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -2252,6 +2280,7 @@
         os:
           name: "macOS"
           version: "10.11.1"
+          versionName: "El Capitan"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -2290,6 +2319,7 @@
         os:
           name: "macOS"
           version: "10.6.8"
+          versionName: "Snow Leopard"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -2614,6 +2644,7 @@
         os:
           name: "macOS"
           version: "10.12.6"
+          versionName: "Sierra"
         platform:
           type: "desktop"
           vendor: "Apple"

@@ -54,6 +54,44 @@ export default class Utils {
   }
 
   /**
+   * Get macOS version name
+   *    10.5 - Leopard
+   *    10.6 - Snow Leopard
+   *    10.7 - Lion
+   *    10.8 - Mountain Lion
+   *    10.9 - Mavericks
+   *    10.10 - Yosemite
+   *    10.11 - El Capitan
+   *    10.12 - Sierra
+   *    10.13 - High Sierra
+   *    10.14 - Mojave
+   *    10.15 - Catalina
+   *
+   * @example
+   *   getMacOSVersionName("10.14") // 'Mojave'
+   *
+   * @param  {string} version
+   * @return {string} versionName
+   */
+  static getMacOSVersionName(version) {
+    const v = version.split('.').splice(0, 2).map(s => parseInt(s, 10) || 0);
+    v.push(0);
+    if (v[0] !== 10) return undefined;
+    if (v[1] === 5) return 'Leopard';
+    if (v[1] === 6) return 'Snow Leopard';
+    if (v[1] === 7) return 'Lion';
+    if (v[1] === 8) return 'Mountain Lion';
+    if (v[1] === 9) return 'Mavericks';
+    if (v[1] === 10) return 'Yosemite';
+    if (v[1] === 11) return 'El Capitan';
+    if (v[1] === 12) return 'Sierra';
+    if (v[1] === 13) return 'High Sierra';
+    if (v[1] === 14) return 'Mojave';
+    if (v[1] === 15) return 'Catalina';
+    return undefined;
+  }
+
+  /**
    * Get Android version name
    *    1.5 - Cupcake
    *    1.6 - Donut

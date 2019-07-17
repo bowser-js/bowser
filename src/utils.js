@@ -69,7 +69,7 @@ export default class Utils {
    *    6.x - Marshmallow
    *    7.x - Nougat
    *    8.x - Oreo
-   *    9.x - ?
+   *    9.x - Pie
    *
    * @example
    *   getAndroidVersionName("7.0") // 'Nougat'
@@ -94,6 +94,7 @@ export default class Utils {
     if (v[0] === 6) return 'Marshmallow';
     if (v[0] === 7) return 'Nougat';
     if (v[0] === 8) return 'Oreo';
+    if (v[0] === 9) return 'Pie';
     return undefined;
   }
 

@@ -1,5 +1,9 @@
 # Bowser Changelog
 
+### 2.5.1 (July 17, 2019)
+- [FIX] Fixes the bug with a custom Error class (#335)
+- [FIX] Fixes the settings for Babel to reduce the bundle size (#259)
+
 ### 2.5.0 (July 16, 2019)
 - [ADD] Add constant output so that users can quickly get all types (#325)
 - [FIX] Add support for Roku OS (#332)

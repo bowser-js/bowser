@@ -1,5 +1,8 @@
 # Bowser Changelog
 
+### 2.5.2 (July 17, 2019)
+- [FIX] Fixes the bug undefined method because of failed build (#335)
+
 ### 2.5.1 (July 17, 2019)
 - [FIX] Fixes the bug with a custom Error class (#335)
 - [FIX] Fixes the settings for Babel to reduce the bundle size (#259)

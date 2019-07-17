@@ -20,13 +20,16 @@ test('getWindowsVersionName', (t) => {
 
 test('getMacOSVersionName', (t) => {
   t.is(getMacOSVersionName('10.14.5'), 'Mojave');
+  t.is(getMacOSVersionName('10.15'), 'Catalina');
+  t.is(getMacOSVersionName('10.999999'), void 0);
   t.is(getMacOSVersionName('XXX'), void 0);
 });
 
 test('getAndroidVersionName', (t) => {
+  t.is(getAndroidVersionName('1.0'), void 0);
   t.is(getAndroidVersionName('8.0'), 'Oreo');
   t.is(getAndroidVersionName('9'), 'Pie');
-  t.is(getWindowsVersionName('XXX'), void 0);
+  t.is(getAndroidVersionName('XXX'), void 0);
 });
 
 test('compareVersions', (t) => {

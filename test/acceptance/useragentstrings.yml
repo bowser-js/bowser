@@ -208,6 +208,21 @@
         engine:
           name: "Blink"
     -
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+      spec:
+        browser:
+          name: "Chrome"
+          version: "49.0.2623.112"
+        os:
+          name: "macOS"
+          version: "10.7.5"
+          versionName: "Lion"
+        platform:
+          type: "desktop"
+          vendor: "Apple"
+        engine:
+          name: "Blink"
+    -
       ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_7) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.57 Safari/534.24"
       spec:
         browser:
@@ -798,6 +813,22 @@
           name: "WebKit"
           version: "531.21.10"
     -
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A"
+      spec:
+        browser:
+          name: "Safari"
+          version: "7.0.3"
+        os:
+          name: "macOS"
+          version: "10.9.3"
+          versionName: "Mavericks"
+        platform:
+          type: "desktop"
+          vendor: "Apple"
+        engine:
+          name: "WebKit"
+          version: "537.75.14"
+    -
       ua: "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_7; de-de) AppleWebKit/525.28.3 (KHTML, like Gecko) Version/3.2.3 Safari/525.28.3"
       spec:
         browser:
@@ -876,6 +907,22 @@
         engine:
           name: "WebKit"
           version: "532.9"
+    -
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13) AppleWebKit/604.1.31 (KHTML, like Gecko) Version/11.0 Safari/604.1.31"
+      spec:
+        browser:
+          name: "Safari"
+          version: "11.0"
+        os:
+          name: "macOS"
+          version: "10.13"
+          versionName: "High Sierra"
+        platform:
+          type: "desktop"
+          vendor: "Apple"
+        engine:
+          name: "WebKit"
+          version: "604.1.31"
     -
       ua: "Mozilla/5.0 (Macintosh; U; PPC Mac OS X 10_5_2; en-gb) AppleWebKit/526+ (KHTML, like Gecko) Version/3.1 iPhone"
       spec:
@@ -2093,6 +2140,21 @@
           name: "Android"
           version: "2.3.4"
           versionName: "Gingerbread"
+        platform:
+          type: "mobile"
+        engine:
+          name: "WebKit"
+          version: "533.1"
+    -
+      ua: "Mozilla/5.0 (Linux; U; Android 2.2; en-us; GT-I5800 Build/FROYO) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"
+      spec:
+        browser:
+          name: "Android Browser"
+          version: "4.0"
+        os:
+          name: "Android"
+          version: "2.2"
+          versionName: "Froyo"
         platform:
           type: "mobile"
         engine:

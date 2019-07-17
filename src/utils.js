@@ -77,18 +77,20 @@ export default class Utils {
     const v = version.split('.').splice(0, 2).map(s => parseInt(s, 10) || 0);
     v.push(0);
     if (v[0] !== 10) return undefined;
-    if (v[1] === 5) return 'Leopard';
-    if (v[1] === 6) return 'Snow Leopard';
-    if (v[1] === 7) return 'Lion';
-    if (v[1] === 8) return 'Mountain Lion';
-    if (v[1] === 9) return 'Mavericks';
-    if (v[1] === 10) return 'Yosemite';
-    if (v[1] === 11) return 'El Capitan';
-    if (v[1] === 12) return 'Sierra';
-    if (v[1] === 13) return 'High Sierra';
-    if (v[1] === 14) return 'Mojave';
-    if (v[1] === 15) return 'Catalina';
-    return undefined;
+    switch (v[1]) {
+      case 5: return 'Leopard';
+      case 6: return 'Snow Leopard';
+      case 7: return 'Lion';
+      case 8: return 'Mountain Lion';
+      case 9: return 'Mavericks';
+      case 10: return 'Yosemite';
+      case 11: return 'El Capitan';
+      case 12: return 'Sierra';
+      case 13: return 'High Sierra';
+      case 14: return 'Mojave';
+      case 15: return 'Catalina';
+      default: return undefined;
+    }
   }
 
   /**

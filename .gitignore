@@ -3,5 +3,5 @@ node_modules/
 .nyc_output
 coverage
 dist
-bundled.js
-es5.js
+bundled.js*
+es5.js*

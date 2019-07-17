@@ -13,17 +13,6 @@ import {
 } from './constants.js';
 
 /**
- * @class
- * @property name
- */
-class BowserUAIsNotAStringError extends Error {
-  constructor(message) {
-    super(message);
-    this.name = 'BowserUAIsNotAStringError';
-  }
-}
-
-/**
  * Bowser class.
  * Keep it simple as much as it can be.
  * It's supposed to work with collections of {@link Parser} instances
@@ -42,7 +31,7 @@ class Bowser {
    * @param {Boolean} [skipParsing=false] Will make the Parser postpone parsing until you ask it
    * explicitly. Same as `skipParsing` for {@link Parser}.
    * @returns {Parser}
-   * @throws {BowserUAIsNotAStringError} when UA is not a String
+   * @throws {Error} when UA is not a String
    *
    * @example
    * const parser = Bowser.getParser(window.navigator.userAgent);
@@ -50,7 +39,7 @@ class Bowser {
    */
   static getParser(UA, skipParsing = false) {
     if (typeof UA !== 'string') {
-      throw new BowserUAIsNotAStringError('UserAgent should be a string');
+      throw new Error('UserAgent should be a string');
     }
     return new Parser(UA, skipParsing);
   }

@@ -1,6 +1,11 @@
 const path = require('path');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
+  plugins: [
+    new CompressionPlugin(),
+  ],
   mode: 'production', // "production" | "development" | "none"
   // Chosen mode tells webpack to use its built-in optimizations accordingly.
   entry: {

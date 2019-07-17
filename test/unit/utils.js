@@ -3,6 +3,8 @@ import {
   getBrowserAlias,
   getFirstMatch,
   getWindowsVersionName,
+  getMacOSVersionName,
+  getAndroidVersionName,
   compareVersions,
 } from '../../src/utils';
 
@@ -13,6 +15,17 @@ test('getFirstMatch', (t) => {
 
 test('getWindowsVersionName', (t) => {
   t.is(getWindowsVersionName('NT 5.0'), '2000');
+  t.is(getWindowsVersionName('XXX'), void 0);
+});
+
+test('getMacOSVersionName', (t) => {
+  t.is(getMacOSVersionName('10.14.5'), 'Mojave');
+  t.is(getMacOSVersionName('XXX'), void 0);
+});
+
+test('getAndroidVersionName', (t) => {
+  t.is(getAndroidVersionName('8.0'), 'Oreo');
+  t.is(getAndroidVersionName('9'), 'Pie');
   t.is(getWindowsVersionName('XXX'), void 0);
 });
 

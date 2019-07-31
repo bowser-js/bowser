@@ -54,6 +54,46 @@ export default class Utils {
   }
 
   /**
+   * Get macOS version name
+   *    10.5 - Leopard
+   *    10.6 - Snow Leopard
+   *    10.7 - Lion
+   *    10.8 - Mountain Lion
+   *    10.9 - Mavericks
+   *    10.10 - Yosemite
+   *    10.11 - El Capitan
+   *    10.12 - Sierra
+   *    10.13 - High Sierra
+   *    10.14 - Mojave
+   *    10.15 - Catalina
+   *
+   * @example
+   *   getMacOSVersionName("10.14") // 'Mojave'
+   *
+   * @param  {string} version
+   * @return {string} versionName
+   */
+  static getMacOSVersionName(version) {
+    const v = version.split('.').splice(0, 2).map(s => parseInt(s, 10) || 0);
+    v.push(0);
+    if (v[0] !== 10) return undefined;
+    switch (v[1]) {
+      case 5: return 'Leopard';
+      case 6: return 'Snow Leopard';
+      case 7: return 'Lion';
+      case 8: return 'Mountain Lion';
+      case 9: return 'Mavericks';
+      case 10: return 'Yosemite';
+      case 11: return 'El Capitan';
+      case 12: return 'Sierra';
+      case 13: return 'High Sierra';
+      case 14: return 'Mojave';
+      case 15: return 'Catalina';
+      default: return undefined;
+    }
+  }
+
+  /**
    * Get Android version name
    *    1.5 - Cupcake
    *    1.6 - Donut
@@ -69,7 +109,7 @@ export default class Utils {
    *    6.x - Marshmallow
    *    7.x - Nougat
    *    8.x - Oreo
-   *    9.x - ?
+   *    9.x - Pie
    *
    * @example
    *   getAndroidVersionName("7.0") // 'Nougat'
@@ -94,6 +134,7 @@ export default class Utils {
     if (v[0] === 6) return 'Marshmallow';
     if (v[0] === 7) return 'Nougat';
     if (v[0] === 8) return 'Oreo';
+    if (v[0] === 9) return 'Pie';
     return undefined;
   }
 

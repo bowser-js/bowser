@@ -208,6 +208,21 @@
         engine:
           name: "Blink"
     -
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36"
+      spec:
+        browser:
+          name: "Chrome"
+          version: "49.0.2623.112"
+        os:
+          name: "macOS"
+          version: "10.7.5"
+          versionName: "Lion"
+        platform:
+          type: "desktop"
+          vendor: "Apple"
+        engine:
+          name: "Blink"
+    -
       ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_7) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.57 Safari/534.24"
       spec:
         browser:
@@ -216,6 +231,7 @@
         os:
           name: "macOS"
           version: "10.6.7"
+          versionName: "Snow Leopard"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -378,6 +394,7 @@
         os:
           name: "macOS"
           version: "10.6.3"
+          versionName: "Snow Leopard"
         platform:
           type: "tablet"
           vendor: "Amazon"
@@ -539,6 +556,7 @@
         os:
           name: "macOS"
           version: "10.6.7"
+          versionName: "Snow Leopard"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -665,6 +683,7 @@
         os:
           name: "macOS"
           version: "10.10.3"
+          versionName: "Yosemite"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -711,6 +730,7 @@
         os:
           name: "macOS"
           version: "10.6.8"
+          versionName: "Snow Leopard"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -726,6 +746,7 @@
         os:
           name: "macOS"
           version: "10.6.7"
+          versionName: "Snow Leopard"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -784,12 +805,29 @@
         os:
           name: "macOS"
           version: "10.6.1"
+          versionName: "Snow Leopard"
         platform:
           type: "desktop"
           vendor: "Apple"
         engine:
           name: "WebKit"
           version: "531.21.10"
+    -
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.75.14 (KHTML, like Gecko) Version/7.0.3 Safari/7046A194A"
+      spec:
+        browser:
+          name: "Safari"
+          version: "7.0.3"
+        os:
+          name: "macOS"
+          version: "10.9.3"
+          versionName: "Mavericks"
+        platform:
+          type: "desktop"
+          vendor: "Apple"
+        engine:
+          name: "WebKit"
+          version: "537.75.14"
     -
       ua: "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_5_7; de-de) AppleWebKit/525.28.3 (KHTML, like Gecko) Version/3.2.3 Safari/525.28.3"
       spec:
@@ -799,6 +837,7 @@
         os:
           name: "macOS"
           version: "10.5.7"
+          versionName: "Leopard"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -869,6 +908,22 @@
           name: "WebKit"
           version: "532.9"
     -
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13) AppleWebKit/604.1.31 (KHTML, like Gecko) Version/11.0 Safari/604.1.31"
+      spec:
+        browser:
+          name: "Safari"
+          version: "11.0"
+        os:
+          name: "macOS"
+          version: "10.13"
+          versionName: "High Sierra"
+        platform:
+          type: "desktop"
+          vendor: "Apple"
+        engine:
+          name: "WebKit"
+          version: "604.1.31"
+    -
       ua: "Mozilla/5.0 (Macintosh; U; PPC Mac OS X 10_5_2; en-gb) AppleWebKit/526+ (KHTML, like Gecko) Version/3.1 iPhone"
       spec:
         browser:
@@ -877,6 +932,7 @@
         os:
           name: "macOS"
           version: "10.5.2"
+          versionName: "Leopard"
         platform:
           type: "mobile"
           vendor: "Apple"
@@ -1540,6 +1596,7 @@
         os:
           name: "macOS"
           version: "10.8"
+          versionName: "Mountain Lion"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -1652,6 +1709,7 @@
         os:
           name: "macOS"
           version: "10.6"
+          versionName: "Snow Leopard"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -1717,6 +1775,22 @@
         engine:
           name: "WebKit"
           version: "601.1.46"
+    -
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:68.0) Gecko/20100101 Firefox/68.0"
+      spec:
+        browser:
+          name: "Firefox"
+          version: "68.0"
+        os:
+          name: "macOS"
+          version: "10.14"
+          versionName: "Mojave"
+        platform:
+          type: "desktop"
+          vendor: "Apple"
+        engine:
+          name: "Gecko"
+          version: "20100101"
   SeaMonkey:
     -
       ua: "Mozilla/5.0 (Windows NT 5.2; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 SeaMonkey/2.7.1"
@@ -1742,6 +1816,7 @@
         os:
           name: "macOS"
           version: "10.5"
+          versionName: "Leopard"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -2071,6 +2146,21 @@
           name: "WebKit"
           version: "533.1"
     -
+      ua: "Mozilla/5.0 (Linux; U; Android 2.2; en-us; GT-I5800 Build/FROYO) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"
+      spec:
+        browser:
+          name: "Android Browser"
+          version: "4.0"
+        os:
+          name: "Android"
+          version: "2.2"
+          versionName: "Froyo"
+        platform:
+          type: "mobile"
+        engine:
+          name: "WebKit"
+          version: "533.1"
+    -
       ua: "Mozilla/5.0 (Linux; U; Android 1.6; ar-us; SonyEricssonX10i Build/R2BA026) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1"
       spec:
         browser:
@@ -2252,6 +2342,7 @@
         os:
           name: "macOS"
           version: "10.11.1"
+          versionName: "El Capitan"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -2290,6 +2381,7 @@
         os:
           name: "macOS"
           version: "10.6.8"
+          versionName: "Snow Leopard"
         platform:
           type: "desktop"
           vendor: "Apple"
@@ -2614,6 +2706,7 @@
         os:
           name: "macOS"
           version: "10.12.6"
+          versionName: "Sierra"
         platform:
           type: "desktop"
           vendor: "Apple"

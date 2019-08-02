@@ -49,7 +49,7 @@
     "nyc": "^14.1.1",
     "sinon": "^7.3.2",
     "testem": "^2.17.0",
-    "webpack": "^4.35.3",
+    "webpack": "^4.39.1",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.6",
     "yamljs": "^0.3.0"

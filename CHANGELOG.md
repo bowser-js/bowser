@@ -1,5 +1,10 @@
 # Bowser Changelog
 
+### 2.5.3 (Aug 4, 2019)
+- [FIX] Add MacOS names support [#338]
+- [FIX] Point typings.d.ts from package.json [#341]
+- [FIX] Upgrade dependencies
+
 ### 2.5.2 (July 17, 2019)
 - [FIX] Fixes the bug undefined method because of failed build (#335)
 

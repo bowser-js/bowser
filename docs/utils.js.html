@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Bowser.html">Bowser</a><ul class='methods'><li data-type='method'><a href="Bowser.html#.getParser">getParser</a></li><li data-type='method'><a href="Bowser.html#.parse">parse</a></li></ul></li><li><a href="Parser.html">Parser</a><ul class='methods'><li data-type='method'><a href="Parser.html#getBrowser">getBrowser</a></li><li data-type='method'><a href="Parser.html#getBrowserName">getBrowserName</a></li><li data-type='method'><a href="Parser.html#getBrowserVersion">getBrowserVersion</a></li><li data-type='method'><a href="Parser.html#getEngine">getEngine</a></li><li data-type='method'><a href="Parser.html#getEngineName">getEngineName</a></li><li data-type='method'><a href="Parser.html#getOS">getOS</a></li><li data-type='method'><a href="Parser.html#getOSName">getOSName</a></li><li data-type='method'><a href="Parser.html#getOSVersion">getOSVersion</a></li><li data-type='method'><a href="Parser.html#getPlatform">getPlatform</a></li><li data-type='method'><a href="Parser.html#getPlatformType">getPlatformType</a></li><li data-type='method'><a href="Parser.html#getResult">getResult</a></li><li data-type='method'><a href="Parser.html#getUA">getUA</a></li><li data-type='method'><a href="Parser.html#is">is</a></li><li data-type='method'><a href="Parser.html#isBrowser">isBrowser</a></li><li data-type='method'><a href="Parser.html#parse">parse</a></li><li data-type='method'><a href="Parser.html#parseBrowser">parseBrowser</a></li><li data-type='method'><a href="Parser.html#parseEngine">parseEngine</a></li><li data-type='method'><a href="Parser.html#parseOS">parseOS</a></li><li data-type='method'><a href="Parser.html#parsePlatform">parsePlatform</a></li><li data-type='method'><a href="Parser.html#satisfies">satisfies</a></li><li data-type='method'><a href="Parser.html#some">some</a></li><li data-type='method'><a href="Parser.html#test">test</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#getAndroidVersionName">getAndroidVersionName</a></li><li><a href="global.html#getBrowserAlias">getBrowserAlias</a></li><li><a href="global.html#getBrowserTypeByAlias">getBrowserTypeByAlias</a></li><li><a href="global.html#getFirstMatch">getFirstMatch</a></li><li><a href="global.html#getSecondMatch">getSecondMatch</a></li><li><a href="global.html#getVersionPrecision">getVersionPrecision</a></li><li><a href="global.html#map">map</a></li><li><a href="global.html#matchAndReturnConst">matchAndReturnConst</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Bowser.html">Bowser</a><ul class='methods'><li data-type='method'><a href="Bowser.html#.getParser">getParser</a></li><li data-type='method'><a href="Bowser.html#.parse">parse</a></li></ul></li><li><a href="Parser.html">Parser</a><ul class='methods'><li data-type='method'><a href="Parser.html#getBrowser">getBrowser</a></li><li data-type='method'><a href="Parser.html#getBrowserName">getBrowserName</a></li><li data-type='method'><a href="Parser.html#getBrowserVersion">getBrowserVersion</a></li><li data-type='method'><a href="Parser.html#getEngine">getEngine</a></li><li data-type='method'><a href="Parser.html#getEngineName">getEngineName</a></li><li data-type='method'><a href="Parser.html#getOS">getOS</a></li><li data-type='method'><a href="Parser.html#getOSName">getOSName</a></li><li data-type='method'><a href="Parser.html#getOSVersion">getOSVersion</a></li><li data-type='method'><a href="Parser.html#getPlatform">getPlatform</a></li><li data-type='method'><a href="Parser.html#getPlatformType">getPlatformType</a></li><li data-type='method'><a href="Parser.html#getResult">getResult</a></li><li data-type='method'><a href="Parser.html#getUA">getUA</a></li><li data-type='method'><a href="Parser.html#is">is</a></li><li data-type='method'><a href="Parser.html#isBrowser">isBrowser</a></li><li data-type='method'><a href="Parser.html#parse">parse</a></li><li data-type='method'><a href="Parser.html#parseBrowser">parseBrowser</a></li><li data-type='method'><a href="Parser.html#parseEngine">parseEngine</a></li><li data-type='method'><a href="Parser.html#parseOS">parseOS</a></li><li data-type='method'><a href="Parser.html#parsePlatform">parsePlatform</a></li><li data-type='method'><a href="Parser.html#satisfies">satisfies</a></li><li data-type='method'><a href="Parser.html#some">some</a></li><li data-type='method'><a href="Parser.html#test">test</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#getAndroidVersionName">getAndroidVersionName</a></li><li><a href="global.html#getBrowserAlias">getBrowserAlias</a></li><li><a href="global.html#getBrowserTypeByAlias">getBrowserTypeByAlias</a></li><li><a href="global.html#getFirstMatch">getFirstMatch</a></li><li><a href="global.html#getMacOSVersionName">getMacOSVersionName</a></li><li><a href="global.html#getSecondMatch">getSecondMatch</a></li><li><a href="global.html#getVersionPrecision">getVersionPrecision</a></li><li><a href="global.html#map">map</a></li><li><a href="global.html#matchAndReturnConst">matchAndReturnConst</a></li></ul>
 </nav>
 
 <div id="main">
@@ -98,6 +98,46 @@ export default class Utils {
   }
 
   /**
+   * Get macOS version name
+   *    10.5 - Leopard
+   *    10.6 - Snow Leopard
+   *    10.7 - Lion
+   *    10.8 - Mountain Lion
+   *    10.9 - Mavericks
+   *    10.10 - Yosemite
+   *    10.11 - El Capitan
+   *    10.12 - Sierra
+   *    10.13 - High Sierra
+   *    10.14 - Mojave
+   *    10.15 - Catalina
+   *
+   * @example
+   *   getMacOSVersionName("10.14") // 'Mojave'
+   *
+   * @param  {string} version
+   * @return {string} versionName
+   */
+  static getMacOSVersionName(version) {
+    const v = version.split('.').splice(0, 2).map(s => parseInt(s, 10) || 0);
+    v.push(0);
+    if (v[0] !== 10) return undefined;
+    switch (v[1]) {
+      case 5: return 'Leopard';
+      case 6: return 'Snow Leopard';
+      case 7: return 'Lion';
+      case 8: return 'Mountain Lion';
+      case 9: return 'Mavericks';
+      case 10: return 'Yosemite';
+      case 11: return 'El Capitan';
+      case 12: return 'Sierra';
+      case 13: return 'High Sierra';
+      case 14: return 'Mojave';
+      case 15: return 'Catalina';
+      default: return undefined;
+    }
+  }
+
+  /**
    * Get Android version name
    *    1.5 - Cupcake
    *    1.6 - Donut
@@ -113,7 +153,7 @@ export default class Utils {
    *    6.x - Marshmallow
    *    7.x - Nougat
    *    8.x - Oreo
-   *    9.x - ?
+   *    9.x - Pie
    *
    * @example
    *   getAndroidVersionName("7.0") // 'Nougat'
@@ -138,6 +178,7 @@ export default class Utils {
     if (v[0] === 6) return 'Marshmallow';
     if (v[0] === 7) return 'Nougat';
     if (v[0] === 8) return 'Oreo';
+    if (v[0] === 9) return 'Pie';
     return undefined;
   }
 
@@ -274,7 +315,7 @@ export default class Utils {
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Wed Jul 17 2019 13:52:37 GMT+0300 (Eastern European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Sun Aug 04 2019 23:53:02 GMT+0300 (Eastern European Summer Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

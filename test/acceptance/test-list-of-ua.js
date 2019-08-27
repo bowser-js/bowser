@@ -1,7 +1,7 @@
 import test from 'ava';
 import yaml from 'yamljs';
 import path from 'path';
-import Bowser from '../../src/bowser';
+import Bowser from '../../src';
 import BowserBuild from '../../es5';
 
 const listOfUA = yaml.load(path.join(__dirname, 'useragentstrings.yml'));

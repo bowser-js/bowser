@@ -1,5 +1,8 @@
 # Bowser Changelog
 
+### 2.5.4 (Sep 2, 2019)
+- [FIX] Exclude docs from the npm package [#349]
+
 ### 2.5.3 (Aug 4, 2019)
 - [FIX] Add MacOS names support [#338]
 - [FIX] Point typings.d.ts from package.json [#341]

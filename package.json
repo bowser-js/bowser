@@ -21,6 +21,7 @@
     }
   ],
   "main": "es5.js",
+  "module": "src/bowser.js",
   "types": "index.d.ts",
   "repository": {
     "type": "git",

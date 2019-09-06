@@ -1,5 +1,9 @@
 # Bowser Changelog
 
+### 2.6.0 (Sep 6, 2019)
+- [ADD] Define "module" export in package.json [#354]
+- [FIX] Fix Tablet PC detection [#334]
+
 ### 2.5.4 (Sep 2, 2019)
 - [FIX] Exclude docs from the npm package [#349]
 

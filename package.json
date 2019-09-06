@@ -1,6 +1,6 @@
 {
   "name": "bowser",
-  "version": "2.5.4",
+  "version": "2.6.0",
   "description": "Lightweight browser detector",
   "keywords": [
     "browser",
@@ -21,6 +21,7 @@
     }
   ],
   "main": "es5.js",
+  "module": "src/bowser.js",
   "types": "index.d.ts",
   "repository": {
     "type": "git",

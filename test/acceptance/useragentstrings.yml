@@ -1418,6 +1418,21 @@
         engine:
           name: "Trident"
           version: "7.0"
+    -
+      ua: "Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; Touch; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729; Tablet PC 2.0; Zoom 3.6.0; InfoPath.3; rv:11.0) like Gecko"
+      spec:
+        browser:
+          name: "Internet Explorer"
+          version: "11.0"
+        os:
+          name: "Windows"
+          version: "NT 10.0"
+          versionName: "10"
+        platform:
+          type: "desktop"
+        engine:
+          name: "Trident"
+          version: "7.0"
   Microsoft Edge:
     -
       ua: 'Mozilla/5.0 (Linux; Android 8.0; Pixel XL Build/OPP3.170518.006) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.0 Mobile Safari/537.36 EdgA/41.1.35.1'

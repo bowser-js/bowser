@@ -82,7 +82,7 @@ export default [
 
   /* Tablet */
   {
-    test: [/tablet/i],
+    test: [/tablet(?! pc)/i],
     describe() {
       return {
         type: PLATFORMS_MAP.tablet,

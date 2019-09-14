@@ -78,7 +78,15 @@
     "test": "nyc --reporter=html --reporter=text ava",
     "test:watch": "ava --watch",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "generate-docs": "jsdoc -c jsdoc.json"
+    "generate-docs": "jsdoc -c jsdoc.json",
+    "postinstall": "opencollective-postinstall || true"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "opencollective-postinstall": "^2.0.2"
+  },
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/bowser"
+  }
 }

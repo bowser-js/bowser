@@ -336,6 +336,23 @@
           type: "tv"
         engine:
           name: "Blink"
+  Google Search:
+    -
+      ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/83.0.268992909 Mobile/15E148 Safari/605.1"
+      spec:
+        browser:
+          name: "Google Search"
+          version: "83.0.268992909"
+        os:
+          name: "iOS"
+          version: "12.4"
+        platform:
+          type: "mobile"
+          vendor: "Apple"
+          model: "iPhone"
+        engine:
+          name: "WebKit"
+          version: "605.1.15"
   Amazon Silk:
     -
       ua: "Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; KFTT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.4 Mobile Safari/535.19 Silk-Accelerated=true"

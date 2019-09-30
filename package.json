@@ -50,7 +50,7 @@
     "jsdoc": "^3.6.3",
     "nyc": "^14.1.1",
     "sinon": "^7.3.2",
-    "testem": "^2.17.0",
+    "testem": "^3.0.0",
     "webpack": "^4.39.1",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-cli": "^3.3.6",

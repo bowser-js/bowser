@@ -561,6 +561,21 @@ const browsersList = [
       return browser;
     },
   },
+  {
+    test: [/GSA/i],
+    describe(ua) {
+      const browser = {
+        name: 'Google Search',
+      };
+      const version = Utils.getFirstMatch(/(?:GSA)\/(\d+(\.?_?\d+)+)/i, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
 
   /* Android Browser */
   {

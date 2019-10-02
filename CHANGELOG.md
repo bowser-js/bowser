@@ -1,5 +1,10 @@
 # Bowser Changelog
 
+### 2.7.0 (Oct 2, 2019)
+- [FIX] Add support for QQ Browser [#362]
+- [FIX] Add support for GSA [#364]
+- [FIX] Updated dependencies
+
 ### 2.6.0 (Sep 6, 2019)
 - [ADD] Define "module" export in package.json [#354]
 - [FIX] Fix Tablet PC detection [#334]

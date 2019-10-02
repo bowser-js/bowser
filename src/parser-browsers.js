@@ -289,6 +289,21 @@ const browsersList = [
     },
   },
   {
+    test: [/qqbrowser/i],
+    describe(ua) {
+      const browser = {
+        name: (/qqbrowserlite/i).test(ua) ? 'QQ Browser Lite' : 'QQ Browser',
+      };
+      const version = Utils.getFirstMatch(/(?:qqbrowserlite|qqbrowser)[/](\d+(\.?_?\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
     test: [/msie|trident/i],
     describe(ua) {
       const browser = {
@@ -538,6 +553,21 @@ const browsersList = [
         name: 'Chrome',
       };
       const version = Utils.getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.?_?\d+)+)/i, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
+    test: [/GSA/i],
+    describe(ua) {
+      const browser = {
+        name: 'Google Search',
+      };
+      const version = Utils.getFirstMatch(/(?:GSA)\/(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;

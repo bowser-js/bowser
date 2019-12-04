@@ -2908,3 +2908,59 @@
         engine:
           name: "WebKit"
           version: "605.1.15"
+  Electron:
+    -
+      ua: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) my-app/1.0.0 Chrome/78.0.3904.113 Electron/7.1.2 Safari/537.36"
+      spec:
+        browser:
+          name: "Electron"
+          version: "7.1.2"
+        os:
+          name: "Windows"
+          version: "NT 10.0"
+          versionName: "10"
+        platform:
+          type: "desktop"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.146 Electron/6.1.5 Safari/537.36"
+      spec:
+        browser:
+          name: "Electron"
+          version: "6.1.5"
+        os:
+          name: "Windows"
+          version: "NT 10.0"
+          versionName: "10"
+        platform:
+          type: "desktop"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.113 Electron/7.1.2 Safari/537.36"
+      spec:
+        browser:
+          name: "Electron"
+          version: "7.1.2"
+        os:
+          name: "macOS"
+          version: "10.15.1"
+          versionName: "Catalina"
+        platform:
+          type: "desktop"
+          vendor: 'Apple'
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.113 Electron/7.1.2 Safari/537.36"
+      spec:
+        browser:
+          name: "Electron"
+          version: "7.1.2"
+        os:
+          name: "Linux"
+        platform:
+          type: "desktop"
+        engine:
+          name: "Blink"

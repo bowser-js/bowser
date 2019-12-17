@@ -2505,6 +2505,22 @@
         engine:
           name: "WebKit"
           version: "537.51.1"
+    -
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36 MicroMessenger/6.5.2.501 NetType/WIFI WindowsWechat"
+      spec:
+        browser:
+          name: "WeChat"
+          version: "6.5.2.501"
+        os:
+          name: "macOS"
+          version: "10.15.1"
+          versionName: "Catalina"
+        platform: 
+          type: "desktop"
+          vendor: "Apple"
+        engine:
+          name: "WebKit"
+          version: "605.1.15"
   UC Browser:
     -
       ua: "Mozilla/5.0 (iPad; U; CPU OS 9 like Mac OS X; en-us; iPad4,4) AppleWebKit/534.46 (KHTML, like Gecko) UCBrowser/2.4.0.367 U3/1 Safari/7543.48.3"

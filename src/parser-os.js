@@ -28,7 +28,7 @@ export default [
 
   /* Windows */
   {
-    test: [/windows/i],
+    test: [/windows /i],
     describe(ua) {
       const version = Utils.getFirstMatch(/Windows ((NT|XP)( \d\d?.\d)?)/i, ua);
       const versionName = Utils.getWindowsVersionName(version);

@@ -5,7 +5,7 @@
  * MIT License | (c) Denis Demchenko 2015-2019
  */
 import Parser from './parser.js';
-export {
+import {
   BROWSER_MAP,
   ENGINE_MAP,
   OS_MAP,
@@ -74,4 +74,10 @@ class Bowser {
   }
 }
 
+export {
+  BROWSER_MAP,
+  ENGINE_MAP,
+  OS_MAP,
+  PLATFORMS_MAP,
+} from './constants.js';
 export default Bowser;

@@ -21,7 +21,7 @@ test('getFirstMatch', (t) => {
 });
 
 test('getSecondMatch', (t) => {
-  const matchedVersion = getSecondMatch(/version\/(\S+)/i, 'Chrome Version/11.11.11 Chrome Version/22.22.22');
+  const matchedVersion = getSecondMatch(/version\/(\S+)/ig, 'Chrome Version/11.11.11 Chrome Version/22.22.22');
   t.is(matchedVersion, '22.22.22');
 });
 
@@ -98,7 +98,7 @@ test('map', (t) => {
 
 test('find', (t) => {
   const result = find([1,2], (value) => value==2);
-  t.is(result, 1);
+  t.is(result, 2);
 });
 
 test('assign', (t) => {

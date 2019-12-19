@@ -210,6 +210,8 @@ export default class Utils {
         return -1;
       }
     }
+
+    return undefined;
   }
 
   /**
@@ -244,12 +246,11 @@ export default class Utils {
     if (Array.prototype.find) {
       return Array.prototype.find.call(arr, predicate);
     }
-    for (i = 0, l = arr.length; i < l; i+=1) {
+    for (i = 0, l = arr.length; i < l; i += 1) {
       const value = arr[i];
-      if (!predicate(value, i)) {
-        continue;
+      if (predicate(value, i)) {
+        return value;
       }
-      return value;
     }
     return undefined;
   }
@@ -262,18 +263,20 @@ export default class Utils {
    * @return {Object}
    */
   static assign(obj, ...assigners) {
+    const result = obj;
     let i;
     let l;
     if (Object.assign) {
       return Object.assign(obj, ...assigners);
     }
-    for (i = 0, l = assigners.length; i < l; i+=1) {
+    for (i = 0, l = assigners.length; i < l; i += 1) {
       const assigner = assigners[i];
-      if (typeof assigner !== 'object') {
-        continue;
+      if (typeof assigner === 'object') {
+        const keys = Object.keys(assigner);
+        keys.forEach((key) => {
+          result[key] = assigner[key];
+        });
       }
-      const keys = Object.keys(assigner);
-      keys.forEach(key => obj[key] = assigner[key]);
     }
     return obj;
   }

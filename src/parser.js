@@ -381,9 +381,8 @@ class Parser {
       }
 
       const platformMatchingDefinition = Utils.find(
-          platformsAndOSNames,
-          name => (this.isPlatform(name))
-        );
+        platformsAndOSNames,
+        name => (this.isPlatform(name)));
       if (platformMatchingDefinition) {
         const platformResult = this.satisfies(platformsAndOSes[platformMatchingDefinition]);
 

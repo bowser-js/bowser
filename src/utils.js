@@ -303,7 +303,7 @@ export default class Utils {
    * @param  {string} browserName
    * @return {string}
    */
-  static getBrowserTypeByAlias(browserAlia) {
-    return BROWSER_MAP[browserAlia] || '';
+  static getBrowserTypeByAlias(browserAlias) {
+    return BROWSER_MAP[browserAlias] || '';
   }
 }

@@ -300,7 +300,7 @@ export default class Utils {
    * @example
    *   getBrowserAlias('edge') // Microsoft Edge
    *
-   * @param  {string} browserName
+   * @param  {string} browserAlias
    * @return {string}
    */
   static getBrowserTypeByAlias(browserAlias) {

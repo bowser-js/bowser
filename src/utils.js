@@ -232,6 +232,44 @@ export default class Utils {
   }
 
   /**
+   * Array::find polyfill
+   *
+   * @param  {Array} arr
+   * @param  {Function} predicate
+   * @return {Array}
+   */
+  static find(arr, predicate) {
+    let i;
+    let l;
+    for (i = 0, l = arr.length; i < l; i++ ) {
+      const value = arr[i];
+      if (!predicate(value, i)) continue;
+      return value;
+    }
+  }
+
+  /**
+   * Object::assign polyfill
+   *
+   * @param  {Object} obj
+   * @param  {Object} ...objs
+   * @return {Object}
+   */
+  static assign(obj) {
+    let i;
+    let l;
+    let k;
+    for (i = 1, l = arguments.length; i < l; i++) {
+      const assigner = arguments[i];
+      if (!(typeof assigner === "object")) continue;
+      for (k in assigner) {
+        obj[k] = assigner[k]
+      }
+    }
+    return obj;
+  }
+
+  /**
    * Get short version/alias for a browser name
    *
    * @example

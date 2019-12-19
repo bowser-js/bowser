@@ -261,7 +261,7 @@ export default class Utils {
     let k;
     for (i = 1, l = arguments.length; i < l; i++) {
       const assigner = arguments[i];
-      if (!(typeof assigner === "object")) continue;
+      if (typeof assigner !== "object") continue;
       for (k in assigner) {
         obj[k] = assigner[k]
       }

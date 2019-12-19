@@ -241,6 +241,9 @@ export default class Utils {
   static find(arr, predicate) {
     let i;
     let l;
+    if (Array.prototype.find) {
+      return Array.prototype.find.call(arr, predicate);
+    }
     for (i = 0, l = arr.length; i < l; i++ ) {
       const value = arr[i];
       if (!predicate(value, i)) continue;
@@ -259,6 +262,9 @@ export default class Utils {
     let i;
     let l;
     let k;
+    if (Object.assign) {
+      return Object.assign.apply(Object, arguments);
+    }
     for (i = 1, l = arguments.length; i < l; i++) {
       const assigner = arguments[i];
       if (typeof assigner !== "object") continue;

@@ -271,7 +271,7 @@ export default class Utils {
     }
     for (i = 0, l = assigners.length; i < l; i += 1) {
       const assigner = assigners[i];
-      if (typeof assigner === 'object') {
+      if (typeof assigner === 'object' && assigner !== null) {
         const keys = Object.keys(assigner);
         keys.forEach((key) => {
           result[key] = assigner[key];

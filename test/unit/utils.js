@@ -107,9 +107,11 @@ test('find', (t) => {
   t.is(result, 2);
   const original = Array.prototype.find;
   delete Array.prototype.find;
-  const polyfillResult = find([1,2], (value) => value==2);
+  const polyfillResultFound = find([1,2], (value) => value==2);
+  const polyfillResultNotFound = find([1,2], (value) => value==3);
   Array.prototype.find = original;
-  t.is(polyfillResult, 2);
+  t.is(polyfillResultFound, 2);
+  t.is(polyfillResultNotFound, undefined);
 });
 
 test('assign', (t) => {
@@ -119,7 +121,7 @@ test('assign', (t) => {
   t.is(result['c'], 3);
   const original = Object.assign;
   delete Object.assign;
-  const polyfillResult = assign({}, { a: 1 }, { b: 1 }, { b: 2, c: 3 });
+  const polyfillResult = assign({}, { a: 1 }, { b: 1 }, null, { b: 2, c: 3 });
   Object.assign = original;
   t.is(polyfillResult['a'], 1);
   t.is(polyfillResult['b'], 2);

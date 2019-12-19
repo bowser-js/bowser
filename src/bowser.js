@@ -5,7 +5,7 @@
  * MIT License | (c) Denis Demchenko 2015-2019
  */
 import Parser from './parser.js';
-import {
+export {
   BROWSER_MAP,
   ENGINE_MAP,
   OS_MAP,

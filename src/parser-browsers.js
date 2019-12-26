@@ -532,6 +532,21 @@ const browsersList = [
     },
   },
   {
+    test: [/electron/i],
+    describe(ua) {
+      const browser = {
+        name: 'Electron',
+      };
+      const version = Utils.getFirstMatch(/(?:electron)\/(\d+(\.?_?\d+)+)/i, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
     test: [/chromium/i],
     describe(ua) {
       const browser = {

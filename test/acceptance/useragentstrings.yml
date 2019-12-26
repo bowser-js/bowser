@@ -1823,6 +1823,22 @@
         engine:
           name: "Gecko"
           version: "20100101"
+    -
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/21.0 Version/13.0.3 Safari/605.1.15"
+      spec:
+        browser:
+          name: "Firefox"
+          version: "21.0"
+        os:
+          name: "iOS"
+          version: "13.0.3"
+        platform:
+          type: "tablet"
+          vendor: "Apple"
+          model: "iPad"
+        engine:
+          name: "WebKit"
+          version: "605.1.15"
   SeaMonkey:
     -
       ua: "Mozilla/5.0 (Windows NT 5.2; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 SeaMonkey/2.7.1"

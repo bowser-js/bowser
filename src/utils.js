@@ -210,6 +210,8 @@ export default class Utils {
         return -1;
       }
     }
+
+    return undefined;
   }
 
   /**
@@ -232,6 +234,54 @@ export default class Utils {
   }
 
   /**
+   * Array::find polyfill
+   *
+   * @param  {Array} arr
+   * @param  {Function} predicate
+   * @return {Array}
+   */
+  static find(arr, predicate) {
+    let i;
+    let l;
+    if (Array.prototype.find) {
+      return Array.prototype.find.call(arr, predicate);
+    }
+    for (i = 0, l = arr.length; i < l; i += 1) {
+      const value = arr[i];
+      if (predicate(value, i)) {
+        return value;
+      }
+    }
+    return undefined;
+  }
+
+  /**
+   * Object::assign polyfill
+   *
+   * @param  {Object} obj
+   * @param  {Object} ...objs
+   * @return {Object}
+   */
+  static assign(obj, ...assigners) {
+    const result = obj;
+    let i;
+    let l;
+    if (Object.assign) {
+      return Object.assign(obj, ...assigners);
+    }
+    for (i = 0, l = assigners.length; i < l; i += 1) {
+      const assigner = assigners[i];
+      if (typeof assigner === 'object' && assigner !== null) {
+        const keys = Object.keys(assigner);
+        keys.forEach((key) => {
+          result[key] = assigner[key];
+        });
+      }
+    }
+    return obj;
+  }
+
+  /**
    * Get short version/alias for a browser name
    *
    * @example
@@ -250,10 +300,10 @@ export default class Utils {
    * @example
    *   getBrowserAlias('edge') // Microsoft Edge
    *
-   * @param  {string} browserName
+   * @param  {string} browserAlias
    * @return {string}
    */
-  static getBrowserTypeByAlias(browserAlia) {
-    return BROWSER_MAP[browserAlia] || '';
+  static getBrowserTypeByAlias(browserAlias) {
+    return BROWSER_MAP[browserAlias] || '';
   }
 }

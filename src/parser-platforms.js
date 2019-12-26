@@ -57,6 +57,18 @@ export default [
     },
   },
 
+  /* Firefox on iPad */
+  {
+    test: [/Macintosh(.*?) FxiOS(.*?) Version\//],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.tablet,
+        vendor: 'Apple',
+        model: 'iPad',
+      };
+    },
+  },
+
   /* Amazon Kindle Fire */
   {
     test: [/kftt build/i],

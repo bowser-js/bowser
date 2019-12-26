@@ -1,16 +1,33 @@
 import test from 'ava';
 import {
-  getBrowserAlias,
   getFirstMatch,
+  getSecondMatch,
+  matchAndReturnConst,
   getWindowsVersionName,
   getMacOSVersionName,
   getAndroidVersionName,
+  getVersionPrecision,
   compareVersions,
+  map,
+  find,
+  assign,
+  getBrowserAlias,
+  getBrowserTypeByAlias
 } from '../../src/utils';
 
 test('getFirstMatch', (t) => {
   const matchedVersion = getFirstMatch(/version\/(\S+)/i, 'Chrome Version/11.11.11');
   t.is(matchedVersion, '11.11.11');
+});
+
+test('getSecondMatch', (t) => {
+  const matchedVersion = getSecondMatch(/version\/(\S+).*version\/(\S+)/i, 'Chrome Version/11.11.11 Chrome Version/22.22.22');
+  t.is(matchedVersion, '22.22.22');
+});
+
+test('matchAndReturnConst', (t) => {
+  const _const = matchAndReturnConst(/version/i, 'version', "_const");
+  t.is(_const, '_const');
 });
 
 test('getWindowsVersionName', (t) => {
@@ -30,6 +47,11 @@ test('getAndroidVersionName', (t) => {
   t.is(getAndroidVersionName('8.0'), 'Oreo');
   t.is(getAndroidVersionName('9'), 'Pie');
   t.is(getAndroidVersionName('XXX'), void 0);
+});
+
+test('getVersionPrecision', (t) => {
+  const precision = getVersionPrecision("10.14.5");
+  t.is(precision, 3);
 });
 
 test('compareVersions', (t) => {
@@ -68,7 +90,51 @@ test('compareVersions', (t) => {
   });
 });
 
+test('map', (t) => {
+  const result = map([1,2], (value) => value+2);
+  t.is(result[0], 3);
+  t.is(result[1], 4);
+  const original = Array.prototype.map;
+  delete Array.prototype.map;
+  const polyfillResult = map([1,2], (value) => value+2);
+  Array.prototype.map = original;
+  t.is(polyfillResult[0], 3);
+  t.is(polyfillResult[1], 4);
+});
+
+test('find', (t) => {
+  const result = find([1,2], (value) => value==2);
+  t.is(result, 2);
+  const original = Array.prototype.find;
+  delete Array.prototype.find;
+  const polyfillResultFound = find([1,2], (value) => value==2);
+  const polyfillResultNotFound = find([1,2], (value) => value==3);
+  Array.prototype.find = original;
+  t.is(polyfillResultFound, 2);
+  t.is(polyfillResultNotFound, undefined);
+});
+
+test('assign', (t) => {
+  const result = assign({}, { a: 1 }, { b: 1 }, { b: 2, c: 3 });
+  t.is(result['a'], 1);
+  t.is(result['b'], 2);
+  t.is(result['c'], 3);
+  const original = Object.assign;
+  delete Object.assign;
+  const polyfillResult = assign({}, { a: 1 }, { b: 1 }, null, { b: 2, c: 3 });
+  Object.assign = original;
+  t.is(polyfillResult['a'], 1);
+  t.is(polyfillResult['b'], 2);
+  t.is(polyfillResult['c'], 3);
+});
+
 test('getBrowserAlias', (t) => {
   t.is(getBrowserAlias('Microsoft Edge'), 'edge');
   t.is(getBrowserAlias('Unexisting Browser'), void 0);
 });
+
+test('getBrowserTypeByAlias', (t) => {
+  t.is(getBrowserTypeByAlias('edge'), 'Microsoft Edge');
+  t.is(getBrowserTypeByAlias(void 0), '');
+});
+

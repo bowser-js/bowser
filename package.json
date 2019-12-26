@@ -48,7 +48,7 @@
     "eslint-plugin-import": "^2.18.2",
     "gh-pages": "^2.1.1",
     "jsdoc": "^3.6.3",
-    "nyc": "^14.1.1",
+    "nyc": "^15.0.0",
     "sinon": "^8.0.0",
     "testem": "^3.0.0",
     "webpack": "^4.41.0",

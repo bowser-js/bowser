@@ -1,5 +1,8 @@
 # Bowser Changelog
 
+### 2.8.1 (Dec 26, 2019)
+- [FIX] Reverted [#382] as it broke build
+
 ### 2.8.0 (Dec 26, 2019)
 - [ADD] Add polyfills for Array.find & Object.assign [#383]
 - [ADD] Export constants with types.d.ts [#382]

@@ -82,7 +82,7 @@ class Parser {
   parseBrowser() {
     this.parsedResult.browser = {};
 
-    const browserDescriptor = browserParsersList.find((_browser) => {
+    const browserDescriptor = Utils.find(browserParsersList, (_browser) => {
       if (typeof _browser.test === 'function') {
         return _browser.test(this);
       }
@@ -165,7 +165,7 @@ class Parser {
   parseOS() {
     this.parsedResult.os = {};
 
-    const os = osParsersList.find((_os) => {
+    const os = Utils.find(osParsersList, (_os) => {
       if (typeof _os.test === 'function') {
         return _os.test(this);
       }
@@ -241,7 +241,7 @@ class Parser {
   parsePlatform() {
     this.parsedResult.platform = {};
 
-    const platform = platformParsersList.find((_platform) => {
+    const platform = Utils.find(platformParsersList, (_platform) => {
       if (typeof _platform.test === 'function') {
         return _platform.test(this);
       }
@@ -292,7 +292,7 @@ class Parser {
   parseEngine() {
     this.parsedResult.engine = {};
 
-    const engine = enginesParsersList.find((_engine) => {
+    const engine = Utils.find(enginesParsersList, (_engine) => {
       if (typeof _engine.test === 'function') {
         return _engine.test(this);
       }
@@ -328,7 +328,7 @@ class Parser {
    * @return {ParsedResult}
    */
   getResult() {
-    return Object.assign({}, this.parsedResult);
+    return Utils.assign({}, this.parsedResult);
   }
 
   /**
@@ -370,7 +370,7 @@ class Parser {
 
     if (platformsAndOSCounter > 0) {
       const platformsAndOSNames = Object.keys(platformsAndOSes);
-      const OSMatchingDefinition = platformsAndOSNames.find(name => (this.isOS(name)));
+      const OSMatchingDefinition = Utils.find(platformsAndOSNames, name => (this.isOS(name)));
 
       if (OSMatchingDefinition) {
         const osResult = this.satisfies(platformsAndOSes[OSMatchingDefinition]);
@@ -380,7 +380,10 @@ class Parser {
         }
       }
 
-      const platformMatchingDefinition = platformsAndOSNames.find(name => (this.isPlatform(name)));
+      const platformMatchingDefinition = Utils.find(
+        platformsAndOSNames,
+        name => (this.isPlatform(name)),
+      );
       if (platformMatchingDefinition) {
         const platformResult = this.satisfies(platformsAndOSes[platformMatchingDefinition]);
 
@@ -392,7 +395,7 @@ class Parser {
 
     if (browsersCounter > 0) {
       const browserNames = Object.keys(browsers);
-      const matchingDefinition = browserNames.find(name => (this.isBrowser(name, true)));
+      const matchingDefinition = Utils.find(browserNames, name => (this.isBrowser(name, true)));
 
       if (matchingDefinition !== void 0) {
         return this.compareVersion(browsers[matchingDefinition]);

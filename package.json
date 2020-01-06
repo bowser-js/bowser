@@ -1,6 +1,6 @@
 {
   "name": "bowser",
-  "version": "2.7.0",
+  "version": "2.8.1",
   "description": "Lightweight browser detector",
   "keywords": [
     "browser",
@@ -38,7 +38,7 @@
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "babel-plugin-add-module-exports": "^1.0.2",
-    "babel-plugin-istanbul": "^5.2.0",
+    "babel-plugin-istanbul": "^6.0.0",
     "compression-webpack-plugin": "^3.0.0",
     "coveralls": "^3.0.6",
     "docdash": "^1.1.1",
@@ -48,8 +48,8 @@
     "eslint-plugin-import": "^2.18.2",
     "gh-pages": "^2.1.1",
     "jsdoc": "^3.6.3",
-    "nyc": "^14.1.1",
-    "sinon": "^7.5.0",
+    "nyc": "^15.0.0",
+    "sinon": "^8.0.0",
     "testem": "^3.0.0",
     "webpack": "^4.41.0",
     "webpack-bundle-analyzer": "^3.5.2",

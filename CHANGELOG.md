@@ -1,5 +1,16 @@
 # Bowser Changelog
 
+### 2.8.1 (Dec 26, 2019)
+- [FIX] Reverted [#382] as it broke build
+
+### 2.8.0 (Dec 26, 2019)
+- [ADD] Add polyfills for Array.find & Object.assign [#383]
+- [ADD] Export constants with types.d.ts [#382]
+- [FIX] Add support for WeChat on Windows [#381]
+- [FIX] Fix detection of Firefox on iPad [#379]
+- [FIX] Add detection of Electron [#375]
+- [FIX] Updated dev-dependencies
+
 ### 2.7.0 (Oct 2, 2019)
 - [FIX] Add support for QQ Browser [#362]
 - [FIX] Add support for GSA [#364]

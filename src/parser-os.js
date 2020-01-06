@@ -28,7 +28,7 @@ export default [
 
   /* Windows */
   {
-    test: [/windows/i],
+    test: [/windows /i],
     describe(ua) {
       const version = Utils.getFirstMatch(/Windows ((NT|XP)( \d\d?.\d)?)/i, ua);
       const versionName = Utils.getWindowsVersionName(version);
@@ -37,6 +37,18 @@ export default [
         name: OS_MAP.Windows,
         version,
         versionName,
+      };
+    },
+  },
+
+  /* Firefox on iPad */
+  {
+    test: [/Macintosh(.*?) FxiOS(.*?) Version\//],
+    describe(ua) {
+      const version = Utils.getSecondMatch(/(Version\/)(\d[\d.]+)/, ua);
+      return {
+        name: OS_MAP.iOS,
+        version,
       };
     },
   },

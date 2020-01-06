@@ -6,7 +6,7 @@ A small, fast and rich-API browser/platform/engine detector for both browser and
 
 Don't hesitate to support the project on Github or [OpenCollective](https://opencollective.com/bowser) if you like it ❤️ Also, contributors are always welcome!
 
-[![Build Status](https://travis-ci.org/lancedikson/bowser.svg?branch=master)](https://travis-ci.org/lancedikson/bowser/)  [![Greenkeeper badge](https://badges.greenkeeper.io/lancedikson/bowser.svg)](https://greenkeeper.io/)  [![Coverage Status](https://coveralls.io/repos/github/lancedikson/bowser/badge.svg?branch=master)](https://coveralls.io/github/lancedikson/bowser?branch=master) ![Downloads](https://img.shields.io/npm/dm/bowser)
+[![Financial Contributors on Open Collective](https://opencollective.com/bowser/all/badge.svg?label=financial+contributors)](https://opencollective.com/bowser) [![Build Status](https://travis-ci.org/lancedikson/bowser.svg?branch=master)](https://travis-ci.org/lancedikson/bowser/)  [![Greenkeeper badge](https://badges.greenkeeper.io/lancedikson/bowser.svg)](https://greenkeeper.io/)  [![Coverage Status](https://coveralls.io/repos/github/lancedikson/bowser/badge.svg?branch=master)](https://coveralls.io/github/lancedikson/bowser?branch=master) ![Downloads](https://img.shields.io/npm/dm/bowser)
 
 # Contents
 - [Overview](#overview)
@@ -144,6 +144,36 @@ list of aliases can be found in [the file](src/constants.js).
 
 ## Similar Projects
 * [Kong](https://github.com/BigBadBleuCheese/Kong) - A C# port of Bowser.
+
+## Contributors
+
+### Code Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+<a href="https://github.com/lancedikson/bowser/graphs/contributors"><img src="https://opencollective.com/bowser/contributors.svg?width=890&button=false" /></a>
+
+### Financial Contributors
+
+Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/bowser/contribute)]
+
+#### Individuals
+
+<a href="https://opencollective.com/bowser"><img src="https://opencollective.com/bowser/individuals.svg?width=890"></a>
+
+#### Organizations
+
+Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/bowser/contribute)]
+
+<a href="https://opencollective.com/bowser/organization/0/website"><img src="https://opencollective.com/bowser/organization/0/avatar.svg"></a>
+<a href="https://opencollective.com/bowser/organization/1/website"><img src="https://opencollective.com/bowser/organization/1/avatar.svg"></a>
+<a href="https://opencollective.com/bowser/organization/2/website"><img src="https://opencollective.com/bowser/organization/2/avatar.svg"></a>
+<a href="https://opencollective.com/bowser/organization/3/website"><img src="https://opencollective.com/bowser/organization/3/avatar.svg"></a>
+<a href="https://opencollective.com/bowser/organization/4/website"><img src="https://opencollective.com/bowser/organization/4/avatar.svg"></a>
+<a href="https://opencollective.com/bowser/organization/5/website"><img src="https://opencollective.com/bowser/organization/5/avatar.svg"></a>
+<a href="https://opencollective.com/bowser/organization/6/website"><img src="https://opencollective.com/bowser/organization/6/avatar.svg"></a>
+<a href="https://opencollective.com/bowser/organization/7/website"><img src="https://opencollective.com/bowser/organization/7/avatar.svg"></a>
+<a href="https://opencollective.com/bowser/organization/8/website"><img src="https://opencollective.com/bowser/organization/8/avatar.svg"></a>
+<a href="https://opencollective.com/bowser/organization/9/website"><img src="https://opencollective.com/bowser/organization/9/avatar.svg"></a>
 
 ## License
 Licensed as MIT. All rights not explicitly granted in the MIT license are reserved. See the included LICENSE file for more details.

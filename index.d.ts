@@ -174,6 +174,16 @@ declare namespace Bowser {
 
       satisfies(checkTree: checkTree): boolean | undefined;
 
+       /**
+       * Check if the browser name equals the passed string
+       * @param browserName The string to compare with the browser name
+       * @param [includingAlias=false] The flag showing whether alias will be included into comparison
+       * @returns {boolean}
+       */
+
+
+      isBrowser(browserName: string, includingAlias?: boolean): boolean;
+
       /**
        * Check if any of the given values satifies `.is(anything)`
        * @param {string[]} anythings

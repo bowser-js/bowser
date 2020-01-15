@@ -32,7 +32,7 @@
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.0",
     "@babel/polyfill": "^7.8.3",
-    "@babel/preset-env": "^7.6.2",
+    "@babel/preset-env": "^7.8.2",
     "@babel/register": "^7.6.2",
     "ava": "^2.4.0",
     "babel-eslint": "^10.0.3",

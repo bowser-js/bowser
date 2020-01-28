@@ -22,6 +22,14 @@ declare namespace Bowser {
 
   function parse(UA: string): Parser.ParsedResult;
 
+  /**
+   * Constants exposed via bowser getters
+   */
+  const BROWSER_MAP: Record<string, string>;
+  const ENGINE_MAP: Record<string, string>;
+  const OS_MAP: Record<string, string>;
+  const PLATFORMS_MAP: Record<string, string>;
+
   namespace Parser {
     interface Parser {
       constructor(UA: string, skipParsing?: boolean): Parser.Parser;
@@ -173,6 +181,16 @@ declare namespace Bowser {
        */
 
       satisfies(checkTree: checkTree): boolean | undefined;
+
+       /**
+       * Check if the browser name equals the passed string
+       * @param browserName The string to compare with the browser name
+       * @param [includingAlias=false] The flag showing whether alias will be included into comparison
+       * @returns {boolean}
+       */
+
+
+      isBrowser(browserName: string, includingAlias?: boolean): boolean;
 
       /**
        * Check if any of the given values satifies `.is(anything)`

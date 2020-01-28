@@ -1,6 +1,6 @@
 {
   "name": "bowser",
-  "version": "2.8.1",
+  "version": "2.9.0",
   "description": "Lightweight browser detector",
   "keywords": [
     "browser",
@@ -29,12 +29,12 @@
     "url": "git+https://github.com/lancedikson/bowser.git"
   },
   "devDependencies": {
-    "@babel/cli": "^7.6.2",
-    "@babel/core": "^7.6.2",
-    "@babel/polyfill": "^7.6.0",
-    "@babel/preset-env": "^7.6.2",
-    "@babel/register": "^7.6.2",
-    "ava": "^2.4.0",
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.0",
+    "@babel/polyfill": "^7.8.3",
+    "@babel/preset-env": "^7.8.2",
+    "@babel/register": "^7.8.3",
+    "ava": "^3.0.0",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "babel-plugin-add-module-exports": "^1.0.2",
@@ -44,7 +44,7 @@
     "docdash": "^1.1.1",
     "eslint": "^6.5.1",
     "eslint-config-airbnb-base": "^13.2.0",
-    "eslint-plugin-ava": "^8.0.0",
+    "eslint-plugin-ava": "^10.0.0",
     "eslint-plugin-import": "^2.18.2",
     "gh-pages": "^2.1.1",
     "jsdoc": "^3.6.3",

@@ -1,5 +1,8 @@
 # Bowser Changelog
 
+### 2.9.0 (Jan 28, 2020)
+- [ADD] Export more methods and constants via .d.ts [#388], [#390]
+
 ### 2.8.1 (Dec 26, 2019)
 - [FIX] Reverted [#382] as it broke build
 

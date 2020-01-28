@@ -22,6 +22,14 @@ declare namespace Bowser {
 
   function parse(UA: string): Parser.ParsedResult;
 
+  /**
+   * Constants exposed via bowser getters
+   */
+  const BROWSER_MAP: Record<string, string>;
+  const ENGINE_MAP: Record<string, string>;
+  const OS_MAP: Record<string, string>;
+  const PLATFORMS_MAP: Record<string, string>;
+
   namespace Parser {
     interface Parser {
       constructor(UA: string, skipParsing?: boolean): Parser.Parser;

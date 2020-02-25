@@ -5,3 +5,6 @@ coverage
 node_modules
 .github
 docs
+*.gz
+jsdoc.json
+webpack.config.js

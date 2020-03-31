@@ -43,10 +43,11 @@ declare namespace Bowser {
 
       /**
        * Get browser's name
+       * @param {Boolean} [toLowerCase] return lower-cased value
        * @return {String} Browser's name or an empty string
        */
 
-      getBrowserName(): string;
+      getBrowserName(toLowerCase?: boolean): string;
 
       /**
        * Get browser's version

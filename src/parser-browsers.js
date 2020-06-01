@@ -169,6 +169,21 @@ const browsersList = [
     },
   },
   {
+    test: [/opt\/\d+(?:.?_?\d+)+/i],
+    describe(ua) {
+      const browser = {
+        name: 'Opera Touch',
+      };
+      const version = Utils.getFirstMatch(/(?:opt)[\s/](\d+(\.?_?\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
     test: [/yabrowser/i],
     describe(ua) {
       const browser = {

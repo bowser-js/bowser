@@ -690,6 +690,20 @@
         engine:
           name: "WebKit"
           version: "601.1.46"
+  Opera Touch:
+    -
+      ua: "Mozilla/5.0 (Linux; Android 7.0; SM-A520F Build/NRD90M; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/65.0.3325.109 Mobile Safari/537.36 OPT/1.0.9"
+      spec:
+        browser:
+          name: "Opera Touch"
+          version: "1.0.9"
+        os:
+          name: "Android"
+          version: "7.0"
+        platform:
+          type: "mobile"
+        engine:
+          name: "Blink"
   Yandex Browser:
     -
       ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 YaBrowser/15.4.2272.3420 (beta) Yowser/2.0 Safari/537.36"
@@ -2546,7 +2560,7 @@
           name: "macOS"
           version: "10.15.1"
           versionName: "Catalina"
-        platform: 
+        platform:
           type: "desktop"
           vendor: "Apple"
         engine:

@@ -532,12 +532,27 @@ const browsersList = [
     },
   },
   {
-    test: [/firefox|iceweasel|fxios/i],
+    test: [/fxios/i],
+    describe(ua) {
+      const browser = {
+        name: 'Firefox iOS',
+      };
+      const version = Utils.getFirstMatch(/(?:fxios)[\s/](\d+(\.?_?\d+)+)/i, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
+    test: [/firefox|iceweasel/i],
     describe(ua) {
       const browser = {
         name: 'Firefox',
       };
-      const version = Utils.getFirstMatch(/(?:firefox|iceweasel|fxios)[\s/](\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(/(?:firefox|iceweasel)[\s/](\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;

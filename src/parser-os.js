@@ -43,13 +43,16 @@ export default [
 
   /* Firefox on iPad */
   {
-    test: [/Macintosh(.*?) FxiOS(.*?) Version\//],
+    test: [/Macintosh(.*?) FxiOS(.*?)\//],
     describe(ua) {
-      const version = Utils.getSecondMatch(/(Version\/)(\d[\d.]+)/, ua);
-      return {
+      const result = {
         name: OS_MAP.iOS,
-        version,
       };
+      const version = Utils.getSecondMatch(/(Version\/)(\d[\d.]+)/, ua);
+      if (version) {
+        result.version = version;
+      }
+      return result;
     },
   },
 

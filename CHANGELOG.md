@@ -1,5 +1,10 @@
 # Bowser Changelog
 
+### 2.10.0 (Jul 9, 2020)
+- [FIX] Fix for Firefox detection on iOS 13 [#415]
+- [FIX] Fixes for typings.d.ts [#409]
+- [FIX] Updated development dependencies
+
 ### 2.9.0 (Jan 28, 2020)
 - [ADD] Export more methods and constants via .d.ts [#388], [#390]
 

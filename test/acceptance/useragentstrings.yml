@@ -700,6 +700,7 @@
         os:
           name: "Android"
           version: "7.0"
+          versionName: 'Nougat'
         platform:
           type: "mobile"
         engine:

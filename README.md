@@ -16,7 +16,7 @@ Don't hesitate to support the project on Github or [OpenCollective](https://open
 
 # Overview
 
-The library is made to help to detect what browser your user has and gives you a convenient API to filter the users somehow depending on their browsers.
+The library is made to help to detect what browser your user has and gives you a convenient API to filter the users somehow depending on their browsers. Check it out on this page: https://bowser-js.github.io/bowser-online/.
 
 ### ⚠️ Version 2.0 breaking changes ⚠️
 

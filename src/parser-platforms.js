@@ -59,7 +59,7 @@ export default [
 
   /* Firefox on iPad */
   {
-    test: [/Macintosh(.*?) FxiOS(.*?) Version\//],
+    test: [/Macintosh(.*?) FxiOS(.*?)\//],
     describe() {
       return {
         type: PLATFORMS_MAP.tablet,

@@ -700,7 +700,6 @@
         os:
           name: "Android"
           version: "7.0"
-          versionName: "Nougat"
         platform:
           type: "mobile"
         engine:
@@ -1807,6 +1806,22 @@
           name: "Gecko"
           version: "20061014"
     -
+      ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) FxiOS/3.0 Mobile/13E238 Safari/601.1.46"
+      spec:
+        browser:
+          name: "Firefox"
+          version: "3.0"
+        os:
+          name: "iOS"
+          version: "9.3.1"
+        platform:
+          type: "mobile"
+          vendor: "Apple"
+          model: "iPhone"
+        engine:
+          name: "WebKit"
+          version: "601.1.46"
+    -
       ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:68.0) Gecko/20100101 Firefox/68.0"
       spec:
         browser:
@@ -1822,14 +1837,15 @@
         engine:
           name: "Gecko"
           version: "20100101"
-  "Firefox iOS":
-    - ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/24.1 Safari/605.1.15"
+    -
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/21.0 Version/13.0.3 Safari/605.1.15"
       spec:
         browser:
-          name: "Firefox iOS"
-          version: "24.1"
+          name: "Firefox"
+          version: "21.0"
         os:
           name: "iOS"
+          version: "13.0.3"
         platform:
           type: "tablet"
           vendor: "Apple"
@@ -1837,29 +1853,14 @@
         engine:
           name: "WebKit"
           version: "605.1.15"
-    - ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) FxiOS/3.0 Mobile/13E238 Safari/601.1.46"
+    -
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/24.1 Safari/605.1.15"
       spec:
         browser:
-          name: "Firefox iOS"
-          version: "3.0"
+          name: "Firefox"
+          version: "24.1"
         os:
           name: "iOS"
-          version: "9.3.1"
-        platform:
-          type: "mobile"
-          vendor: "Apple"
-          model: "iPhone"
-        engine:
-          name: "WebKit"
-          version: "601.1.46"
-    - ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/21.0 Version/13.0.3 Safari/605.1.15"
-      spec:
-        browser:
-          name: "Firefox iOS"
-          version: "21.0"
-        os:
-          name: "iOS"
-          version: "13.0.3"
         platform:
           type: "tablet"
           vendor: "Apple"

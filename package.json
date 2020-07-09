@@ -49,7 +49,7 @@
     "gh-pages": "^3.0.0",
     "jsdoc": "^3.6.3",
     "nyc": "^15.0.0",
-    "sinon": "^8.0.0",
+    "sinon": "^9.0.0",
     "testem": "^3.0.0",
     "webpack": "^4.41.0",
     "webpack-bundle-analyzer": "^3.5.2",

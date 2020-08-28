@@ -106,6 +106,13 @@ declare namespace Bowser {
       getEngine(): EngineDetails;
 
       /**
+       * Get parsed engine's name
+       * @returns {String} Engine's name or an empty string
+       */
+
+      getEngineName(): string;
+
+      /**
        * Get parsed result
        * @return {ParsedResult}
        */

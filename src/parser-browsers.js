@@ -562,6 +562,21 @@ const browsersList = [
     },
   },
   {
+    test: [/MiuiBrowser/i],
+    describe(ua) {
+      const browser = {
+        name: 'Miui',
+      };
+      const version = Utils.getFirstMatch(/(?:MiuiBrowser)[\s/](\d+(\.?_?\d+)+)/i, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
     test: [/chromium/i],
     describe(ua) {
       const browser = {

@@ -137,9 +137,10 @@ declare namespace Bowser {
 
       /**
        * Parse full information about the browser
+       * @returns {Parser.Parser}
        */
 
-      parse(): void;
+      parse(): Parser.Parser;
 
       /**
        * Get parsed browser object

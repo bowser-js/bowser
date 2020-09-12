@@ -313,6 +313,7 @@ class Parser {
 
   /**
    * Parse full information about the browser
+   * @returns {Parser}
    */
   parse() {
     this.parseBrowser();
@@ -474,10 +475,12 @@ class Parser {
    * Is anything? Check if the browser is called "anything",
    * the OS called "anything" or the platform called "anything"
    * @param {String} anything
+   * @param [includingAlias=false] The flag showing whether alias will be included into comparison
    * @returns {Boolean}
    */
-  is(anything) {
-    return this.isBrowser(anything) || this.isOS(anything) || this.isPlatform(anything);
+  is(anything, includingAlias = false) {
+    return this.isBrowser(anything, includingAlias) || this.isOS(anything)
+      || this.isPlatform(anything);
   }
 
   /**

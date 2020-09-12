@@ -3026,3 +3026,31 @@
           type: "desktop"
         engine:
           name: "Blink"
+  Miui:
+    -
+      ua: "Mozilla/5.0 (Linux; U; Android 9; fr-fr; Redmi Note 8 Pro Build/PPR1.180610.011) AppleWebKit/537.36 (KHTML like Gecko) Version/4.0 Chrome/71.0.3578.141 Mobile Safari/537.36 XiaoMi/MiuiBrowser/11.9.3-"
+      spec:
+        browser:
+          name: "Miui"
+          version: "11.9.3"
+        os:
+          name: "Android"
+          version: "9"
+          versionName: "Pie"
+        platform:
+          type: "mobile"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Linux; U; Android 9; fr-fr; Redmi Note 8 Pro Build/PPR1.180610.011) AppleWebKit/537.36 (KHTML like Gecko) Version/4.0 Chrome/71.0.3578.141 Mobile Safari/537.36 XiaoMi/MiuiBrowser"
+      spec:
+        browser:
+          name: "Miui"
+        os:
+          name: "Android"
+          version: "9"
+          versionName: "Pie"
+        platform:
+          type: "mobile"
+        engine:
+          name: "Blink"

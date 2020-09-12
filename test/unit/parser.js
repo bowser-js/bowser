@@ -165,6 +165,30 @@ test('Parser.is should pass', (t) => {
   t.is(parser.is('macos'), true);
 });
 
+test('Parser.is should pass when not including aliases', (t) => {
+  t.is(edgeParser.is('Microsoft Edge', false), true);
+  t.is(edgeParser.is('microsoft edge', false), true);
+  t.is(edgeParser.is('mIcrosoft eDge', false), true);
+  t.is(edgeParser.is('edge', false), false);
+  t.is(edgeParser.is('Edge', false), false);
+  t.is(edgeParser.is('desktop', false), false);
+  t.is(edgeParser.is('macos', false), false);
+  t.is(edgeParser.is('mobile', false), true);
+  t.is(edgeParser.is('android', false), true);
+});
+
+test('Parser.is should pass when including aliases', (t) => {
+  t.is(edgeParser.is('Microsoft Edge', true), true);
+  t.is(edgeParser.is('microsoft edge', true), true);
+  t.is(edgeParser.is('mIcrosoft eDge', true), true);
+  t.is(edgeParser.is('edge', true), true);
+  t.is(edgeParser.is('Edge', true), true);
+  t.is(edgeParser.is('desktop', true), false);
+  t.is(edgeParser.is('macos', true), false);
+  t.is(edgeParser.is('mobile', true), true);
+  t.is(edgeParser.is('android', true), true);
+});
+
 test('Parser.is using constants should pass', (t) => {
   t.is(parser.is(Bowser.BROWSER_MAP.opera), true);
   t.is(parser.is(Bowser.PLATFORMS_MAP.desktop), true);
@@ -198,4 +222,9 @@ test('Parser.isBrowser should pass when loosely checking', (t) => {
 test('Parser.isBrowser should pass for non-aliased browsers', (t) => {
   t.is(focusParser.isBrowser('Focus', true), true);
   t.is(focusParser.isBrowser('Focus', false), true);
+});
+
+test('Parser.isEngine should pass', (t) => {
+  t.is(parser.isEngine('blink'), true);
+  t.is(parser.isEngine('webkit'), false);
 });

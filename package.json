@@ -1,6 +1,6 @@
 {
   "name": "bowser",
-  "version": "2.10.0",
+  "version": "2.11.0",
   "description": "Lightweight browser detector",
   "keywords": [
     "browser",
@@ -29,7 +29,7 @@
     "url": "git+https://github.com/lancedikson/bowser.git"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.3",
+    "@babel/cli": "^7.11.6",
     "@babel/core": "^7.8.0",
     "@babel/polyfill": "^7.8.3",
     "@babel/preset-env": "^7.8.2",

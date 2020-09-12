@@ -313,6 +313,7 @@ class Parser {
 
   /**
    * Parse full information about the browser
+   * @returns {Parser}
    */
   parse() {
     this.parseBrowser();

@@ -135,7 +135,7 @@ export default class Utils {
     if (v[0] === 7) return 'Nougat';
     if (v[0] === 8) return 'Oreo';
     if (v[0] === 9) return 'Pie';
-	if (v[0] === 10) return 'Q';
+    if (v[0] === 10) return 'Q';
     return undefined;
   }
 

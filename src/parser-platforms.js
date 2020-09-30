@@ -129,7 +129,7 @@ export default [
       };
     },
   },
-  
+
   /* Nokia */
   {
     test: [/Nokia/i],

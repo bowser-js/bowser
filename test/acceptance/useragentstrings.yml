@@ -336,6 +336,36 @@
           type: "tv"
         engine:
           name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Linux; Android 9; Nokia 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.127 Mobile Safari/537.36"
+      spec:
+        browser:
+          name: "Chrome"
+          version: "85.0.4183.127"
+        os:
+          name: "Android"
+          version: "9"
+          versionName: "Pie"
+        platform:
+          type: "mobile"
+          vendor: "Nokia"
+          model: "5.1"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Linux; Android 10; SM-G970F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3396.81 Mobile Safari/537.36"
+      spec:
+        browser:
+          name: "Chrome"
+          version: "75.0.3396.81"
+        os:
+          name: "Android"
+          version: "10"
+          versionName: "Q"
+        platform:
+          type: "mobile"
+        engine:
+          name: "Blink"
   Google Search:
     -
       ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/83.0.268992909 Mobile/15E148 Safari/605.1"
@@ -1391,6 +1421,7 @@
           version: "8.0"
         platform:
           type: "mobile"
+          vendor: "Nokia"
         engine:
           name: "Trident"
           version: "6.0"
@@ -1405,6 +1436,7 @@
           version: "8.0"
         platform:
           type: "mobile"
+          vendor: "Nokia"
         engine:
           name: "Trident"
           version: "6.0"
@@ -1433,6 +1465,7 @@
           version: "7.0"
         platform:
           type: "mobile"
+          vendor: "Nokia"
         engine:
           name: "Trident"
           version: "3.1"

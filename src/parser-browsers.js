@@ -603,6 +603,12 @@ const browsersList = [
         browser.version = version;
       }
 
+      const webview = Utils.matchAndReturnConst(/Android.*(wv|.0.0.0)/i, ua, true);
+
+      if (webview) {
+        browser.webview = webview;
+      }
+
       return browser;
     },
   },
@@ -671,6 +677,12 @@ const browsersList = [
 
       if (version) {
         browser.version = version;
+      }
+
+      const webview = Utils.matchAndReturnConst(/(iPhone|iPod|iPad)(?!.*Safari)/i, ua, true);
+
+      if (webview) {
+        browser.webview = webview;
       }
 
       return browser;

@@ -324,6 +324,19 @@
           type: "mobile"
         engine:
           name: "Blink"
+    - ua: "Mozilla / 5.0 (Linux; Android 9; SM-T825Y) AppleWebKit / 537.36 (KHTML เช่น Gecko) Version/13.0.3 Chrome / 86.0.4240.99 Safari/ 537.36"
+      spec:
+        browser:
+          name: "Chrome"
+          version: "86.0.4240.99"
+        os:
+          name: "Android"
+          version: "9"
+          versionName: "Pie"
+        platform:
+          type: "tablet"
+        engine:
+          name: "Gecko"
     - ua: "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36 Roku/DVP-7.53 (147.53E04068A)"
       spec:
         browser:

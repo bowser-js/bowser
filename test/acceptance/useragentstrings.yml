@@ -336,7 +336,7 @@
         platform:
           type: "tablet"
         engine:
-          name: "Gecko"
+          name: "WebKit"
     - ua: "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36 Roku/DVP-7.53 (147.53E04068A)"
       spec:
         browser:

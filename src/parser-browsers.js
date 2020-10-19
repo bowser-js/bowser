@@ -597,7 +597,7 @@ const browsersList = [
       const browser = {
         name: 'Chrome',
       };
-      const version = Utils.getFirstMatch(/(?:chrome|crios|crmo)[\s\/]+(\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(/(?:chrome|crios|crmo)[\s/]+(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;

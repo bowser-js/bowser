@@ -361,7 +361,6 @@
         os:
           name: "Android"
           version: "10"
-          versionName: "Q"
         platform:
           type: "mobile"
         engine:

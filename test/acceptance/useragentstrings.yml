@@ -336,6 +336,20 @@
           type: "tv"
         engine:
           name: "Blink"
+    - ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36"
+      spec:
+        browser:
+          name: "Chrome"
+          version: "87.0.4280.67"
+        os:
+          name: "macOS"
+          version: "11.0.1"
+          versionName: "Big Sur"
+        platform:
+          type: "desktop"
+          vendor: "Apple"
+        engine:
+          name: "Blink"
   Google Search:
     -
       ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/83.0.268992909 Mobile/15E148 Safari/605.1"

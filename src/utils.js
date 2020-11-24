@@ -66,6 +66,7 @@ export default class Utils {
    *    10.13 - High Sierra
    *    10.14 - Mojave
    *    10.15 - Catalina
+   *    11 - Big Sur
    *
    * @example
    *   getMacOSVersionName("10.14") // 'Mojave'
@@ -76,19 +77,23 @@ export default class Utils {
   static getMacOSVersionName(version) {
     const v = version.split('.').splice(0, 2).map(s => parseInt(s, 10) || 0);
     v.push(0);
-    if (v[0] !== 10) return undefined;
-    switch (v[1]) {
-      case 5: return 'Leopard';
-      case 6: return 'Snow Leopard';
-      case 7: return 'Lion';
-      case 8: return 'Mountain Lion';
-      case 9: return 'Mavericks';
-      case 10: return 'Yosemite';
-      case 11: return 'El Capitan';
-      case 12: return 'Sierra';
-      case 13: return 'High Sierra';
-      case 14: return 'Mojave';
-      case 15: return 'Catalina';
+    switch (v[0]) {
+      case 10:
+        switch (v[1]) {
+          case 5: return 'Leopard';
+          case 6: return 'Snow Leopard';
+          case 7: return 'Lion';
+          case 8: return 'Mountain Lion';
+          case 9: return 'Mavericks';
+          case 10: return 'Yosemite';
+          case 11: return 'El Capitan';
+          case 12: return 'Sierra';
+          case 13: return 'High Sierra';
+          case 14: return 'Mojave';
+          case 15: return 'Catalina';
+          default: return undefined;
+        }
+      case 11: return 'Big Sur';
       default: return undefined;
     }
   }

@@ -23,7 +23,7 @@ export default [
     describe() {
       return {
         type: 'bot',
-        vendor: 'Baidu',  
+        vendor: 'Baidu',
       };
     },
   },

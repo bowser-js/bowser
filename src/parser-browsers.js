@@ -53,7 +53,7 @@ const browsersList = [
       };
       const version = Utils.getFirstMatch(/baiduspider(?:-ads|-render|-video|-image|-news|-favo|-cpro)?\/(\d+(\.\d+))/i, ua);
 
-      if(version) {
+      if (version) {
         browser.version = version;
       }
 
@@ -66,14 +66,14 @@ const browsersList = [
       const hash = {
         bingbot: 'Bingbot',
         bingpreview: 'BingPreviewbot',
-        adidxbot: 'BingAdsbot'
+        adidxbot: 'BingAdsbot',
       };
       const browser = {
         name: hash[ua.match(/bingbot|bingpreview|adidxbot/i)[0].toLowerCase()],
       };
       const version = Utils.getFirstMatch(/(?:bingbot|adidxbot|bingpreview)\/(\d+(\.\d+)[a-zA-Z]?)/i, ua);
 
-      if(version) {
+      if (version) {
         browser.version = version;
       }
 
@@ -150,21 +150,21 @@ const browsersList = [
       const browser = {
         name: (/SogouMobileBrowser/i).test(ua) ? 'Sogou Mobile Browser' : 'Sogou Browser',
       };
-      const version = browser.name === 'Sogou Browser' ? 
-          Utils.getFirstMatch(/Chrome[\s/](\d+)/i, ua) :
-          Utils.getFirstMatch(/SogouMobileBrowser[\s/](\d+(?:\.\d+)+)/i, ua);
+      const version = browser.name === 'Sogou Browser'
+        ? Utils.getFirstMatch(/Chrome[\s/](\d+)/i, ua)
+        : Utils.getFirstMatch(/SogouMobileBrowser[\s/](\d+(?:\.\d+)+)/i, ua);
       const hash = {
-        '35': '5.1',
-        '38': '5.3',
-        '49': '6.3',
-        '58': '7.5',
-        '65': '8.6',
-        '72': '10.0',
-        '80': '11.0',
+        35: '5.1',
+        38: '5.3',
+        49: '6.3',
+        58: '7.5',
+        65: '8.6',
+        72: '10.0',
+        80: '11.0',
       };
 
-      if(version) {
-        browser.version = hash[version] || version;
+      if (version) {
+        browser.version = hash[version] || (browser.name !== 'Sogou Browser' && version);
       }
 
       return browser;

@@ -35,7 +35,7 @@ const browsersList = [
       const browser = {
         name: 'Googlebot',
       };
-      const version = Utils.getFirstMatch(/googlebot\/(\d+(\.\d+))/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+      const version = Utils.getFirstMatch(/googlebot(?:-image|-news|-video)?\/(\d+(\.\d+))/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;
@@ -44,7 +44,42 @@ const browsersList = [
       return browser;
     },
   },
+  /* Baidu Search Bot */
+  {
+    test: [/Baiduspider/i],
+    describe(ua) {
+      const browser = {
+        name: 'Baidubot',
+      };
+      const version = Utils.getFirstMatch(/baiduspider(?:-ads|-render|-video|-image|-news|-favo|-cpro)?\/(\d+(\.\d+))/i, ua);
 
+      if(version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
+    test: [/bingbot|bingpreview|adidxbot/i],
+    describe(ua) {
+      const hash = {
+        bingbot: 'Bingbot',
+        bingpreview: 'BingPreviewbot',
+        adidxbot: 'BingAdsbot'
+      };
+      const browser = {
+        name: hash[ua.match(/bingbot|bingpreview|adidxbot/i)[0].toLowerCase()],
+      };
+      const version = Utils.getFirstMatch(/(?:bingbot|adidxbot|bingpreview)\/(\d+(\.\d+)[a-zA-Z]?)/i, ua);
+
+      if(version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
   /* Opera < 13.0 */
   {
     test: [/opera/i],
@@ -103,6 +138,33 @@ const browsersList = [
 
       if (version) {
         browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  /* Sogou Browser */
+  {
+    test: [/MetaSr|SogouMobileBrowser/i],
+    describe(ua) {
+      const browser = {
+        name: (/SogouMobileBrowser/i).test(ua) ? 'Sogou Mobile Browser' : 'Sogou Browser',
+      };
+      const version = browser.name === 'Sogou Browser' ? 
+          Utils.getFirstMatch(/Chrome[\s/](\d+)/i, ua) :
+          Utils.getFirstMatch(/SogouMobileBrowser[\s/](\d+(?:\.\d+)+)/i, ua);
+      const hash = {
+        '35': '5.1',
+        '38': '5.3',
+        '49': '6.3',
+        '58': '7.5',
+        '65': '8.6',
+        '72': '10.0',
+        '80': '11.0',
+      };
+
+      if(version) {
+        browser.version = hash[version] || version;
       }
 
       return browser;

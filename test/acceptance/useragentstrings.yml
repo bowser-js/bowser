@@ -3054,3 +3054,149 @@
           type: "mobile"
         engine:
           name: "Blink"
+  Sogou Browser:
+    -
+      ua: "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 SE 2.X MetaSr 1.0"
+      spec:
+        browser:
+          name: "Sogou Browser"
+          version: "7.5"
+        os:
+          name: "Windows"
+          version: "NT 10.0"
+          versionName: "10"
+        platform:
+          type: "desktop"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36 SE 2.X MetaSr 1.0"
+      spec:
+        browser:
+          name: "Sogou Browser"
+          version: "11.0"
+        os:
+          name: "Windows"
+          version: "NT 10.0"
+          versionName: "10"
+        platform:
+          type: "desktop"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.81 Safari/537.36 SE 2.X MetaSr 1.0"
+      spec:
+        browser:
+          name: "Sogou Browser"
+          version: "10.0"
+        os:
+          name: "Windows"
+          version: "NT 10.0"
+          versionName: "10"
+        platform:
+          type: "desktop"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3314.0 Safari/537.36 SE 2.X MetaSr 1.0"
+      spec:
+        browser:
+          name: "Sogou Browser"
+          version: "8.6"
+        os:
+          name: "Windows"
+          version: "NT 10.0"
+          versionName: "10"
+        platform:
+          type: "desktop"
+        engine:
+          name: "Blink"
+  Sogou Mobile Browser:
+    -
+      ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 SogouMobileBrowser/5.22.1"
+      spec:
+        browser:
+          name: "Sogou Mobile Browser"
+          version: "5.22.1"
+        os:
+          name: "iOS"
+          version: "12.4.8"
+        platform:
+          type: "mobile"
+          vendor: "Apple"
+          model: "iPhone"
+        engine:
+          name: "WebKit"
+          version: "605.1.15"
+  Baidubot:
+    -
+      ua: "Mozilla/5.0 (Linux;u;Android 4.2.2;zh-cn;) AppleWebKit/534.46 (KHTML,like Gecko) Version/5.1 Mobile Safari/10600.6.3 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)"
+      spec:
+        browser:
+          name: "Baidubot"
+          version: "2.0"
+        os:
+          name: "Android"
+          version: "4.2.2"
+          versionName: "Jelly Bean"
+        platform:
+          type: "bot"
+          vendor: "Baidu"
+        engine:
+          name: "WebKit"
+          version: "534.46"
+    -
+      ua: "Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)"
+      spec:
+        browser:
+          name: "Baidubot"
+          version: "2.0"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Baidu"
+        engine: {}
+  Bingbot:
+    -
+      ua: "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)" 
+      spec:
+        browser:
+          name: "Bingbot"
+          version: "2.0"
+        os: {}
+        platform: 
+          type: "bot"
+          vendor: "Bing"
+        engine: {}
+  BingAdsbot:
+    -
+      ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 (compatible; adidxbot/2.0; +http://www.bing.com/bingbot.htm)"
+      spec:
+        browser:
+          name: "BingAdsbot"
+          version: "2.0"
+        os:
+          name: "iOS"
+          version: "7.0"
+        platform:
+          type: "bot"
+          vendor: "Bing"
+        engine: 
+          name: "WebKit"
+          version: "537.51.1"
+  BingPreviewbot:
+    -
+      ua: "Mozilla/5.0 (Windows Phone 8.1; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; NOKIA; Lumia 530) like Gecko BingPreview/1.0b"
+      spec:
+        browser:
+          name: "BingPreviewbot"
+          version: "1.0b"
+        os:
+          name: "Windows Phone"
+          version: "8.1"
+        platform:
+          type: "bot"
+          vendor: "Bing"
+        engine:
+          name: "Trident"
+          version: "7.0"

@@ -18,6 +18,26 @@ export default [
     },
   },
 
+  {
+    test: [/baiduspider/i],
+    describe() {
+      return {
+        type: 'bot',
+        vendor: 'Baidu',  
+      };
+    },
+  },
+
+  {
+    test: [/bingbot|adidxbot|bingpreview/i],
+    describe() {
+      return {
+        type: 'bot',
+        vendor: 'Bing',
+      };
+    },
+  },
+
   /* Huawei */
   {
     test: [/huawei/i],

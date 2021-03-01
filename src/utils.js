@@ -295,10 +295,10 @@ export default class Utils {
   }
 
   /**
-   * Get short version/alias for a browser name
+   * Get browser name for a short version/alias
    *
    * @example
-   *   getBrowserAlias('edge') // Microsoft Edge
+   *   getBrowserTypeByAlias('edge') // Microsoft Edge
    *
    * @param  {string} browserAlias
    * @return {string}

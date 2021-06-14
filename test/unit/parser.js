@@ -12,6 +12,9 @@ const edgeParser = new Parser(EDGE_UA, true);
 const FOCUS_UA = 'Mozilla/5.0 (Linux; Android 7.1.1) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Focus/1.2.1 Chrome/59.0.3071.125';
 const focusParser = new Parser(FOCUS_UA, true);
 
+const IPHONE_UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1';
+const iphoneParser = new Parser(IPHONE_UA, true);
+
 test('constructor', (t) => {
   t.truthy(parser instanceof Parser);
 });
@@ -155,8 +158,27 @@ test('Parser.satisfies for versionless UA strings', (t) => {
 test('Parser.satisfies should consider aliases while handling browsers', (t) => {
   t.is(edgeParser.satisfies({ 'Microsoft Edge': '=41.1.35.1' }), true);
   t.is(edgeParser.satisfies({ 'microsoft edge': '=41.1.35.1' }), true);
-  t.is(edgeParser.satisfies({ 'edge': '=41.1.35.1' }), true);
-  t.is(edgeParser.satisfies({ 'Edge': '=41.1.35.1' }), true);
+  t.is(edgeParser.satisfies({ edge: '=41.1.35.1' }), true);
+  t.is(edgeParser.satisfies({ Edge: '=41.1.35.1' }), true);
+});
+
+test('Parser.satisfies should consider OS while handling browsers', (t) => {
+  t.is(parser.satisfies({ macos: { OS: '>=8.0.0' } }), true);
+  t.is(parser.satisfies({ macos: { OS: '>=8.0.0', chrome: '>50' } }), true);
+  t.is(iphoneParser.satisfies({
+    windows: {
+      OS: '>=10',
+    },
+    macos: {
+      OS: '>=10.13',
+    },
+    android: {
+      OS: '>=7',
+    },
+    iOS: {
+      OS: '>=8.4',
+    },
+  }), true);
 });
 
 test('Parser.is should pass', (t) => {

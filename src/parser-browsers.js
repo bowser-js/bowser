@@ -109,6 +109,21 @@ const browsersList = [
     },
   },
   {
+    test: [/PaleMoon/i],
+    describe(ua) {
+      const browser = {
+        name: 'Pale Moon',
+      };
+      const version = Utils.getFirstMatch(commonVersionIdentifier, ua) || Utils.getFirstMatch(/(?:PaleMoon)[\s/](\d+(?:\.\d+)+)/i, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
     test: [/MZBrowser/i],
     describe(ua) {
       const browser = {

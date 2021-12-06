@@ -35,6 +35,14 @@ declare namespace Bowser {
       constructor(UA: string, skipParsing?: boolean): Parser.Parser;
 
       /**
+       * Check if the version is equals the brownser version
+       * @param version The string to compare with the brownser version
+       * @returns {boolean}
+       */
+
+      compareVersion(version: string): boolean;
+
+      /**
        * Get parsed browser object
        * @return {BrowserDetails} Browser's details
        */
@@ -136,6 +144,39 @@ declare namespace Bowser {
       is(anything: any): boolean;
 
       /**
+       * Check if the browser name equals the passed string
+       * @param browserName The string to compare with the browser name
+       * @param [includingAlias=false] The flag showing whether alias will be included into comparison
+       * @returns {boolean}
+       */
+
+      isBrowser(browserName: string, includingAlias?: boolean): boolean;
+
+      /**
+       * Check if the engine name equals the passed string
+       * @param engineName The string to compare with the engine name
+       * @returns {boolean}
+       */
+
+      isEngine(engineName: string): boolean;
+
+      /**
+       * Check if the OS name equals the passed string
+       * @param OSName The string to compare with the OS name
+       * @returns {boolean}
+       */
+
+      isOS(OSName: string): boolean;
+
+      /**
+       * Check if the platform name equals the passed string
+       * @param platformName The string to compare with the platform name
+       * @returns {boolean}
+       */
+
+      isPlatform(platformName: string): boolean;
+
+      /**
        * Parse full information about the browser
        * @returns {Parser.Parser}
        */
@@ -190,16 +231,6 @@ declare namespace Bowser {
        */
 
       satisfies(checkTree: checkTree): boolean | undefined;
-
-       /**
-       * Check if the browser name equals the passed string
-       * @param browserName The string to compare with the browser name
-       * @param [includingAlias=false] The flag showing whether alias will be included into comparison
-       * @returns {boolean}
-       */
-
-
-      isBrowser(browserName: string, includingAlias?: boolean): boolean;
 
       /**
        * Check if any of the given values satifies `.is(anything)`

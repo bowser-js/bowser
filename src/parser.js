@@ -87,7 +87,7 @@ class Parser {
         return _browser.test(this);
       }
 
-      if (_browser.test instanceof Array) {
+      if (Array.isArray(_browser.test)) {
         return _browser.test.some(condition => this.test(condition));
       }
 

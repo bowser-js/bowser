@@ -170,7 +170,7 @@ class Parser {
         return _os.test(this);
       }
 
-      if (_os.test instanceof Array) {
+      if (Array.isArray(_os.test)) {
         return _os.test.some(condition => this.test(condition));
       }
 
@@ -246,7 +246,7 @@ class Parser {
         return _platform.test(this);
       }
 
-      if (_platform.test instanceof Array) {
+      if (Array.isArray(_platform.test)) {
         return _platform.test.some(condition => this.test(condition));
       }
 
@@ -297,7 +297,7 @@ class Parser {
         return _engine.test(this);
       }
 
-      if (_engine.test instanceof Array) {
+      if (Array.isArray(_engine.test)) {
         return _engine.test.some(condition => this.test(condition));
       }
 

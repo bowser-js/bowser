@@ -54,7 +54,7 @@ declare namespace Bowser {
        * @return {String} version of browser
        */
 
-      getBrowserVersion(): string;
+      getBrowserVersion(): string | undefined;
 
       /**
        * Get OS

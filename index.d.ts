@@ -35,8 +35,8 @@ declare namespace Bowser {
       constructor(UA: string, skipParsing?: boolean): Parser.Parser;
 
       /**
-       * Check if the version is equals the brownser version
-       * @param version The string to compare with the brownser version
+       * Check if the version is equals the browser version
+       * @param version The string to compare with the browser version
        * @returns {boolean}
        */
 

@@ -29,7 +29,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
-      - run: npm run test-ci
+      - run: nyc npm test && nyc report --reporter=text-lcov | ./node_modules/coveralls/bin/coveralls.js
         env:
           COVERALLS_SERVICE_NAME: GithubActions
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}

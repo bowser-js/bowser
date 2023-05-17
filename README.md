@@ -177,3 +177,5 @@ Support this project with your organization. Your logo will show up here with a 
 
 ## License
 Licensed as MIT. All rights not explicitly granted in the MIT license are reserved. See the included LICENSE file for more details.
+
+This project is tested with BrowserStack.

@@ -52,7 +52,7 @@
     "sinon": "^9.0.0",
     "testem": "^3.0.0",
     "webpack": "^4.41.0",
-    "webpack-bundle-analyzer": "^3.5.2",
+    "webpack-bundle-analyzer": "^4.9.1",
     "webpack-cli": "^3.3.9",
     "yamljs": "^0.3.0"
   },

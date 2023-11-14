@@ -36,6 +36,8 @@ jobs:
     - name: Setup Node.js environment
       uses: actions/setup-node@v4
 
+    - run: npm ci --legacy-peer-deps
+
     - run: npm run build
 
     - name: Perform CodeQL Analysis

@@ -35,6 +35,8 @@ jobs:
 
     - name: Setup Node.js environment
       uses: actions/setup-node@v4
+      with:
+            node-version: '12.16.3'
 
     - run: npm ci --legacy-peer-deps
 

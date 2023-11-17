@@ -2,7 +2,7 @@
 // Project: https://github.com/lancedikson/bowser
 // Definitions by: Alexander P. Cerutti <https://github.com/alexandercerutti>,
 
-export = Bowser;
+export default Bowser;
 export as namespace Bowser;
 
 declare namespace Bowser {
@@ -35,6 +35,14 @@ declare namespace Bowser {
       constructor(UA: string, skipParsing?: boolean): Parser.Parser;
 
       /**
+       * Check if the version is equals the browser version
+       * @param version The string to compare with the browser version
+       * @returns {boolean}
+       */
+
+      compareVersion(version: string): boolean;
+
+      /**
        * Get parsed browser object
        * @return {BrowserDetails} Browser's details
        */
@@ -54,7 +62,7 @@ declare namespace Bowser {
        * @return {String} version of browser
        */
 
-      getBrowserVersion(): string;
+      getBrowserVersion(): string | undefined;
 
       /**
        * Get OS
@@ -135,6 +143,39 @@ declare namespace Bowser {
        */
 
       is(anything: any, includingAlias?: boolean): boolean;
+
+      /**
+       * Check if the browser name equals the passed string
+       * @param browserName The string to compare with the browser name
+       * @param [includingAlias=false] The flag showing whether alias will be included into comparison
+       * @returns {boolean}
+       */
+
+      isBrowser(browserName: string, includingAlias?: boolean): boolean;
+
+      /**
+       * Check if the engine name equals the passed string
+       * @param engineName The string to compare with the engine name
+       * @returns {boolean}
+       */
+
+      isEngine(engineName: string): boolean;
+
+      /**
+       * Check if the OS name equals the passed string
+       * @param OSName The string to compare with the OS name
+       * @returns {boolean}
+       */
+
+      isOS(OSName: string): boolean;
+
+      /**
+       * Check if the platform name equals the passed string
+       * @param platformName The string to compare with the platform name
+       * @returns {boolean}
+       */
+
+      isPlatform(platformName: string): boolean;
 
       /**
        * Parse full information about the browser

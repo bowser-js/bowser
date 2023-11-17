@@ -3,7 +3,7 @@
 ### 2.11.0 (Sep 12, 2020)
 - [ADD] Added support for aliases in `Parser#is` method (#437)
 - [ADD] Added more typings (#438, #427)
-- [ADD] Added support for MIUI Browserr (#436)
+- [ADD] Added support for MIUI Browser (#436)
 
 ### 2.10.0 (Jul 9, 2020)
 - [FIX] Fix for Firefox detection on iOS 13 [#415]

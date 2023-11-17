@@ -130,6 +130,22 @@ export default [
     },
   },
 
+  /* Nokia */
+  {
+    test: [/Nokia/i],
+    describe(ua) {
+      const model = Utils.getFirstMatch(/Nokia\s+([0-9]+(\.[0-9]+)?)/i, ua);
+      const platform = {
+        type: PLATFORMS_MAP.mobile,
+        vendor: 'Nokia',
+      };
+      if (model) {
+        platform.model = model;
+      }
+      return platform;
+    },
+  },
+
   /* Mobile */
   {
     test: [/[^-]mobi/i],

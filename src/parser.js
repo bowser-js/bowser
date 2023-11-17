@@ -408,7 +408,7 @@ class Parser {
 
   /**
    * Check if the browser name equals the passed string
-   * @param browserName The string to compare with the browser name
+   * @param {string} browserName The string to compare with the browser name
    * @param [includingAlias=false] The flag showing whether alias will be included into comparison
    * @returns {boolean}
    */
@@ -459,14 +459,29 @@ class Parser {
     ) > -1;
   }
 
+  /**
+   * Check if the OS name equals the passed string
+   * @param {string} osName The string to compare with the OS name
+   * @returns {boolean}
+   */
   isOS(osName) {
     return this.getOSName(true) === String(osName).toLowerCase();
   }
 
+  /**
+   * Check if the platform type equals the passed string
+   * @param {string} platformType The string to compare with the platform type
+   * @returns {boolean}
+   */
   isPlatform(platformType) {
     return this.getPlatformType(true) === String(platformType).toLowerCase();
   }
 
+  /**
+   * Check if the engine name equals the passed string
+   * @param {string} engineName The string to compare with the engine name
+   * @returns {boolean}
+   */
   isEngine(engineName) {
     return this.getEngineName(true) === String(engineName).toLowerCase();
   }

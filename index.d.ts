@@ -138,10 +138,11 @@ declare namespace Bowser {
        * Is anything? Check if the browser is called "anything",
        * the OS called "anything" or the platform called "anything"
        * @param {String} anything
+       * @param [includingAlias=false] The flag showing whether alias will be included into comparison
        * @returns {Boolean}
        */
 
-      is(anything: any): boolean;
+      is(anything: any, includingAlias?: boolean): boolean;
 
       /**
        * Check if the browser name equals the passed string
@@ -233,7 +234,40 @@ declare namespace Bowser {
       satisfies(checkTree: checkTree): boolean | undefined;
 
       /**
-       * Check if any of the given values satifies `.is(anything)`
+       * Check if the browser name equals the passed string
+       * @param {string} browserName The string to compare with the browser name
+       * @param [includingAlias=false] The flag showing whether alias will be included into comparison
+       * @returns {boolean}
+       */
+
+      isBrowser(browserName: string, includingAlias?: boolean): boolean;
+
+      /**
+       * Check if the engine name equals the passed string
+       * @param {string} engineName The string to compare with the engine name
+       * @returns {boolean}
+       */
+
+      isEngine(engineName: string): boolean;
+
+      /**
+       * Check if the platform type equals the passed string
+       * @param {string} platformType The string to compare with the platform type
+       * @returns {boolean}
+       */
+
+      isPlatform(platformType: string): boolean;
+
+      /**
+       * Check if the OS name equals the passed string
+       * @param {string} osName The string to compare with the OS name
+       * @returns {boolean}
+       */
+
+      isOS(osName: string): boolean;
+
+      /**
+       * Check if any of the given values satisfies `.is(anything)`
        * @param {string[]} anythings
        * @returns {boolean} true if at least one condition is satisfied, false otherwise.
        */

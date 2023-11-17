@@ -36,7 +36,7 @@
     "@babel/register": "^7.22.15",
     "ava": "^3.0.0",
     "babel-eslint": "^10.0.3",
-    "babel-loader": "^7.1.5",
+    "babel-loader": "^8.0.6",
     "babel-plugin-add-module-exports": "^1.0.2",
     "babel-plugin-istanbul": "^6.0.0",
     "compression-webpack-plugin": "^4.0.0",

@@ -336,6 +336,36 @@
           type: "tv"
         engine:
           name: "Blink"
+    - ua: "Mozilla/5.0 (Linux; Android 4.4; Nexus 5 Build/_BuildID_) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36"
+      spec:
+        browser:
+          name: "Chrome"
+          version: "30.0.0.0"
+          webview: true
+        os:
+          name: "Android"
+          version: "4.4"
+          versionName: "KitKat"
+        platform:
+          type: "mobile"
+          vendor: "Nexus"
+        engine:
+          name: "Blink"
+    - ua: "Mozilla/5.0 (Linux; Android 5.1.1; Nexus 5 Build/LMY48B; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/43.0.2357.65 Mobile Safari/537.36"
+      spec:
+        browser:
+          name: "Chrome"
+          version: "43.0.2357.65"
+          webview: true
+        os:
+          name: "Android"
+          version: "5.1.1"
+          versionName: "Lollipop"
+        platform:
+          type: "mobile"
+          vendor: "Nexus"
+        engine:
+          name: "Blink"
   Google Search:
     -
       ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/83.0.268992909 Mobile/15E148 Safari/605.1"
@@ -881,6 +911,7 @@
       spec:
         browser:
           name: "Safari"
+          webview: true
         os:
           name: "iOS"
           version: "7.0.4"
@@ -961,6 +992,7 @@
         browser:
           name: "Safari"
           version: "3.1"
+          webview: true
         os:
           name: "macOS"
           version: "10.5.2"
@@ -1152,6 +1184,7 @@
       spec:
         browser:
           name: "Safari"
+          webview: true
         os:
           name: "iOS"
           version: "11.4.1"
@@ -1162,6 +1195,21 @@
         engine:
           name: "WebKit"
           version: "605.1.15"
+    - ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 8_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12D508"
+      spec:
+        browser:
+          name: "Safari"
+          webview: true
+        os:
+          name: "iOS"
+          version: "8.2"
+        platform:
+          type: "mobile"
+          vendor: "Apple"
+          model: "iPhone"
+        engine:
+          name: "WebKit"
+          version: "600.1.4"
   Internet Explorer:
     -
       ua: "Mozilla/5.0 (Windows NT 6.3; Win64; x64; Trident/7.0; MAARJS; rv:11.0) like Gecko"

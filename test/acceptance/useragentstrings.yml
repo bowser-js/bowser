@@ -3054,3 +3054,32 @@
           type: "mobile"
         engine:
           name: "Blink"
+  Pale Moon:
+    -
+      ua: "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101 Goanna/4.8 Firefox/68.0 PaleMoon/29.1.1"
+      spec:
+        browser:
+          name: "Pale Moon"
+          version: "29.1.1"
+        os:
+          name: "Windows"
+          version: "NT 10.0"
+          versionName: "10"
+        platform:
+          type: "desktop"
+        engine:
+          name: "Gecko"
+          version: "20100101"
+    -
+      ua: "Mozilla/5.0 (X11; Linux i686; rv:45.9) Gecko/20100101 Goanna/3.2 Firefox/45.9 PaleMoon/27.2.0"
+      spec:
+        browser:
+          name: "Pale Moon"
+          version: "27.2.0"
+        os:
+          name: "Linux"
+        platform:
+          type: "desktop"
+        engine:
+          name: "Gecko"
+          version: "20100101"

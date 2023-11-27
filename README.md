@@ -149,7 +149,7 @@ list of aliases can be found in [the file](src/constants.js).
 
 ### Code Contributors
 
-This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+This project exists thanks to all the people who contribute. [[Contribute](.github/CONTRIBUTING.md)].
 <a href="https://github.com/lancedikson/bowser/graphs/contributors"><img src="https://opencollective.com/bowser/contributors.svg?width=890&button=false" /></a>
 
 ### Financial Contributors

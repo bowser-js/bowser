@@ -12,7 +12,7 @@ export default [
     test: [/googlebot/i],
     describe() {
       return {
-        type: 'bot',
+        type: PLATFORMS_MAP.bot,
         vendor: 'Google',
       };
     },

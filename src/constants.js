@@ -90,6 +90,7 @@ export const PLATFORMS_MAP = {
   mobile: 'mobile',
   desktop: 'desktop',
   tv: 'tv',
+  bot: 'bot',
 };
 
 export const OS_MAP = {

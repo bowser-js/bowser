@@ -18,6 +18,94 @@ export default [
     },
   },
 
+  /* Alexa */
+  {
+    test: [/ia_archiver/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Amazon',
+      };
+    },
+  },
+
+  /* Baidu */
+  {
+    test: [/baiduspider/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Baidu',
+      };
+    },
+  },
+
+  /* Bingbot */
+  {
+    test: [/bingbot/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Bing',
+      };
+    },
+  },
+
+  /* DuckDuckBot */
+  {
+    test: [/duckduckbot/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'DuckDuckGo',
+      };
+    },
+  },
+
+  /* Facebook */
+  {
+    test: [/facebookexternalhit/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Facebook',
+      };
+    },
+  },
+
+  /* Yahoo! Slurp */
+  {
+    test: [/yahoo/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Yahoo',
+      };
+    },
+  },
+
+  /* Yandex */
+  {
+    test: [/yandexbot/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Yandex',
+      };
+    },
+  },
+
+  /* Pingdom */
+  {
+    test: [/pingdom/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Pingdom',
+      };
+    },
+  },
+
   /* Huawei */
   {
     test: [/huawei/i],

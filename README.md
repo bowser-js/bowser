@@ -20,7 +20,7 @@ The library is made to help to detect what browser your user has and gives you a
 
 ### ⚠️ Version 2.0 breaking changes ⚠️
 
-Version 2.0 has drastically changed the API. All available methods are on the [docs page](https://lancedikson.github.io/bowser/docs).
+Version 2.0 has drastically changed the API. All available methods are on the [docs page](https://bowser-js.github.io/bowser/docs/).
 
 _For legacy code, check out the [1.x](https://github.com/lancedikson/bowser/tree/v1.x) branch and install it through `npm install bowser@1.9.4`._
 

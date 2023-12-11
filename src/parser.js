@@ -398,8 +398,17 @@ class Parser {
       const browserNames = Object.keys(browsers);
       const matchingDefinition = Utils.find(browserNames, name => (this.isBrowser(name, true)));
 
-      if (matchingDefinition !== void 0) {
-        return this.compareVersion(browsers[matchingDefinition]);
+      if (matchingDefinition !== void 0 && !checkTree.OS) {
+        return this.compareBrowserVersion(browsers[matchingDefinition]);
+      }
+
+      if (matchingDefinition !== void 0 && checkTree.OS) {
+        return this.compareBrowserVersion(browsers[matchingDefinition])
+        && this.compareOSVersion(checkTree.OS);
+      }
+
+      if (checkTree.OS) {
+        return this.compareOSVersion(checkTree.OS);
       }
     }
 
@@ -423,39 +432,47 @@ class Parser {
     return browserNameLower === defaultBrowserName;
   }
 
-  compareVersion(version) {
+  compareBrowserVersion(versionToCompare) {
+    const currentBrowserVersion = this.getBrowserVersion();
+    return this.compareVersion(currentBrowserVersion, versionToCompare);
+  }
+
+  compareOSVersion(versionToCompare) {
+    const currentOSVersion = this.getOSVersion();
+    return this.compareVersion(currentOSVersion, versionToCompare);
+  }
+
+  compareVersion = (version, versionToCompare) => {
     let expectedResults = [0];
-    let comparableVersion = version;
+    let comparableVersion = versionToCompare;
     let isLoose = false;
 
-    const currentBrowserVersion = this.getBrowserVersion();
-
-    if (typeof currentBrowserVersion !== 'string') {
+    if (typeof version !== 'string') {
       return void 0;
     }
 
-    if (version[0] === '>' || version[0] === '<') {
-      comparableVersion = version.substr(1);
-      if (version[1] === '=') {
+    if (versionToCompare[0] === '>' || versionToCompare[0] === '<') {
+      comparableVersion = versionToCompare.substr(1);
+      if (versionToCompare[1] === '=') {
         isLoose = true;
-        comparableVersion = version.substr(2);
+        comparableVersion = versionToCompare.substr(2);
       } else {
         expectedResults = [];
       }
-      if (version[0] === '>') {
+      if (versionToCompare[0] === '>') {
         expectedResults.push(1);
       } else {
         expectedResults.push(-1);
       }
-    } else if (version[0] === '=') {
-      comparableVersion = version.substr(1);
-    } else if (version[0] === '~') {
+    } else if (versionToCompare[0] === '=') {
+      comparableVersion = versionToCompare.substr(1);
+    } else if (versionToCompare[0] === '~') {
       isLoose = true;
-      comparableVersion = version.substr(1);
+      comparableVersion = versionToCompare.substr(1);
     }
 
     return expectedResults.indexOf(
-      Utils.compareVersions(currentBrowserVersion, comparableVersion, isLoose),
+      Utils.compareVersions(version, comparableVersion, isLoose),
     ) > -1;
   }
 

@@ -28,6 +28,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+      - run: npm i -g nyc
       - run: npm ci
       - run: npm run build
       - run: nyc npm test && nyc report --reporter=text-lcov | ./node_modules/coveralls/bin/coveralls.js

@@ -1,0 +1,29 @@
+name: Release
+
+on:
+  # This job runs when a new release is published
+  release:
+    types: [published]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
+      # Store the name of the release
+      # See https://stackoverflow.com/questions/58177786/get-the-current-pushed-tag-in-github-actions
+      - run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      - run: npm ci
+      - run: npm version $RELEASE_VERSION --no-git-tag-version
+      - run: npm run build
+      - run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.BOWSER_NPM_PUBLISH_TOKEN }}

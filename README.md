@@ -11,8 +11,6 @@ Don't hesitate to support the project on Github or [OpenCollective](https://open
 # Contents
 - [Overview](#overview)
 - [Use cases](#use-cases)
-- [Advanced usage](#advanced-usage)
-- [How can I help?](#contributing)
 
 # Overview
 

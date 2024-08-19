@@ -80,7 +80,7 @@ test('Skip parsing shouldn\'t parse', (t) => {
 });
 
 test('Parser.satisfies should make simple comparisons', (t) => {
-  // also covers Parser.compareVersion() method
+  // also covers Parser.compareVersion() and Parser.compareVersions() methods
   t.is(parser.satisfies({ opera: '>42' }), true);
   t.is(parser.satisfies({ opera: '<44' }), true);
   t.is(parser.satisfies({ opera: '=43.0.2442.1165' }), true);
@@ -94,6 +94,12 @@ test('Parser.satisfies should make simple comparisons', (t) => {
   t.is(parser.satisfies({ opera: '<=43.0.2443' }), true);
   t.is(parser.satisfies({ opera: '>=43.0.2441' }), true);
   t.is(parser.satisfies({ opera: '~43' }), true);
+});
+
+test('Parser.satisfies should make comparisons with array of versions', (t) => {
+  // also covers Parser.compareVersion() and Parser.compareVersions() methods
+  t.is(parser.satisfies({ opera: ['~42', '~43'] }), true);
+  t.is(parser.satisfies({ opera: ['~40', '~41'] }), false);
 });
 
 test('Parser.satisfies should make complex comparison', (t) => {

@@ -18,9 +18,9 @@ export default [
     },
   },
 
-  /* Alexa */
+  /* AmazonBot */
   {
-    test: [/ia_archiver/i],
+    test: [/Amazonbot/i],
     describe() {
       return {
         type: PLATFORMS_MAP.bot,
@@ -62,13 +62,24 @@ export default [
     },
   },
 
-  /* Facebook */
+  /* Internet Archive Crawler */
   {
-    test: [/facebookexternalhit/i],
+    test: [/ia_archiver/i],
     describe() {
       return {
         type: PLATFORMS_MAP.bot,
-        vendor: 'Facebook',
+        vendor: 'Internet Archive',
+      };
+    },
+  },
+
+  /* Meta Web Crawler */
+  {
+    test: [/facebookexternalhit/i, /facebookcatalog/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Meta',
       };
     },
   },

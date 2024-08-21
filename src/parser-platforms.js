@@ -97,7 +97,7 @@ export default [
 
   /* Yandex */
   {
-    test: [/yandexbot/i],
+    test: [/yandexbot/i, /yandexmobilebot/i],
     describe() {
       return {
         type: PLATFORMS_MAP.bot,

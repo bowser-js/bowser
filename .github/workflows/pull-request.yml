@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [16]
+        node: [14]
     name: Node ${{ matrix.node }}
     steps:
       - name: "Checkout latest code"

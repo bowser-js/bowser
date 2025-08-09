@@ -75,3 +75,10 @@ class Bowser {
 }
 
 export default Bowser;
+
+// Named exports for tree shaking
+export const { getParser } = Bowser;
+export const { parse } = Bowser;
+export {
+  BROWSER_MAP, ENGINE_MAP, OS_MAP, PLATFORMS_MAP,
+};

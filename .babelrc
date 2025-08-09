@@ -1,19 +1,23 @@
 {
-  "presets": [["@babel/preset-env", {
-    "useBuiltIns": "entry",
-    "modules": "cjs",
-    "loose": true,
-    "targets": {
-      "ie": "8",
-      "browsers": ">2%"
-    }
-  }]],
-  "plugins": [
-    "add-module-exports"
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "entry",
+        "corejs": 3,
+        "modules": "cjs",
+        "loose": true,
+        "targets": {
+          "ie": "8",
+          "browsers": ">2%"
+        }
+      }
+    ]
   ],
+  "plugins": ["add-module-exports"],
   "env": {
     "test": {
-      "plugins": [ "istanbul" ],
+      "plugins": ["istanbul"],
       "presets": [["@babel/preset-env", { "targets": { "node": "current" } }]]
     }
   }

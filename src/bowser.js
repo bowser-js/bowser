@@ -75,3 +75,9 @@ class Bowser {
 }
 
 export default Bowser;
+
+export const { getParser } = Bowser;
+export const { parse } = Bowser;
+export {
+  BROWSER_MAP, ENGINE_MAP, OS_MAP, PLATFORMS_MAP,
+};

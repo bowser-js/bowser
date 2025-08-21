@@ -19,10 +19,17 @@
       "url": "http://twitter.com/lancedikson"
     }
   ],
-  "main": "es5.js",
-  "browser": "es5.js",
-  "module": "src/bowser.js",
+  "main": "src/bowser.js",
+  "module": "src/bowser.js", 
   "types": "index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./src/bowser.js",
+      "require": "./src/bowser.js",
+      "types": "./index.d.ts"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lancedikson/bowser.git"

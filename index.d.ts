@@ -2,7 +2,7 @@
 // Project: https://github.com/lancedikson/bowser
 // Definitions by: Alexander P. Cerutti <https://github.com/alexandercerutti>,
 
-export default Bowser;
+export = Bowser;
 export as namespace Bowser;
 
 declare namespace Bowser {

@@ -87,6 +87,18 @@ export default [
     },
   },
 
+  /* HarmonyOS */
+  {
+    test: [/OpenHarmony/i],
+    describe(ua) {
+      const version = Utils.getFirstMatch(/OpenHarmony\s+(\d+(\.\d+)*)/i, ua);
+      return {
+        name: OS_MAP.HarmonyOS,
+        version,
+      };
+    },
+  },
+
   /* Android */
   {
     test(parser) {

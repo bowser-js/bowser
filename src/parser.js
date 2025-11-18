@@ -31,7 +31,7 @@ class Parser {
      * @typedef ParsedResult
      * @property {Object} browser
      * @property {String|undefined} [browser.name]
-     * Browser name, like `"Chrome"` or `"Internet Explorer"`
+     * Browser name in lowercase, like `"chrome"` or `"internet explorer"`
      * @property {String|undefined} [browser.version] Browser version as a String `"12.01.45334.10"`
      * @property {Object} os
      * @property {String|undefined} [os.name] OS name, like `"Windows"` or `"macOS"`

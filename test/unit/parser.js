@@ -28,13 +28,13 @@ test('Parser.parseBrowser is being called when the Parser.getBrowser() is called
   const spy = sinon.spy(parser, 'parseBrowser');
   const b = parser.getBrowser();
   t.truthy(spy.called);
-  t.is(b.name, 'Opera');
+  t.is(b.name, 'opera');
   t.is(b.version, '43.0.2442.1165');
   parser.parseBrowser.restore();
 });
 
 test('Parser.getBrowserName returns a correct result', (t) => {
-  t.is(parser.getBrowserName(), 'Opera');
+  t.is(parser.getBrowserName(), 'opera');
 });
 
 test('Parser.getBrowserVersion returns a correct result', (t) => {
@@ -220,8 +220,8 @@ test('Parser.isBrowser should pass when loosely checking', (t) => {
 });
 
 test('Parser.isBrowser should pass for non-aliased browsers', (t) => {
-  t.is(focusParser.isBrowser('Focus', true), true);
-  t.is(focusParser.isBrowser('Focus', false), true);
+  t.is(focusParser.isBrowser('focus', true), true);
+  t.is(focusParser.isBrowser('focus', false), true);
 });
 
 test('Parser.isEngine should pass', (t) => {

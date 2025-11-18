@@ -129,8 +129,8 @@ test('assign', (t) => {
 });
 
 test('getBrowserAlias', (t) => {
-  t.is(getBrowserAlias('Microsoft Edge'), 'edge');
-  t.is(getBrowserAlias('Unexisting Browser'), void 0);
+  t.is(getBrowserAlias('microsoft edge'), 'edge');
+  t.is(getBrowserAlias('unexisting browser'), void 0);
 });
 
 test('getBrowserTypeByAlias', (t) => {

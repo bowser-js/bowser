@@ -16,9 +16,11 @@ Don't hesitate to support the project on Github or [OpenCollective](https://open
 
 The library is made to help to detect what browser your user has and gives you a convenient API to filter the users somehow depending on their browsers. Check it out on this page: https://bowser-js.github.io/bowser-online/.
 
-### ⚠️ Version 2.0 breaking changes ⚠️
+### ⚠️ Breaking changes ⚠️
 
-Version 2.0 has drastically changed the API. All available methods are on the [docs page](https://bowser-js.github.io/bowser/docs/).
+**Version 3.0 (Current)**: Browser names are now returned in lowercase (e.g., `"chrome"`, `"firefox"` instead of `"Chrome"`, `"Firefox"`). This change improves compatibility with downstream libraries that perform case-sensitive string comparisons. If you need the display name with proper casing, use `Bowser.BROWSER_MAP[alias]`.
+
+**Version 2.0**: Version 2.0 has drastically changed the API. All available methods are on the [docs page](https://bowser-js.github.io/bowser/docs/).
 
 _For legacy code, check out the [1.x](https://github.com/lancedikson/bowser/tree/v1.x) branch and install it through `npm install bowser@1.9.4`._
 
@@ -50,7 +52,7 @@ Often we need to pick users' browser properties such as the name, the version, t
 const browser = Bowser.getParser(window.navigator.userAgent);
 
 console.log(`The current browser name is "${browser.getBrowserName()}"`);
-// The current browser name is "Internet Explorer"
+// The current browser name is "internet explorer"
 ```
 
 or
@@ -61,7 +63,7 @@ console.log(browser.getBrowser());
 
 // outputs
 {
-  name: "Internet Explorer"
+  name: "internet explorer"
   version: "11.0"
 }
 ```
@@ -74,7 +76,7 @@ console.log(Bowser.parse(window.navigator.userAgent));
 // outputs
 {
   browser: {
-    name: "Internet Explorer"
+    name: "internet explorer"
     version: "11.0"
   },
   os: {

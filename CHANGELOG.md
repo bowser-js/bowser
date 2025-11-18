@@ -1,5 +1,12 @@
 # Bowser Changelog
 
+### 3.0.0 (Nov 18, 2025)
+- [BREAKING] Browser names are now returned in lowercase (e.g., "chrome", "firefox" instead of "Chrome", "Firefox")
+  - This change improves compatibility with downstream libraries that perform case-sensitive string comparisons
+  - Use `Bowser.BROWSER_MAP[alias]` to get display names with proper casing
+  - Methods like `isBrowser()` and `is()` already performed case-insensitive comparisons and continue to work
+- [FIX] Fixed issue where SDKs using case-sensitive browser name comparisons would fail on all browsers
+
 ### 2.11.0 (Sep 12, 2020)
 - [ADD] Added support for aliases in `Parser#is` method (#437)
 - [ADD] Added more typings (#438, #427)

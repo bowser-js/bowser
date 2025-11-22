@@ -2549,6 +2549,211 @@
           vendor: "Google"
         engine:
           name: "Blink"
+  GPTBot:
+    -
+      ua: "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.1; +https://openai.com/gptbot)"
+      spec:
+        browser:
+          name: "GPTBot"
+          version: "1.1"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "OpenAI"
+        engine:
+          name: "Blink"
+  ChatGPT-User:
+    -
+      ua: "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ChatGPT-User/1.0; +https://openai.com/bot)"
+      spec:
+        browser:
+          name: "ChatGPT-User"
+          version: "1.0"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "OpenAI"
+        engine:
+          name: "Blink"
+  OAI-SearchBot:
+    -
+      ua: "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; OAI-SearchBot/1.0; +https://openai.com/searchbot)"
+      spec:
+        browser:
+          name: "OAI-SearchBot"
+          version: "1.0"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "OpenAI"
+        engine:
+          name: "Blink"
+  ClaudeBot:
+    -
+      ua: "Mozilla/5.0 (compatible; ClaudeBot/1.0; +https://www.anthropic.com/claudebot)"
+      spec:
+        browser:
+          name: "ClaudeBot"
+          version: "1.0"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Anthropic"
+        engine: {}
+  Omgilibot:
+    -
+      ua: "Mozilla/5.0 (compatible; Omgilibot/1.0; +https://www.omgili.com)"
+      spec:
+        browser:
+          name: "Omgilibot"
+          version: "1.0"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Webz.io"
+        engine: {}
+  Meta-WebIndexer:
+    -
+      ua: "meta-webindexer/1.1"
+      spec:
+        browser:
+          name: "Meta-WebIndexer"
+          version: "1.1"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Meta"
+        engine: {}
+    -
+      ua: "meta-webindexer/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler)"
+      spec:
+        browser:
+          name: "Meta-WebIndexer"
+          version: "1.1"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Meta"
+        engine: {}
+  Meta-ExternalAds:
+    -
+      ua: "meta-externalads/1.1"
+      spec:
+        browser:
+          name: "Meta-ExternalAds"
+          version: "1.1"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Meta"
+        engine: {}
+    -
+      ua: "meta-externalads/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler)"
+      spec:
+        browser:
+          name: "Meta-ExternalAds"
+          version: "1.1"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Meta"
+        engine: {}
+  Meta-ExternalAgent:
+    -
+      ua: "meta-externalagent/1.1"
+      spec:
+        browser:
+          name: "Meta-ExternalAgent"
+          version: "1.1"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Meta"
+        engine: {}
+    -
+      ua: "meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler)"
+      spec:
+        browser:
+          name: "Meta-ExternalAgent"
+          version: "1.1"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Meta"
+        engine: {}
+  Meta-ExternalFetcher:
+    -
+      ua: "meta-externalfetcher/1.1"
+      spec:
+        browser:
+          name: "Meta-ExternalFetcher"
+          version: "1.1"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Meta"
+        engine: {}
+    -
+      ua: "meta-externalfetcher/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler)"
+      spec:
+        browser:
+          name: "Meta-ExternalFetcher"
+          version: "1.1"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Meta"
+        engine: {}
+  Diffbot:
+    -
+      ua: "Mozilla/5.0 (compatible; Diffbot/3.0; +http://www.diffbot.com)"
+      spec:
+        browser:
+          name: "Diffbot"
+          version: "3.0"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Diffbot"
+        engine: {}
+  PerplexityBot:
+    -
+      ua: "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)"
+      spec:
+        browser:
+          name: "PerplexityBot"
+          version: "1.0"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Perplexity AI"
+        engine:
+          name: "Blink"
+  Perplexity-User:
+    -
+      ua: "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Perplexity-User/1.0; +https://perplexity.ai/perplexity-user)"
+      spec:
+        browser:
+          name: "Perplexity-User"
+          version: "1.0"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Perplexity AI"
+        engine:
+          name: "Blink"
+  YouBot:
+    -
+      ua: "Mozilla/5.0 (compatible; YouBot/1.0; +https://you.com/bot)"
+      spec:
+        browser:
+          name: "YouBot"
+          version: "1.0"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "You.com"
+        engine: {}
   AmazonBot:
      -
        ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.2.5 (KHTML, like Gecko) Version/8.0.2 Safari/600.2.5 (Amazonbot/0.1; +https://developer.amazon.com/support/amazonbot)"
@@ -2639,12 +2844,12 @@
           type: "bot"
           vendor: "Internet Archive"
         engine: {}
-  MetaWebCrawler:
+  FacebookExternalHit:
     -
       ua: "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)"
       spec:
         browser:
-          name: "MetaWebCrawler"
+          name: "FacebookExternalHit"
         os: {}
         platform:
           type: "bot"
@@ -2654,7 +2859,7 @@
       ua: "facebookexternalhit/1.1"
       spec:
         browser:
-          name: "MetaWebCrawler"
+          name: "FacebookExternalHit"
         os: {}
         platform:
           type: "bot"
@@ -2664,7 +2869,7 @@
       ua: "facebookcatalog/1.0"
       spec:
         browser:
-          name: "MetaWebCrawler"
+          name: "FacebookExternalHit"
         os: {}
         platform:
           type: "bot"

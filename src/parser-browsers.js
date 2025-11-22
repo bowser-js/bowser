@@ -45,6 +45,154 @@ const browsersList = [
     },
   },
 
+  /* AmazonBot */
+  {
+    test: [/amazonbot/i],
+    describe(ua) {
+      const browser = {
+        name: 'AmazonBot',
+      };
+      const version = Utils.getFirstMatch(/amazonbot\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* BingCrawler */
+  {
+    test: [/bingbot/i],
+    describe(ua) {
+      const browser = {
+        name: 'BingCrawler',
+      };
+      const version = Utils.getFirstMatch(/bingbot\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* BaiduSpider */
+  {
+    test: [/baiduspider/i],
+    describe(ua) {
+      const browser = {
+        name: 'BaiduSpider',
+      };
+      const version = Utils.getFirstMatch(/baiduspider\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* DuckDuckBot */
+  {
+    test: [/duckduckbot/i],
+    describe(ua) {
+      const browser = {
+        name: 'DuckDuckBot',
+      };
+      const version = Utils.getFirstMatch(/duckduckbot\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* InternetArchiveCrawler */
+  {
+    test: [/ia_archiver/i],
+    describe(ua) {
+      const browser = {
+        name: 'InternetArchiveCrawler',
+      };
+      const version = Utils.getFirstMatch(/ia_archiver\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* MetaWebCrawler */
+  {
+    test: [/facebookexternalhit/i, /facebookcatalog/i],
+    describe(ua) {
+      const browser = {
+        name: 'MetaWebCrawler',
+      };
+      const version = Utils.getFirstMatch(/facebookexternalhit\/(\d+(\.\d+)+)/i, ua)
+        || Utils.getFirstMatch(/facebookcatalog\/(\d+(\.\d+)+)/i, ua)
+        || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* YahooSlurp */
+  {
+    test: [/yahoo!?[\s/]*slurp/i],
+    describe() {
+      return {
+        name: 'YahooSlurp',
+      };
+    },
+  },
+
+  /* YandexBot */
+  {
+    test: [/yandexbot/i, /yandexmobilebot/i],
+    describe(ua) {
+      const browser = {
+        name: 'YandexBot',
+      };
+      const version = Utils.getFirstMatch(/yandex(?:bot|mobilebot)\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* PingdomBot */
+  {
+    test: [/pingdom/i],
+    describe(ua) {
+      const browser = {
+        name: 'PingdomBot',
+      };
+      const version = Utils.getFirstMatch(/version[_/](\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(/pingdom\.com_bot_.*?(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
   /* Opera < 13.0 */
   {
     test: [/opera/i],

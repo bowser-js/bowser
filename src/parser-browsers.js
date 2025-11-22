@@ -104,7 +104,7 @@ const browsersList = [
         name: 'Omgilibot',
       };
       const version = Utils.getFirstMatch(/(?:omgilibot|webzio-extended)\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
-      
+
       if (version) {
         browser.version = version;
       }

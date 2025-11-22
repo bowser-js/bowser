@@ -2671,7 +2671,8 @@
       platform:
         type: "bot"
         vendor: "Perplexity AI"
-      engine: {}
+      engine:
+        name: "Blink"
   YouBot:
     -
       ua: "Mozilla/5.0 (compatible; YouBot/1.0; +https://you.com/bot)"

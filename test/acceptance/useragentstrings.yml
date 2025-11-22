@@ -920,6 +920,86 @@
           name: "WebKit"
           version: "525.28.3"
     -
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Safari/605.1.15"
+      spec:
+        browser:
+          name: "Safari"
+          version: "14.0"
+        os:
+          name: "macOS"
+          version: "11.0"
+          versionName: "Big Sur"
+        platform:
+          type: "desktop"
+          vendor: "Apple"
+        engine:
+          name: "WebKit"
+          version: "605.1.15"
+    -
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 12_3) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15"
+      spec:
+        browser:
+          name: "Safari"
+          version: "15.4"
+        os:
+          name: "macOS"
+          version: "12.3"
+          versionName: "Monterey"
+        platform:
+          type: "desktop"
+          vendor: "Apple"
+        engine:
+          name: "WebKit"
+          version: "605.1.15"
+    -
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 13_2_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.3 Safari/605.1.15"
+      spec:
+        browser:
+          name: "Safari"
+          version: "16.3"
+        os:
+          name: "macOS"
+          version: "13.2.1"
+          versionName: "Ventura"
+        platform:
+          type: "desktop"
+          vendor: "Apple"
+        engine:
+          name: "WebKit"
+          version: "605.1.15"
+    -
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15"
+      spec:
+        browser:
+          name: "Safari"
+          version: "17.0"
+        os:
+          name: "macOS"
+          version: "14.0"
+          versionName: "Sonoma"
+        platform:
+          type: "desktop"
+          vendor: "Apple"
+        engine:
+          name: "WebKit"
+          version: "605.1.15"
+    -
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 15_0) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15"
+      spec:
+        browser:
+          name: "Safari"
+          version: "18.0"
+        os:
+          name: "macOS"
+          version: "15.0"
+          versionName: "Sequoia"
+        platform:
+          type: "desktop"
+          vendor: "Apple"
+        engine:
+          name: "WebKit"
+          version: "605.1.15"
+    -
       ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0_4 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11B554a"
       spec:
         browser:

@@ -38,6 +38,11 @@ test('getWindowsVersionName', (t) => {
 test('getMacOSVersionName', (t) => {
   t.is(getMacOSVersionName('10.14.5'), 'Mojave');
   t.is(getMacOSVersionName('10.15'), 'Catalina');
+  t.is(getMacOSVersionName('11.0'), 'Big Sur');
+  t.is(getMacOSVersionName('12.3.1'), 'Monterey');
+  t.is(getMacOSVersionName('13.2.1'), 'Ventura');
+  t.is(getMacOSVersionName('14.0'), 'Sonoma');
+  t.is(getMacOSVersionName('15.1'), 'Sequoia');
   t.is(getMacOSVersionName('10.999999'), void 0);
   t.is(getMacOSVersionName('XXX'), void 0);
 });

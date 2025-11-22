@@ -117,6 +117,7 @@ export const OS_MAP = {
   Bada: 'Bada',
   BlackBerry: 'BlackBerry',
   ChromeOS: 'Chrome OS',
+  HarmonyOS: 'HarmonyOS',
   iOS: 'iOS',
   Linux: 'Linux',
   MacOS: 'macOS',
@@ -126,7 +127,6 @@ export const OS_MAP = {
   WebOS: 'WebOS',
   Windows: 'Windows',
   WindowsPhone: 'Windows Phone',
-  HarmonyOS: 'HarmonyOS',
 };
 
 export const ENGINE_MAP = {

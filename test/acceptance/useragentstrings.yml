@@ -2549,7 +2549,9 @@
          platform:
            type: "bot"
            vendor: "Amazon"
-         engine: {}
+         engine:
+          name: "WebKit"
+          version: "600.2.5"
   BingCrawler:
     -
       ua: "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/"
@@ -2561,7 +2563,8 @@
         platform:
           type: "bot"
           vendor: "Bing"
-        engine: {}
+        engine: 
+          name: "Blink"
     -
       ua: "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) 80.0.345.0 Safari/537.36"
       spec:
@@ -2582,6 +2585,7 @@
         os:
           name: "Android"
           version: "6.0.1"
+          versionName: "Marshmallow"
         platform:
           type: "bot"
           vendor: "Bing"
@@ -2678,7 +2682,9 @@
       spec:
         browser:
           name: "YandexBot"
-        os: {}
+        os:
+          name: "iOS"
+          version: "8.1"
         platform:
           type: "bot"
           vendor: "Yandex"

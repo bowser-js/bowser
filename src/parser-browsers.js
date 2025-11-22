@@ -893,12 +893,12 @@ const browsersList = [
     },
   },
   {
-    test: [/firefox|iceweasel|fxios/i],
+    test: [/firefox|iceweasel|fxios|librewolf/i],
     describe(ua) {
       const browser = {
         name: 'Firefox',
       };
-      const version = Utils.getFirstMatch(/(?:firefox|iceweasel|fxios)[\s/](\d+(\.?_?\d+)+)/i, ua);
+      const version = Utils.getFirstMatch(/(?:firefox|iceweasel|fxios|librewolf)[\s/](\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;

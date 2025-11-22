@@ -154,6 +154,13 @@ const browsersList = [
       const browser = {
         name: 'Perplexity-User',
       };
+      const version = Utils.getFirstMatch(/perplexity-user\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
     },
   },
 

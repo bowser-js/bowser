@@ -283,12 +283,12 @@ const browsersList = [
     },
   },
 
-  /* MetaWebCrawler */
+  /* FacebookExternalHit */
   {
     test: [/facebookexternalhit/i, /facebookcatalog/i],
     describe() {
       return {
-        name: 'MetaWebCrawler',
+        name: 'FacebookExternalHit',
       };
     },
   },

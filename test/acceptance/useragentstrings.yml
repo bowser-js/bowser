@@ -2575,7 +2575,8 @@
         platform:
           type: "bot"
           vendor: "Bing"
-        engine: {}
+        engine:
+          name: "Blink"
     -
       ua: "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.345.0 Mobile Safari/537.36  (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)"
       spec:
@@ -2589,7 +2590,8 @@
         platform:
           type: "bot"
           vendor: "Bing"
-        engine: {}
+        engine:
+          name: "Blink"
   BaiduSpider:
     -
       ua: "Baiduspider"
@@ -2688,7 +2690,9 @@
         platform:
           type: "bot"
           vendor: "Yandex"
-        engine: {}
+        engine:
+          name: "WebKit"
+          version: "600.1.4"
   PingdomBot:
      -
        ua: "Pingdom.com_bot_version_1.4_(http://www.pingdom.com/)"

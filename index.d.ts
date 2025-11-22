@@ -5,7 +5,6 @@
 export default Bowser;
 export as namespace Bowser;
 
-// Named exports for tree shaking support
 export function getParser(UA: string, skipParsing?: boolean): Bowser.Parser.Parser;
 export function parse(UA: string): Bowser.Parser.ParsedResult;
 export const BROWSER_MAP: Record<string, string>;

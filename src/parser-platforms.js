@@ -183,6 +183,39 @@ export default [
     },
   },
 
+  /* Meta-ExternalAds */
+  {
+    test: [/meta-externalads/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Meta',
+      };
+    },
+  },
+
+  /* Meta-ExternalAgent */
+  {
+    test: [/meta-externalagent/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Meta',
+      };
+    },
+  },
+
+  /* Meta-ExternalFetcher */
+  {
+    test: [/meta-externalfetcher/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Meta',
+      };
+    },
+  },
+
   /* Meta Web Crawler */
   {
     test: [/facebookexternalhit/i, /facebookcatalog/i],

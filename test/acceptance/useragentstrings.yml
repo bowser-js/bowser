@@ -2635,6 +2635,75 @@
           type: "bot"
           vendor: "Meta"
         engine: {}
+  Meta-ExternalAds:
+    -
+      ua: "meta-externalads/1.1"
+      spec:
+        browser:
+          name: "Meta-ExternalAds"
+          version: "1.1"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Meta"
+        engine: {}
+    -
+      ua: "meta-externalads/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler)"
+      spec:
+        browser:
+          name: "Meta-ExternalAds"
+          version: "1.1"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Meta"
+        engine: {}
+  Meta-ExternalAgent:
+    -
+      ua: "meta-externalagent/1.1"
+      spec:
+        browser:
+          name: "Meta-ExternalAgent"
+          version: "1.1"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Meta"
+        engine: {}
+    -
+      ua: "meta-externalagent/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler)"
+      spec:
+        browser:
+          name: "Meta-ExternalAgent"
+          version: "1.1"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Meta"
+        engine: {}
+  Meta-ExternalFetcher:
+    -
+      ua: "meta-externalfetcher/1.1"
+      spec:
+        browser:
+          name: "Meta-ExternalFetcher"
+          version: "1.1"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Meta"
+        engine: {}
+    -
+      ua: "meta-externalfetcher/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler)"
+      spec:
+        browser:
+          name: "Meta-ExternalFetcher"
+          version: "1.1"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Meta"
+        engine: {}
   Diffbot:
     -
       ua: "Mozilla/5.0 (compatible; Diffbot/3.0; +http://www.diffbot.com)"

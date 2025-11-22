@@ -87,7 +87,7 @@ const browsersList = [
         name: 'ClaudeBot',
       };
       const version = Utils.getFirstMatch(/(?:claudebot|claude-web|claude-user|claude-searchbot)\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
-      
+
       if (version) {
         browser.version = version;
       }
@@ -189,6 +189,57 @@ const browsersList = [
         name: 'Meta-WebIndexer',
       };
       const version = Utils.getFirstMatch(/meta-webindexer\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* Meta-ExternalAds */
+  {
+    test: [/meta-externalads/i],
+    describe(ua) {
+      const browser = {
+        name: 'Meta-ExternalAds',
+      };
+      const version = Utils.getFirstMatch(/meta-externalads\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* Meta-ExternalAgent */
+  {
+    test: [/meta-externalagent/i],
+    describe(ua) {
+      const browser = {
+        name: 'Meta-ExternalAgent',
+      };
+      const version = Utils.getFirstMatch(/meta-externalagent\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* Meta-ExternalFetcher */
+  {
+    test: [/meta-externalfetcher/i],
+    describe(ua) {
+      const browser = {
+        name: 'Meta-ExternalFetcher',
+      };
+      const version = Utils.getFirstMatch(/meta-externalfetcher\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;

@@ -139,6 +139,17 @@ export default [
     },
   },
 
+  /* Perplexity-User */
+  {
+    test: [/perplexity-user/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Perplexity AI',
+      };
+    },
+  },
+
   /* YouBot */
   {
     test: [/youbot/i],

@@ -147,6 +147,16 @@ const browsersList = [
     },
   },
 
+  /* Perplexity-User */
+  {
+    test: [/perplexity-user/i],
+    describe(ua) {
+      const browser = {
+        name: 'Perplexity-User',
+      };
+    },
+  },
+
   /* YouBot */
   {
     test: [/youbot/i],

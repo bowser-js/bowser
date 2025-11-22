@@ -2575,8 +2575,7 @@
         platform:
           type: "bot"
           vendor: "Bing"
-        engine:
-          name: "Blink"
+        engine: {}
     -
       ua: "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.345.0 Mobile Safari/537.36  (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)"
       spec:

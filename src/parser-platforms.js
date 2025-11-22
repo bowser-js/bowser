@@ -20,7 +20,7 @@ export default [
 
   /* AmazonBot */
   {
-    test: [/Amazonbot/i],
+    test: [/amazonbot/i],
     describe() {
       return {
         type: PLATFORMS_MAP.bot,

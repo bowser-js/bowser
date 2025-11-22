@@ -81,13 +81,13 @@ const browsersList = [
 
   /* ClaudeBot */
   {
-    test: [/claudebot/i, /claude-web/i],
+    test: [/claudebot/i, /claude-web/i, /claude-user/i, /claude-searchbot/i],
     describe(ua) {
       const browser = {
         name: 'ClaudeBot',
       };
-      const version = Utils.getFirstMatch(/(?:claudebot|claude-web)\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
-
+      const version = Utils.getFirstMatch(/(?:claudebot|claude-web|claude-user|claude-searchbot)\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+      
       if (version) {
         browser.version = version;
       }
@@ -103,8 +103,8 @@ const browsersList = [
       const browser = {
         name: 'Omgilibot',
       };
-      const version = Utils.getFirstMatch(/omgilibot\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
-
+      const version = Utils.getFirstMatch(/(?:omgilibot|webzio-extended)\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+      
       if (version) {
         browser.version = version;
       }

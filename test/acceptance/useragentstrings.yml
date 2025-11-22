@@ -2614,7 +2614,18 @@
         engine: {}
   Meta-WebIndexer:
     -
-      ua: "Mozilla/5.0 (compatible; meta-webindexer/1.1; +http://developer.facebook.com/docs/sharing/webmasters/crawler)"
+      ua: "meta-webindexer/1.1"
+      spec:
+        browser:
+          name: "Meta-WebIndexer"
+          version: "1.1"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Meta"
+        engine: {}
+    -
+      ua: "meta-webindexer/1.1 (+https://developers.facebook.com/docs/sharing/webmasters/crawler)"
       spec:
         browser:
           name: "Meta-WebIndexer"

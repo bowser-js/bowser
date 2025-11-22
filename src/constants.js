@@ -1,7 +1,6 @@
 // NOTE: this list must be up-to-date with browsers listed in
 // test/acceptance/useragentstrings.yml
 export const BROWSER_ALIASES_MAP = {
-  'Applebot-Extended': 'applebot_extended',
   AmazonBot: 'amazonbot',
   'Amazon Silk': 'amazon_silk',
   'Android Browser': 'android',
@@ -17,12 +16,10 @@ export const BROWSER_ALIASES_MAP = {
   DuckDuckBot: 'duckduckbot',
   Electron: 'electron',
   Epiphany: 'epiphany',
-  FacebookBot: 'facebookbot',
   Firefox: 'firefox',
   Focus: 'focus',
   Generic: 'generic',
   'Google Search': 'google_search',
-  'Google-Extended': 'google_extended',
   Googlebot: 'googlebot',
   GPTBot: 'gptbot',
   'Internet Explorer': 'ie',
@@ -30,6 +27,7 @@ export const BROWSER_ALIASES_MAP = {
   'K-Meleon': 'k_meleon',
   Maxthon: 'maxthon',
   MetaWebCrawler: 'metawebcrawler',
+  'Meta-WebIndexer': 'meta_webindexer',
   'Microsoft Edge': 'edge',
   'MZ Browser': 'mz',
   'NAVER Whale Browser': 'naver',
@@ -64,7 +62,6 @@ export const BROWSER_ALIASES_MAP = {
 };
 
 export const BROWSER_MAP = {
-  applebot_extended: 'Applebot-Extended',
   amazonbot: 'AmazonBot',
   amazon_silk: 'Amazon Silk',
   android: 'Android Browser',
@@ -81,11 +78,9 @@ export const BROWSER_MAP = {
   edge: 'Microsoft Edge',
   electron: 'Electron',
   epiphany: 'Epiphany',
-  facebookbot: 'FacebookBot',
   firefox: 'Firefox',
   focus: 'Focus',
   generic: 'Generic',
-  google_extended: 'Google-Extended',
   google_search: 'Google Search',
   googlebot: 'Googlebot',
   gptbot: 'GPTBot',
@@ -94,6 +89,7 @@ export const BROWSER_MAP = {
   k_meleon: 'K-Meleon',
   maxthon: 'Maxthon',
   metawebcrawler: 'MetaWebCrawler',
+  meta_webindexer: 'Meta-WebIndexer',
   mz: 'MZ Browser',
   naver: 'NAVER Whale Browser',
   opera: 'Opera',

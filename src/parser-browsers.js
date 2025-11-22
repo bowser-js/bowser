@@ -79,40 +79,6 @@ const browsersList = [
     },
   },
 
-  /* Google-Extended */
-  {
-    test: [/google-extended/i],
-    describe(ua) {
-      const browser = {
-        name: 'Google-Extended',
-      };
-      const version = Utils.getFirstMatch(/google-extended\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
-
-      if (version) {
-        browser.version = version;
-      }
-
-      return browser;
-    },
-  },
-
-  /* Applebot-Extended */
-  {
-    test: [/applebot-extended/i],
-    describe(ua) {
-      const browser = {
-        name: 'Applebot-Extended',
-      };
-      const version = Utils.getFirstMatch(/applebot-extended\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
-
-      if (version) {
-        browser.version = version;
-      }
-
-      return browser;
-    },
-  },
-
   /* ClaudeBot */
   {
     test: [/claudebot/i, /claude-web/i],
@@ -138,23 +104,6 @@ const browsersList = [
         name: 'Omgilibot',
       };
       const version = Utils.getFirstMatch(/omgilibot\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
-
-      if (version) {
-        browser.version = version;
-      }
-
-      return browser;
-    },
-  },
-
-  /* FacebookBot */
-  {
-    test: [/facebookbot/i],
-    describe(ua) {
-      const browser = {
-        name: 'FacebookBot',
-      };
-      const version = Utils.getFirstMatch(/facebookbot\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;
@@ -206,6 +155,23 @@ const browsersList = [
         name: 'YouBot',
       };
       const version = Utils.getFirstMatch(/youbot\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* Meta-WebIndexer */
+  {
+    test: [/meta-webindexer/i],
+    describe(ua) {
+      const browser = {
+        name: 'Meta-WebIndexer',
+      };
+      const version = Utils.getFirstMatch(/meta-webindexer\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;

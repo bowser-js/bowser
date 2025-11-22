@@ -2560,7 +2560,8 @@
         platform:
           type: "bot"
           vendor: "OpenAI"
-        engine: {}
+        engine:
+          name: "Blink"
   ChatGPT-User:
     -
       ua: "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ChatGPT-User/1.0; +https://openai.com/bot)"
@@ -2572,7 +2573,8 @@
         platform:
           type: "bot"
           vendor: "OpenAI"
-        engine: {}
+        engine:
+          name: "Blink"
   OAI-SearchBot:
     -
       ua: "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; OAI-SearchBot/1.0; +https://openai.com/searchbot)"
@@ -2584,34 +2586,8 @@
         platform:
           type: "bot"
           vendor: "OpenAI"
-        engine: {}
-  Google-Extended:
-    -
-      ua: "Mozilla/5.0 (compatible; Google-Extended; +https://developers.google.com/search/help/google-extended)"
-      spec:
-        browser:
-          name: "Google-Extended"
-        os: {}
-        platform:
-          type: "bot"
-          vendor: "Google"
-        engine: {}
-  Applebot-Extended:
-    -
-      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15 (compatible; Applebot-Extended/1.0; +https://support.apple.com/applebot)"
-      spec:
-        browser:
-          name: "Applebot-Extended"
-          version: "1.0"
-        os:
-          name: "macOS"
-          version: "10.15.7"
-          versionName: "Catalina"
-        platform:
-          type: "bot"
-          vendor: "Apple"
         engine:
-          name: "WebKit"
+          name: "Blink"
   ClaudeBot:
     -
       ua: "Mozilla/5.0 (compatible; ClaudeBot/1.0; +https://www.anthropic.com/claudebot)"
@@ -2636,13 +2612,13 @@
           type: "bot"
           vendor: "Omgili"
         engine: {}
-  FacebookBot:
+  Meta-WebIndexer:
     -
-      ua: "Mozilla/5.0 (compatible; FacebookBot/1.0; +https://developers.facebook.com/docs/sharing/best-practices#crawl)"
+      ua: "Mozilla/5.0 (compatible; meta-webindexer/1.1; +http://developer.facebook.com/docs/sharing/webmasters/crawler)"
       spec:
         browser:
-          name: "FacebookBot"
-          version: "1.0"
+          name: "Meta-WebIndexer"
+          version: "1.1"
         os: {}
         platform:
           type: "bot"

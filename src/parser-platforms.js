@@ -29,6 +29,39 @@ export default [
     },
   },
 
+  /* GPTBot */
+  {
+    test: [/gptbot/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'OpenAI',
+      };
+    },
+  },
+
+  /* ChatGPT-User */
+  {
+    test: [/chatgpt-user/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'OpenAI',
+      };
+    },
+  },
+
+  /* OAI-SearchBot */
+  {
+    test: [/oai-searchbot/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'OpenAI',
+      };
+    },
+  },
+
   /* Baidu */
   {
     test: [/baiduspider/i],
@@ -62,6 +95,61 @@ export default [
     },
   },
 
+  /* ClaudeBot */
+  {
+    test: [/claudebot/i, /claude-web/i, /claude-user/i, /claude-searchbot/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Anthropic',
+      };
+    },
+  },
+
+  /* Omgilibot */
+  {
+    test: [/omgilibot/i, /webzio-extended/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Omgili',
+      };
+    },
+  },
+
+  /* Diffbot */
+  {
+    test: [/diffbot/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Diffbot',
+      };
+    },
+  },
+
+  /* PerplexityBot */
+  {
+    test: [/perplexitybot/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Perplexity AI',
+      };
+    },
+  },
+
+  /* YouBot */
+  {
+    test: [/youbot/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'You.com',
+      };
+    },
+  },
+
   /* Internet Archive Crawler */
   {
     test: [/ia_archiver/i],
@@ -69,6 +157,17 @@ export default [
       return {
         type: PLATFORMS_MAP.bot,
         vendor: 'Internet Archive',
+      };
+    },
+  },
+
+  /* Meta-WebIndexer */
+  {
+    test: [/meta-webindexer/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Meta',
       };
     },
   },

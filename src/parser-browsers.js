@@ -28,6 +28,193 @@ import Utils from './utils.js';
 const commonVersionIdentifier = /version\/(\d+(\.?_?\d+)+)/i;
 
 const browsersList = [
+  /* GPTBot */
+  {
+    test: [/gptbot/i],
+    describe(ua) {
+      const browser = {
+        name: 'GPTBot',
+      };
+      const version = Utils.getFirstMatch(/gptbot\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* ChatGPT-User */
+  {
+    test: [/chatgpt-user/i],
+    describe(ua) {
+      const browser = {
+        name: 'ChatGPT-User',
+      };
+      const version = Utils.getFirstMatch(/chatgpt-user\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* OAI-SearchBot */
+  {
+    test: [/oai-searchbot/i],
+    describe(ua) {
+      const browser = {
+        name: 'OAI-SearchBot',
+      };
+      const version = Utils.getFirstMatch(/oai-searchbot\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* Google-Extended */
+  {
+    test: [/google-extended/i],
+    describe(ua) {
+      const browser = {
+        name: 'Google-Extended',
+      };
+      const version = Utils.getFirstMatch(/google-extended\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* Applebot-Extended */
+  {
+    test: [/applebot-extended/i],
+    describe(ua) {
+      const browser = {
+        name: 'Applebot-Extended',
+      };
+      const version = Utils.getFirstMatch(/applebot-extended\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* ClaudeBot */
+  {
+    test: [/claudebot/i, /claude-web/i],
+    describe(ua) {
+      const browser = {
+        name: 'ClaudeBot',
+      };
+      const version = Utils.getFirstMatch(/(?:claudebot|claude-web)\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* Omgilibot */
+  {
+    test: [/omgilibot/i],
+    describe(ua) {
+      const browser = {
+        name: 'Omgilibot',
+      };
+      const version = Utils.getFirstMatch(/omgilibot\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* FacebookBot */
+  {
+    test: [/facebookbot/i],
+    describe(ua) {
+      const browser = {
+        name: 'FacebookBot',
+      };
+      const version = Utils.getFirstMatch(/facebookbot\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* Diffbot */
+  {
+    test: [/diffbot/i],
+    describe(ua) {
+      const browser = {
+        name: 'Diffbot',
+      };
+      const version = Utils.getFirstMatch(/diffbot\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* PerplexityBot */
+  {
+    test: [/perplexitybot/i],
+    describe(ua) {
+      const browser = {
+        name: 'PerplexityBot',
+      };
+      const version = Utils.getFirstMatch(/perplexitybot\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* YouBot */
+  {
+    test: [/youbot/i],
+    describe(ua) {
+      const browser = {
+        name: 'YouBot',
+      };
+      const version = Utils.getFirstMatch(/youbot\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
   /* Googlebot */
   {
     test: [/googlebot/i],

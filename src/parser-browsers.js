@@ -283,6 +283,57 @@ const browsersList = [
     },
   },
 
+  /* MSNBot */
+  {
+    test: [/msnbot/i],
+    describe(ua) {
+      const browser = {
+        name: 'MSNBot',
+      };
+      const version = Utils.getFirstMatch(/msnbot\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* BingPreview */
+  {
+    test: [/bingpreview/i],
+    describe(ua) {
+      const browser = {
+        name: 'BingPreview',
+      };
+      const version = Utils.getFirstMatch(/bingpreview\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* AdIdxBot */
+  {
+    test: [/adidxbot/i],
+    describe(ua) {
+      const browser = {
+        name: 'AdIdxBot',
+      };
+      const version = Utils.getFirstMatch(/adidxbot\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
   /* BingCrawler */
   {
     test: [/bingbot/i],

@@ -3641,3 +3641,70 @@
         engine:
           name: "Gecko"
           version: "20100101"
+  Samsung Smart TV:
+    -
+      ua: "Mozilla/5.0 (SMART-TV; Linux; Tizen 2.4.0) AppleWebkit/538.1 (KHTML, like Gecko) SamsungBrowser/1.1 TV Safari/538.1"
+      spec:
+        browser:
+          name: "Samsung Internet for Android"
+          version: "1.1"
+        os:
+          name: "Tizen"
+          version: "2.4.0"
+        platform:
+          type: "tv"
+        engine:
+          name: "WebKit"
+          version: "538.1"
+    -
+      ua: "Mozilla/5.0 (SMART-TV; X11; Linux armv7l) AppleWebKit/537.42 (KHTML, like Gecko) Chromium/25.0.1349.2 Chrome/25.0.1349.2 Safari/537.42"
+      spec:
+        browser:
+          name: "Chrome"
+          version: "25.0.1349.2"
+        os:
+          name: "Linux"
+        platform:
+          type: "tv"
+        engine:
+          name: "WebKit"
+          version: "537.42"
+    -
+      ua: "Mozilla/5.0 (SmartHub; SMART-TV; U; Linux/SmartTV) AppleWebKit/531.2+ (KHTML, like Gecko) WebBrowser/1.0 SmartTV Safari/531.2+"
+      spec:
+        browser:
+          name: "Generic"
+          version: "1.0"
+        os:
+          name: "Linux"
+        platform:
+          type: "tv"
+        engine:
+          name: "WebKit"
+          version: "531.2"
+  LG Smart TV:
+    -
+      ua: "Mozilla/5.0 (Web0S; Linux/SmartTV) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.122 Safari/537.36 WebAppManager"
+      spec:
+        browser:
+          name: "Chrome"
+          version: "38.0.2125.122"
+        os:
+          name: "WebOS"
+        platform:
+          type: "tv"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Linux; NetCast; U) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.33 Safari/537.31"
+      spec:
+        browser:
+          name: "Chrome"
+          version: "26.0.1410.33"
+        os:
+          name: "Linux"
+        platform:
+          type: "tv"
+        engine:
+          name: "WebKit"
+          version: "537.31"

@@ -2610,7 +2610,7 @@
         os: {}
         platform:
           type: "bot"
-          vendor: "Omgili"
+          vendor: "Webz.io"
         engine: {}
   Meta-WebIndexer:
     -

@@ -112,7 +112,7 @@ export default [
     describe() {
       return {
         type: PLATFORMS_MAP.bot,
-        vendor: 'Omgili',
+        vendor: 'Webz.io',
       };
     },
   },

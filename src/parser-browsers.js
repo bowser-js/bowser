@@ -133,19 +133,10 @@ const browsersList = [
   /* MetaWebCrawler */
   {
     test: [/facebookexternalhit/i, /facebookcatalog/i],
-    describe(ua) {
-      const browser = {
+    describe() {
+      return {
         name: 'MetaWebCrawler',
       };
-      const version = Utils.getFirstMatch(/facebookexternalhit\/(\d+(\.\d+)+)/i, ua)
-        || Utils.getFirstMatch(/facebookcatalog\/(\d+(\.\d+)+)/i, ua)
-        || Utils.getFirstMatch(commonVersionIdentifier, ua);
-
-      if (version) {
-        browser.version = version;
-      }
-
-      return browser;
     },
   },
 
@@ -162,34 +153,20 @@ const browsersList = [
   /* YandexBot */
   {
     test: [/yandexbot/i, /yandexmobilebot/i],
-    describe(ua) {
-      const browser = {
+    describe() {
+      return {
         name: 'YandexBot',
       };
-      const version = Utils.getFirstMatch(/yandex(?:bot|mobilebot)\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
-
-      if (version) {
-        browser.version = version;
-      }
-
-      return browser;
     },
   },
 
   /* PingdomBot */
   {
     test: [/pingdom/i],
-    describe(ua) {
-      const browser = {
+    describe() {
+      return {
         name: 'PingdomBot',
       };
-      const version = Utils.getFirstMatch(/version[_/](\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(/pingdom\.com_bot_.*?(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
-
-      if (version) {
-        browser.version = version;
-      }
-
-      return browser;
     },
   },
 

@@ -2618,7 +2618,7 @@
         os: {}
         platform:
           type: "bot"
-          vendor: "InternetArchive"
+          vendor: "Internet Archive"
         engine: {}
   MetaWebCrawler:
     -

@@ -2658,8 +2658,9 @@
         platform:
           type: "bot"
           vendor: "Perplexity AI"
-        engine: {}
-  Perplexity‑User:
+        engine:
+          name: "Blink"
+  Perplexity-User:
    -
     ua: "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Perplexity-User/1.0; +https://perplexity.ai/perplexity-user)"
     spec:

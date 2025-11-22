@@ -3223,6 +3223,51 @@
           type: "mobile"
         engine:
           name: "Blink"
+  Sogou Browser:
+    -
+      ua: "Mozilla/5.0 (Linux; Android 5.1.1; SM-G9280 Build/LMY47X; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile Safari/537.36 SogouMobileBrowser/3.5.3"
+      spec:
+        browser:
+          name: "Sogou Browser"
+          version: "3.5.3"
+        os:
+          name: "Android"
+          version: "5.1.1"
+          versionName: "Lollipop"
+        platform:
+          type: "mobile"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.221 Safari/537.36 SE 2.X MetaSr 1.0"
+      spec:
+        browser:
+          name: "Sogou Browser"
+          version: "49.0.2623.221"
+        os:
+          name: "Windows"
+          version: "NT 6.1"
+          versionName: "7"
+        platform:
+          type: "desktop"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 SogouMobileBrowser/5.22.1"
+      spec:
+        browser:
+          name: "Sogou Browser"
+          version: "5.22.1"
+        os:
+          name: "iOS"
+          version: "12.4.8"
+        platform:
+          type: "mobile"
+          vendor: "Apple"
+          model: "iPhone"
+        engine:
+          name: "WebKit"
+          version: "605.1.15"
   NAVER Whale Browser:
     -
       ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Whale/1.0.40.10 Safari/537.36"

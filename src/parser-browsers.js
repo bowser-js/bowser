@@ -98,7 +98,7 @@ const browsersList = [
 
   /* Omgilibot */
   {
-    test: [/omgilibot/i],
+    test: [/omgilibot/i, /webzio-extended/i],
     describe(ua) {
       const browser = {
         name: 'Omgilibot',

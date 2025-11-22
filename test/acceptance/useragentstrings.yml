@@ -3252,6 +3252,21 @@
           type: "desktop"
         engine:
           name: "Blink"
+    -
+      ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4_8 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 SogouMobileBrowser/5.22.1"
+      spec:
+        browser:
+          name: "Sogou Browser"
+          version: "5.22.1"
+        os:
+          name: "iOS"
+          version: "12.4.8"
+        platform:
+          type: "mobile"
+          vendor: "Apple"
+          model: "iPhone"
+        engine:
+          name: "WebKit"
   NAVER Whale Browser:
     -
       ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Whale/1.0.40.10 Safari/537.36"

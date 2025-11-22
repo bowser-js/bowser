@@ -324,7 +324,7 @@ const browsersList = [
       const browser = {
         name: 'AdIdxBot',
       };
-      const version = Utils.getFirstMatch(/adidxbot\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+      const version = Utils.getFirstMatch(/adidxbot\/(\d+(\.\d+)*[a-z]*)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;

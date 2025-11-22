@@ -1915,6 +1915,20 @@
         engine:
           name: "WebKit"
           version: "605.1.15"
+  LibreWolf:
+    -
+      ua: "Mozilla/5.0 (X11; Linux x86_64; rv:124.0) Gecko/20100101 LibreWolf/124.0.2"
+      spec:
+        browser:
+          name: "LibreWolf"
+          version: "124.0.2"
+        os:
+          name: "Linux"
+        platform:
+          type: "desktop"
+        engine:
+          name: "Gecko"
+          version: "20100101"
   SeaMonkey:
     -
       ua: "Mozilla/5.0 (Windows NT 5.2; rv:10.0.1) Gecko/20100101 Firefox/10.0.1 SeaMonkey/2.7.1"

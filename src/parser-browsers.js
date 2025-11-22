@@ -893,6 +893,21 @@ const browsersList = [
     },
   },
   {
+    test: [/librewolf/i],
+    describe(ua) {
+      const browser = {
+        name: 'LibreWolf',
+      };
+      const version = Utils.getFirstMatch(/(?:librewolf)[\s/](\d+(\.?_?\d+)+)/i, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
     test: [/firefox|iceweasel|fxios/i],
     describe(ua) {
       const browser = {

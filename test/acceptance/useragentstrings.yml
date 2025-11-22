@@ -1915,11 +1915,12 @@
         engine:
           name: "WebKit"
           version: "605.1.15"
+  LibreWolf:
     -
       ua: "Mozilla/5.0 (X11; Linux x86_64; rv:124.0) Gecko/20100101 LibreWolf/124.0.2"
       spec:
         browser:
-          name: "Firefox"
+          name: "LibreWolf"
           version: "124.0.2"
         os:
           name: "Linux"

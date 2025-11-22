@@ -290,7 +290,7 @@ const browsersList = [
       const browser = {
         name: 'MSNBot',
       };
-      const version = Utils.getFirstMatch(/msnbot\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+      const version = Utils.getFirstMatch(/msnbot\/(\d+(\.\d+)*[a-z]*)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;
@@ -307,7 +307,7 @@ const browsersList = [
       const browser = {
         name: 'BingPreview',
       };
-      const version = Utils.getFirstMatch(/bingpreview\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+      const version = Utils.getFirstMatch(/bingpreview\/(\d+(\.\d+)*[a-z]*)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;

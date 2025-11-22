@@ -938,6 +938,24 @@ const browsersList = [
     },
   },
   {
+    test: [/sogoumobilebrowser/i, /metasr/i, /se 2\.[x]/i],
+    describe(ua) {
+      const browser = {
+        name: 'Sogou Browser',
+      };
+      const sogouMobileVersion = Utils.getFirstMatch(/(?:sogoumobilebrowser)[\s/](\d+(\.?_?\d+)+)/i, ua);
+      const chromiumVersion = Utils.getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.?_?\d+)+)/i, ua);
+      const seVersion = Utils.getFirstMatch(/se ([\d.]+)x/i, ua);
+      const version = sogouMobileVersion || chromiumVersion || seVersion;
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
     test: [/MiuiBrowser/i],
     describe(ua) {
       const browser = {

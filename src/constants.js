@@ -107,6 +107,7 @@ export const OS_MAP = {
   ChromeOS: 'Chrome OS',
   PlayStation4: 'PlayStation 4',
   Roku: 'Roku',
+  HarmonyOS: 'HarmonyOS',
 };
 
 export const ENGINE_MAP = {

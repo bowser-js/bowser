@@ -2549,6 +2549,174 @@
           vendor: "Google"
         engine:
           name: "Blink"
+  AmazonBot:
+     -
+       ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.2.5 (KHTML, like Gecko) Version/8.0.2 Safari/600.2.5 (Amazonbot/0.1; +https://developer.amazon.com/support/amazonbot)"
+       spec:
+         browser:
+           name: "AmazonBot"
+           version: "0.1"
+         os:
+           name: "macOS"
+           version: "10.10.1"
+           versionName: "Yosemite"
+         platform:
+           type: "bot"
+           vendor: "Amazon"
+         engine:
+          name: "WebKit"
+          version: "600.2.5"
+  BingCrawler:
+    -
+      ua: "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/"
+      spec:
+        browser:
+          name: "BingCrawler"
+          version: "2.0"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Bing"
+        engine: 
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) 80.0.345.0 Safari/537.36"
+      spec:
+        browser:
+          name: "BingCrawler"
+          version: "2.0"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Bing"
+        engine: {}
+    -
+      ua: "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.345.0 Mobile Safari/537.36  (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)"
+      spec:
+        browser:
+          name: "BingCrawler"
+          version: "2.0"
+        os:
+          name: "Android"
+          version: "6.0.1"
+          versionName: "Marshmallow"
+        platform:
+          type: "bot"
+          vendor: "Bing"
+        engine:
+          name: "Blink"
+  BaiduSpider:
+    -
+      ua: "Baiduspider"
+      spec:
+        browser:
+          name: "BaiduSpider"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Baidu"
+        engine: {}
+  DuckDuckBot:
+    -
+      ua: "DuckDuckBot/1.1; (+http://duckduckgo.com/duckduckbot.html)"
+      spec:
+        browser:
+          name: "DuckDuckBot"
+          version: "1.1"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "DuckDuckGo"
+        engine: {}
+  InternetArchiveCrawler:
+    -
+      ua: "ia_archiver"
+      spec:
+        browser:
+          name: "InternetArchiveCrawler"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Internet Archive"
+        engine: {}
+  MetaWebCrawler:
+    -
+      ua: "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)"
+      spec:
+        browser:
+          name: "MetaWebCrawler"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Meta"
+        engine: {}
+    -
+      ua: "facebookexternalhit/1.1"
+      spec:
+        browser:
+          name: "MetaWebCrawler"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Meta"
+        engine: {}
+    -
+      ua: "facebookcatalog/1.0"
+      spec:
+        browser:
+          name: "MetaWebCrawler"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Meta"
+        engine: {}
+  YahooSlurp:
+    -
+      ua: "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)"
+      spec:
+        browser:
+          name: "YahooSlurp"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Yahoo"
+        engine: {}
+  YandexBot:
+    -
+      ua: "Mozilla/5.0 (compatible; YandexBot/3.0; +http://yandex.com/bots)"
+      spec:
+        browser:
+          name: "YandexBot"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Yandex"
+        engine: {}
+    -
+      ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 8_1 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12B411 Safari/600.1.4 (compatible; YandexMobileBot/3.0; +http://yandex.com/bots)"
+      spec:
+        browser:
+          name: "YandexBot"
+        os:
+          name: "iOS"
+          version: "8.1"
+        platform:
+          type: "bot"
+          vendor: "Yandex"
+        engine:
+          name: "WebKit"
+          version: "600.1.4"
+  PingdomBot:
+     -
+       ua: "Pingdom.com_bot_version_1.4_(http://www.pingdom.com/)"
+       spec:
+         browser:
+           name: "PingdomBot"
+         os: {}
+         platform:
+           type: "bot"
+           vendor: "Pingdom"
+         engine: {}
   WeChat:
     -
       ua: "Mozilla/5.0 (iPad; U; CPU OS 9 like Mac OS X; en-us; iPad4,4) AppleWebKit/534.46 (KHTML, like Gecko) MicroMessenger/6.5.2.501 U3/1 Safari/7543.48.3"

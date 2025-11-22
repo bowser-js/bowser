@@ -17,6 +17,10 @@
     {
       "name": "Denis Demchenko",
       "url": "http://twitter.com/lancedikson"
+    },
+    {
+      "name": "Naor Peled",
+      "url": "https://github.com/naorpeled"
     }
   ],
   "main": "es5.js",

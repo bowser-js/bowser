@@ -2661,18 +2661,18 @@
         engine:
           name: "Blink"
   Perplexity-User:
-   -
-    ua: "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Perplexity-User/1.0; +https://perplexity.ai/perplexity-user)"
-    spec:
-      browser:
-        name: "Perplexity-User"
-        version: "1.0"
-      os: {}
-      platform:
-        type: "bot"
-        vendor: "Perplexity AI"
-      engine:
-        name: "Blink"
+    -
+      ua: "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Perplexity-User/1.0; +https://perplexity.ai/perplexity-user)"
+      spec:
+        browser:
+          name: "Perplexity-User"
+          version: "1.0"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Perplexity AI"
+        engine:
+          name: "Blink"
   YouBot:
     -
       ua: "Mozilla/5.0 (compatible; YouBot/1.0; +https://you.com/bot)"

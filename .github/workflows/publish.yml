@@ -1,0 +1,63 @@
+name: Release
+
+on:
+  # This job runs when a new release is published
+  release:
+    types: [published]
+  # Manual trigger with version input
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to release (e.g., 2.12.1)"
+        required: true
+        type: string
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 12.16.3
+          registry-url: "https://registry.npmjs.org"
+      - uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
+      # Store the release version (from release tag or manual input)
+      - name: Set release version
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "RELEASE_VERSION=${{ github.event.inputs.version }}" >> $GITHUB_ENV
+            echo "Manual release triggered for version: ${{ github.event.inputs.version }}"
+          else
+            echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+            echo "Release triggered from tag: ${GITHUB_REF#refs/*/}"
+          fi
+      - run: npm ci
+      - run: npm version $RELEASE_VERSION --no-git-tag-version
+      - run: npm run build
+      - name: Publish to npm with retry
+        run: |
+          max_attempts=5
+          attempt=1
+          while [ $attempt -le $max_attempts ]; do
+            echo "Attempt $attempt of $max_attempts..."
+            if npm publish --access public; then
+              echo "Successfully published!"
+              break
+            else
+              if [ $attempt -eq $max_attempts ]; then
+                echo "Failed to publish after $max_attempts attempts"
+                exit 1
+              fi
+              echo "Publish failed, waiting before retry..."
+              sleep_time=$((attempt * 30))
+              echo "Waiting ${sleep_time} seconds before retry..."
+              sleep $sleep_time
+              attempt=$((attempt + 1))
+            fi
+          done
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.BOWSER_NPM_PUBLISH_TOKEN }}

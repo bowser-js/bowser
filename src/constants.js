@@ -126,6 +126,7 @@ export const OS_MAP = {
   WebOS: 'WebOS',
   Windows: 'Windows',
   WindowsPhone: 'Windows Phone',
+  HarmonyOS: 'HarmonyOS',
 };
 
 export const ENGINE_MAP = {

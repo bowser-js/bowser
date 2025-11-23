@@ -1,0 +1,89 @@
+<svg width="1200" height="627" viewBox="0 0 1200 627" xmlns="http://www.w3.org/2000/svg" role="img"
+    aria-label="Bowser v2.12.0 release announcement"
+    style="shape-rendering: geometricPrecision; text-rendering: geometricPrecision;">
+    <defs>
+        <linearGradient id="bgGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#0ea5e9" />
+            <stop offset="50%" stop-color="#6366f1" />
+            <stop offset="100%" stop-color="#8b5cf6" />
+        </linearGradient>
+
+        <radialGradient id="vignette" cx="50%" cy="45%" r="70%">
+            <stop offset="60%" stop-color="#00000000" />
+            <stop offset="100%" stop-color="#00000066" />
+        </radialGradient>
+
+        <pattern id="dotGrid" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+            <circle cx="1" cy="1" r="1" fill="#ffffff" opacity="0.12" />
+        </pattern>
+
+        <filter id="softBlur" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="24" />
+        </filter>
+
+        <linearGradient id="accentGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#10b981" />
+            <stop offset="100%" stop-color="#34d399" />
+        </linearGradient>
+    </defs>
+
+    <!-- Background -->
+    <rect width="1200" height="627" fill="url(#bgGradient)" />
+    <rect width="1200" height="627" fill="url(#vignette)" opacity="0.5" />
+    <rect width="1200" height="627" fill="url(#dotGrid)" opacity="0.25" />
+
+    <!-- Abstract accents -->
+    <g opacity="0.18" filter="url(#softBlur)">
+        <circle cx="1060" cy="120" r="140" fill="#22d3ee" />
+        <circle cx="120" cy="540" r="160" fill="#a78bfa" />
+        <circle cx="980" cy="520" r="120" fill="#34d399" />
+    </g>
+
+    <!-- Right-side: minimal browser window icon -->
+    <g transform="translate(700,164)">
+        <rect x="0" y="0" rx="22" ry="22" width="400" height="300" fill="#ffffff0f" stroke="#ffffff55" />
+        <!-- top bar -->
+        <rect x="0" y="0" rx="22" ry="22" width="400" height="54" fill="#ffffff1a" />
+        <circle cx="28" cy="27" r="6" fill="#ef4444" />
+        <circle cx="50" cy="27" r="6" fill="#f59e0b" />
+        <circle cx="72" cy="27" r="6" fill="#10b981" />
+        <!-- address bar -->
+        <rect x="100" y="16" rx="10" ry="10" width="280" height="22" fill="#ffffff22" />
+        <!-- user icon inside window (standard user avatar) -->
+        <g transform="translate(200,175)">
+            <!-- badge ring -->
+            <circle cx="0" cy="10" r="86" fill="#ffffff09" />
+            <circle cx="0" cy="10" r="74" fill="none" stroke="url(#accentGradient)" stroke-width="3" opacity="0.9" />
+            <!-- hat -->
+            <rect x="-18" y="-28" width="36" height="10" rx="5" fill="#ffffff" opacity="0.98" />
+            <rect x="-28" y="-20" width="56" height="7" rx="3" fill="#ffffff" opacity="0.98" />
+            <!-- head -->
+            <circle cx="0" cy="2" r="20" fill="#ffffff" opacity="0.98" />
+            <!-- question mark on head -->
+            <text x="0" y="8" text-anchor="middle" font-family="'SF Pro Display', -apple-system, sans-serif"
+                font-size="18" font-weight="800" fill="#6366f1" opacity="0.9">?</text>
+            <!-- shoulders -->
+            <path d="M-35 25 Q -20 18 0 18 Q 20 18 35 25 Q 35 35 35 45 L -35 45 Q -35 35 -35 25 Z" fill="#ffffff"
+                opacity="0.96" />
+        </g>
+    </g>
+
+    <!-- Title & details -->
+    <g font-family="'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif"
+        fill="#ffffff">
+        <text x="120" y="290" font-size="84" font-weight="800" letter-spacing="-1.5">Bowser</text>
+
+        <!-- Version pill (placed below title to avoid overlap) -->
+        <g transform="translate(120,340)">
+            <rect x="0" y="0" rx="16" ry="16" width="290" height="48" fill="url(#accentGradient)" opacity="0.95" />
+            <text x="20" y="32" font-size="26" font-weight="700">New release · v2.12.0</text>
+        </g>
+
+        <!-- GitHub URL -->
+        <text x="125" y="435" font-size="26" font-weight="700" opacity="0.85"
+            fill="#ffffff">github.com/bowser-js/bowser</text>
+
+    </g>
+
+
+</svg>

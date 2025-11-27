@@ -360,7 +360,7 @@ class Parser {
 
     allDefinitions.forEach((key) => {
       const currentDefinition = checkTree[key];
-      if (typeof currentDefinition === 'string') {
+      if (typeof currentDefinition === 'string' || Array.isArray(currentDefinition)) {
         browsers[key] = currentDefinition;
         browsersCounter += 1;
       } else if (typeof currentDefinition === 'object') {
@@ -399,7 +399,7 @@ class Parser {
       const matchingDefinition = Utils.find(browserNames, name => (this.isBrowser(name, true)));
 
       if (matchingDefinition !== void 0) {
-        return this.compareVersion(browsers[matchingDefinition]);
+        return this.compareVersions(browsers[matchingDefinition]);
       }
     }
 
@@ -421,6 +421,19 @@ class Parser {
       browserNameLower = alias.toLowerCase();
     }
     return browserNameLower === defaultBrowserName;
+  }
+
+  /**
+   * Check if browser version equals the version or equals one of versions
+   * @param {(string|string[])} versionsOrVersion versions strings array or version string
+   * @returns {boolean}
+   */
+  compareVersions(versionsOrVersion) {
+    if (typeof versionsOrVersion === 'string') {
+      return this.compareVersion(versionsOrVersion);
+    }
+
+    return versionsOrVersion.some(version => this.compareVersion(version));
   }
 
   compareVersion(version) {

@@ -54,6 +54,7 @@
     "nyc": "^15.0.0",
     "sinon": "^9.0.0",
     "testem": "^3.0.0",
+    "typescript": "^5.9.3",
     "webpack": "^4.41.0",
     "webpack-bundle-analyzer": "^3.5.2",
     "webpack-cli": "^3.3.9",

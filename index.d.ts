@@ -1,5 +1,5 @@
 // Type definitions for Bowser v2
-// Project: https://github.com/lancedikson/bowser
+// Project: https://github.com/bowser-js/bowser
 // Definitions by: Alexander P. Cerutti <https://github.com/alexandercerutti>,
 
 export = Bowser;

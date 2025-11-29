@@ -5,13 +5,6 @@
 export = Bowser;
 export as namespace Bowser;
 
-export function getParser(UA: string, skipParsing?: boolean): Bowser.Parser.Parser;
-export function parse(UA: string): Bowser.Parser.ParsedResult;
-export const BROWSER_MAP: Record<string, string>;
-export const ENGINE_MAP: Record<string, string>;
-export const OS_MAP: Record<string, string>;
-export const PLATFORMS_MAP: Record<string, string>;
-
 declare namespace Bowser {
   /**
    * Creates a Parser instance

@@ -2904,6 +2904,84 @@
           vendor: "Bing"
         engine:
           name: "Blink"
+  MSNBot:
+    -
+      ua: "msnbot/2.0b (+http://search.msn.com/msnbot.htm)"
+      spec:
+        browser:
+          name: "MSNBot"
+          version: "2.0b"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Microsoft"
+        engine: {}
+    -
+      ua: "Mozilla/5.0 (compatible; msnbot/2.1; +http://www.bing.com/bingbot.htm)"
+      spec:
+        browser:
+          name: "MSNBot"
+          version: "2.1"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Microsoft"
+        engine: {}
+  BingPreview:
+    -
+      ua: "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534+ (KHTML, like Gecko) BingPreview/1.0b"
+      spec:
+        browser:
+          name: "BingPreview"
+          version: "1.0b"
+        os:
+          name: "Windows"
+          version: "NT 6.1"
+          versionName: "7"
+        platform:
+          type: "bot"
+          vendor: "Bing"
+        engine:
+          name: "WebKit"
+          version: "534"
+    -
+      ua: "Mozilla/5.0 (compatible; BingPreview/1.0b; +https://www.bing.com/webmasters/help/how-to-verify-bingbot-3905dc26)"
+      spec:
+        browser:
+          name: "BingPreview"
+          version: "1.0b"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Bing"
+        engine: {}
+  AdIdxBot:
+    -
+      ua: "Mozilla/5.0 (compatible; adidxbot/2.0; +http://www.bing.com/bingbot.htm)"
+      spec:
+        browser:
+          name: "AdIdxBot"
+          version: "2.0"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Bing"
+        engine: {}
+    -
+      ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 (compatible; adidxbot/2.0; +http://www.bing.com/bingbot.htm)"
+      spec:
+        browser:
+          name: "AdIdxBot"
+          version: "2.0"
+        os:
+          name: "iOS"
+          version: "7.0"
+        platform:
+          type: "bot"
+          vendor: "Bing"
+        engine:
+          name: "WebKit"
+          version: "537.51.1"
   BaiduSpider:
     -
       ua: "Baiduspider"

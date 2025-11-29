@@ -73,6 +73,39 @@ export default [
     },
   },
 
+  /* MSNBot */
+  {
+    test: [/msnbot/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Microsoft',
+      };
+    },
+  },
+
+  /* BingPreview */
+  {
+    test: [/bingpreview/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Bing',
+      };
+    },
+  },
+
+  /* AdIdxBot */
+  {
+    test: [/adidxbot/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Bing',
+      };
+    },
+  },
+
   /* Bingbot */
   {
     test: [/bingbot/i],

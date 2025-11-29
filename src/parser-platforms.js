@@ -461,6 +461,50 @@ export default [
     },
   },
 
+  /* Smart TV */
+  {
+    test: [/smart-?tv|smarttv/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.tv,
+      };
+    },
+  },
+
+  /* Tizen (Samsung Smart TV OS) */
+  {
+    test(parser) {
+      return parser.getOSName(true) === 'tizen';
+    },
+    describe() {
+      return {
+        type: PLATFORMS_MAP.tv,
+      };
+    },
+  },
+
+  /* WebOS (LG Smart TV OS) */
+  {
+    test(parser) {
+      return parser.getOSName(true) === 'webos';
+    },
+    describe() {
+      return {
+        type: PLATFORMS_MAP.tv,
+      };
+    },
+  },
+
+  /* NetCast (LG Smart TV) */
+  {
+    test: [/netcast/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.tv,
+      };
+    },
+  },
+
   /* desktop */
   {
     test(parser) {

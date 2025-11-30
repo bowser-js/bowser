@@ -6,7 +6,7 @@ A small, fast and rich-API browser/platform/engine detector for both browser and
 
 Don't hesitate to support the project on Github or [OpenCollective](https://opencollective.com/bowser) if you like it ❤️ Also, contributors are always welcome!
 
-[![Financial Contributors on Open Collective](https://opencollective.com/bowser/all/badge.svg?label=financial+contributors)](https://opencollective.com/bowser) [![Build Status](https://travis-ci.org/lancedikson/bowser.svg?branch=master)](https://travis-ci.org/lancedikson/bowser/)  [![Greenkeeper badge](https://badges.greenkeeper.io/lancedikson/bowser.svg)](https://greenkeeper.io/)  [![Coverage Status](https://coveralls.io/repos/github/lancedikson/bowser/badge.svg?branch=master)](https://coveralls.io/github/lancedikson/bowser?branch=master) ![Downloads](https://img.shields.io/npm/dm/bowser)
+[![Financial Contributors on Open Collective](https://opencollective.com/bowser/all/badge.svg?label=financial+contributors)](https://opencollective.com/bowser) [![Build Status](https://travis-ci.org/bowser-js/bowser.svg?branch=master)](https://travis-ci.org/bowser-js/bowser/)  [![Greenkeeper badge](https://badges.greenkeeper.io/bowser-js/bowser.svg)](https://greenkeeper.io/)  [![Coverage Status](https://coveralls.io/repos/github/bowser-js/bowser/badge.svg?branch=master)](https://coveralls.io/github/bowser-js/bowser?branch=master) ![Downloads](https://img.shields.io/npm/dm/bowser)
 
 # Contents
 - [Overview](#overview)
@@ -20,7 +20,7 @@ The library is made to help to detect what browser your user has and gives you a
 
 Version 2.0 has drastically changed the API. All available methods are on the [docs page](https://bowser-js.github.io/bowser/docs/).
 
-_For legacy code, check out the [1.x](https://github.com/lancedikson/bowser/tree/v1.x) branch and install it through `npm install bowser@1.9.4`._
+_For legacy code, check out the [1.x](https://github.com/bowser-js/bowser/tree/v1.x) branch and install it through `npm install bowser@1.9.4`._
 
 # Use cases
 
@@ -148,7 +148,7 @@ list of aliases can be found in [the file](src/constants.js).
 ### Code Contributors
 
 This project exists thanks to all the people who contribute. [[Contribute](.github/CONTRIBUTING.md)].
-<a href="https://github.com/lancedikson/bowser/graphs/contributors"><img src="https://opencollective.com/bowser/contributors.svg?width=890&button=false" /></a>
+<a href="https://github.com/bowser-js/bowser/graphs/contributors"><img src="https://opencollective.com/bowser/contributors.svg?width=890&button=false" /></a>
 
 ### Financial Contributors
 

@@ -42,7 +42,7 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-add-module-exports": "^1.0.2",
     "babel-plugin-istanbul": "^6.0.0",
-    "compression-webpack-plugin": "^4.0.0",
+    "compression-webpack-plugin": "^11.1.0",
     "coveralls": "^3.0.6",
     "docdash": "^1.1.1",
     "eslint": "^6.5.1",

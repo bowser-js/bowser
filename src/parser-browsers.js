@@ -973,30 +973,31 @@ const browsersList = [
   /* DuckDuckGo Browser */
   {
     test(parser) {
+      // Chromium platforms (Android, Windows): check Client Hints brands first
+      if (parser.hasBrand('DuckDuckGo')) {
+        return true;
+      }
       // WebKit platforms (iOS, macOS): check UA string for Ddg/version suffix
-      const isWebKitDDG = parser.test(/\sDdg\/[\d.]+$/i);
-      // Chromium platforms (Android, Windows): check Client Hints brands
-      const isChromiumDDG = parser.hasBrand('DuckDuckGo');
-      return isWebKitDDG || isChromiumDDG;
+      return parser.test(/\sDdg\/[\d.]+$/i);
     },
     describe(ua, parser) {
       const browser = {
         name: 'DuckDuckGo',
       };
 
-      // Try WebKit UA pattern first
-      const uaVersion = Utils.getFirstMatch(/\sDdg\/([\d.]+)$/i, ua);
-      if (uaVersion) {
-        browser.version = uaVersion;
-        return browser;
-      }
-
-      // Try Client Hints brand version
+      // Try Client Hints brand version first
       if (parser) {
         const hintsVersion = parser.getBrandVersion('DuckDuckGo');
         if (hintsVersion) {
           browser.version = hintsVersion;
+          return browser;
         }
+      }
+
+      // Fall back to WebKit UA pattern
+      const uaVersion = Utils.getFirstMatch(/\sDdg\/([\d.]+)$/i, ua);
+      if (uaVersion) {
+        browser.version = uaVersion;
       }
 
       return browser;

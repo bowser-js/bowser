@@ -228,3 +228,158 @@ test('Parser.isEngine should pass', (t) => {
   t.is(parser.isEngine('blink'), true);
   t.is(parser.isEngine('webkit'), false);
 });
+
+// Client Hints tests
+const DDG_ANDROID_UA = 'Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.6778.200 Mobile Safari/537.36';
+const DDG_ANDROID_HINTS = {
+  brands: [
+    { brand: 'DuckDuckGo', version: '5.225.1' },
+    { brand: 'Chromium', version: '131' },
+    { brand: 'Not)A;Brand', version: '99' },
+  ],
+  mobile: true,
+  platform: 'Android',
+  platformVersion: '14',
+};
+
+const CHROME_HINTS = {
+  brands: [
+    { brand: 'Google Chrome', version: '131' },
+    { brand: 'Chromium', version: '131' },
+    { brand: 'Not_A Brand', version: '24' },
+  ],
+  mobile: false,
+  platform: 'Windows',
+  platformVersion: '15.0.0',
+};
+
+const EDGE_HINTS = {
+  brands: [
+    { brand: 'Microsoft Edge', version: '131' },
+    { brand: 'Chromium', version: '131' },
+    { brand: 'Not-A.Brand', version: '24' },
+  ],
+  mobile: false,
+  platform: 'Windows',
+};
+
+test('Parser.getHints returns null when no hints provided', (t) => {
+  const p = new Parser(UA, true);
+  t.is(p.getHints(), null);
+});
+
+test('Parser.getHints returns hints when provided via constructor', (t) => {
+  const p = new Parser(DDG_ANDROID_UA, false, DDG_ANDROID_HINTS);
+  t.deepEqual(p.getHints(), DDG_ANDROID_HINTS);
+});
+
+test('Parser.getHints with overloaded constructor (UA, hints)', (t) => {
+  const p = new Parser(DDG_ANDROID_UA, DDG_ANDROID_HINTS);
+  t.deepEqual(p.getHints(), DDG_ANDROID_HINTS);
+});
+
+test('Parser.hasBrand returns true for existing brand', (t) => {
+  const p = new Parser(DDG_ANDROID_UA, false, DDG_ANDROID_HINTS);
+  t.true(p.hasBrand('DuckDuckGo'));
+  t.true(p.hasBrand('Chromium'));
+});
+
+test('Parser.hasBrand is case insensitive', (t) => {
+  const p = new Parser(DDG_ANDROID_UA, false, DDG_ANDROID_HINTS);
+  t.true(p.hasBrand('duckduckgo'));
+  t.true(p.hasBrand('DUCKDUCKGO'));
+  t.true(p.hasBrand('chromium'));
+});
+
+test('Parser.hasBrand returns false for non-existent brand', (t) => {
+  const p = new Parser(DDG_ANDROID_UA, false, DDG_ANDROID_HINTS);
+  t.false(p.hasBrand('Firefox'));
+  t.false(p.hasBrand('Safari'));
+});
+
+test('Parser.hasBrand returns false when no hints provided', (t) => {
+  const p = new Parser(DDG_ANDROID_UA, true);
+  t.false(p.hasBrand('DuckDuckGo'));
+});
+
+test('Parser.hasBrand detects GREASE "Not A Brand" variants', (t) => {
+  const p1 = new Parser(DDG_ANDROID_UA, false, DDG_ANDROID_HINTS);
+  t.true(p1.hasBrand('Not)A;Brand'));
+
+  const p2 = new Parser(DDG_ANDROID_UA, false, CHROME_HINTS);
+  t.true(p2.hasBrand('Not_A Brand'));
+
+  const p3 = new Parser(DDG_ANDROID_UA, false, EDGE_HINTS);
+  t.true(p3.hasBrand('Not-A.Brand'));
+});
+
+test('Parser.getBrandVersion returns version for existing brand', (t) => {
+  const p = new Parser(DDG_ANDROID_UA, false, DDG_ANDROID_HINTS);
+  t.is(p.getBrandVersion('DuckDuckGo'), '5.225.1');
+  t.is(p.getBrandVersion('Chromium'), '131');
+});
+
+test('Parser.getBrandVersion is case insensitive', (t) => {
+  const p = new Parser(DDG_ANDROID_UA, false, DDG_ANDROID_HINTS);
+  t.is(p.getBrandVersion('duckduckgo'), '5.225.1');
+  t.is(p.getBrandVersion('CHROMIUM'), '131');
+});
+
+test('Parser.getBrandVersion returns undefined for non-existent brand', (t) => {
+  const p = new Parser(DDG_ANDROID_UA, false, DDG_ANDROID_HINTS);
+  t.is(p.getBrandVersion('Firefox'), undefined);
+});
+
+test('Parser.getBrandVersion returns undefined when no hints provided', (t) => {
+  const p = new Parser(DDG_ANDROID_UA, true);
+  t.is(p.getBrandVersion('DuckDuckGo'), undefined);
+});
+
+test('Parser.getBrandVersion returns version for GREASE brands', (t) => {
+  const p = new Parser(DDG_ANDROID_UA, false, DDG_ANDROID_HINTS);
+  t.is(p.getBrandVersion('Not)A;Brand'), '99');
+});
+
+test('Parser detects DuckDuckGo from client hints brands', (t) => {
+  const p = new Parser(DDG_ANDROID_UA, false, DDG_ANDROID_HINTS);
+  t.is(p.getBrowserName(), 'DuckDuckGo');
+  t.is(p.getBrowserVersion(), '5.225.1');
+});
+
+test('Parser falls back to UA when no client hints provided', (t) => {
+  const p = new Parser(DDG_ANDROID_UA);
+  // Without hints, Chrome is detected from the UA string
+  t.is(p.getBrowserName(), 'Chrome');
+  t.is(p.getBrowserVersion(), '131.0.6778.200');
+});
+
+test('Parser with empty brands array falls back to UA parsing', (t) => {
+  const emptyHints = { brands: [], mobile: true, platform: 'Android' };
+  const p = new Parser(DDG_ANDROID_UA, false, emptyHints);
+  t.false(p.hasBrand('DuckDuckGo'));
+  t.is(p.getBrowserName(), 'Chrome');
+});
+
+test('Parser handles malformed hints gracefully', (t) => {
+  const malformedHints = { brands: [{ brand: null }, { version: '1.0' }, {}] };
+  const p = new Parser(DDG_ANDROID_UA, false, malformedHints);
+  t.false(p.hasBrand('DuckDuckGo'));
+  t.is(p.getBrandVersion('anything'), undefined);
+});
+
+test('Parser with Chrome client hints', (t) => {
+  const chromeUA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
+  const p = new Parser(chromeUA, false, CHROME_HINTS);
+  t.true(p.hasBrand('Google Chrome'));
+  t.true(p.hasBrand('Chromium'));
+  t.true(p.hasBrand('Not_A Brand'));
+  t.is(p.getBrandVersion('Google Chrome'), '131');
+});
+
+test('Parser with Edge client hints', (t) => {
+  const edgeUA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36 Edg/131.0.0.0';
+  const p = new Parser(edgeUA, false, EDGE_HINTS);
+  t.true(p.hasBrand('Microsoft Edge'));
+  t.true(p.hasBrand('Chromium'));
+  t.is(p.getBrandVersion('Microsoft Edge'), '131');
+});

@@ -227,6 +227,17 @@ export default [
     },
   },
 
+  /* SlackBot */
+  {
+    test: [/slackbot/i, /slack-imgProxy/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Slack',
+      };
+    },
+  },
+
   /* Yahoo! Slurp */
   {
     test: [/yahoo/i],

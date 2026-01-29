@@ -361,6 +361,23 @@ const browsersList = [
     },
   },
 
+  /* SlackBot */
+  {
+    test: [/slackbot/i, /slack-imgProxy/i],
+    describe(ua) {
+      const browser = {
+        name: 'SlackBot',
+      };
+      const version = Utils.getFirstMatch(/slackbot\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(/slack-imgproxy\s+(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
   /* YahooSlurp */
   {
     test: [/yahoo!?[\s/]*slurp/i],

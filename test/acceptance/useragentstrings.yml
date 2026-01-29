@@ -2943,6 +2943,7 @@
           model: "iPhone"
         engine:
           name: "WebKit"
+          version: "605.1.15"
     -
       ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Ddg/7.123.0"
       spec:
@@ -2955,8 +2956,10 @@
           versionName: "Catalina"
         platform:
           type: "desktop"
+          vendor: "Apple"
         engine:
           name: "WebKit"
+          version: "605.1.15"
     -
       ua: "Mozilla/5.0 (iPad; CPU OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Ddg/7.120.0"
       spec:
@@ -2972,6 +2975,7 @@
           model: "iPad"
         engine:
           name: "WebKit"
+          version: "605.1.15"
   InternetArchiveCrawler:
     -
       ua: "ia_archiver"

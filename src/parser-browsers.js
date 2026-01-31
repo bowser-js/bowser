@@ -368,7 +368,7 @@ const browsersList = [
       const browser = {
         name: 'SlackBot',
       };
-      const version = Utils.getFirstMatch(/slackbot\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(/slack-imgproxy\s+(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+      const version = Utils.getFirstMatch(/(?:slackbot|slack-imgproxy)(?:-[-\w]+)?[\s/](\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;

@@ -2982,10 +2982,11 @@
            vendor: "Slack"
          engine: {}
      -
-       ua: "Slackbot 1.0(+https://api.slack.com/robots)"
+       ua: "Slackbot 1.0 (+https://api.slack.com/robots)"
        spec:
          browser:
            name: "SlackBot"
+           version: "1.0"
          os: {}
          platform:
            type: "bot"

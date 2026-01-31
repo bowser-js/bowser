@@ -3660,7 +3660,7 @@
       ua: "Mozilla/5.0 (SMART-TV; X11; Linux armv7l) AppleWebKit/537.42 (KHTML, like Gecko) Chromium/25.0.1349.2 Chrome/25.0.1349.2 Safari/537.42"
       spec:
         browser:
-          name: "Chrome"
+          name: "Chromium"
           version: "25.0.1349.2"
         os:
           name: "Linux"
@@ -3673,8 +3673,7 @@
       ua: "Mozilla/5.0 (SmartHub; SMART-TV; U; Linux/SmartTV) AppleWebKit/531.2+ (KHTML, like Gecko) WebBrowser/1.0 SmartTV Safari/531.2+"
       spec:
         browser:
-          name: "Generic"
-          version: "1.0"
+          name: "Safari"
         os:
           name: "Linux"
         platform:
@@ -3687,8 +3686,7 @@
       ua: "Mozilla/5.0 (Web0S; Linux/SmartTV) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.122 Safari/537.36 WebAppManager"
       spec:
         browser:
-          name: "Chrome"
-          version: "38.0.2125.122"
+          name: "WebOS Browser"
         os:
           name: "WebOS"
         platform:

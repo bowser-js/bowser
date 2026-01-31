@@ -2969,6 +2969,40 @@
           type: "bot"
           vendor: "Meta"
         engine: {}
+  SlackBot:
+     -
+       ua: "Slackbot-LinkExpanding 1.0 (+https://api.slack.com/robots)"
+       spec:
+         browser:
+           name: "SlackBot"
+           version: "1.0"
+         os: {}
+         platform:
+           type: "bot"
+           vendor: "Slack"
+         engine: {}
+     -
+       ua: "Slackbot 1.0 (+https://api.slack.com/robots)"
+       spec:
+         browser:
+           name: "SlackBot"
+           version: "1.0"
+         os: {}
+         platform:
+           type: "bot"
+           vendor: "Slack"
+         engine: {}
+     -
+       ua: "Slack-ImgProxy 0.19 (+https://api.slack.com/robots)"
+       spec:
+         browser:
+           name: "SlackBot"
+           version: "0.19"
+         os: {}
+         platform:
+           type: "bot"
+           vendor: "Slack"
+         engine: {}
   YahooSlurp:
     -
       ua: "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)"

@@ -379,6 +379,19 @@
           vendor: "Huawei"
         engine:
           name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Linux; NetCast; U) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.33 Safari/537.31"
+      spec:
+        browser:
+          name: "Chrome"
+          version: "26.0.1410.33"
+        os:
+          name: "Linux"
+        platform:
+          type: "tv"
+        engine:
+          name: "WebKit"
+          version: "537.31"
   Google Search:
     -
       ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/83.0.268992909 Mobile/15E148 Safari/605.1"
@@ -1285,6 +1298,18 @@
         engine:
           name: "WebKit"
           version: "605.1.15"
+    -
+      ua: "Mozilla/5.0 (SmartHub; SMART-TV; U; Linux/SmartTV) AppleWebKit/531.2+ (KHTML, like Gecko) WebBrowser/1.0 SmartTV Safari/531.2+"
+      spec:
+        browser:
+          name: "Safari"
+        os:
+          name: "Linux"
+        platform:
+          type: "tv"
+        engine:
+          name: "WebKit"
+          version: "531.2"
   Internet Explorer:
     -
       ua: "Mozilla/5.0 (Windows NT 6.3; Win64; x64; Trident/7.0; MAARJS; rv:11.0) like Gecko"
@@ -2281,7 +2306,8 @@
           name: "WebOS Browser"
         os:
           name: "WebOS"
-        platform: {}
+        platform:
+          type: "tv"
         engine:
           name: "Blink"
   Android Browser:
@@ -3274,6 +3300,19 @@
           type: "desktop"
         engine:
           name: "Blink"
+    -
+      ua: "Mozilla/5.0 (SMART-TV; X11; Linux armv7l) AppleWebKit/537.42 (KHTML, like Gecko) Chromium/25.0.1349.2 Chrome/25.0.1349.2 Safari/537.42"
+      spec:
+        browser:
+          name: "Chromium"
+          version: "25.0.1349.2"
+        os:
+          name: "Linux"
+        platform:
+          type: "tv"
+        engine:
+          name: "WebKit"
+          version: "537.42"
   SlimerJS:
     -
       ua: "Mozilla/5.0 (X11; Linux x86_64; rv:21.0) Gecko/20100101 SlimerJS/0.7"
@@ -3303,6 +3342,20 @@
           type: "mobile"
         engine:
           name: "Blink"
+    -
+      ua: "Mozilla/5.0 (SMART-TV; Linux; Tizen 2.4.0) AppleWebkit/538.1 (KHTML, like Gecko) SamsungBrowser/1.1 TV Safari/538.1"
+      spec:
+        browser:
+          name: "Samsung Internet for Android"
+          version: "1.1"
+        os:
+          name: "Tizen"
+          version: "2.4.0"
+        platform:
+          type: "tv"
+        engine:
+          name: "WebKit"
+          version: "538.1"
   Sogou Browser:
     -
       ua: "Mozilla/5.0 (Linux; Android 5.1.1; SM-G9280 Build/LMY47X; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile Safari/537.36 SogouMobileBrowser/3.5.3"
@@ -3641,68 +3694,3 @@
         engine:
           name: "Gecko"
           version: "20100101"
-  Samsung Smart TV:
-    -
-      ua: "Mozilla/5.0 (SMART-TV; Linux; Tizen 2.4.0) AppleWebkit/538.1 (KHTML, like Gecko) SamsungBrowser/1.1 TV Safari/538.1"
-      spec:
-        browser:
-          name: "Samsung Internet for Android"
-          version: "1.1"
-        os:
-          name: "Tizen"
-          version: "2.4.0"
-        platform:
-          type: "tv"
-        engine:
-          name: "WebKit"
-          version: "538.1"
-    -
-      ua: "Mozilla/5.0 (SMART-TV; X11; Linux armv7l) AppleWebKit/537.42 (KHTML, like Gecko) Chromium/25.0.1349.2 Chrome/25.0.1349.2 Safari/537.42"
-      spec:
-        browser:
-          name: "Chromium"
-          version: "25.0.1349.2"
-        os:
-          name: "Linux"
-        platform:
-          type: "tv"
-        engine:
-          name: "WebKit"
-          version: "537.42"
-    -
-      ua: "Mozilla/5.0 (SmartHub; SMART-TV; U; Linux/SmartTV) AppleWebKit/531.2+ (KHTML, like Gecko) WebBrowser/1.0 SmartTV Safari/531.2+"
-      spec:
-        browser:
-          name: "Safari"
-        os:
-          name: "Linux"
-        platform:
-          type: "tv"
-        engine:
-          name: "WebKit"
-          version: "531.2"
-  LG Smart TV:
-    -
-      ua: "Mozilla/5.0 (Web0S; Linux/SmartTV) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.122 Safari/537.36 WebAppManager"
-      spec:
-        browser:
-          name: "WebOS Browser"
-        os:
-          name: "WebOS"
-        platform:
-          type: "tv"
-        engine:
-          name: "Blink"
-    -
-      ua: "Mozilla/5.0 (Linux; NetCast; U) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.33 Safari/537.31"
-      spec:
-        browser:
-          name: "Chrome"
-          version: "26.0.1410.33"
-        os:
-          name: "Linux"
-        platform:
-          type: "tv"
-        engine:
-          name: "WebKit"
-          version: "537.31"

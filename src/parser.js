@@ -43,7 +43,7 @@ class Parser {
     if (typeof skipParsingOrHints === 'boolean') {
       skipParsing = skipParsingOrHints;
       this._hints = clientHints;
-    } else if (typeof skipParsingOrHints === 'object' && skipParsingOrHints !== null) {
+    } else if (skipParsingOrHints != null && typeof skipParsingOrHints === 'object') {
       this._hints = skipParsingOrHints;
     } else {
       this._hints = null;

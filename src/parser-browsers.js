@@ -1023,6 +1023,10 @@ const browsersList = [
   /* Brave Browser */
   {
     test(parser) {
+      // Check navigator.brave.isBrave() result from hints
+      if (parser.isBrave()) {
+        return true;
+      }
       // Check Client Hints brands for Brave
       return parser.hasBrand('Brave');
     },

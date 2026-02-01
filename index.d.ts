@@ -7,20 +7,36 @@ export as namespace Bowser;
 
 declare namespace Bowser {
   /**
-   * Creates a Parser instance
-   * @param {string} UA - User agent string
-   * @param {boolean} skipParsing
+   * User-Agent Client Hints data structure
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/NavigatorUAData
    */
+  interface ClientHints {
+    brands?: Array<{ brand: string; version: string }>;
+    mobile?: boolean;
+    platform?: string;
+    platformVersion?: string;
+    architecture?: string;
+    model?: string;
+    wow64?: boolean;
+  }
 
+  /**
+   * Creates a Parser instance
+   * @param {string} UA - User agent string
+   * @param {boolean | ClientHints} skipParsingOrHints - Either skip parsing flag or Client Hints
+   * @param {ClientHints} clientHints - User-Agent Client Hints data
+   */
   function getParser(UA: string, skipParsing?: boolean): Parser.Parser;
+  function getParser(UA: string, clientHints?: ClientHints): Parser.Parser;
+  function getParser(UA: string, skipParsing?: boolean, clientHints?: ClientHints): Parser.Parser;
 
   /**
    * Creates a Parser instance and runs Parser.getResult immediately
    * @param UA - User agent string
+   * @param clientHints - User-Agent Client Hints data
    * @returns {Parser.ParsedResult}
    */
-
-  function parse(UA: string): Parser.ParsedResult;
+  function parse(UA: string, clientHints?: ClientHints): Parser.ParsedResult;
 
   /**
    * Constants exposed via bowser getters
@@ -33,6 +49,28 @@ declare namespace Bowser {
   namespace Parser {
     interface Parser {
       constructor(UA: string, skipParsing?: boolean): Parser.Parser;
+      constructor(UA: string, clientHints?: ClientHints): Parser.Parser;
+      constructor(UA: string, skipParsing?: boolean, clientHints?: ClientHints): Parser.Parser;
+
+      /**
+       * Get Client Hints data
+       * @return {ClientHints|null}
+       */
+      getHints(): ClientHints | null;
+
+      /**
+       * Check if a brand exists in Client Hints brands array
+       * @param {string} brandName The brand name to check for
+       * @return {boolean}
+       */
+      hasBrand(brandName: string): boolean;
+
+      /**
+       * Get brand version from Client Hints
+       * @param {string} brandName The brand name to get version for
+       * @return {string|undefined}
+       */
+      getBrandVersion(brandName: string): string | undefined;
 
       /**
        * Check if the version is equals the browser version

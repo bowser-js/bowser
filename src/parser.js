@@ -5,6 +5,17 @@ import enginesParsersList from './parser-engines.js';
 import Utils from './utils.js';
 
 /**
+ * @typedef {Object} ClientHints
+ * @property {Array<{brand: string, version: string}>} [brands] Array of brand objects
+ * @property {boolean} [mobile] Whether the device is mobile
+ * @property {string} [platform] Platform name (e.g., "Windows", "macOS")
+ * @property {string} [platformVersion] Platform version
+ * @property {string} [architecture] CPU architecture
+ * @property {string} [model] Device model
+ * @property {boolean} [wow64] Whether running under WoW64
+ */
+
+/**
  * The main class that arranges the whole parsing process.
  */
 class Parser {
@@ -12,20 +23,31 @@ class Parser {
    * Create instance of Parser
    *
    * @param {String} UA User-Agent string
-   * @param {Boolean} [skipParsing=false] parser can skip parsing in purpose of performance
-   * improvements if you need to make a more particular parsing
-   * like {@link Parser#parseBrowser} or {@link Parser#parsePlatform}
+   * @param {Boolean|ClientHints} [skipParsingOrHints=false] Either a boolean to skip parsing,
+   * or a ClientHints object containing User-Agent Client Hints data
+   * @param {ClientHints} [clientHints] User-Agent Client Hints data (navigator.userAgentData)
    *
    * @throw {Error} in case of empty UA String
    *
    * @constructor
    */
-  constructor(UA, skipParsing = false) {
+  constructor(UA, skipParsingOrHints = false, clientHints = null) {
     if (UA === void (0) || UA === null || UA === '') {
       throw new Error("UserAgent parameter can't be empty");
     }
 
     this._ua = UA;
+
+    // Handle overloaded constructor: (UA, clientHints) or (UA, skipParsing, clientHints)
+    let skipParsing = false;
+    if (typeof skipParsingOrHints === 'boolean') {
+      skipParsing = skipParsingOrHints;
+      this._hints = clientHints;
+    } else if (skipParsingOrHints != null && typeof skipParsingOrHints === 'object') {
+      this._hints = skipParsingOrHints;
+    } else {
+      this._hints = null;
+    }
 
     /**
      * @typedef ParsedResult
@@ -54,6 +76,51 @@ class Parser {
     if (skipParsing !== true) {
       this.parse();
     }
+  }
+
+  /**
+   * Get Client Hints data
+   * @return {ClientHints|null}
+   *
+   * @public
+   */
+  getHints() {
+    return this._hints;
+  }
+
+  /**
+   * Check if a brand exists in Client Hints brands array
+   * @param {string} brandName The brand name to check for
+   * @return {boolean}
+   *
+   * @public
+   */
+  hasBrand(brandName) {
+    if (!this._hints || !Array.isArray(this._hints.brands)) {
+      return false;
+    }
+    const brandLower = brandName.toLowerCase();
+    return this._hints.brands.some(
+      b => b.brand && b.brand.toLowerCase() === brandLower,
+    );
+  }
+
+  /**
+   * Get brand version from Client Hints
+   * @param {string} brandName The brand name to get version for
+   * @return {string|undefined}
+   *
+   * @public
+   */
+  getBrandVersion(brandName) {
+    if (!this._hints || !Array.isArray(this._hints.brands)) {
+      return undefined;
+    }
+    const brandLower = brandName.toLowerCase();
+    const brand = this._hints.brands.find(
+      b => b.brand && b.brand.toLowerCase() === brandLower,
+    );
+    return brand ? brand.version : undefined;
   }
 
   /**
@@ -95,7 +162,7 @@ class Parser {
     });
 
     if (browserDescriptor) {
-      this.parsedResult.browser = browserDescriptor.describe(this.getUA());
+      this.parsedResult.browser = browserDescriptor.describe(this.getUA(), this);
     }
 
     return this.parsedResult.browser;

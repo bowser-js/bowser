@@ -28,33 +28,49 @@ class Bowser {
    * Creates a {@link Parser} instance
    *
    * @param {String} UA UserAgent string
-   * @param {Boolean} [skipParsing=false] Will make the Parser postpone parsing until you ask it
-   * explicitly. Same as `skipParsing` for {@link Parser}.
+   * @param {Boolean|Object} [skipParsingOrHints=false] Either a boolean to skip parsing,
+   * or a ClientHints object (navigator.userAgentData)
+   * @param {Object} [clientHints] User-Agent Client Hints data (navigator.userAgentData)
    * @returns {Parser}
    * @throws {Error} when UA is not a String
    *
    * @example
    * const parser = Bowser.getParser(window.navigator.userAgent);
    * const result = parser.getResult();
+   *
+   * @example
+   * // With User-Agent Client Hints
+   * const parser = Bowser.getParser(
+   *   window.navigator.userAgent,
+   *   window.navigator.userAgentData
+   * );
    */
-  static getParser(UA, skipParsing = false) {
+  static getParser(UA, skipParsingOrHints = false, clientHints = null) {
     if (typeof UA !== 'string') {
       throw new Error('UserAgent should be a string');
     }
-    return new Parser(UA, skipParsing);
+    return new Parser(UA, skipParsingOrHints, clientHints);
   }
 
   /**
    * Creates a {@link Parser} instance and runs {@link Parser.getResult} immediately
    *
-   * @param UA
+   * @param {String} UA UserAgent string
+   * @param {Object} [clientHints] User-Agent Client Hints data (navigator.userAgentData)
    * @return {ParsedResult}
    *
    * @example
    * const result = Bowser.parse(window.navigator.userAgent);
+   *
+   * @example
+   * // With User-Agent Client Hints
+   * const result = Bowser.parse(
+   *   window.navigator.userAgent,
+   *   window.navigator.userAgentData
+   * );
    */
-  static parse(UA) {
-    return (new Parser(UA)).getResult();
+  static parse(UA, clientHints = null) {
+    return (new Parser(UA, clientHints)).getResult();
   }
 
   static get BROWSER_MAP() {

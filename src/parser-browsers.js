@@ -987,6 +987,39 @@ const browsersList = [
       return browser;
     },
   },
+  /* DuckDuckGo Browser */
+  {
+    test(parser) {
+      // Chromium platforms (Android, Windows): check Client Hints brands first
+      if (parser.hasBrand('DuckDuckGo')) {
+        return true;
+      }
+      // WebKit platforms (iOS, macOS): check UA string for Ddg/version suffix
+      return parser.test(/\sDdg\/[\d.]+$/i);
+    },
+    describe(ua, parser) {
+      const browser = {
+        name: 'DuckDuckGo',
+      };
+
+      // Try Client Hints brand version first
+      if (parser) {
+        const hintsVersion = parser.getBrandVersion('DuckDuckGo');
+        if (hintsVersion) {
+          browser.version = hintsVersion;
+          return browser;
+        }
+      }
+
+      // Fall back to WebKit UA pattern
+      const uaVersion = Utils.getFirstMatch(/\sDdg\/([\d.]+)$/i, ua);
+      if (uaVersion) {
+        browser.version = uaVersion;
+      }
+
+      return browser;
+    },
+  },
   {
     test: [/chromium/i],
     describe(ua) {

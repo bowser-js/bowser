@@ -18,6 +18,17 @@ export default [
     },
   },
 
+  /* LineSpider */
+  {
+    test: [/linespider/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Line',
+      };
+    },
+  },
+
   /* AmazonBot */
   {
     test: [/amazonbot/i],

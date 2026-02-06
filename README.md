@@ -11,6 +11,9 @@ Don't hesitate to support the project on Github or [OpenCollective](https://open
 # Contents
 - [Overview](#overview)
 - [Use cases](#use-cases)
+  - [Browser props detection](#browser-props-detection)
+  - [Using User-Agent Client Hints](#using-user-agent-client-hints)
+  - [Filtering browsers](#filtering-browsers)
 
 # Overview
 
@@ -53,6 +56,64 @@ console.log(`The current browser name is "${browser.getBrowserName()}"`);
 // The current browser name is "Internet Explorer"
 ```
 
+### Using User-Agent Client Hints
+
+Modern browsers support [User-Agent Client Hints](https://developer.mozilla.org/en-US/docs/Web/API/User-Agent_Client_Hints_API), which provide a more privacy-friendly and structured way to access browser information. Bowser can use Client Hints data to improve browser detection accuracy.
+
+```javascript
+// Pass Client Hints as the second parameter
+const browser = Bowser.getParser(
+  window.navigator.userAgent,
+  window.navigator.userAgentData
+);
+
+console.log(`The current browser name is "${browser.getBrowserName()}"`);
+// More accurate detection using Client Hints
+```
+
+#### Working with Client Hints
+
+Bowser provides methods to access and query Client Hints data:
+
+```javascript
+const browser = Bowser.getParser(
+  window.navigator.userAgent,
+  window.navigator.userAgentData
+);
+
+// Get the full Client Hints object
+const hints = browser.getHints();
+// Returns the ClientHints object or null if not provided
+
+// Check if a specific brand exists
+if (browser.hasBrand('Google Chrome')) {
+  console.log('This is Chrome!');
+}
+
+// Get the version of a specific brand
+const chromeVersion = browser.getBrandVersion('Google Chrome');
+console.log(`Chrome version: ${chromeVersion}`);
+```
+
+The Client Hints object structure:
+```javascript
+{
+  brands: [
+    { brand: 'Google Chrome', version: '131' },
+    { brand: 'Chromium', version: '131' },
+    { brand: 'Not_A Brand', version: '24' }
+  ],
+  mobile: false,
+  platform: 'Windows',
+  platformVersion: '15.0.0',
+  architecture: 'x86',
+  model: '',
+  wow64: false
+}
+```
+
+**Note:** Client Hints improve detection for browsers like DuckDuckGo and other Chromium-based browsers that may have similar User-Agent strings. When Client Hints are not provided, Bowser falls back to standard User-Agent string parsing.
+
 or
 
 ```javascript
@@ -90,6 +151,14 @@ console.log(Bowser.parse(window.navigator.userAgent));
     version: "7.0"
   }
 }
+```
+
+You can also use `Bowser.parse()` with Client Hints:
+
+```javascript
+console.log(Bowser.parse(window.navigator.userAgent, window.navigator.userAgentData));
+
+// Same output structure, but with enhanced detection from Client Hints
 ```
 
 

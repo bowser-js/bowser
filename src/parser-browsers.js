@@ -266,6 +266,23 @@ const browsersList = [
     },
   },
 
+  /* Linespider */
+  {
+    test: [/linespider/i],
+    describe(ua) {
+      const browser = {
+        name: 'Linespider',
+      };
+      const version = Utils.getFirstMatch(/(?:linespider)(?:-[-\w]+)?[\s/](\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
   /* AmazonBot */
   {
     test: [/amazonbot/i],

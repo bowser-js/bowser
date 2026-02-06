@@ -3052,6 +3052,30 @@
            type: "bot"
            vendor: "Slack"
          engine: {}
+  Linespider:
+    -
+      ua: "Mozilla/5.0 (compatible; Linespider/1.1; +https://lin.ee/4dwXkTH)"
+      spec:
+        browser:
+          name: "Linespider"
+          version: "1.1"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Line"
+        engine: {}
+    -
+      ua: "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Linespider/1.1; +https://lin.ee/4dwXkTH) Chrome/W.X.Y.Z Safari/537.36"
+      spec:
+        browser:
+          name: "Linespider"
+          version: "1.1"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Line"
+        engine:
+          name: "Blink"
   YahooSlurp:
     -
       ua: "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)"

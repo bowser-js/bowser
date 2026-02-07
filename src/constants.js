@@ -1,12 +1,14 @@
 // NOTE: this list must be up-to-date with browsers listed in
 // test/acceptance/useragentstrings.yml
 export const BROWSER_ALIASES_MAP = {
+  AdIdxBot: 'adidxbot',
   AmazonBot: 'amazonbot',
   'Amazon Silk': 'amazon_silk',
   'Android Browser': 'android',
   BaiduSpider: 'baiduspider',
   Bada: 'bada',
   BingCrawler: 'bingcrawler',
+  BingPreview: 'bingpreview',
   BlackBerry: 'blackberry',
   'ChatGPT-User': 'chatgpt_user',
   Chrome: 'chrome',
@@ -35,6 +37,7 @@ export const BROWSER_ALIASES_MAP = {
   'Meta-ExternalFetcher': 'meta_externalfetcher',
   'Meta-WebIndexer': 'meta_webindexer',
   'Microsoft Edge': 'edge',
+  MSNBot: 'msnbot',
   'MZ Browser': 'mz',
   'NAVER Whale Browser': 'naver',
   'OAI-SearchBot': 'oai_searchbot',
@@ -71,12 +74,14 @@ export const BROWSER_ALIASES_MAP = {
 };
 
 export const BROWSER_MAP = {
+  adidxbot: 'AdIdxBot',
   amazonbot: 'AmazonBot',
   amazon_silk: 'Amazon Silk',
   android: 'Android Browser',
   baiduspider: 'BaiduSpider',
   bada: 'Bada',
   bingcrawler: 'BingCrawler',
+  bingpreview: 'BingPreview',
   blackberry: 'BlackBerry',
   chatgpt_user: 'ChatGPT-User',
   chrome: 'Chrome',
@@ -105,6 +110,7 @@ export const BROWSER_MAP = {
   meta_externalagent: 'Meta-ExternalAgent',
   meta_externalfetcher: 'Meta-ExternalFetcher',
   meta_webindexer: 'Meta-WebIndexer',
+  msnbot: 'MSNBot',
   mz: 'MZ Browser',
   naver: 'NAVER Whale Browser',
   oai_searchbot: 'OAI-SearchBot',

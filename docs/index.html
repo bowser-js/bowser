@@ -80,12 +80,12 @@
 </ul>
 </li>
 </ul>
-<h1>Overview</h1>
+<h1 id="overview">Overview</h1>
 <p>The library is made to help to detect what browser your user has and gives you a convenient API to filter the users somehow depending on their browsers. Check it out on this page: https://bowser-js.github.io/bowser-online/.</p>
 <h3>⚠️ Version 2.0 breaking changes ⚠️</h3>
 <p>Version 2.0 has drastically changed the API. All available methods are on the <a href="https://bowser-js.github.io/bowser/docs/">docs page</a>.</p>
 <p><em>For legacy code, check out the <a href="https://github.com/bowser-js/bowser/tree/v1.x">1.x</a> branch and install it through <code>npm install bowser@1.9.4</code>.</em></p>
-<h1>Use cases</h1>
+<h1 id="use-cases">Use cases</h1>
 <p>First of all, require the library. This is a UMD Module, so it will work for AMD, TypeScript, ES6, and CommonJS module systems.</p>
 <pre class="prettyprint source lang-javascript"><code>const Bowser = require(&quot;bowser&quot;); // CommonJS
 
@@ -98,14 +98,14 @@ import Bowser from &quot;bowser&quot;; // ES6 (and TypeScript with --esModuleInt
 So, for you it's suitable to require bowser like this: <code>require('bowser/bundled')</code>.
 As the result, you get a ES5 version of bowser with <code>babel-polyfill</code> bundled together.</p>
 <p>You may need to use the source files, so they will be available in the package as well.</p>
-<h2>Browser props detection</h2>
+<h2 id="browser-props-detection">Browser props detection</h2>
 <p>Often we need to pick users' browser properties such as the name, the version, the rendering engine and so on. Here is an example how to do it with Bowser:</p>
 <pre class="prettyprint source lang-javascript"><code>const browser = Bowser.getParser(window.navigator.userAgent);
 
 console.log(`The current browser name is &quot;${browser.getBrowserName()}&quot;`);
 // The current browser name is &quot;Internet Explorer&quot;
 </code></pre>
-<h3>Using User-Agent Client Hints</h3>
+<h3 id="using-user-agent-client-hints">Using User-Agent Client Hints</h3>
 <p>Modern browsers support <a href="https://developer.mozilla.org/en-US/docs/Web/API/User-Agent_Client_Hints_API">User-Agent Client Hints</a>, which provide a more privacy-friendly and structured way to access browser information. Bowser can use Client Hints data to improve browser detection accuracy.</p>
 <pre class="prettyprint source lang-javascript"><code>// Pass Client Hints as the second parameter
 const browser = Bowser.getParser(
@@ -190,7 +190,7 @@ console.log(browser.getBrowser());
 
 // Same output structure, but with enhanced detection from Client Hints
 </code></pre>
-<h2>Filtering browsers</h2>
+<h2 id="filtering-browsers">Filtering browsers</h2>
 <p>You could want to filter some particular browsers to provide any special support for them or make any workarounds.
 It could look like this:</p>
 <pre class="prettyprint source lang-javascript"><code>const browser = Bowser.getParser(window.navigator.userAgent);

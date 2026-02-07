@@ -83,6 +83,11 @@ class Parser {
    * @return {ClientHints|null}
    *
    * @public
+   * @example
+   * const parser = Bowser.getParser(UA, clientHints);
+   * const hints = parser.getHints();
+   * console.log(hints.platform); // 'Windows'
+   * console.log(hints.mobile); // false
    */
   getHints() {
     return this._hints;
@@ -94,6 +99,11 @@ class Parser {
    * @return {boolean}
    *
    * @public
+   * @example
+   * const parser = Bowser.getParser(UA, clientHints);
+   * if (parser.hasBrand('Google Chrome')) {
+   *   console.log('Chrome detected!');
+   * }
    */
   hasBrand(brandName) {
     if (!this._hints || !Array.isArray(this._hints.brands)) {
@@ -111,6 +121,10 @@ class Parser {
    * @return {string|undefined}
    *
    * @public
+   * @example
+   * const parser = Bowser.getParser(UA, clientHints);
+   * const version = parser.getBrandVersion('Google Chrome');
+   * console.log(version); // '131'
    */
   getBrandVersion(brandName) {
     if (!this._hints || !Array.isArray(this._hints.brands)) {

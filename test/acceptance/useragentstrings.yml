@@ -2299,17 +2299,6 @@
         engine:
           name: "WebKit"
           version: "525.27.1"
-    -
-      ua: "Mozilla/5.0 (Web0S; Linux/SmartTV) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.122 Safari/537.36 WebAppManager"
-      spec:
-        browser:
-          name: "WebOS Browser"
-        os:
-          name: "WebOS"
-        platform:
-          type: "tv"
-        engine:
-          name: "Blink"
   Android Browser:
     -
       ua: "Mozilla/5.0 (Linux; U; Android 4.4.2; de-de; Nexus 7 Build/KOT49H) AppleWebKit/537.16 (KHTML, like Gecko) Version/4.0 Mobile Safari/537.16"

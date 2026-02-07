@@ -483,6 +483,26 @@ export default [
     },
   },
 
+  /* Smart TV */
+  {
+    test: [/smart-?tv|smarttv/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.tv,
+      };
+    },
+  },
+
+  /* NetCast (LG Smart TV) */
+  {
+    test: [/netcast/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.tv,
+      };
+    },
+  },
+
   /* desktop */
   {
     test(parser) {

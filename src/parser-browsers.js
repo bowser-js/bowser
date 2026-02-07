@@ -1031,7 +1031,6 @@ const browsersList = [
         name: 'Brave',
       };
 
-      // Try Client Hints brand version first
       if (parser) {
         const hintsVersion = parser.getBrandVersion('Brave');
         if (hintsVersion) {

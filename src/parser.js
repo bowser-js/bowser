@@ -13,7 +13,6 @@ import Utils from './utils.js';
  * @property {string} [architecture] CPU architecture
  * @property {string} [model] Device model
  * @property {boolean} [wow64] Whether running under WoW64
- * @property {boolean} [isBrave] Result of navigator.brave.isBrave() for Brave browser detection
  */
 
 /**
@@ -122,16 +121,6 @@ class Parser {
       b => b.brand && b.brand.toLowerCase() === brandLower,
     );
     return brand ? brand.version : undefined;
-  }
-
-  /**
-   * Check if the browser is Brave using navigator.brave.isBrave() result
-   * @return {boolean}
-   *
-   * @public
-   */
-  isBrave() {
-    return !!(this._hints && this._hints.isBrave === true);
   }
 
   /**

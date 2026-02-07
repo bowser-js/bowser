@@ -413,25 +413,3 @@ test('Parser.getBrandVersion returns version for Brave', (t) => {
   const p = new Parser(BRAVE_UA, false, BRAVE_HINTS);
   t.is(p.getBrandVersion('Brave'), '1.73.97');
 });
-
-test('Parser.isBrave returns true when isBrave hint is set', (t) => {
-  const hints = { isBrave: true };
-  const p = new Parser(BRAVE_UA, false, hints);
-  t.true(p.isBrave());
-});
-
-test('Parser.isBrave returns false when isBrave hint is not set', (t) => {
-  const p = new Parser(BRAVE_UA, false, BRAVE_HINTS);
-  t.false(p.isBrave());
-});
-
-test('Parser.isBrave returns false when no hints provided', (t) => {
-  const p = new Parser(BRAVE_UA);
-  t.false(p.isBrave());
-});
-
-test('Parser detects Brave from isBrave hint', (t) => {
-  const hints = { isBrave: true };
-  const p = new Parser(BRAVE_UA, false, hints);
-  t.is(p.getBrowserName(), 'Brave');
-});

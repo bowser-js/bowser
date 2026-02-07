@@ -12,6 +12,10 @@ on:
         required: true
         type: string
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -38,7 +42,7 @@ jobs:
       - run: npm ci
       - run: npm version $RELEASE_VERSION --no-git-tag-version
       - run: npm run build
-      - name: Publish to npm with retry
+      - name: Publish to npm
         run: |
           max_attempts=5
           attempt=1
@@ -59,5 +63,3 @@ jobs:
               attempt=$((attempt + 1))
             fi
           done
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.BOWSER_NPM_PUBLISH_TOKEN }}

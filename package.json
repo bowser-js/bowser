@@ -74,7 +74,6 @@
     "build": "webpack --config webpack.config.js",
     "generate-and-deploy-docs": "npm run generate-docs && gh-pages --dist docs --dest docs",
     "watch": "webpack --watch --config webpack.config.js",
-    "prepublishOnly": "npm run build",
     "lint:check": "eslint ./src",
     "lint:fix": "eslint --fix ./src",
     "testem": "testem",

@@ -79,7 +79,7 @@ export default class Utils {
    * @return {string} versionName
    */
   static getMacOSVersionName(version) {
-    const v = version.split('.').splice(0, 2).map(s => parseInt(s, 10) || 0);
+    const v = version.split('.').splice(0, 2).map((s) => parseInt(s, 10) || 0);
     v.push(0);
     const major = v[0];
     const minor = v[1];
@@ -136,7 +136,7 @@ export default class Utils {
    * @return {string} versionName
    */
   static getAndroidVersionName(version) {
-    const v = version.split('.').splice(0, 2).map(s => parseInt(s, 10) || 0);
+    const v = version.split('.').splice(0, 2).map((s) => parseInt(s, 10) || 0);
     v.push(0);
     if (v[0] === 1 && v[1] < 5) return undefined;
     if (v[0] === 1 && v[1] < 6) return 'Cupcake';
@@ -201,7 +201,7 @@ export default class Utils {
       const _version = version + new Array(delta + 1).join('.0');
 
       // 3) "9.0" -> ["000000000"", "000000009"]
-      return Utils.map(_version.split('.'), chunk => new Array(20 - chunk.length).join('0') + chunk).reverse();
+      return Utils.map(_version.split('.'), (chunk) => new Array(20 - chunk.length).join('0') + chunk).reverse();
     });
 
     // adjust precision for loose comparison

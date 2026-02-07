@@ -17,14 +17,13 @@ permissions:
   id-token: write
 
 jobs:
-  release:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 12.16.3
-          registry-url: "https://registry.npmjs.org"
       - uses: actions/cache@v4
         with:
           path: ~/.npm
@@ -42,5 +41,22 @@ jobs:
       - run: npm ci
       - run: npm version $RELEASE_VERSION --no-git-tag-version
       - run: npm run build
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: .
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: "https://registry.npmjs.org"
       - name: Publish to npm
-        run: npm publish
+        run: npm publish --provenance --access public

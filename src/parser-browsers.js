@@ -1037,6 +1037,28 @@ const browsersList = [
       return browser;
     },
   },
+  /* Brave Browser */
+  {
+    test(parser) {
+      // Check Client Hints brands for Brave
+      return parser.hasBrand('Brave');
+    },
+    describe(ua, parser) {
+      const browser = {
+        name: 'Brave',
+      };
+
+      if (parser) {
+        const hintsVersion = parser.getBrandVersion('Brave');
+        if (hintsVersion) {
+          browser.version = hintsVersion;
+          return browser;
+        }
+      }
+
+      return browser;
+    },
+  },
   {
     test: [/chromium/i],
     describe(ua) {

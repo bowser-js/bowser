@@ -383,3 +383,33 @@ test('Parser with Edge client hints', (t) => {
   t.true(p.hasBrand('Chromium'));
   t.is(p.getBrandVersion('Microsoft Edge'), '131');
 });
+
+const BRAVE_HINTS = {
+  brands: [
+    { brand: 'Brave', version: '144' },
+    { brand: 'Chromium', version: '131' },
+    { brand: 'Not_A Brand', version: '24' },
+  ],
+  mobile: false,
+  platform: 'Windows',
+  platformVersion: '15.0.0',
+};
+
+const BRAVE_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
+
+test('Parser detects Brave from client hints brands', (t) => {
+  const p = new Parser(BRAVE_UA, false, BRAVE_HINTS);
+  t.is(p.getBrowserName(), 'Brave');
+  t.is(p.getBrowserVersion(), '144');
+});
+
+test('Parser.hasBrand detects Brave', (t) => {
+  const p = new Parser(BRAVE_UA, false, BRAVE_HINTS);
+  t.true(p.hasBrand('Brave'));
+  t.true(p.hasBrand('brave'));
+});
+
+test('Parser.getBrandVersion returns version for Brave', (t) => {
+  const p = new Parser(BRAVE_UA, false, BRAVE_HINTS);
+  t.is(p.getBrandVersion('Brave'), '144');
+});

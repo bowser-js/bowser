@@ -6,7 +6,7 @@ A small, fast and rich-API browser/platform/engine detector for both browser and
 
 Don't hesitate to support the project on Github or [OpenCollective](https://opencollective.com/bowser) if you like it ❤️ Also, contributors are always welcome!
 
-[![Financial Contributors on Open Collective](https://opencollective.com/bowser/all/badge.svg?label=financial+contributors)](https://opencollective.com/bowser) [![Build Status](https://travis-ci.org/bowser-js/bowser.svg?branch=master)](https://travis-ci.org/bowser-js/bowser/)  [![Greenkeeper badge](https://badges.greenkeeper.io/bowser-js/bowser.svg)](https://greenkeeper.io/)  [![Coverage Status](https://coveralls.io/repos/github/bowser-js/bowser/badge.svg?branch=master)](https://coveralls.io/github/bowser-js/bowser?branch=master) ![Downloads](https://img.shields.io/npm/dm/bowser)
+[![Financial Contributors on Open Collective](https://opencollective.com/bowser/all/badge.svg?label=financial+contributors)](https://opencollective.com/bowser) ![Downloads](https://img.shields.io/npm/dm/bowser)
 
 # Contents
 - [Overview](#overview)

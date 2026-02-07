@@ -1,11 +1,12 @@
 {
   "presets": [["@babel/preset-env", {
     "useBuiltIns": "entry",
+    "corejs": 3,
     "modules": "cjs",
     "loose": true,
     "targets": {
-      "ie": "8",
-      "browsers": ">2%"
+      "ie": "11",
+      "browsers": ">0.25%"
     }
   }]],
   "plugins": [

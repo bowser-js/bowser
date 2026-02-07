@@ -1,4 +1,6 @@
-parser: babel-eslint
+parserOptions:
+  ecmaVersion: 2020
+  sourceType: module
 extends: airbnb-base
 rules:
   no-underscore-dangle: 0

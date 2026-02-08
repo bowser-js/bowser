@@ -1,6 +1,12 @@
 {
   "name": "bowser",
   "description": "Lightweight browser detector",
+  "files": [
+    "src/",
+    "es5.js",
+    "bundled.js",
+    "index.d.ts"
+  ],
   "keywords": [
     "browser",
     "useragent",

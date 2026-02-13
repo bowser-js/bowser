@@ -2595,6 +2595,21 @@
           type: "desktop"
         engine:
           name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Vivaldi/7.8.3925.66"
+      spec:
+        browser:
+          name: "Vivaldi"
+          version: "7.8.3925.66"
+        os:
+          name: "macOS"
+          version: "10.15.7"
+          versionName: "Catalina"
+        platform:
+          type: "desktop"
+          vendor: "Apple"
+        engine:
+          name: "Blink"
   Generic:
     -
       ua: "Generic/2.15 libww"

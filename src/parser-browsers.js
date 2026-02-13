@@ -761,11 +761,29 @@ const browsersList = [
     },
   },
   {
-    test: [/vivaldi/i],
-    describe(ua) {
+    test(parser) {
+      // Check Client Hints brands for Vivaldi
+      if (parser.hasBrand('Vivaldi')) {
+        return true;
+      }
+      // Fall back to UA string detection
+      return parser.test(/vivaldi/i);
+    },
+    describe(ua, parser) {
       const browser = {
         name: 'Vivaldi',
       };
+
+      // Try Client Hints brand version first
+      if (parser) {
+        const hintsVersion = parser.getBrandVersion('Vivaldi');
+        if (hintsVersion) {
+          browser.version = hintsVersion;
+          return browser;
+        }
+      }
+
+      // Fall back to UA string version
       const version = Utils.getFirstMatch(/vivaldi\/(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {

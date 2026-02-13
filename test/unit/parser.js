@@ -419,3 +419,33 @@ test('Parser.getBrandVersion returns version for Brave', (t) => {
   const p = new Parser(BRAVE_UA, false, BRAVE_HINTS);
   t.is(p.getBrandVersion('Brave'), '144');
 });
+
+const VIVALDI_HINTS = {
+  brands: [
+    { brand: 'Vivaldi', version: '7.1' },
+    { brand: 'Chromium', version: '134' },
+    { brand: 'Not_A Brand', version: '24' },
+  ],
+  mobile: false,
+  platform: 'Windows',
+  platformVersion: '15.0.0',
+};
+
+const VIVALDI_UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36';
+
+test('Parser detects Vivaldi from client hints brands', (t) => {
+  const p = new Parser(VIVALDI_UA, false, VIVALDI_HINTS);
+  t.is(p.getBrowserName(), 'Vivaldi');
+  t.is(p.getBrowserVersion(), '7.1');
+});
+
+test('Parser.hasBrand detects Vivaldi', (t) => {
+  const p = new Parser(VIVALDI_UA, false, VIVALDI_HINTS);
+  t.true(p.hasBrand('Vivaldi'));
+  t.true(p.hasBrand('vivaldi'));
+});
+
+test('Parser.getBrandVersion returns version for Vivaldi', (t) => {
+  const p = new Parser(VIVALDI_UA, false, VIVALDI_HINTS);
+  t.is(p.getBrandVersion('Vivaldi'), '7.1');
+});

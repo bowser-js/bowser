@@ -111,7 +111,7 @@ class Parser {
     }
     const brandLower = brandName.toLowerCase();
     return this._hints.brands.some(
-      b => b.brand && b.brand.toLowerCase() === brandLower,
+      (b) => b.brand && b.brand.toLowerCase() === brandLower,
     );
   }
 
@@ -132,7 +132,7 @@ class Parser {
     }
     const brandLower = brandName.toLowerCase();
     const brand = this._hints.brands.find(
-      b => b.brand && b.brand.toLowerCase() === brandLower,
+      (b) => b.brand && b.brand.toLowerCase() === brandLower,
     );
     return brand ? brand.version : undefined;
   }
@@ -169,7 +169,7 @@ class Parser {
       }
 
       if (Array.isArray(_browser.test)) {
-        return _browser.test.some(condition => this.test(condition));
+        return _browser.test.some((condition) => this.test(condition));
       }
 
       throw new Error("Browser's test function is not valid");
@@ -208,7 +208,6 @@ class Parser {
     }
     return this.getBrowser().name || '';
   }
-
 
   /**
    * Get browser's version
@@ -252,7 +251,7 @@ class Parser {
       }
 
       if (Array.isArray(_os.test)) {
-        return _os.test.some(condition => this.test(condition));
+        return _os.test.some((condition) => this.test(condition));
       }
 
       throw new Error("Browser's test function is not valid");
@@ -328,7 +327,7 @@ class Parser {
       }
 
       if (Array.isArray(_platform.test)) {
-        return _platform.test.some(condition => this.test(condition));
+        return _platform.test.some((condition) => this.test(condition));
       }
 
       throw new Error("Browser's test function is not valid");
@@ -379,7 +378,7 @@ class Parser {
       }
 
       if (Array.isArray(_engine.test)) {
-        return _engine.test.some(condition => this.test(condition));
+        return _engine.test.some((condition) => this.test(condition));
       }
 
       throw new Error("Browser's test function is not valid");
@@ -452,7 +451,7 @@ class Parser {
 
     if (platformsAndOSCounter > 0) {
       const platformsAndOSNames = Object.keys(platformsAndOSes);
-      const OSMatchingDefinition = Utils.find(platformsAndOSNames, name => (this.isOS(name)));
+      const OSMatchingDefinition = Utils.find(platformsAndOSNames, (name) => (this.isOS(name)));
 
       if (OSMatchingDefinition) {
         const osResult = this.satisfies(platformsAndOSes[OSMatchingDefinition]);
@@ -464,7 +463,7 @@ class Parser {
 
       const platformMatchingDefinition = Utils.find(
         platformsAndOSNames,
-        name => (this.isPlatform(name)),
+        (name) => (this.isPlatform(name)),
       );
       if (platformMatchingDefinition) {
         const platformResult = this.satisfies(platformsAndOSes[platformMatchingDefinition]);
@@ -477,7 +476,7 @@ class Parser {
 
     if (browsersCounter > 0) {
       const browserNames = Object.keys(browsers);
-      const matchingDefinition = Utils.find(browserNames, name => (this.isBrowser(name, true)));
+      const matchingDefinition = Utils.find(browserNames, (name) => (this.isBrowser(name, true)));
 
       if (matchingDefinition !== void 0) {
         return this.compareVersions(browsers[matchingDefinition]);
@@ -598,7 +597,7 @@ class Parser {
    * @returns {Boolean}
    */
   some(anythings = []) {
-    return anythings.some(anything => this.is(anything));
+    return anythings.some((anything) => this.is(anything));
   }
 }
 

@@ -1,4 +1,4 @@
-# Copilot Instructions for Bowser
+# Agents Instructions for Bowser
 
 ## Architecture
 

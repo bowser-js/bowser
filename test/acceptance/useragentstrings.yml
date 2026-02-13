@@ -1284,20 +1284,6 @@
         engine:
           name: "WebKit"
           version: "601.1.46"
-    - ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 [FBAN/FBIOS;FBDV/iPhone7,2;FBMD/iPhone;FBSN/iOS;FBSV/11.4.1;FBSS/2;FBCR/vfnl;FBID/phone;FBLC/nl_NL;FBOP/5;FBRV/0]"
-      spec:
-        browser:
-          name: "Safari"
-        os:
-          name: "iOS"
-          version: "11.4.1"
-        platform:
-          type: "mobile"
-          vendor: "Apple"
-          model: "iPhone"
-        engine:
-          name: "WebKit"
-          version: "605.1.15"
     -
       ua: "Mozilla/5.0 (SmartHub; SMART-TV; U; Linux/SmartTV) AppleWebKit/531.2+ (KHTML, like Gecko) WebBrowser/1.0 SmartTV Safari/531.2+"
       spec:
@@ -3048,6 +3034,67 @@
           type: "bot"
           vendor: "Meta"
         engine: {}
+  Facebook Mobile:
+    -
+      ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 [FBAN/FBIOS;FBDV/iPhone10,3;FBMD/iPhone;FBSN/iOS;FBSV/14.6;FBSS/3;FBID/phone;FBLC/en_US;FBOP/5;FBAV/328.0.0.29.120]"
+      spec:
+        browser:
+          name: "Facebook Mobile"
+          version: "328.0.0.29.120"
+        os:
+          name: "iOS"
+          version: "14.6"
+        platform:
+          type: "mobile"
+          vendor: "Apple"
+          model: "iPhone"
+        engine:
+          name: "WebKit"
+          version: "605.1.15"
+    -
+      ua: "Mozilla/5.0 (Linux; Android 11; SM-G991B) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/92.0.4515.131 Mobile Safari/537.36 [FBAN/FB4A;FBAV/328.0.0.29.120;]"
+      spec:
+        browser:
+          name: "Facebook Mobile"
+          version: "328.0.0.29.120"
+        os:
+          name: "Android"
+          version: "11"
+        platform:
+          type: "mobile"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (iPad; CPU OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 [FBAN/FBIOS;FBDV/iPad7,11;FBMD/iPad;FBSN/iOS;FBSV/14.6;FBSS/2;FBID/tablet;FBLC/en_US;FBOP/5;FBAV/328.0.0.29.120]"
+      spec:
+        browser:
+          name: "Facebook Mobile"
+          version: "328.0.0.29.120"
+        os:
+          name: "iOS"
+          version: "14.6"
+        platform:
+          type: "tablet"
+          vendor: "Apple"
+          model: "iPad"
+        engine:
+          name: "WebKit"
+          version: "605.1.15"
+    -
+      ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 [FBAN/FBIOS;FBDV/iPhone7,2;FBMD/iPhone;FBSN/iOS;FBSV/11.4.1;FBSS/2;FBCR/vfnl;FBID/phone;FBLC/nl_NL;FBOP/5;FBRV/0]"
+      spec:
+        browser:
+          name: "Facebook Mobile"
+        os:
+          name: "iOS"
+          version: "11.4.1"
+        platform:
+          type: "mobile"
+          vendor: "Apple"
+          model: "iPhone"
+        engine:
+          name: "WebKit"
+          version: "605.1.15"
   SlackBot:
      -
        ua: "Slackbot-LinkExpanding 1.0 (+https://api.slack.com/robots)"

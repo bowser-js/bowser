@@ -378,6 +378,21 @@ const browsersList = [
     },
   },
 
+  /* Facebook Mobile */
+  {
+    test: [/\[FBAN\//i],
+    describe(ua) {
+      const browser = {
+        name: 'Facebook Mobile',
+      };
+      const version = Utils.getFirstMatch(/FBAV\/([\d.]+)/i, ua);
+      if (version) {
+        browser.version = version;
+      }
+      return browser;
+    },
+  },
+
   /* SlackBot */
   {
     test: [/slackbot/i, /slack-imgProxy/i],

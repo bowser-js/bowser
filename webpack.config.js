@@ -1,10 +1,16 @@
 const path = require('path');
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const CompressionPlugin = require('compression-webpack-plugin');
+const webpack = require('webpack');
+
+const banner = `Bowser - a browser detector
+https://github.com/lancedikson/bowser
+MIT License | (c) Dustin Diaz 2012-2015
+MIT License | (c) Denis Demchenko 2015-2026`;
 
 module.exports = {
   plugins: [
     new CompressionPlugin(),
+    new webpack.BannerPlugin({ banner }),
   ],
   mode: 'production', // "production" | "development" | "none"
   // Chosen mode tells webpack to use its built-in optimizations accordingly.

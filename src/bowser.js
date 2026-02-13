@@ -2,7 +2,7 @@
  * Bowser - a browser detector
  * https://github.com/bowser-js/bowser
  * MIT License | (c) Dustin Diaz 2012-2015
- * MIT License | (c) Denis Demchenko 2015-2019
+ * MIT License | (c) Denis Demchenko 2015-2026
  */
 import Parser from './parser.js';
 import {

@@ -1630,8 +1630,7 @@
         platform:
           type: "mobile"
         engine:
-          name: "EdgeHTML"
-          version: ""
+          name: "Blink"
     -
       ua: 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_2 like Mac OS X) AppleWebKit/603.2.4 (KHTML, like Gecko) Mobile/14F89 Safari/603.2.4 EdgiOS/41.1.35.1'
       spec:
@@ -1646,8 +1645,20 @@
           model: "iPhone"
           vendor: "Apple"
         engine:
-          name: "EdgeHTML"
-          version: ""
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Linux; Android 10; SM-A515W) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.116 Mobile Safari/537.36 EdgA/46.01.4.5140"
+      spec:
+        browser:
+          name: "Microsoft Edge"
+          version: "46.01.4.5140"
+        os:
+          name: "Android"
+          version: "10"
+        platform:
+          type: "mobile"
+        engine:
+          name: "Blink"
     -
       ua: "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0"
       spec:

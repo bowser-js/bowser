@@ -28,6 +28,7 @@ export const BROWSER_ALIASES_MAP = {
   'Internet Explorer': 'ie',
   InternetArchiveCrawler: 'internetarchivecrawler',
   'K-Meleon': 'k_meleon',
+  Konqueror: 'konqueror',
   LibreWolf: 'librewolf',
   Linespider: 'linespider',
   Maxthon: 'maxthon',
@@ -62,6 +63,8 @@ export const BROWSER_ALIASES_MAP = {
   Swing: 'swing',
   Tizen: 'tizen',
   'UC Browser': 'uc',
+  UCMini: 'ucmini',
+  UCWEB: 'ucweb',
   Vivaldi: 'vivaldi',
   'WebOS Browser': 'webos',
   WeChat: 'wechat',
@@ -69,6 +72,7 @@ export const BROWSER_ALIASES_MAP = {
   'Yandex Browser': 'yandex',
   YandexBot: 'yandexbot',
   YouBot: 'youbot',
+  Yowser: 'yowser',
 };
 
 export const BROWSER_MAP = {
@@ -100,6 +104,7 @@ export const BROWSER_MAP = {
   ie: 'Internet Explorer',
   internetarchivecrawler: 'InternetArchiveCrawler',
   k_meleon: 'K-Meleon',
+  konqueror: 'Konqueror',
   librewolf: 'LibreWolf',
   linespider: 'Linespider',
   maxthon: 'Maxthon',
@@ -133,6 +138,8 @@ export const BROWSER_MAP = {
   swing: 'Swing',
   tizen: 'Tizen',
   uc: 'UC Browser',
+  ucmini: 'UCMini',
+  ucweb: 'UCWEB',
   vivaldi: 'Vivaldi',
   webos: 'WebOS Browser',
   wechat: 'WeChat',
@@ -140,6 +147,7 @@ export const BROWSER_MAP = {
   yandex: 'Yandex Browser',
   yandexbot: 'YandexBot',
   youbot: 'YouBot',
+  yowser: 'Yowser',
 };
 
 export const PLATFORMS_MAP = {

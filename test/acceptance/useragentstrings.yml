@@ -763,21 +763,6 @@
           name: "Blink"
   Yandex Browser:
     -
-      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 YaBrowser/15.4.2272.3420 (beta) Yowser/2.0 Safari/537.36"
-      spec:
-        browser:
-          name: "Yandex Browser"
-          version: "15.4.2272.3420"
-        os:
-          name: "macOS"
-          version: "10.10.3"
-          versionName: "Yosemite"
-        platform:
-          type: "desktop"
-          vendor: "Apple"
-        engine:
-          name: "Blink"
-    -
       ua: "Mozilla/5.0 (Linux; Android 5.1.1; Nexus 5 Build/LMY48B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 YaBrowser/15.4.2272.3608.00 Mobile Safari/537.36"
       spec:
         browser:
@@ -808,6 +793,36 @@
         engine:
           name: "WebKit"
           version: "605.1.15"
+  Yowser:
+    -
+      ua: "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 YaBrowser/18.1.1.839 Yowser/2.5 Safari/537.36"
+      spec:
+        browser:
+          name: "Yowser"
+          version: "2.5"
+        os:
+          name: "Windows"
+          version: "NT 6.2"
+          versionName: "8"
+        platform:
+          type: "desktop"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 YaBrowser/15.4.2272.3420 (beta) Yowser/2.0 Safari/537.36"
+      spec:
+        browser:
+          name: "Yowser"
+          version: "2.0"
+        os:
+          name: "macOS"
+          version: "10.10.3"
+          versionName: "Yosemite"
+        platform:
+          type: "desktop"
+          vendor: "Apple"
+        engine:
+          name: "Blink"
   Safari:
     -
       ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.13+ (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2"
@@ -3265,6 +3280,32 @@
         engine:
           name: "WebKit"
           version: "537.51.1"
+  UCMini:
+    -
+      ua: "UCWEB/2.0 (Java; U; MIDP-2.0; Nokia203/20.37) U2/1.0.0 UCMini/11.1.3.1128 (SpeedMode; Proxy; Android 6.0.1; HTC_Desire_601_dual_sim ) U2/1.0.0 Mobile"
+      spec:
+        browser:
+          name: "UCMini"
+          version: "11.1.3.1128"
+        os:
+          name: "Android"
+          version: "6.0.1"
+          versionName: "Marshmallow"
+        platform:
+          type: "mobile"
+          vendor: "Nokia"
+        engine: {}
+  UCWEB:
+    -
+      ua: "UCWEB/2.0 (Java; U; MIDP-2.0; en-US; MicroMax_Q5) U2/1.0.0 UCBrowser/8.7.1.234 U2/1.0.0 Mobile"
+      spec:
+        browser:
+          name: "UCWEB"
+          version: "2.0"
+        os: {}
+        platform:
+          type: "mobile"
+        engine: {}
   QupZilla:
     -
       ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/538.1 (KHTML, like Gecko) QupZilla/1.8.2 Safari/538.1"
@@ -3386,6 +3427,18 @@
         engine:
           name: "Gecko"
           version: "20140105"
+  Konqueror:
+    -
+      ua: "Mozilla/5.0 (X11; Linux) KHTML/4.9.1 (like Gecko) Konqueror/4.9"
+      spec:
+        browser:
+          name: "Konqueror"
+          version: "4.9"
+        os:
+          name: "Linux"
+        platform:
+          type: "desktop"
+        engine: {}
   Chromium:
     -
       ua: "Mozilla/5.0 (Linux; Ubuntu 14.04 like Android 4.4) AppleWebKit/537.36 Chromium/35.0.1870.2 Mobile Safari/537.36"

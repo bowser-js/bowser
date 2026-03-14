@@ -745,7 +745,7 @@ const browsersList = [
     },
   },
   {
-    test: [/edg([ea]|ios)/i],
+    test: [/edg([ea]|ios)\//i],
     describe(ua) {
       const browser = {
         name: 'Microsoft Edge',

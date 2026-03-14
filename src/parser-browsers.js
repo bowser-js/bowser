@@ -249,6 +249,108 @@ const browsersList = [
     },
   },
 
+  /* AdsBot-Google */
+  {
+    test: [/adsbot-google/i],
+    describe(ua) {
+      const browser = {
+        name: 'AdsBot-Google',
+      };
+      const version = Utils.getFirstMatch(/adsbot-google(?:-mobile)?\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* Mediapartners-Google */
+  {
+    test: [/mediapartners-google/i],
+    describe(ua) {
+      const browser = {
+        name: 'Mediapartners-Google',
+      };
+      const version = Utils.getFirstMatch(/mediapartners-google\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* APIs-Google */
+  {
+    test: [/apis-google/i],
+    describe(ua) {
+      const browser = {
+        name: 'APIs-Google',
+      };
+      const version = Utils.getFirstMatch(/apis-google\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* FeedFetcher-Google */
+  {
+    test: [/feedfetcher-google/i],
+    describe(ua) {
+      const browser = {
+        name: 'FeedFetcher-Google',
+      };
+      const version = Utils.getFirstMatch(/feedfetcher-google(?:-calendar)?\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* Google-InspectionTool */
+  {
+    test: [/google-inspectiontool/i],
+    describe(ua) {
+      const browser = {
+        name: 'Google-InspectionTool',
+      };
+      const version = Utils.getFirstMatch(/google-inspectiontool\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* GoogleOther */
+  {
+    test: [/googleother/i],
+    describe(ua) {
+      const browser = {
+        name: 'GoogleOther',
+      };
+      const version = Utils.getFirstMatch(/googleother\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
   /* Googlebot */
   {
     test: [/googlebot/i],
@@ -291,6 +393,40 @@ const browsersList = [
         name: 'AmazonBot',
       };
       const version = Utils.getFirstMatch(/amazonbot\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* BingPreview */
+  {
+    test: [/bingpreview/i],
+    describe(ua) {
+      const browser = {
+        name: 'BingPreview',
+      };
+      const version = Utils.getFirstMatch(/bingpreview\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* AdIdxBot */
+  {
+    test: [/adidxbot/i],
+    describe(ua) {
+      const browser = {
+        name: 'AdIdxBot',
+      };
+      const version = Utils.getFirstMatch(/adidxbot\/(\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;

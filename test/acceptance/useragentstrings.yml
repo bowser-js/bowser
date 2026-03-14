@@ -2699,6 +2699,110 @@
           vendor: "Google"
         engine:
           name: "Blink"
+  AdsBot-Google:
+    -
+      ua: "AdsBot-Google (+http://www.google.com/adsbot.html)"
+      spec:
+        browser:
+          name: "AdsBot-Google"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Google"
+        engine: {}
+    -
+      ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Mobile/15E148 Safari/604.1 (compatible; AdsBot-Google-Mobile/3.0; +http://www.google.com/mobile/adsbot.html)"
+      spec:
+        browser:
+          name: "AdsBot-Google"
+          version: "3.0"
+        os:
+          name: "iOS"
+          version: "14.7.1"
+        platform:
+          type: "bot"
+          vendor: "Google"
+        engine:
+          name: "WebKit"
+          version: "605.1.15"
+  Mediapartners-Google:
+    -
+      ua: "Mediapartners-Google"
+      spec:
+        browser:
+          name: "Mediapartners-Google"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Google"
+        engine: {}
+    -
+      ua: "Mozilla/5.0 (compatible; Mediapartners-Google/2.1; +http://www.google.com/bot.html)"
+      spec:
+        browser:
+          name: "Mediapartners-Google"
+          version: "2.1"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Google"
+        engine: {}
+  APIs-Google:
+    -
+      ua: "APIs-Google (+https://developers.google.com/webmasters/APIs-Google.html)"
+      spec:
+        browser:
+          name: "APIs-Google"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Google"
+        engine: {}
+  FeedFetcher-Google:
+    -
+      ua: "FeedFetcher-Google; (+http://www.google.com/feedfetcher.html)"
+      spec:
+        browser:
+          name: "FeedFetcher-Google"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Google"
+        engine: {}
+  Google-InspectionTool:
+    -
+      ua: "Mozilla/5.0 (compatible; Google-InspectionTool/1.0; +https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers)"
+      spec:
+        browser:
+          name: "Google-InspectionTool"
+          version: "1.0"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Google"
+        engine: {}
+  GoogleOther:
+    -
+      ua: "GoogleOther"
+      spec:
+        browser:
+          name: "GoogleOther"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Google"
+        engine: {}
+    -
+      ua: "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GoogleOther) Chrome/108.0.0.0 Safari/537.36"
+      spec:
+        browser:
+          name: "GoogleOther"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Google"
+        engine:
+          name: "Blink"
   GPTBot:
     -
       ua: "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.1; +https://openai.com/gptbot)"
@@ -2960,6 +3064,49 @@
           vendor: "Bing"
         engine:
           name: "Blink"
+  BingPreview:
+    -
+      ua: "Mozilla/5.0 (Windows Phone 8.1; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; NOKIA; Lumia 530) like Gecko (compatible; BingPreview/1.0b; +http://www.bing.com/bingpreview)"
+      spec:
+        browser:
+          name: "BingPreview"
+          version: "1.0"
+        os:
+          name: "Windows Phone"
+          version: "8.1"
+        platform:
+          type: "bot"
+          vendor: "Bing"
+        engine:
+          name: "Trident"
+          version: "7.0"
+  AdIdxBot:
+    -
+      ua: "Mozilla/5.0 (compatible; adidxbot/2.0; +http://www.bing.com/bingbot.htm)"
+      spec:
+        browser:
+          name: "AdIdxBot"
+          version: "2.0"
+        os: {}
+        platform:
+          type: "bot"
+          vendor: "Bing"
+        engine: {}
+    -
+      ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 (compatible; adidxbot/2.0; +http://www.bing.com/bingbot.htm)"
+      spec:
+        browser:
+          name: "AdIdxBot"
+          version: "2.0"
+        os:
+          name: "iOS"
+          version: "7.0"
+        platform:
+          type: "bot"
+          vendor: "Bing"
+        engine:
+          name: "WebKit"
+          version: "537.51.1"
   BaiduSpider:
     -
       ua: "Baiduspider"

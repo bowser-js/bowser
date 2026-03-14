@@ -1092,6 +1092,25 @@ const browsersList = [
       return browser;
     },
   },
+  /* Android WebView */
+  {
+    test(parser) {
+      return parser.test(/android/i) && parser.test(/; wv\)/i);
+    },
+    describe(ua) {
+      const browser = {
+        name: 'Chrome WebView',
+      };
+      const version = Utils.getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.?_?\d+)+)/i, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
   {
     test: [/chrome|crios|crmo/i],
     describe(ua) {
@@ -1152,6 +1171,27 @@ const browsersList = [
         name: 'PlayStation 4',
       };
       const version = Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* iOS WebView */
+  {
+    test(parser) {
+      return parser.test(/(iPhone|iPad|iPod)/i)
+        && parser.test(/AppleWebKit/i)
+        && !parser.test(/Safari/i);
+    },
+    describe(ua) {
+      const browser = {
+        name: 'iOS WebView',
+      };
+      const version = Utils.getFirstMatch(/AppleWebKit\/(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;

@@ -1095,12 +1095,28 @@ const browsersList = [
   /* Android WebView */
   {
     test(parser) {
+      // Client Hints: check for 'Android WebView' brand (Chromium-based WebViews)
+      if (parser.hasBrand('Android WebView')) {
+        return true;
+      }
+      // UA fallback: the canonical '; wv)' marker in Android WebView UA strings
       return parser.test(/android/i) && parser.test(/; wv\)/i);
     },
-    describe(ua) {
+    describe(ua, parser) {
       const browser = {
         name: 'Chrome WebView',
       };
+
+      // Try Client Hints brand version first
+      if (parser) {
+        const hintsVersion = parser.getBrandVersion('Android WebView');
+        if (hintsVersion) {
+          browser.version = hintsVersion;
+          return browser;
+        }
+      }
+
+      // Fall back to Chrome version from UA string
       const version = Utils.getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {

@@ -449,3 +449,37 @@ test('Parser.getBrandVersion returns version for Vivaldi', (t) => {
   const p = new Parser(VIVALDI_UA, false, VIVALDI_HINTS);
   t.is(p.getBrandVersion('Vivaldi'), '7.1');
 });
+
+const ANDROID_WEBVIEW_UA = 'Mozilla/5.0 (Linux; Android 5.1.1; Nexus 5 Build/LMY48B; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/43.0.2357.65 Mobile Safari/537.36';
+const ANDROID_WEBVIEW_HINTS = {
+  brands: [
+    { brand: 'Android WebView', version: '131' },
+    { brand: 'Chromium', version: '131' },
+    { brand: 'Not_A Brand', version: '24' },
+  ],
+  mobile: true,
+  platform: 'Android',
+  platformVersion: '5.1.1',
+};
+
+test('Parser detects Chrome WebView from client hints brands', (t) => {
+  const p = new Parser(ANDROID_WEBVIEW_UA, false, ANDROID_WEBVIEW_HINTS);
+  t.is(p.getBrowserName(), 'Chrome WebView');
+  t.is(p.getBrowserVersion(), '131');
+});
+
+test('Parser detects Chrome WebView from UA string without client hints', (t) => {
+  const p = new Parser(ANDROID_WEBVIEW_UA);
+  t.is(p.getBrowserName(), 'Chrome WebView');
+  t.is(p.getBrowserVersion(), '43.0.2357.65');
+});
+
+test('Parser.hasBrand detects Android WebView', (t) => {
+  const p = new Parser(ANDROID_WEBVIEW_UA, false, ANDROID_WEBVIEW_HINTS);
+  t.true(p.hasBrand('Android WebView'));
+});
+
+test('Parser.getBrandVersion returns version for Android WebView', (t) => {
+  const p = new Parser(ANDROID_WEBVIEW_UA, false, ANDROID_WEBVIEW_HINTS);
+  t.is(p.getBrandVersion('Android WebView'), '131');
+});

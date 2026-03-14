@@ -392,6 +392,32 @@
         engine:
           name: "WebKit"
           version: "537.31"
+    -
+      ua: "Mozilla/5.0 (Linux; Android 16; motorola edge 60 fusion Build/W1VC36H.14-20-19; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/144.0.7559.132 Mobile Safari/537.36 IITtraderNative DCASupport1/5 Mobile"
+      spec:
+        browser:
+          name: "Chrome"
+          version: "144.0.7559.132"
+        os:
+          name: "Android"
+          version: "16"
+        platform:
+          type: "mobile"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Linux; Android 15; motorola edge 50 fusion Build/V1UUIS35H.15-41-6-18-2; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/145.0.7632.79 Mobile Safari/537.36 IITtraderNative DCASupport1/5 Mobile"
+      spec:
+        browser:
+          name: "Chrome"
+          version: "145.0.7632.79"
+        os:
+          name: "Android"
+          version: "15"
+        platform:
+          type: "mobile"
+        engine:
+          name: "Blink"
   Google Search:
     -
       ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) GSA/83.0.268992909 Mobile/15E148 Safari/605.1"

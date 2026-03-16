@@ -425,6 +425,23 @@ const browsersList = [
     },
   },
 
+  /* Konqueror */
+  {
+    test: [/konqueror/i],
+    describe(ua) {
+      const browser = {
+        name: 'Konqueror',
+      };
+      const version = Utils.getFirstMatch(/(?:konqueror)[\s/](\d+(\.?_?\d+)*)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
   /* Opera < 13.0 */
   {
     test: [/opera/i],
@@ -579,12 +596,57 @@ const browsersList = [
     },
   },
   {
+    test: [/yowser/i],
+    describe(ua) {
+      const browser = {
+        name: 'Yowser',
+      };
+      const version = Utils.getFirstMatch(/(?:yowser)[\s/](\d+(\.?_?\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
     test: [/yabrowser/i],
     describe(ua) {
       const browser = {
         name: 'Yandex Browser',
       };
       const version = Utils.getFirstMatch(/(?:yabrowser)[\s/](\d+(\.?_?\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
+    test: [/ucmini/i],
+    describe(ua) {
+      const browser = {
+        name: 'UCMini',
+      };
+      const version = Utils.getFirstMatch(/(?:ucmini)[\s/](\d+(\.?_?\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
+    test: [/ucweb/i],
+    describe(ua) {
+      const browser = {
+        name: 'UCWEB',
+      };
+      const version = Utils.getFirstMatch(/(?:ucweb)[\s/](\d+(\.?_?\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;

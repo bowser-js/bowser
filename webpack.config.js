@@ -15,7 +15,7 @@ module.exports = {
   mode: 'production', // "production" | "development" | "none"
   // Chosen mode tells webpack to use its built-in optimizations accordingly.
   entry: {
-    bundled: ['@babel/polyfill', './src/bowser.js'],
+    bundled: ['core-js/stable', './src/bowser.js'],
     es5: './src/bowser.js',
   }, // string | object | array
   // defaults to ./src

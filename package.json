@@ -48,7 +48,7 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-add-module-exports": "^1.0.2",
     "babel-plugin-istanbul": "^6.0.0",
-    "compression-webpack-plugin": "^4.0.0",
+    "compression-webpack-plugin": "^12.0.0",
     "coveralls": "^3.0.6",
     "docdash": "^1.1.1",
     "eslint": "^6.5.1",
@@ -60,7 +60,7 @@
     "nyc": "^15.0.0",
     "sinon": "^9.0.0",
     "testem": "^3.0.0",
-    "webpack": "^4.41.0",
+    "webpack": "^5.105.4",
     "webpack-bundle-analyzer": "^3.5.2",
     "webpack-cli": "^3.3.9",
     "yamljs": "^0.3.0"

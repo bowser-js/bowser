@@ -435,6 +435,34 @@
         engine:
           name: "WebKit"
           version: "605.1.15"
+  HeyTap Browser:
+    -
+      ua: "Mozilla/5.0 (Linux; U; Android 13; en-in; RMX3370 Build/TP1A.220905.001) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.6422.72 Mobile Safari/537.36 HeyTapBrowser/45.13.8.1"
+      spec:
+        browser:
+          name: "HeyTap Browser"
+          version: "45.13.8.1"
+        os:
+          name: "Android"
+          version: "13"
+        platform:
+          type: "mobile"
+        engine:
+          name: "Blink"
+  Vivo Browser:
+    -
+      ua: "Mozilla/5.0 (Linux; Android 13; V2279A) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.6778.200 Mobile Safari/537.36 VivoBrowser/28.4.3.0"
+      spec:
+        browser:
+          name: "Vivo Browser"
+          version: "28.4.3.0"
+        os:
+          name: "Android"
+          version: "13"
+        platform:
+          type: "mobile"
+        engine:
+          name: "Blink"
   Amazon Silk:
     -
       ua: "Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; KFTT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.4 Mobile Safari/535.19 Silk-Accelerated=true"

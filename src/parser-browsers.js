@@ -504,6 +504,36 @@ const browsersList = [
     },
   },
   {
+    test: [/HeyTapBrowser/i],
+    describe(ua) {
+      const browser = {
+        name: 'HeyTap Browser',
+      };
+      const version = Utils.getFirstMatch(/(?:HeyTapBrowser)[\s/](\d+(?:\.\d+)*)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
+    test: [/VivoBrowser/i],
+    describe(ua) {
+      const browser = {
+        name: 'Vivo Browser',
+      };
+      const version = Utils.getFirstMatch(/(?:VivoBrowser)[\s/](\d+(?:\.\d+)*)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
     test: [/MZBrowser/i],
     describe(ua) {
       const browser = {

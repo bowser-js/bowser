@@ -3859,3 +3859,66 @@
         engine:
           name: "Gecko"
           version: "20100101"
+  Chrome WebView:
+    -
+      ua: "Mozilla/5.0 (Linux; Android 5.1.1; Nexus 5 Build/LMY48B; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/43.0.2357.65 Mobile Safari/537.36"
+      spec:
+        browser:
+          name: "Chrome WebView"
+          version: "43.0.2357.65"
+        os:
+          name: "Android"
+          version: "5.1.1"
+          versionName: "Lollipop"
+        platform:
+          type: "mobile"
+          vendor: "Nexus"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Linux; Android 8.0.0; SM-G9300 Build/R16NW; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/64.0.3282.137 Mobile Safari/537.36"
+      spec:
+        browser:
+          name: "Chrome WebView"
+          version: "64.0.3282.137"
+        os:
+          name: "Android"
+          version: "8.0.0"
+          versionName: "Oreo"
+        platform:
+          type: "mobile"
+        engine:
+          name: "Blink"
+  iOS WebView:
+    -
+      ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/603.1.23 (KHTML, like Gecko) Mobile/14E5239e"
+      spec:
+        browser:
+          name: "iOS WebView"
+          version: "603.1.23"
+        os:
+          name: "iOS"
+          version: "10.3"
+        platform:
+          type: "mobile"
+          vendor: "Apple"
+          model: "iPhone"
+        engine:
+          name: "WebKit"
+          version: "603.1.23"
+    -
+      ua: "Mozilla/5.0 (iPad; CPU OS 9_0 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13A344"
+      spec:
+        browser:
+          name: "iOS WebView"
+          version: "601.1.46"
+        os:
+          name: "iOS"
+          version: "9.0"
+        platform:
+          type: "tablet"
+          vendor: "Apple"
+          model: "iPad"
+        engine:
+          name: "WebKit"
+          version: "601.1.46"

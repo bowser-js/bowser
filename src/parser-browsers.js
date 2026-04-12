@@ -1122,6 +1122,41 @@ const browsersList = [
       return browser;
     },
   },
+  /* Android WebView */
+  {
+    test(parser) {
+      // Client Hints: check for 'Android WebView' brand (Chromium-based WebViews)
+      if (parser.hasBrand('Android WebView')) {
+        return true;
+      }
+      // UA fallback: the canonical '; wv)' marker in Android WebView UA strings
+      return parser.test(/android/i) && parser.test(/; wv\)/i);
+    },
+    describe(ua, parser) {
+      const browser = {
+        name: 'Chrome WebView',
+      };
+
+      // Try Client Hints brand version first
+      if (parser) {
+        const hintsVersion = parser.getBrandVersion('Android WebView');
+        if (hintsVersion) {
+          browser.version = hintsVersion;
+          return browser;
+        }
+      }
+
+      // Fall back to Chrome version from UA string
+      const version = Utils.getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.?_?\d+)+)/i, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
   {
     test: [/chrome|crios|crmo/i],
     describe(ua) {
@@ -1182,6 +1217,27 @@ const browsersList = [
         name: 'PlayStation 4',
       };
       const version = Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
+  /* iOS WebView */
+  {
+    test(parser) {
+      return parser.test(/(iPhone|iPad|iPod)/i)
+        && parser.test(/AppleWebKit/i)
+        && !parser.test(/Safari/i);
+    },
+    describe(ua) {
+      const browser = {
+        name: 'iOS WebView',
+      };
+      const version = Utils.getFirstMatch(/AppleWebKit\/(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;

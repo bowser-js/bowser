@@ -88,5 +88,5 @@
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "generate-docs": "jsdoc -c jsdoc.json"
   },
-  "license": "MIT"
+  "license": "MITNFA"
 }

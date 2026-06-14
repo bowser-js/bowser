@@ -43,7 +43,7 @@
         "default": "./dist/umd/bowser.umd.js"
       }
     }
-  },  
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bowser-js/bowser.git"
@@ -59,6 +59,7 @@
     "babel-plugin-istanbul": "^8.0.0",
     "coveralls": "^3.0.6",
     "docdash": "^1.1.1",
+    "core-js": "^3.49.0",
     "eslint": "^8.57.1",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-ava": "^10.5.0",
@@ -66,6 +67,7 @@
     "gh-pages": "^6.3.0",
     "jsdoc": "^3.6.3",
     "nyc": "^18.0.0",
+    "regenerator-runtime": "^0.14.1",
     "sinon": "^9.0.0",
     "testem": "^3.0.0",
     "tsdown": "^0.22.2",

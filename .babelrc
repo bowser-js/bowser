@@ -1,6 +1,7 @@
 {
   "presets": [["@babel/preset-env", {
-    "useBuiltIns": "entry",
+    "useBuiltIns": "usage",
+    "corejs": "3",
     "modules": "cjs",
     "loose": true,
     "targets": {

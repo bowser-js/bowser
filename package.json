@@ -2,9 +2,8 @@
   "name": "bowser",
   "description": "Lightweight browser detector",
   "files": [
-    "src/",
-    "es5.js",
-    "bundled.js",
+    "src",
+    "dist",
     "index.d.ts"
   ],
   "keywords": [
@@ -29,10 +28,22 @@
       "url": "https://github.com/naorpeled"
     }
   ],
-  "main": "es5.js",
-  "browser": "es5.js",
-  "module": "src/bowser.js",
+  "main": "./dist/umd/bowser.umd.js",
+  "browser": "./dist/esm/bowser.mjs",
+  "module": "./dist/esm/bowser.mjs",
   "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./index.d.ts",
+        "default": "./dist/esm/bowser.mjs"
+      },
+      "require": {
+        "types": "./index.d.ts",
+        "default": "./dist/umd/bowser.umd.js"
+      }
+    }
+  },  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bowser-js/bowser.git"
@@ -57,6 +68,7 @@
     "nyc": "^18.0.0",
     "sinon": "^9.0.0",
     "testem": "^3.0.0",
+    "tsdown": "^0.22.2",
     "yamljs": "^0.3.0"
   },
   "ava": {
@@ -71,9 +83,9 @@
     "test": "test"
   },
   "scripts": {
-    "build": "webpack --config webpack.config.js",
+    "build": "tsdown",
     "generate-and-deploy-docs": "pnpm generate-docs && gh-pages --dist docs --dest docs",
-    "watch": "webpack --watch --config webpack.config.js",
+    "watch": "tsdown --watch",
     "lint:check": "eslint ./src",
     "lint:fix": "eslint --fix ./src",
     "testem": "testem",

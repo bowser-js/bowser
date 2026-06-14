@@ -1,4 +1,4 @@
-parser: babel-eslint
+parser: '@babel/eslint-parser'
 extends: airbnb-base
 rules:
   no-underscore-dangle: 0

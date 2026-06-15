@@ -1,4 +1,5 @@
 import { defineConfig } from 'tsdown';
+import babel from '@rolldown/plugin-babel'
 
 const banner = `Bowser - a browser detector
 https://github.com/lancedikson/bowser
@@ -9,6 +10,23 @@ export default defineConfig([
   {
     entry: ['src/bowser.js'],
     format: ['umd'],
+    plugins:[
+      babel({
+        presets: [['@babel/preset-env', {
+          useBuiltIns: 'usage',
+          corejs: '3',
+          modules: 'cjs',
+          loose: true,
+          targets: {
+            ie: '8',
+            browsers: '>2%'
+          }
+        }]],
+        "plugins": [
+          "add-module-exports"
+        ]
+      })
+    ],
     outDir: 'dist/umd', // universal module definition
     globalName: 'Bowser',
     dts: false,

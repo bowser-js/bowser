@@ -54,6 +54,7 @@
     "@babel/eslint-parser": "^7.29.7",
     "@babel/preset-env": "^7.29.7",
     "@babel/register": "^7.29.7",
+    "@rolldown/plugin-babel": "0.2.3",
     "ava": "^3.0.0",
     "babel-plugin-add-module-exports": "^1.0.4",
     "babel-plugin-istanbul": "^8.0.0",

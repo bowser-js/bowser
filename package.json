@@ -70,7 +70,7 @@
     "jsdoc": "^3.6.3",
     "nyc": "^18.0.0",
     "regenerator-runtime": "^0.14.1",
-    "sinon": "^9.0.0",
+    "sinon": "^22.0.0",
     "testem": "^3.0.0",
     "tsdown": "^0.22.2",
     "yamljs": "^0.3.0"

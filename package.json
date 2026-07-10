@@ -61,7 +61,7 @@
     "coveralls": "^3.0.6",
     "docdash": "^1.1.1",
     "core-js": "^3.49.0",
-    "eslint": "^10.5.0",
+    "eslint": "^10.6.0",
     "eslint-config-airbnb-extended": "^3.1.0",
     "eslint-plugin-ava": "^17.0.1",
     "eslint-plugin-import": "^2.32.0",
@@ -71,7 +71,7 @@
     "regenerator-runtime": "^0.14.1",
     "sinon": "^22.0.0",
     "testem": "^3.0.0",
-    "tsdown": "^0.22.3",
+    "tsdown": "^0.22.4",
     "yamljs": "^0.3.0"
   },
   "ava": {

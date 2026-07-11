@@ -2,4 +2,4 @@ allowBuilds:
   core-js: false
   unrs-resolver: false
 minimumReleaseAgeExclude:
-  - eslint@10.7.0
+  - tsdown@0.22.5

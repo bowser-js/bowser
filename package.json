@@ -71,7 +71,7 @@
     "regenerator-runtime": "^0.14.1",
     "sinon": "^22.0.0",
     "testem": "^3.0.0",
-    "tsdown": "^0.22.5",
+    "tsdown": "^0.22.7",
     "yamljs": "^0.3.0"
   },
   "ava": {

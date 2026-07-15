@@ -75,8 +75,8 @@ importers:
         specifier: ^3.0.0
         version: 3.20.1(@babel/core@7.29.7)(underscore@1.13.8)
       tsdown:
-        specifier: ^0.22.7
-        version: 0.22.7(typescript@6.0.3)
+        specifier: ^0.22.8
+        version: 0.22.8(typescript@6.0.3)
       yamljs:
         specifier: ^0.3.0
         version: 0.3.0
@@ -4187,14 +4187,14 @@ packages:
   tsconfig-paths@3.15.0:
     resolution: {integrity: sha512-2Ac2RgzDe/cn48GvOe3M+o82pEFewD3UPbyoUHHdKasHwJKjds4fLXWf/Ux5kATBKN20oaFGu+jbElp1pos0mg==}
 
-  tsdown@0.22.7:
-    resolution: {integrity: sha512-4egbOzc9dxVv/QS+gDV75FIxDIjQQeOnXBlUuikyjmn0ozuc6FW11djJjEEo3vqkuJRygpnKHurnj+Iwftk4VA==}
+  tsdown@0.22.8:
+    resolution: {integrity: sha512-6FOLlr1iLcE3LheqQt13hVUWtTduJNwF2akPskPe8Tf1hr+N5UULHzrNZYTMNwL6lr2UyQ8iefVBB6tdqp1PCQ==}
     engines: {node: ^22.18.0 || >=24.11.0}
     hasBin: true
     peerDependencies:
       '@arethetypeswrong/core': ^0.18.1
-      '@tsdown/css': 0.22.7
-      '@tsdown/exe': 0.22.7
+      '@tsdown/css': 0.22.8
+      '@tsdown/exe': 0.22.8
       '@vitejs/devtools': '*'
       publint: ^0.3.8
       tsx: '*'
@@ -9020,7 +9020,7 @@ snapshots:
       minimist: 1.2.8
       strip-bom: 3.0.0
 
-  tsdown@0.22.7(typescript@6.0.3):
+  tsdown@0.22.8(typescript@6.0.3):
     dependencies:
       ansis: 4.3.1
       cac: 7.0.0

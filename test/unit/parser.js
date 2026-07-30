@@ -75,6 +75,14 @@ test('Parser.getEngineName gives a lower-cased name of the engine', (t) => {
   t.is(parser.getEngineName(true), 'blink');
 });
 
+test('Parser prioritizes browser-specific engines over generic UA tokens', (t) => {
+  const ladybirdUA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Ladybird/1.0 Gecko/20100101 Chrome/146.0.0.0 AppleWebKit/537.36 Safari/537.36';
+  const ladybirdParser = new Parser(ladybirdUA);
+
+  t.is(ladybirdParser.getBrowserName(), 'Ladybird');
+  t.is(ladybirdParser.getEngineName(), 'LibWeb');
+});
+
 test('Skip parsing shouldn\'t parse', (t) => {
   t.deepEqual((new Parser(UA, true)).getResult(), {});
 });

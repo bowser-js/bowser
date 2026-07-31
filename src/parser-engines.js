@@ -11,7 +11,9 @@ export default [
       return parser.getBrowserName(true) === 'microsoft edge';
     },
     describe(ua) {
-      const isBlinkBased = /\sedg\//i.test(ua);
+      // Check if it's a Chromium-based Edge
+      // (desktop with " Edg/", Android with "EdgA/", or iOS with "EdgiOS/")
+      const isBlinkBased = /\sedg\//i.test(ua) || /edg(a|ios)\//i.test(ua);
 
       // return blink if it's blink-based one
       if (isBlinkBased) {

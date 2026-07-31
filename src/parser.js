@@ -68,7 +68,8 @@ class Parser {
      * like `"iPhone"` or `"Kindle Fire HD 7"`
      * @property {Object} engine
      * @property {String|undefined} [engine.name]
-     * Can be any of this: `WebKit`, `Blink`, `Gecko`, `Trident`, `Presto`, `EdgeHTML`
+     * Can be any of this: `WebKit`, `Blink`, `Gecko`, `Trident`, `Presto`, `EdgeHTML`,
+     * `LibWeb`
      * @property {String|undefined} [engine.version] String version of the engine
      */
     this.parsedResult = {};

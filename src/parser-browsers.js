@@ -1122,6 +1122,22 @@ const browsersList = [
       return browser;
     },
   },
+  /* Ladybird */
+  {
+    test: [/ladybird/i],
+    describe(ua) {
+      const browser = {
+        name: 'Ladybird',
+      };
+      const version = Utils.getFirstMatch(/ladybird\/(\d+(\.?_?\d+)+)/i, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
   {
     test: [/chrome|crios|crmo/i],
     describe(ua) {

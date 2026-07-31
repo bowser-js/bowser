@@ -30,6 +30,18 @@ export default [
     },
   },
 
+  /* LibWeb */
+  {
+    test(parser) {
+      return parser.getBrowserName(true) === 'ladybird';
+    },
+    describe() {
+      return {
+        name: ENGINE_MAP.LibWeb,
+      };
+    },
+  },
+
   /* Trident */
   {
     test: [/trident/i],

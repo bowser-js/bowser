@@ -3,42 +3,122 @@ on:
   pull_request:
     types: [opened, reopened, synchronize]
 
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [12.16.3]
-    name: Node ${{ matrix.node }}
-    steps:
-      - name: "Checkout latest code"
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
-      - name: Set up node
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node }}
-      - name: Install dependencies
-        run: npm ci
-      - name: Build
-        run: npm run build
-      - name: Run tests
-        run: npm run test
+env:
+  # tsdown requires Node ^22.18.0 || >=24.11.0. This is the *build* toolchain
+  # only — see the `pack-smoke` job for the versions the published package
+  # itself has to keep working on.
+  BUILD_NODE_VERSION: "24"
 
-  lint:
-    name: "ESLint"
+jobs:
+  build:
+    name: "Build & test"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout latest code
         uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Set up node
         uses: actions/setup-node@v4
         with:
-          node-version: "16"
+          node-version: ${{ env.BUILD_NODE_VERSION }}
+          cache: pnpm
+
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
+
       - name: Run ESLint
-        run: npm run lint:check
+        run: pnpm lint:check
+
+      - name: Build
+        run: pnpm build
+
+      - name: Run tests
+        run: pnpm test
+
+      # package.json intentionally carries no `version` — it is stamped at
+      # release time by publish.yml. `npm pack` needs one, so use a throwaway.
+      - name: Pack
+        run: |
+          npm version 0.0.0-ci --no-git-tag-version --allow-same-version
+          npm pack --pack-destination ./tarball
+
+      - name: Upload package tarball
+        uses: actions/upload-artifact@v4
+        with:
+          name: package-tarball
+          path: tarball/*.tgz
+
+  pack-smoke:
+    # Installs the packed tarball and exercises every documented entry point.
+    # bowser publishes ES5 artifacts and has no `engines` field, so the package
+    # must keep working far below the version we build on.
+    name: "Consumer smoke (Node ${{ matrix.node }})"
+    needs: build
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ["12.16.3", "14", "18", "20", "24"]
+    steps:
+      - name: Checkout latest code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Download package tarball
+        uses: actions/download-artifact@v4
+        with:
+          name: package-tarball
+          path: tarball
+
+      - name: Set up node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      # No install step: bowser has no runtime dependencies and the smoke test
+      # only uses Node built-ins, so this runs on every version above.
+      - name: Run package smoke test
+        run: node test/package/smoke.cjs tarball/*.tgz
+
+  package-lint:
+    name: "Package manifest"
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout latest code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.BUILD_NODE_VERSION }}
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      - name: Stamp a throwaway version
+        run: npm version 0.0.0-ci --no-git-tag-version --allow-same-version
+
+      - name: publint
+        run: pnpm exec publint
+
+      # Scoped to the root entrypoint. The legacy `bowser/src/*` subpaths are
+      # untyped ESM sources in a CJS package — true on every published version
+      # of bowser, and preserved here on purpose.
+      - name: Are the types wrong?
+        run: pnpm exec attw --pack . --profile node16 --entrypoints .

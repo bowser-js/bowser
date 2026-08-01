@@ -2,6 +2,13 @@ node_modules/
 .idea/
 .nyc_output
 coverage
-dist
-bundled.js*
-es5.js*
+
+# Build output (see tsdown.config.ts). Anchored to the repo root on purpose —
+# unanchored these would also match the build entry points in build/entries/.
+/bundled.js*
+/es5.js*
+/bowser.mjs*
+
+# `npm pack` output, used by the package smoke test
+*.tgz
+/tarball/

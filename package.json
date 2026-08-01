@@ -3,8 +3,11 @@
   "description": "Lightweight browser detector",
   "files": [
     "src",
-    "dist",
-    "index.d.ts"
+    "es5.js",
+    "bundled.js",
+    "bowser.mjs",
+    "index.d.ts",
+    "index.d.mts"
   ],
   "keywords": [
     "browser",
@@ -28,27 +31,51 @@
       "url": "https://github.com/naorpeled"
     }
   ],
-  "main": "./dist/umd/bowser.umd.js",
-  "browser": "./dist/esm/bowser.mjs",
-  "module": "./dist/esm/bowser.mjs",
+  "main": "es5.js",
+  "browser": "es5.js",
+  "module": "src/bowser.js",
   "types": "index.d.ts",
   "exports": {
     ".": {
       "import": {
-        "types": "./index.d.ts",
-        "default": "./dist/esm/bowser.mjs"
+        "types": "./index.d.mts",
+        "default": "./bowser.mjs"
       },
       "require": {
         "types": "./index.d.ts",
-        "default": "./dist/umd/bowser.umd.js"
-      }
-    }
+        "default": "./es5.js"
+      },
+      "default": "./es5.js"
+    },
+    "./es5.js": "./es5.js",
+    "./es5": "./es5.js",
+    "./bundled.js": "./bundled.js",
+    "./bundled": "./bundled.js",
+    "./bowser.mjs": "./bowser.mjs",
+    "./src/bowser.js": "./src/bowser.js",
+    "./src/bowser": "./src/bowser.js",
+    "./src/constants.js": "./src/constants.js",
+    "./src/constants": "./src/constants.js",
+    "./src/parser.js": "./src/parser.js",
+    "./src/parser": "./src/parser.js",
+    "./src/parser-browsers.js": "./src/parser-browsers.js",
+    "./src/parser-browsers": "./src/parser-browsers.js",
+    "./src/parser-engines.js": "./src/parser-engines.js",
+    "./src/parser-engines": "./src/parser-engines.js",
+    "./src/parser-os.js": "./src/parser-os.js",
+    "./src/parser-os": "./src/parser-os.js",
+    "./src/parser-platforms.js": "./src/parser-platforms.js",
+    "./src/parser-platforms": "./src/parser-platforms.js",
+    "./src/utils.js": "./src/utils.js",
+    "./src/utils": "./src/utils.js",
+    "./package.json": "./package.json"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bowser-js/bowser.git"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.5",
     "@babel/cli": "^7.29.7",
     "@babel/core": "^7.29.7",
     "@babel/preset-env": "^7.29.7",
@@ -58,9 +85,9 @@
     "ava": "^3.0.0",
     "babel-plugin-add-module-exports": "^1.0.4",
     "babel-plugin-istanbul": "^8.0.0",
+    "core-js": "^3.49.0",
     "coveralls": "^3.0.6",
     "docdash": "^1.1.1",
-    "core-js": "^3.49.0",
     "eslint": "^10.8.0",
     "eslint-config-airbnb-extended": "^3.1.0",
     "eslint-plugin-ava": "^17.0.1",
@@ -68,15 +95,22 @@
     "gh-pages": "^3.0.0",
     "jsdoc": "^3.6.3",
     "nyc": "^18.0.0",
+    "publint": "^0.3.22",
     "regenerator-runtime": "^0.14.1",
     "sinon": "^22.0.0",
+    "terser": "^5.49.0",
     "testem": "^3.0.0",
     "tsdown": "^0.22.14",
+    "typescript": "^5.9.3",
     "yamljs": "^0.3.0"
   },
   "ava": {
     "require": [
       "@babel/register"
+    ],
+    "files": [
+      "test/**/*.js",
+      "!test/package/**"
     ]
   },
   "bugs": {
@@ -94,8 +128,10 @@
     "testem": "testem",
     "test": "nyc --reporter=html --reporter=text ava",
     "test:watch": "ava --watch",
+    "test:package": "node test/package/smoke.cjs",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "generate-docs": "jsdoc -c jsdoc.json"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "packageManager": "pnpm@11.18.0"
 }

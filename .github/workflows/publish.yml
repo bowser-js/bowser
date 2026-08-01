@@ -21,13 +21,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+
+      # tsdown requires Node ^22.18.0 || >=24.11.0. This only affects how the
+      # package is built; the artifacts it emits are still ES5.
       - uses: actions/setup-node@v4
         with:
-          node-version: 12.16.3
-      - uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package.json') }}
+          node-version: "24"
+          cache: pnpm
+
       # Store the release version (from release tag or manual input)
       - name: Set release version
         run: |
@@ -38,14 +42,33 @@ jobs:
             echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
             echo "Release triggered from tag: ${GITHUB_REF#refs/*/}"
           fi
-      - run: npm ci
-      - run: npm version $RELEASE_VERSION --no-git-tag-version
-      - run: npm run build
+
+      - run: pnpm install --frozen-lockfile
+      - run: npm version $RELEASE_VERSION --no-git-tag-version --allow-same-version
+      - run: pnpm build
+
+      # Guard the release: the same checks the PR workflow runs, against the
+      # artifacts actually about to be published.
+      - run: pnpm test
+      - run: pnpm exec publint
+      - run: pnpm exec attw --pack . --profile node16 --entrypoints .
+
+      # Upload only what `files` publishes, plus the manifest. The previous
+      # `path: .` also shipped node_modules through the artifact store.
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: dist
-          path: .
+          path: |
+            package.json
+            README.md
+            LICENSE
+            es5.js
+            bundled.js
+            bowser.mjs
+            index.d.ts
+            index.d.mts
+            src
 
   publish:
     needs: build

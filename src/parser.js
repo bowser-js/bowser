@@ -209,7 +209,6 @@ class Parser {
     return this.getBrowser().name || '';
   }
 
-
   /**
    * Get browser's version
    * @return {String} version of browser

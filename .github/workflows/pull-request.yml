@@ -45,6 +45,7 @@ jobs:
       - name: Pack
         run: |
           npm version 0.0.0-ci --no-git-tag-version --allow-same-version
+          mkdir -p tarball
           npm pack --pack-destination ./tarball
 
       - name: Upload package tarball

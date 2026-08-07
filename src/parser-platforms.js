@@ -7,6 +7,72 @@ import { PLATFORMS_MAP } from './constants.js';
  */
 
 export default [
+  /* AdsBot-Google */
+  {
+    test: [/adsbot-google/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Google',
+      };
+    },
+  },
+
+  /* Mediapartners-Google */
+  {
+    test: [/mediapartners-google/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Google',
+      };
+    },
+  },
+
+  /* APIs-Google */
+  {
+    test: [/apis-google/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Google',
+      };
+    },
+  },
+
+  /* FeedFetcher-Google */
+  {
+    test: [/feedfetcher-google/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Google',
+      };
+    },
+  },
+
+  /* Google-InspectionTool */
+  {
+    test: [/google-inspectiontool/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Google',
+      };
+    },
+  },
+
+  /* GoogleOther */
+  {
+    test: [/googleother/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Google',
+      };
+    },
+  },
+
   /* Googlebot */
   {
     test: [/googlebot/i],
@@ -80,6 +146,28 @@ export default [
       return {
         type: PLATFORMS_MAP.bot,
         vendor: 'Baidu',
+      };
+    },
+  },
+
+  /* BingPreview */
+  {
+    test: [/bingpreview/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Bing',
+      };
+    },
+  },
+
+  /* AdIdxBot */
+  {
+    test: [/adidxbot/i],
+    describe() {
+      return {
+        type: PLATFORMS_MAP.bot,
+        vendor: 'Bing',
       };
     },
   },

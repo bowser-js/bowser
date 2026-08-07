@@ -243,4 +243,4 @@ Support this project with your organization. Your logo will show up here with a 
 <a href="https://opencollective.com/bowser/organization/9/website"><img src="https://opencollective.com/bowser/organization/9/avatar.svg"></a>
 
 ## License
-Licensed as MIT. All rights not explicitly granted in the MIT license are reserved. See the included LICENSE file for more details.
+Licensed as MITNFA (MIT +no-false-attribs). All rights not explicitly granted in the MIT +no-false-attribs license are reserved. See the included LICENSE file for more details.

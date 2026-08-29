@@ -46,7 +46,7 @@ const legacyBabel = (useBuiltIns: false | 'entry') => babel({
  */
 const terser = () => ({
   name: 'bowser:terser',
-  async renderChunk(code: string) {
+  async renderChunk(code: string, chunk: { fileName: string }) {
     const result = await minify(code, {
       ecma: 5,
       // IE 8: reserved words as property names must stay quoted.
@@ -57,7 +57,10 @@ const terser = () => ({
         comments: /^!/,
       },
     });
-    return { code: result.code as string };
+    if (typeof result.code !== 'string') {
+      throw new Error(`terser produced no output for ${chunk.fileName}`);
+    }
+    return { code: result.code };
   },
 });
 

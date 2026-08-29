@@ -51,7 +51,10 @@
     "./es5": "./es5.js",
     "./bundled.js": "./bundled.js",
     "./bundled": "./bundled.js",
-    "./bowser.mjs": "./bowser.mjs",
+    "./bowser.mjs": {
+      "types": "./index.d.mts",
+      "default": "./bowser.mjs"
+    },
     "./src/bowser.js": "./src/bowser.js",
     "./src/bowser": "./src/bowser.js",
     "./src/constants.js": "./src/constants.js",

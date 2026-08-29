@@ -1,0 +1,3 @@
+allowBuilds:
+  core-js: false
+  unrs-resolver: false

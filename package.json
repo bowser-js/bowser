@@ -2,10 +2,12 @@
   "name": "bowser",
   "description": "Lightweight browser detector",
   "files": [
-    "src/",
+    "src",
     "es5.js",
     "bundled.js",
-    "index.d.ts"
+    "bowser.mjs",
+    "index.d.ts",
+    "index.d.mts"
   ],
   "keywords": [
     "browser",
@@ -33,41 +35,85 @@
   "browser": "es5.js",
   "module": "src/bowser.js",
   "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./index.d.mts",
+        "default": "./bowser.mjs"
+      },
+      "require": {
+        "types": "./index.d.ts",
+        "default": "./es5.js"
+      },
+      "default": "./es5.js"
+    },
+    "./es5.js": "./es5.js",
+    "./es5": "./es5.js",
+    "./bundled.js": "./bundled.js",
+    "./bundled": "./bundled.js",
+    "./bowser.mjs": {
+      "types": "./index.d.mts",
+      "default": "./bowser.mjs"
+    },
+    "./src/bowser.js": "./src/bowser.js",
+    "./src/bowser": "./src/bowser.js",
+    "./src/constants.js": "./src/constants.js",
+    "./src/constants": "./src/constants.js",
+    "./src/parser.js": "./src/parser.js",
+    "./src/parser": "./src/parser.js",
+    "./src/parser-browsers.js": "./src/parser-browsers.js",
+    "./src/parser-browsers": "./src/parser-browsers.js",
+    "./src/parser-engines.js": "./src/parser-engines.js",
+    "./src/parser-engines": "./src/parser-engines.js",
+    "./src/parser-os.js": "./src/parser-os.js",
+    "./src/parser-os": "./src/parser-os.js",
+    "./src/parser-platforms.js": "./src/parser-platforms.js",
+    "./src/parser-platforms": "./src/parser-platforms.js",
+    "./src/utils.js": "./src/utils.js",
+    "./src/utils": "./src/utils.js",
+    "./package.json": "./package.json"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bowser-js/bowser.git"
   },
   "devDependencies": {
-    "@babel/cli": "^7.11.6",
-    "@babel/core": "^7.8.0",
-    "@babel/polyfill": "^7.8.3",
-    "@babel/preset-env": "^7.8.2",
-    "@babel/register": "^7.8.3",
+    "@arethetypeswrong/cli": "^0.18.5",
+    "@babel/cli": "^7.29.7",
+    "@babel/core": "^7.29.7",
+    "@babel/preset-env": "^7.29.7",
+    "@babel/register": "^7.29.7",
+    "@eslint/js": "^10.0.1",
+    "@rolldown/plugin-babel": "0.2.3",
     "ava": "^3.0.0",
-    "babel-eslint": "^10.0.3",
-    "babel-loader": "^8.0.6",
-    "babel-plugin-add-module-exports": "^1.0.2",
-    "babel-plugin-istanbul": "^6.0.0",
-    "compression-webpack-plugin": "^4.0.0",
+    "babel-plugin-add-module-exports": "^1.0.4",
+    "babel-plugin-istanbul": "^8.0.0",
+    "core-js": "^3.49.0",
     "coveralls": "^3.0.6",
     "docdash": "^1.1.1",
-    "eslint": "^6.5.1",
-    "eslint-config-airbnb-base": "^13.2.0",
-    "eslint-plugin-ava": "^10.0.0",
-    "eslint-plugin-import": "^2.18.2",
+    "eslint": "^10.8.0",
+    "eslint-config-airbnb-extended": "^3.1.0",
+    "eslint-plugin-ava": "^17.0.1",
+    "eslint-plugin-import": "^2.32.0",
     "gh-pages": "^3.0.0",
     "jsdoc": "^3.6.3",
-    "nyc": "^15.0.0",
-    "sinon": "^9.0.0",
+    "nyc": "^18.0.0",
+    "publint": "^0.3.22",
+    "regenerator-runtime": "^0.14.1",
+    "sinon": "^22.0.0",
+    "terser": "^5.49.0",
     "testem": "^3.0.0",
-    "webpack": "^4.41.0",
-    "webpack-bundle-analyzer": "^3.5.2",
-    "webpack-cli": "^3.3.9",
+    "tsdown": "^0.22.14",
+    "typescript": "^5.9.3",
     "yamljs": "^0.3.0"
   },
   "ava": {
     "require": [
       "@babel/register"
+    ],
+    "files": [
+      "test/**/*.js",
+      "!test/package/**"
     ]
   },
   "bugs": {
@@ -77,16 +123,18 @@
     "test": "test"
   },
   "scripts": {
-    "build": "webpack --config webpack.config.js",
-    "generate-and-deploy-docs": "npm run generate-docs && gh-pages --dist docs --dest docs",
-    "watch": "webpack --watch --config webpack.config.js",
+    "build": "tsdown",
+    "generate-and-deploy-docs": "pnpm generate-docs && gh-pages --dist docs --dest docs",
+    "watch": "tsdown --watch",
     "lint:check": "eslint ./src",
     "lint:fix": "eslint --fix ./src",
     "testem": "testem",
     "test": "nyc --reporter=html --reporter=text ava",
     "test:watch": "ava --watch",
+    "test:package": "node test/package/smoke.cjs",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "generate-docs": "jsdoc -c jsdoc.json"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "packageManager": "pnpm@11.18.0"
 }

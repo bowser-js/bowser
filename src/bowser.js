@@ -91,3 +91,4 @@ class Bowser {
 }
 
 export default Bowser;
+export const { parse, getParser } = Bowser;

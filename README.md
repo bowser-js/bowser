@@ -27,7 +27,9 @@ _For legacy code, check out the [1.x](https://github.com/bowser-js/bowser/tree/v
 
 # Use cases
 
-First of all, require the library. This is a UMD Module, so it will work for AMD, TypeScript, ES6, and CommonJS module systems.
+First of all, require the library. Bowser is a dual package: `require` resolves
+to a UMD build (which also works for AMD and as a plain `<script>` tag), and
+`import` resolves to a real ES module.
 
 ```javascript
 const Bowser = require("bowser"); // CommonJS
@@ -37,11 +39,30 @@ import * as Bowser from "bowser"; // TypeScript
 import Bowser from "bowser"; // ES6 (and TypeScript with --esModuleInterop enabled)
 ```
 
+The ES module build also exposes `parse` and `getParser` as named exports, so
+you can import just the part you use and let your bundler drop the rest:
+
+```javascript
+import { getParser, parse } from "bowser";
+
+const browser = getParser(window.navigator.userAgent);
+```
+
+Loaded from a CDN or a `<script>` tag, Bowser attaches itself to the global as
+`bowser` (lowercase):
+
+```html
+<script src="https://unpkg.com/bowser@2/es5.js"></script>
+<script>
+  console.log(bowser.parse(window.navigator.userAgent));
+</script>
+```
+
 By default, the exported version is the *ES5 transpiled version*, which **do not** include any polyfills.
 
-In case you don't use your own `babel-polyfill` you may need to have pre-built bundle with all needed polyfills.
+In case you don't use your own polyfills you may need to have pre-built bundle with all needed polyfills.
 So, for you it's suitable to require bowser like this: `require('bowser/bundled')`.
-As the result, you get a ES5 version of bowser with `babel-polyfill` bundled together.
+As the result, you get a ES5 version of bowser with `core-js` polyfills bundled together.
 
 You may need to use the source files, so they will be available in the package as well.
 

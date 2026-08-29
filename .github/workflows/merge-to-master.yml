@@ -8,30 +8,29 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.16.3]
-
     steps:
-      - name: Get branch name (merge)
-        if: github.event_name != 'pull_request'
+      - name: Get branch name
         shell: bash
         run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | tr / -)" >> $GITHUB_ENV
 
-      - name: Get branch name (pull request)
-        if: github.event_name == 'pull_request'
-        shell: bash
-        run: echo "BRANCH_NAME=$(echo ${GITHUB_HEAD_REF} | tr / -)" >> $GITHUB_ENV
-
       - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+
+      # tsdown requires Node ^22.18.0 || >=24.11.0. The published artifacts are
+      # still ES5 — see the `pack-smoke` job in pull-request.yml.
+      - name: Set up node
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm i -g nyc@15
-      - run: npm ci
-      - run: npm run build
-      - run: nyc npm test && nyc report --reporter=text-lcov | ./node_modules/coveralls/bin/coveralls.js
+          node-version: "24"
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+
+      # `pnpm test` already runs ava under nyc; this only reports the result.
+      - run: pnpm test && pnpm exec nyc report --reporter=text-lcov | pnpm exec coveralls
         env:
           COVERALLS_SERVICE_NAME: GithubActions
           COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}

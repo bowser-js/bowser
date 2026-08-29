@@ -3,6 +3,11 @@ on:
   pull_request:
     types: [opened, reopened, synchronize]
 
+# Every job only reads the repo and moves artifacts between jobs; none of them
+# needs write access to anything.
+permissions:
+  contents: read
+
 env:
   # tsdown requires Node ^22.18.0 || >=24.11.0. This is the *build* toolchain
   # only — see the `pack-smoke` job for the versions the published package

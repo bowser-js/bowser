@@ -17,10 +17,10 @@ export default Bowser;
 export declare const parse: typeof Bowser.parse;
 export declare const getParser: typeof Bowser.getParser;
 
-export declare const BROWSER_MAP: typeof Bowser.BROWSER_MAP;
-export declare const ENGINE_MAP: typeof Bowser.ENGINE_MAP;
-export declare const OS_MAP: typeof Bowser.OS_MAP;
-export declare const PLATFORMS_MAP: typeof Bowser.PLATFORMS_MAP;
+// BROWSER_MAP / ENGINE_MAP / OS_MAP / PLATFORMS_MAP are *not* named exports of
+// bowser.mjs — they exist only as static getters on the class. Declaring them
+// here would let TypeScript accept `import { BROWSER_MAP } from 'bowser'`,
+// which throws at runtime. Reach them via the default export instead.
 
 export type ClientHints = Bowser.ClientHints;
 export type Parser = Bowser.Parser.Parser;
@@ -31,5 +31,3 @@ export type EngineDetails = Bowser.Parser.EngineDetails;
 export type OSDetails = Bowser.Parser.OSDetails;
 export type PlatformDetails = Bowser.Parser.PlatformDetails;
 export type checkTree = Bowser.Parser.checkTree;
-
-export { Bowser };

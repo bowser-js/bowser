@@ -41,8 +41,10 @@ var modules = path.join(tmp, 'node_modules');
 fs.mkdirSync(modules);
 
 // `npm install <tarball>` would work too, but plain tar keeps this dependency
-// free and identical across the whole Node matrix. npm tarballs always unpack
-// to a single top-level `package/` directory.
+// free and identical across the whole Node matrix, and sidesteps the
+// npm.cmd-needs-a-shell quirks of spawning npm on Windows. tar itself is on
+// PATH everywhere this runs: Linux, macOS, and Windows 10 1803+ (bsdtar).
+// npm tarballs always unpack to a single top-level `package/` directory.
 cp.execFileSync('tar', ['-xzf', tarball, '-C', modules], { stdio: 'inherit' });
 fs.renameSync(path.join(modules, 'package'), path.join(modules, 'bowser'));
 
@@ -52,8 +54,13 @@ fs.writeFileSync(runner, fs.readFileSync(path.join(__dirname, 'assertions.cjs'))
 var result = cp.spawnSync(process.execPath, [runner], { cwd: tmp, stdio: 'inherit' });
 
 try {
-  // fs.rmSync landed in Node 14.14; rimraf-by-hand keeps Node 12 happy.
-  cp.execFileSync('rm', ['-rf', tmp]);
+  // fs.rmSync landed in Node 14.14; recursive fs.rmdirSync (12.10+) covers the
+  // bottom of the matrix. Both work on Windows, unlike shelling out to `rm`.
+  if (fs.rmSync) {
+    fs.rmSync(tmp, { recursive: true, force: true });
+  } else {
+    fs.rmdirSync(tmp, { recursive: true });
+  }
 } catch (e) { /* best effort */ }
 
 if (result.status !== 0) {

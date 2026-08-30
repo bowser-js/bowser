@@ -273,7 +273,8 @@ const browsersList = [
       const browser = {
         name: 'Linespider',
       };
-      const version = Utils.getFirstMatch(/(?:linespider)(?:-[-\w]+)?[\s/](\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+      // `{1,64}` bounds the backtracking: unbounded, a repeated-token UA is quadratic.
+      const version = Utils.getFirstMatch(/(?:linespider)(?:-[-\w]{1,64})?[\s/](\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;
@@ -385,7 +386,8 @@ const browsersList = [
       const browser = {
         name: 'SlackBot',
       };
-      const version = Utils.getFirstMatch(/(?:slackbot|slack-imgproxy)(?:-[-\w]+)?[\s/](\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+      // `{1,64}` bounds the backtracking: unbounded, a repeated-token UA is quadratic.
+      const version = Utils.getFirstMatch(/(?:slackbot|slack-imgproxy)(?:-[-\w]{1,64})?[\s/](\d+(\.\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;
@@ -1232,8 +1234,8 @@ const browsersList = [
        * in order to decide what regexp exactly we want to apply
        * (as there is a specific decision based on that conclusion)
        */
-      const regexpWithoutDeviceSpec = /^(.*)\/(.*) /;
-      const regexpWithDeviceSpec = /^(.*)\/(.*)[ \t]\((.*)/;
+      const regexpWithoutDeviceSpec = /^(.*)\/([^/]*) /;
+      const regexpWithDeviceSpec = /^(.*)\/([^/]*)[ \t]\((.*)/;
       const hasDeviceSpec = ua.search('\\(') !== -1;
       const regexp = hasDeviceSpec ? regexpWithDeviceSpec : regexpWithoutDeviceSpec;
       return {

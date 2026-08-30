@@ -1,3 +1,18 @@
 allowBuilds:
   core-js: false
   unrs-resolver: false
+
+# Dev-only security pins; bowser itself ships no runtime dependencies. Each is
+# the lowest patched release on the existing major, so old dependents resolve.
+overrides:
+  brace-expansion@1: ^1.1.18 # GHSA-3jxr-9vmj-r5cp
+  brace-expansion@2: ^2.1.4 # GHSA-3jxr-9vmj-r5cp
+  brace-expansion@5: ^5.0.9 # GHSA-3jxr-9vmj-r5cp
+  js-yaml@3: ^3.15.2 # GHSA-52cp-r559-cp3m, GHSA-h67p-54hq-rp68
+  js-yaml@4: ^4.3.2 # GHSA-52cp-r559-cp3m, GHSA-5p4m-2wfm-xmqj
+  ws@8: ^8.21.3 # GHSA-96hv-2xvq-fx4p
+  socket.io-parser: ^4.2.7 # GHSA-2m8v-j782-fhvr
+  linkify-it: ^5.0.2 # GHSA-v245-v573-v5vm
+  markdown-it: ^14.3.1 # GHSA-6v5v-wf23-fmfq
+  got@9: ^11.8.6 # GHSA-pfrx-2q88-qq97
+  body-parser@2: ^2.3.0

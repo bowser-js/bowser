@@ -128,3 +128,13 @@ jobs:
       # of bowser, and preserved here on purpose.
       - name: Are the types wrong?
         run: pnpm exec attw --pack . --profile node16 --entrypoints .
+
+      # attw checks that the types *resolve* to the right file per condition.
+      # This compiles a real consumer against the packed tarball in every
+      # module resolution mode, which is what catches a declaration that
+      # resolves fine but does not match the runtime.
+      - name: Type-check consumers
+        run: |
+          mkdir -p tarball
+          npm pack --pack-destination ./tarball
+          node test/types/check.mjs tarball/*.tgz

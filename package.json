@@ -118,7 +118,8 @@
     ],
     "files": [
       "test/**/*.js",
-      "!test/package/**"
+      "!test/package/**",
+      "!test/types/**"
     ]
   },
   "bugs": {
@@ -138,7 +139,8 @@
     "test:watch": "ava --watch",
     "test:package": "node test/package/smoke.cjs",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "generate-docs": "jsdoc -c jsdoc.json"
+    "generate-docs": "jsdoc -c jsdoc.json",
+    "test:types": "node test/types/check.mjs"
   },
   "license": "MIT",
   "packageManager": "pnpm@11.18.0"

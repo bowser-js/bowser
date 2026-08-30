@@ -23,6 +23,17 @@ const legacyTargets = {
 /**
  * `useBuiltIns: false` for `es5.js` (syntax transpilation only) and `'entry'`
  * for `bundled.js`, which expands the `core-js/stable` import in its entry.
+ *
+ * `'entry'` is why `bundled.js` grew from 124 kB to 174 kB when it stopped
+ * being built from the deprecated `@babel/polyfill`. That package was core-js
+ * **2**; `core-js/stable` is core-js **3**, whose stable surface is genuinely
+ * larger — `globalThis`, `Object.fromEntries` and `URLSearchParams` are all
+ * new here. The extra weight is the upgrade, not waste.
+ *
+ * Switching to `useBuiltIns: 'usage'` would shrink the bundle a long way, and
+ * would be wrong: the README tells consumers to reach for `bundled.js`
+ * precisely when they have no polyfills of their own, so it has to keep
+ * shipping the full payload rather than only what bowser itself calls.
  */
 const legacyBabel = (useBuiltIns: false | 'entry') => babel({
   presets: [['@babel/preset-env', {

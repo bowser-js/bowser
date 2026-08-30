@@ -1,6 +1,7 @@
 import { defineConfig } from 'tsdown';
 import babel from '@rolldown/plugin-babel';
 import { minify } from 'terser';
+import { transformAsync } from '@babel/core';
 
 const banner = `/*!
  * Bowser - a browser detector
@@ -32,6 +33,51 @@ const legacyBabel = (useBuiltIns: false | 'entry') => babel({
     ...(useBuiltIns ? { corejs: '3' } : {}),
     targets: legacyTargets,
   }]],
+});
+
+/**
+ * Lowers the *emitted chunk* to ES5, after bundling and before terser.
+ *
+ * `legacyBabel()` above only transforms input modules. Rolldown appends its own
+ * runtime helpers afterwards — notably the `__commonJS` wrapper it injects for
+ * CommonJS dependencies — and emits them in modern syntax:
+ *
+ *     var t=(t,e)=>()=>(e||(t((e={exports:{}}).exports,e),t=null),e.exports)
+ *
+ * terser's `ecma: 5` does not transpile; it only avoids *introducing* newer
+ * syntax. So those arrow functions survived into the published `bundled.js`,
+ * making the whole file a SyntaxError in the ES5 engines it exists to serve.
+ * `es5.js` has no CommonJS dependencies, so it never got a helper — which is
+ * why only `bundled.js` was affected, and why this has to run on the output
+ * rather than being folded into `legacyBabel()`.
+ *
+ * `useBuiltIns: false` here on purpose: `bundled.js` already has its polyfills
+ * inlined by the input pass, and re-expanding them would recurse.
+ */
+const lowerChunkToEs5 = () => ({
+  name: 'bowser:babel-output',
+  async renderChunk(code: string, chunk: { fileName: string }) {
+    const result = await transformAsync(code, {
+      babelrc: false,
+      configFile: false,
+      // The emitted chunk is a UMD IIFE, i.e. a script, not a module.
+      sourceType: 'script',
+      // core-js is large and already ES5; skipping its size guard keeps babel
+      // from silently bailing out of compiling `bundled.js`.
+      compact: false,
+      generatorOpts: { comments: true },
+      presets: [['@babel/preset-env', {
+        modules: false,
+        loose: true,
+        useBuiltIns: false,
+        targets: legacyTargets,
+      }]],
+    });
+    if (typeof result?.code !== 'string') {
+      throw new Error(`babel produced no output for ${chunk.fileName}`);
+    }
+    return { code: result.code };
+  },
 });
 
 /**
@@ -78,7 +124,7 @@ const umd = (name: string, entry: string, useBuiltIns: false | 'entry') => ({
   },
   outDir: '.',
   platform: 'browser' as const,
-  plugins: [legacyBabel(useBuiltIns), terser()],
+  plugins: [legacyBabel(useBuiltIns), lowerChunkToEs5(), terser()],
   // webpack ran in `mode: 'production'`; minification happens in `terser()`
   // above, so rolldown's own minifier stays off. See its comment for why.
   minify: false,

@@ -71,6 +71,10 @@
     "./src/parser-platforms": "./src/parser-platforms.js",
     "./src/utils.js": "./src/utils.js",
     "./src/utils": "./src/utils.js",
+    "./LICENSE": "./LICENSE",
+    "./README.md": "./README.md",
+    "./index.d.ts": "./index.d.ts",
+    "./index.d.mts": "./index.d.mts",
     "./package.json": "./package.json"
   },
   "repository": {

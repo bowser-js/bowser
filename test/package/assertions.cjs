@@ -93,6 +93,19 @@ check('require.resolve("bowser/package.json") works', function () {
   assert.ok(fs.existsSync(require.resolve('bowser/package.json')));
 });
 
+// Before the exports map existed, *every* published file was reachable by
+// subpath. An exports map is a closed list, so anything published but not
+// enumerated silently becomes ERR_PACKAGE_PATH_NOT_EXPORTED. These four are
+// not code, but they did resolve on every previous version — license and
+// attribution tooling and `/// <reference types="bowser/index.d.ts" />`
+// consumers can all depend on them.
+['bowser/LICENSE', 'bowser/README.md', 'bowser/index.d.ts', 'bowser/index.d.mts']
+  .forEach(function (id) {
+    check('resolves "' + id + '"', function () {
+      assert.ok(fs.existsSync(require.resolve(id)));
+    });
+  });
+
 // --- The published manifest ------------------------------------------------
 
 check('main/browser/module/types fields are unchanged', function () {

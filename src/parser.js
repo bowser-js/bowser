@@ -132,7 +132,11 @@ class Parser {
       return undefined;
     }
     const brandLower = brandName.toLowerCase();
-    const brand = this._hints.brands.find(
+    // `Utils.find`, not `Array.prototype.find`: the latter is ES6, and `es5.js`
+    // ships no polyfills, so it throws outright on the browsers that bundle
+    // targets. Every other lookup in this file already goes through the helper.
+    const brand = Utils.find(
+      this._hints.brands,
       b => b.brand && b.brand.toLowerCase() === brandLower,
     );
     return brand ? brand.version : undefined;

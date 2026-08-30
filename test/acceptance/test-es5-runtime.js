@@ -77,6 +77,51 @@ test('the ES5 sandbox actually strips the modern APIs', (t) => {
   });
 });
 
+/**
+ * Client Hints go down a different code path than `parse()` — `isBrandVersion`
+ * and `getBrandVersion` reach into `_hints.brands` directly — so the checks
+ * above never touch them. `getBrandVersion` used `Array.prototype.find`, which
+ * is ES6, and threw on exactly the browsers `es5.js` exists for.
+ *
+ * The inputs are built by a script evaluated *inside* the context rather than
+ * assigned onto it. An array created in the host realm keeps the host's
+ * `Array.prototype`, so its `find` survives the sandbox's delete and the test
+ * passes against a bug that is still there. A real browser hands the parser a
+ * same-realm array, which is what this reproduces.
+ */
+['es5.js', 'bundled.js'].forEach((file) => {
+  test(`${file} handles Client Hints on an ES5-only global`, (t) => {
+    const context = createEs5Context();
+    vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), context);
+
+    const result = vm.runInContext(`
+      var ua = ${JSON.stringify(UA)};
+      var hints = {
+        brands: [
+          { brand: 'Chromium', version: '131' },
+          { brand: 'Google Chrome', version: '131' },
+        ],
+        mobile: false,
+        platform: 'macOS',
+      };
+      var parser = this.bowser.getParser(ua, false, hints);
+      ({
+        brandVersion: parser.getBrandVersion('Google Chrome'),
+        missingBrand: parser.getBrandVersion('Firefox'),
+        hasBrand: parser.hasBrand('Google Chrome'),
+        hasOtherBrand: parser.hasBrand('Firefox'),
+        hints: !!parser.getHints(),
+      })
+    `, context);
+
+    t.is(result.brandVersion, '131');
+    t.is(result.missingBrand, undefined);
+    t.true(result.hasBrand);
+    t.false(result.hasOtherBrand);
+    t.true(result.hints);
+  });
+});
+
 test('bundled.js installs the polyfills it promises', (t) => {
   // The README tells consumers to reach for bundled.js when they have no
   // polyfills of their own, so it has to actually populate the environment.

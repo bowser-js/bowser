@@ -77,6 +77,14 @@ check('constant maps are exposed', function () {
 
 // The src/*.js files are ES module sources, so they resolve but do not execute
 // under require(). Bundlers are the real consumer here. Assert resolution only.
+//
+// This is also why publint warns on every `pkg.exports["./src/*"]` entry, and
+// why these paths fail under Yarn PnP (ERR_REQUIRE_CYCLE_MODULE) and on Node
+// below 20.19, which has no module-syntax detection. Verified identical on
+// 2.14.1, so it is longstanding rather than new. The obvious fix — a nested
+// `src/package.json` with `"type": "module"` — would stop `@babel/register`
+// from loading `src/` and take the whole AVA suite with it, so the wart stays
+// until the test tooling moves off `require()` hooks.
 [
   'bowser.js', 'constants.js', 'parser.js', 'parser-browsers.js',
   'parser-engines.js', 'parser-os.js', 'parser-platforms.js', 'utils.js',

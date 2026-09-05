@@ -89,6 +89,7 @@
     "@babel/register": "^7.29.7",
     "@eslint/js": "^10.0.1",
     "@rolldown/plugin-babel": "0.2.3",
+    "acorn": "^8.18.0",
     "ava": "^3.0.0",
     "babel-plugin-add-module-exports": "^1.0.4",
     "babel-plugin-istanbul": "^8.0.0",
@@ -117,7 +118,8 @@
     ],
     "files": [
       "test/**/*.js",
-      "!test/package/**"
+      "!test/package/**",
+      "!test/types/**"
     ]
   },
   "bugs": {
@@ -137,7 +139,8 @@
     "test:watch": "ava --watch",
     "test:package": "node test/package/smoke.cjs",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "generate-docs": "jsdoc -c jsdoc.json"
+    "generate-docs": "jsdoc -c jsdoc.json",
+    "test:types": "node test/types/check.mjs"
   },
   "license": "MIT",
   "packageManager": "pnpm@11.18.0"

@@ -101,6 +101,12 @@ check('require.resolve("bowser/package.json") works', function () {
   assert.ok(fs.existsSync(require.resolve('bowser/package.json')));
 });
 
+// Extensionless, like `bowser/es5` — CommonJS resolution appended `.json`
+// before the exports map existed.
+check('require("bowser/package") works', function () {
+  assert.strictEqual(require('bowser/package').name, 'bowser');
+});
+
 // Before the exports map existed, *every* published file was reachable by
 // subpath. An exports map is a closed list, so anything published but not
 // enumerated silently becomes ERR_PACKAGE_PATH_NOT_EXPORTED. These four are
@@ -122,6 +128,14 @@ check('main/browser/module/types fields are unchanged', function () {
   assert.strictEqual(pkg.browser, 'es5.js');
   assert.strictEqual(pkg.module, 'src/bowser.js');
   assert.strictEqual(pkg.types, 'index.d.ts');
+});
+
+// Lets esbuild and Vite drop an unused `import 'bowser'` (webpack and Rollup
+// already do). `bundled.js` is the one file whose import *is* the point: it
+// installs polyfills, so it must never be tree-shaken away.
+check('"sideEffects" lists exactly bundled.js', function () {
+  var pkg = require('bowser/package.json');
+  assert.deepStrictEqual(pkg.sideEffects, ['./bundled.js']);
 });
 
 check('no "engines" field (would warn/fail installs on old Node)', function () {

@@ -35,6 +35,9 @@
   "browser": "es5.js",
   "module": "src/bowser.js",
   "types": "index.d.ts",
+  "sideEffects": [
+    "./bundled.js"
+  ],
   "exports": {
     ".": {
       "import": {
@@ -75,7 +78,8 @@
     "./README.md": "./README.md",
     "./index.d.ts": "./index.d.ts",
     "./index.d.mts": "./index.d.mts",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./package": "./package.json"
   },
   "repository": {
     "type": "git",

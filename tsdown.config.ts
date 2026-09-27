@@ -38,10 +38,33 @@ const legacyBabel = (useBuiltIns: false | 'entry') => babel({
     modules: false,
     loose: true,
     useBuiltIns,
-    ...(useBuiltIns ? { corejs: '3' } : {}),
+    ...(useBuiltIns ? { corejs: '3', exclude: NOT_IN_BABEL_POLYFILL } : {}),
     targets: legacyTargets,
   }]],
 });
+
+/**
+ * The only core-js 3.0 `es` / web modules with no counterpart in the
+ * `@babel/polyfill` (core-js 2) set that every released `bundled.js` shipped:
+ * the `concat`/`splice` species fixes, `Array#flat`, `Object.fromEntries`, the
+ * Annex B `__defineGetter__` family and `NodeList#forEach`. Excluding them makes
+ * the payload exactly that set again, 2.8 kB (0.9 kB gzipped) smaller.
+ *
+ * babel rejects unknown names here, so a rename in core-js fails the build
+ * rather than silently shipping the module again.
+ */
+const NOT_IN_BABEL_POLYFILL = [
+  'es.array.concat',
+  'es.array.flat',
+  'es.array.splice',
+  'es.array.unscopables.flat',
+  'es.object.define-getter',
+  'es.object.define-setter',
+  'es.object.from-entries',
+  'es.object.lookup-getter',
+  'es.object.lookup-setter',
+  'web.dom-collections.for-each',
+];
 
 /**
  * Lowers the *emitted chunk* to ES5, after bundling and before terser.
@@ -108,6 +131,8 @@ const terser = () => ({
       // IE 8: reserved words as property names must stay quoted.
       ie8: true,
       safari10: true,
+      // Output stops shrinking at 5 passes (measured; 6+ is byte-identical).
+      compress: { passes: 5 },
       format: {
         // Keep the `/*!` banner.
         comments: /^!/,

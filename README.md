@@ -40,8 +40,9 @@ import Bowser from "bowser"; // ES6 (and TypeScript with --esModuleInterop enabl
 ```
 
 The ES module build also exposes `parse`, `getParser`, `BROWSER_MAP`,
-`ENGINE_MAP`, `OS_MAP` and `PLATFORMS_MAP` as named exports, so you can import
-just the part you use and let your bundler drop the rest:
+`ENGINE_MAP`, `OS_MAP` and `PLATFORMS_MAP` as named exports. Detection needs
+every parser either way, so named imports are a matter of style, not bundle
+size — but an import that ends up unused is dropped entirely:
 
 ```javascript
 import { getParser, parse } from "bowser";

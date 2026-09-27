@@ -21,19 +21,16 @@ const legacyTargets = {
 };
 
 /**
- * `useBuiltIns: false` for `es5.js` (syntax transpilation only) and `'entry'`
- * for `bundled.js`, which expands the `core-js/stable` import in its entry.
- *
- * `'entry'` is why `bundled.js` grew from 124 kB to 174 kB when it stopped
- * being built from the deprecated `@babel/polyfill`. That package was core-js
- * **2**; `core-js/stable` is core-js **3**, whose stable surface is genuinely
- * larger — `globalThis`, `Object.fromEntries` and `URLSearchParams` are all
- * new here. The extra weight is the upgrade, not waste.
+ * `useBuiltIns: false` for `es5.js` and `bowser.mjs` (syntax transpilation
+ * only) and `'entry'` for `bundled.js`, which expands the `core-js/*` imports in
+ * its entry. `corejs: '3'` means 3.0, so `'entry'` only ever expands to modules
+ * that existed in core-js 3.0 — no later additions leak in.
  *
  * Switching to `useBuiltIns: 'usage'` would shrink the bundle a long way, and
  * would be wrong: the README tells consumers to reach for `bundled.js`
  * precisely when they have no polyfills of their own, so it has to keep
- * shipping the full payload rather than only what bowser itself calls.
+ * shipping the full payload rather than only what bowser itself calls. See
+ * `build/entries/bundled.js` for what that payload is.
  */
 const legacyBabel = (useBuiltIns: false | 'entry') => babel({
   presets: [['@babel/preset-env', {
@@ -64,15 +61,17 @@ const legacyBabel = (useBuiltIns: false | 'entry') => babel({
  *
  * `useBuiltIns: false` here on purpose: `bundled.js` already has its polyfills
  * inlined by the input pass, and re-expanding them would recurse.
+ *
+ * `sourceType` is `'script'` for the UMD IIFEs and `'module'` for
+ * `bowser.mjs`, whose `export` statement must survive untouched.
  */
-const lowerChunkToEs5 = () => ({
+const lowerChunkToEs5 = (sourceType: 'script' | 'module' = 'script') => ({
   name: 'bowser:babel-output',
   async renderChunk(code: string, chunk: { fileName: string }) {
     const result = await transformAsync(code, {
       babelrc: false,
       configFile: false,
-      // The emitted chunk is a UMD IIFE, i.e. a script, not a module.
-      sourceType: 'script',
+      sourceType,
       // core-js is large and already ES5; skipping its size guard keeps babel
       // from silently bailing out of compiling `bundled.js`.
       compact: false,
@@ -149,14 +148,24 @@ export default defineConfig([
   umd('es5', 'build/entries/es5.js', false),
   umd('bundled', 'build/entries/bundled.js', 'entry'),
   {
-    // Modern ESM build. Reached via the `import` condition of the exports map.
-    // Deliberately not run through babel: `module` still points at the raw
-    // `src/bowser.js`, so this must not be *more* conservative than that.
+    // ESM build, reached via the `import` condition of the exports map.
+    //
+    // Lowered to ES5 syntax like the UMD bundles, keeping only `export`. Before
+    // the exports map existed, webpack, Rollup (`browser: true`) and esbuild all
+    // picked the `browser` field — `es5.js` — for `import 'bowser'`, not
+    // `module`. Shipping ES2015 here would make esbuild `--target=es5` fail
+    // outright, and ship classes into ES5 builds from webpack, which does not
+    // transpile node_modules by default.
     entry: { bowser: 'src/bowser.js' },
     format: ['esm'],
     outDir: '.',
     outExtensions: () => ({ js: '.mjs' }),
     platform: 'browser',
+    plugins: [legacyBabel(false), lowerChunkToEs5('module')],
+    // Must be explicit. Left unset, rolldown still re-prints the chunk *after*
+    // `renderChunk` (dead-code-elimination-only minify), and its printer turns
+    // `{ version: version }` back into the ES2015 shorthand `{ version }`.
+    minify: false,
     banner,
     dts: false,
     clean: false,

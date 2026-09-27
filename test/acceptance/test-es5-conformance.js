@@ -44,7 +44,19 @@ legacyBundles.forEach((file) => {
   });
 });
 
-test('bowser.mjs is a valid ES module', (t) => {
+/**
+ * `bowser.mjs` is what `import 'bowser'` resolves to in every bundler that
+ * reads the exports map. Before the map existed those same bundlers read the
+ * `browser` field and got `es5.js`, so ES5 builds — esbuild `--target=es5`,
+ * webpack without transpiling node_modules — depend on this file being ES5
+ * too. acorn's ES5 grammar in module mode accepts `import`/`export` and
+ * nothing else from ES2015, which is exactly the contract.
+ */
+test('bowser.mjs parses as ES5 apart from its export statement', (t) => {
   const source = fs.readFileSync(path.join(root, 'bowser.mjs'), 'utf8');
-  t.notThrows(() => acorn.parse(source, { ecmaVersion: 'latest', sourceType: 'module' }));
+  t.notThrows(
+    () => acorn.parse(source, { ecmaVersion: 5, sourceType: 'module' }),
+    'bowser.mjs contains syntax newer than ES5 — ES5 bundler targets will '
+    + 'fail to build or ship it untranspiled',
+  );
 });

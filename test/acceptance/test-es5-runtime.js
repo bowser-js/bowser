@@ -131,3 +131,51 @@ test('bundled.js installs the polyfills it promises', (t) => {
   t.is(vm.runInContext('typeof Object.assign', context), 'function');
   t.is(vm.runInContext('typeof [].includes', context), 'function');
 });
+
+/**
+ * What every released `bundled.js` installed, back when it was built from
+ * `@babel/polyfill`: ES2015, the handful of ES2016/2017 additions that package
+ * pulled in individually, the `timers`/`immediate`/DOM-iterable web polyfills,
+ * and `regenerator-runtime`. `build/entries/bundled.js` picks its core-js
+ * entries to stay a superset of this; trimming them must not break it.
+ *
+ * Representative rather than exhaustive — one or more members per polyfill
+ * group, so that dropping any group fails here.
+ */
+const BABEL_POLYFILL_SURFACE = [
+  'this.Promise', 'Promise.prototype.finally', 'this.Symbol', 'Symbol.iterator', 'Symbol.asyncIterator',
+  'this.Map', 'this.Set', 'this.WeakMap', 'this.WeakSet', 'this.Reflect', 'Reflect.ownKeys',
+  'Object.assign', 'Object.is', 'Object.setPrototypeOf', 'Object.getOwnPropertySymbols',
+  'Object.entries', 'Object.values', 'Object.getOwnPropertyDescriptors',
+  'Array.from', 'Array.of', 'Array.prototype.includes', 'Array.prototype.find', 'Array.prototype.findIndex',
+  'Array.prototype.fill', 'Array.prototype.copyWithin', 'Array.prototype.flatMap',
+  'Array.prototype.entries', 'Array.prototype.keys', 'Array.prototype.values',
+  'String.raw', 'String.fromCodePoint', 'String.prototype.includes', 'String.prototype.startsWith',
+  'String.prototype.endsWith', 'String.prototype.repeat', 'String.prototype.codePointAt',
+  'String.prototype.padStart', 'String.prototype.padEnd', 'String.prototype.trimStart', 'String.prototype.trimEnd',
+  // Not `Number.EPSILON`: it is non-configurable, so the sandbox cannot strip it.
+  'Number.isInteger', 'Number.isFinite', 'Number.isNaN', 'Number.isSafeInteger', 'Number.parseInt',
+  'Math.trunc', 'Math.sign', 'Math.log2', 'Math.clz32', 'Math.hypot',
+  'this.setImmediate', 'this.clearImmediate', 'this.regeneratorRuntime',
+  // core-js 2 made DOM collections iterable; `forEach` on them is core-js 3.
+  'NodeList.prototype[Symbol.iterator]',
+];
+
+test('bundled.js still installs everything @babel/polyfill did', (t) => {
+  const context = createEs5Context();
+  // Strip whatever on the list the ES5 sandbox left in place, and give core-js
+  // a DOM collection to patch, so the check cannot pass against Node's own
+  // implementations.
+  vm.runInContext(BABEL_POLYFILL_SURFACE
+    .filter((ref) => /^[\w.]+$/.test(ref))
+    .map((ref) => `try { delete ${ref}; } catch (e) {}`)
+    .join('\n'), context);
+  vm.runInContext('this.NodeList = function NodeList() {};', context);
+  const present = (ref) => {
+    try { return vm.runInContext(`typeof (${ref})`, context) !== 'undefined'; } catch (e) { return false; }
+  };
+
+  t.deepEqual(BABEL_POLYFILL_SURFACE.filter(present), [], 'the sandbox did not strip these');
+  vm.runInContext(fs.readFileSync(path.join(root, 'bundled.js'), 'utf8'), context);
+  t.deepEqual(BABEL_POLYFILL_SURFACE.filter((ref) => !present(ref)), [], 'bundled.js no longer installs these');
+});

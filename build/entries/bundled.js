@@ -11,6 +11,8 @@
  * `core-js/es` rather than `core-js/stable`: `stable` is `es` plus every web
  * polyfill, and the extra ones — `URL`, `URLSearchParams`, `queueMicrotask` —
  * were never in any released `bundled.js`, yet cost ~20 kB (~7 kB gzipped).
+ * The few `es` modules `@babel/polyfill` did not have are excluded in
+ * `tsdown.config.ts` (`NOT_IN_BABEL_POLYFILL`).
  * `test/acceptance/test-es5-runtime.js` pins the `@babel/polyfill` surface.
  *
  * See `./es5.js` for why this only re-exports the default.

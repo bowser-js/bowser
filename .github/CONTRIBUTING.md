@@ -38,5 +38,5 @@ If you'd like to contribute a change to `bowser`, modify the files in `src/`, an
 $ npm install
 $ npm run build #build
 $ npm test #run tests
-$ npm run lint #check lint rules
+$ npm run lint:check #check lint rules
 ```

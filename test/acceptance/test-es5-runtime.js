@@ -179,3 +179,26 @@ test('bundled.js still installs everything @babel/polyfill did', (t) => {
   vm.runInContext(fs.readFileSync(path.join(root, 'bundled.js'), 'utf8'), context);
   t.deepEqual(BABEL_POLYFILL_SURFACE.filter((ref) => !present(ref)), [], 'bundled.js no longer installs these');
 });
+
+/**
+ * The other side of the contract: polyfills no released `bundled.js` ever
+ * shipped stay out, because each one is pure weight for existing consumers.
+ * Adding one back should be a deliberate decision that updates this list, not
+ * a side effect of switching a core-js entry point.
+ */
+const NEVER_SHIPPED = [
+  'this.URL', 'this.URLSearchParams', 'this.queueMicrotask',
+  'Array.prototype.flat', 'Object.fromEntries', 'NodeList.prototype.forEach',
+];
+
+test('bundled.js does not install polyfills no release ever shipped', (t) => {
+  const context = createEs5Context();
+  vm.runInContext(NEVER_SHIPPED
+    .map((ref) => `try { delete ${ref}; } catch (e) {}`)
+    .join('\n'), context);
+  vm.runInContext('this.NodeList = function NodeList() {};', context);
+  const present = (ref) => vm.runInContext(`typeof (${ref})`, context) !== 'undefined';
+
+  vm.runInContext(fs.readFileSync(path.join(root, 'bundled.js'), 'utf8'), context);
+  t.deepEqual(NEVER_SHIPPED.filter(present), []);
+});

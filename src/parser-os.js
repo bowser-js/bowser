@@ -78,7 +78,14 @@ export default [
   {
     test: [/(ipod|iphone|ipad)/i],
     describe(ua) {
-      const version = Utils.getFirstMatch(/os (\d+([_\s]\d+)*) like mac os x/i, ua).replace(/[_\s]/g, '.');
+      let version = Utils.getFirstMatch(/os (\d+([_\s]\d+)*) like mac os x/i, ua).replace(/[_\s]/g, '.');
+
+      // Since iOS 26 the OS version in the UA is frozen at 18.x, but Safari still reports the real one in Version/.
+      // Only Safari's own token counts ("Version/x Mobile/y Safari/"), other browsers may put their version there.
+      const safariVersion = Utils.getFirstMatch(/version\/(\d+(\.\d+)*) mobile\/\w+ safari\//i, ua);
+      if (/^18(\.|$)/.test(version) && parseInt(safariVersion, 10) >= 26) {
+        version = safariVersion;
+      }
 
       return {
         name: OS_MAP.iOS,

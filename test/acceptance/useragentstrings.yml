@@ -3442,6 +3442,20 @@
           version: "20140105"
   Chromium:
     -
+      ua: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4513.0 (Chromium GOST) Safari/537.36"
+      spec:
+        browser:
+          name: "Chromium"
+          version: "92.0.4513.0"
+        os:
+          name: "Windows"
+          version: "NT 10.0"
+          versionName: "10"
+        platform:
+          type: "desktop"
+        engine:
+          name: "Blink"
+    -
       ua: "Mozilla/5.0 (Linux; Ubuntu 14.04 like Android 4.4) AppleWebKit/537.36 Chromium/35.0.1870.2 Mobile Safari/537.36"
       spec:
         browser:

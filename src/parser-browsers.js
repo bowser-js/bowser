@@ -1115,7 +1115,10 @@ const browsersList = [
       const browser = {
         name: 'Chromium',
       };
-      const version = Utils.getFirstMatch(/(?:chromium)[\s/](\d+(\.?_?\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+      // Builds such as "Chromium GOST" name Chromium without a version, and carry it in Chrome/ instead
+      const version = Utils.getFirstMatch(/(?:chromium)[\s/](\d+(\.?_?\d+)+)/i, ua)
+        || Utils.getFirstMatch(commonVersionIdentifier, ua)
+        || Utils.getFirstMatch(/(?:chrome)\/(\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;

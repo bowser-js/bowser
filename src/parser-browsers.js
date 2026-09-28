@@ -451,7 +451,8 @@ const browsersList = [
       const browser = {
         name: 'Opera',
       };
-      const version = Utils.getFirstMatch(/(?:opr|opios)[\s/](\d+(\.?_?\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+      // Numbers and dots only, so a suffix like OPR/82.0.4227.58/VoplfMPIL3LW69FfgZ stays out of the version
+      const version = Utils.getFirstMatch(/(?:opr|opios)[\s/](\d+(?:\.\d+)*)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;

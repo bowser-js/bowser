@@ -87,6 +87,18 @@ test('Skip parsing shouldn\'t parse', (t) => {
   t.deepEqual((new Parser(UA, true)).getResult(), {});
 });
 
+test('Parser reads the Opera version without a trailing suffix', (t) => {
+  const p = new Parser('Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36 OPR/82.0.4227.58/VoplfMPIL3LW69FfgZ');
+  t.is(p.getBrowserVersion(), '82.0.4227.58');
+  t.is(p.satisfies({ opera: '>=80' }), true);
+});
+
+test('Parser reads a one-number Opera version', (t) => {
+  const p = new Parser('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 OPR/9');
+  t.is(p.getBrowserVersion(), '9');
+  t.is(p.satisfies({ opera: '>=8' }), true);
+});
+
 test('Parser.satisfies should make simple comparisons', (t) => {
   // also covers Parser.compareVersion() and Parser.compareVersions() methods
   t.is(parser.satisfies({ opera: '>42' }), true);

@@ -631,7 +631,8 @@ const browsersList = [
       const browser = {
         name: 'UC Browser',
       };
-      const version = Utils.getFirstMatch(commonVersionIdentifier, ua) || Utils.getFirstMatch(/(?:ucbrowser)[\s/](\d+(\.?_?\d+)+)/i, ua);
+      // Prefer UCBrowser/, since Version/ on Android is the WebView token (Version/4.0), not the UC Browser version
+      const version = Utils.getFirstMatch(/(?:ucbrowser)[\s/](\d+(\.?_?\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;

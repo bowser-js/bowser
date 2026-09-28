@@ -11,7 +11,20 @@ export default [
       return parser.getBrowserName(true) === 'microsoft edge';
     },
     describe(ua) {
-      const isBlinkBased = /\sedg\//i.test(ua);
+      // Edge for iOS runs on WebKit, like every browser on iOS
+      if (/\sedgios\//i.test(ua)) {
+        const engine = {
+          name: ENGINE_MAP.WebKit,
+        };
+        const version = Utils.getFirstMatch(/webkit\/(\d+(\.?_?\d+)+)/i, ua);
+        if (version) {
+          engine.version = version;
+        }
+        return engine;
+      }
+
+      // Chromium-based Edge: Edg/ on desktop, EdgA/ on Android
+      const isBlinkBased = /\sedga?\//i.test(ua);
 
       // return blink if it's blink-based one
       if (isBlinkBased) {

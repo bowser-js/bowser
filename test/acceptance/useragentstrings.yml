@@ -3289,11 +3289,24 @@
           name: "WebKit"
           version: "534.46"
     -
+      ua: "Mozilla/5.0 (Linux; U; Android 10; en-US; SM-A515F Build/QP1A.190711.020) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.108 UCBrowser/13.3.0.1302 Mobile Safari/537.36"
+      spec:
+        browser:
+          name: "UC Browser"
+          version: "13.3.0.1302"
+        os:
+          name: "Android"
+          version: "10"
+        platform:
+          type: "mobile"
+        engine:
+          name: "Blink"
+    -
       ua: "Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; SM-T210R Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30 UCBrowser/2.3.2.300"
       spec:
         browser:
           name: "UC Browser"
-          version: "4.0"
+          version: "2.3.2.300"
         os:
           name: "Android"
           version: "4.1.2"

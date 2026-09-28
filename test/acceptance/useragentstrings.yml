@@ -847,6 +847,22 @@
         engine:
           name: "Blink"
     -
+      ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 YaBrowser/25.10.0.123 Mobile/15E148 Safari/605.1"
+      spec:
+        browser:
+          name: "Yandex Browser"
+          version: "25.10.0.123"
+        os:
+          name: "iOS"
+          version: "18.7"
+        platform:
+          type: "mobile"
+          vendor: "Apple"
+          model: "iPhone"
+        engine:
+          name: "WebKit"
+          version: "605.1.15"
+    -
       ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 YaBrowser/19.3.3.157.10 Mobile/15E148 Safari/605.1"
       spec:
         browser:

@@ -9,6 +9,9 @@ const result: Bowser.Parser.ParsedResult = Bowser.parse(UA);
 const parser: Bowser.Parser.Parser = Bowser.getParser(UA);
 const name: string | undefined = result.browser.name;
 const satisfies: boolean | undefined = parser.satisfies({ chrome: '>100' });
+const comparison: boolean | undefined = parser.compareVersion('>100');
+// @ts-expect-error A browser without a detected version returns undefined.
+const definiteComparison: boolean = parser.compareVersion('>100');
 const hints: Bowser.ClientHints = { mobile: false };
 const maps: Record<string, string> = Bowser.BROWSER_MAP;
 

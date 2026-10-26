@@ -92,3 +92,10 @@ class Bowser {
 
 export default Bowser;
 export const { parse, getParser } = Bowser;
+// Named too, so `import * as Bowser` has every member the UMD build has.
+export {
+  BROWSER_MAP,
+  ENGINE_MAP,
+  OS_MAP,
+  PLATFORMS_MAP,
+};

@@ -3,6 +3,7 @@ import {
   getFirstMatch,
   getSecondMatch,
   matchAndReturnConst,
+  isFirefoxOnIpad,
   getWindowsVersionName,
   getMacOSVersionName,
   getAndroidVersionName,
@@ -28,6 +29,24 @@ test('getSecondMatch', (t) => {
 test('matchAndReturnConst', (t) => {
   const _const = matchAndReturnConst(/version/i, 'version', "_const");
   t.is(_const, '_const');
+});
+
+test('isFirefoxOnIpad agrees with the regexp it replaces', (t) => {
+  const legacy = /Macintosh(.*?) FxiOS(.*?)\//;
+  [
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/120.0 Mobile/15E148 Safari/605.1.15',
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15',
+    'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) FxiOS/120.0 Mobile/15E148',
+    'FxiOS/1 Macintosh',
+    'Macintosh FxiOS',
+    'Macintosh FxiOS/',
+    'MacintoshFxiOS/',
+    'Macintosh FxiOS/ Macintosh',
+    ' FxiOS Macintosh FxiOS x/',
+    '',
+  ].forEach((ua) => {
+    t.is(isFirefoxOnIpad(ua), legacy.test(ua), ua);
+  });
 });
 
 test('getWindowsVersionName', (t) => {

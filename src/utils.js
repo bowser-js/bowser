@@ -37,6 +37,22 @@ export default class Utils {
     return void (0);
   }
 
+  /**
+   * Check whether a UA is Firefox on iPad: "Macintosh", then later " FxiOS",
+   * then later a "/". Same result as /Macintosh(.*?) FxiOS(.*?)\//.test(ua),
+   * but linear: that regexp backtracks polynomially on crafted input.
+   * @param {String} ua
+   * @return {Boolean}
+   */
+  static isFirefoxOnIpad(ua) {
+    const macIndex = ua.indexOf('Macintosh');
+    if (macIndex === -1) {
+      return false;
+    }
+    const fxiosIndex = ua.indexOf(' FxiOS', macIndex + 'Macintosh'.length);
+    return fxiosIndex !== -1 && ua.indexOf('/', fxiosIndex + ' FxiOS'.length) !== -1;
+  }
+
   static getWindowsVersionName(version) {
     switch (version) {
       case 'NT': return 'NT';

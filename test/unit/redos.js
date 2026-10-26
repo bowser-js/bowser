@@ -37,3 +37,16 @@ test('parses an unrecognised slash-heavy UA with a device spec in linear time', 
   const elapsed = timeParse(ua);
   t.true(elapsed < TIME_BUDGET_MS, `took ${elapsed.toFixed(0)}ms, budget ${TIME_BUDGET_MS}ms`);
 });
+
+// GHSA-f9xq-72p3-q9fv: /Macintosh(.*?) FxiOS(.*?)\// in the OS and platform parsers.
+test('parses a Macintosh UA full of FxiOS tokens without a slash in linear time', (t) => {
+  const ua = `Mozilla/5.0 (Macintosh${'Macintosh'.repeat(1022)}${' FxiOS'.repeat(1022)}`;
+  const elapsed = timeParse(ua);
+  t.true(elapsed < TIME_BUDGET_MS, `took ${elapsed.toFixed(0)}ms, budget ${TIME_BUDGET_MS}ms`);
+});
+
+test('parses interleaved Macintosh/FxiOS tokens without a slash in linear time', (t) => {
+  const ua = 'Macintosh FxiOS'.repeat(1022);
+  const elapsed = timeParse(ua);
+  t.true(elapsed < TIME_BUDGET_MS, `took ${elapsed.toFixed(0)}ms, budget ${TIME_BUDGET_MS}ms`);
+});

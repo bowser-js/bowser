@@ -323,7 +323,9 @@ export default [
 
   /* Firefox on iPad */
   {
-    test: [/Macintosh(.*?) FxiOS(.*?)\//],
+    test(parser) {
+      return Utils.isFirefoxOnIpad(parser.getUA());
+    },
     describe() {
       return {
         type: PLATFORMS_MAP.tablet,

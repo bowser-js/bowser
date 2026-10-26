@@ -77,11 +77,14 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: dist
+      # Same Node as the build job. Pin npm's major instead of `@latest`:
+      # trusted publishing needs npm >= 11.5.1, and npm 12 dropped Node 20,
+      # which is what broke the v2.15.0 publish.
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: "24"
           registry-url: "https://registry.npmjs.org"
-      - name: Update npm to latest (trusted publishing requires npm >= 11.5.1)
-        run: npm install -g npm@latest
+      - name: Update npm to 11.x (trusted publishing requires npm >= 11.5.1)
+        run: npm install -g npm@11
       - name: Publish to npm
         run: npm publish --provenance --access public

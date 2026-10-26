@@ -14,7 +14,7 @@ Also supports User-Agent Client Hints via an optional `clientHints` parameter on
 
 ## Commands
 
-- **Build**: `npm run build` (Webpack + Babel → `es5.js`, `bundled.js`)
+- **Build**: `npm run build` (tsdown + Babel → UMD `es5.js` / `bundled.js` and ESM `bowser.mjs`, all ES5; see `tsdown.config.ts`)
 - **Test**: `npm test` (AVA — runs both `test/unit/` and `test/acceptance/`)
 - **Lint**: `npm run lint:check` / `npm run lint:fix`
 
@@ -72,7 +72,7 @@ Returns `true`/`false` if the browser matches, or `undefined` if the browser isn
 
 ## Testing Details
 
-- **Acceptance tests** (`test/acceptance/test-list-of-ua.js`): Loads `useragentstrings.yml`, tests every UA against both `src/bowser.js` (ES6) and `es5.js` (built) — so **build before running tests** if you changed source.
+- **Acceptance tests** (`test/acceptance/test-list-of-ua.js`): Loads `useragentstrings.yml`, tests every UA against `src/bowser.js` and all three built artifacts (`es5.js`, `bundled.js`, `bowser.mjs`) — so **build before running tests** if you changed source.
 - **Unit tests** (`test/unit/`): Test individual Parser/Bowser/Utils methods. Use `new Parser(UA, true)` (skipParsing=true) for isolated method testing.
 - Test framework: AVA with Babel transpilation via `@babel/register`.
 

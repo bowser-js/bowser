@@ -1,7 +1,10 @@
 // An ES module consumer: default plus named imports, types imported as types.
 // This is `moduleResolution: node16` (from ESM), `nodenext` and `bundler`.
-import Bowser, { parse, getParser } from 'bowser';
+import Bowser, { parse, getParser, BROWSER_MAP, ENGINE_MAP, OS_MAP, PLATFORMS_MAP } from 'bowser';
 import type { ParsedResult, Parser, ClientHints, checkTree } from 'bowser';
+// The namespace import the README documents for TypeScript: it must offer
+// everything the CommonJS `export =` namespace does.
+import * as BowserNS from 'bowser';
 
 const UA = 'Mozilla/5.0 (Macintosh) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
 
@@ -10,8 +13,15 @@ const parser: Parser = getParser(UA);
 const tree: checkTree = { chrome: '>100' };
 const satisfies: boolean | undefined = parser.satisfies(tree);
 const hints: ClientHints = { mobile: false };
-// BROWSER_MAP is deliberately not a named export of bowser.mjs — it only
-// exists as a static on the class. Reaching it any other way must not compile.
-const maps: Record<string, string> = Bowser.BROWSER_MAP;
+const maps: Array<Record<string, string>> = [
+  Bowser.BROWSER_MAP, BROWSER_MAP, ENGINE_MAP, OS_MAP, PLATFORMS_MAP,
+];
 
-export { result, satisfies, hints, maps };
+const nsResult: BowserNS.Parser.ParsedResult = BowserNS.parse(UA);
+const nsParser: BowserNS.Parser.Parser = BowserNS.getParser(UA);
+const nsHints: BowserNS.ClientHints = { mobile: false };
+const nsMaps: Array<Record<string, string>> = [
+  BowserNS.BROWSER_MAP, BowserNS.ENGINE_MAP, BowserNS.OS_MAP, BowserNS.PLATFORMS_MAP,
+];
+
+export { result, satisfies, hints, maps, nsResult, nsParser, nsHints, nsMaps };

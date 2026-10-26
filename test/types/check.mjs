@@ -16,9 +16,9 @@
  * export declared in `index.d.mts` that `bowser.mjs` does not actually have.
  *
  * Both directions are asserted. The negative cases matter as much as the
- * positive ones: `index.d.mts` deliberately omits `BROWSER_MAP` and friends as
- * named exports because importing them that way throws at runtime, and only a
- * compile that is expected to *fail* can hold that line.
+ * positive ones: `Parser` is only a type, and constructing it from an import
+ * would throw at runtime. Only a compile that is expected to *fail* can hold
+ * that line.
  *
  * Either way the package is installed into a real `node_modules` and resolved
  * by the normal upward walk, so the exports map, the `types` field and the
@@ -57,11 +57,8 @@ const MODES = [
  * promising something `bowser.mjs` will not deliver.
  */
 const MUST_NOT_COMPILE = [
-  ['BROWSER_MAP is not a named export', 'import { BROWSER_MAP } from "bowser"; export default BROWSER_MAP;'],
-  ['OS_MAP is not a named export', 'import { OS_MAP } from "bowser"; export default OS_MAP;'],
-  ['ENGINE_MAP is not a named export', 'import { ENGINE_MAP } from "bowser"; export default ENGINE_MAP;'],
-  ['PLATFORMS_MAP is not a named export', 'import { PLATFORMS_MAP } from "bowser"; export default PLATFORMS_MAP;'],
   ['Parser is a type, not a value', 'import { Parser } from "bowser"; export default new Parser("x");'],
+  ['Parser is a type, not a value, on the namespace', 'import * as B from "bowser"; export default new B.Parser("x");'],
 ];
 
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'bowser-types-'));

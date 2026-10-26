@@ -39,8 +39,9 @@ import * as Bowser from "bowser"; // TypeScript
 import Bowser from "bowser"; // ES6 (and TypeScript with --esModuleInterop enabled)
 ```
 
-The ES module build also exposes `parse` and `getParser` as named exports, so
-you can import just the part you use and let your bundler drop the rest:
+The ES module build also exposes `parse`, `getParser`, `BROWSER_MAP`,
+`ENGINE_MAP`, `OS_MAP` and `PLATFORMS_MAP` as named exports, so you can import
+just the part you use and let your bundler drop the rest:
 
 ```javascript
 import { getParser, parse } from "bowser";

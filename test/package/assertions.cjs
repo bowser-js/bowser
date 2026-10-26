@@ -218,6 +218,13 @@ if (!nodeAtLeast(12, 17)) {
         assert.strictEqual(parse(UA).browser.name, 'Chrome');
         assert.strictEqual(getParser(UA).getBrowserName(), 'Chrome');
       });
+      // `import * as Bowser` must see every member `require('bowser')` has.
+      check('import("bowser") has the constant maps as named exports', function () {
+        ['BROWSER_MAP', 'ENGINE_MAP', 'OS_MAP', 'PLATFORMS_MAP'].forEach(function (key) {
+          assert.strictEqual(typeof mod[key], 'object', key);
+          assert.strictEqual(mod[key], mod.default[key], key);
+        });
+      });
       console.log('\n' + passed + ' checks passed');
     })
     .catch(function (err) {

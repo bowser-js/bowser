@@ -530,6 +530,20 @@
           version: "533.16"
   Opera:
     -
+      ua: "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36 OPR/82.0.4227.58/VoplfMPIL3LW69FfgZ"
+      spec:
+        browser:
+          name: "Opera"
+          version: "82.0.4227.58"
+        os:
+          name: "Windows"
+          version: "NT 10.0"
+          versionName: "10"
+        platform:
+          type: "desktop"
+        engine:
+          name: "Blink"
+    -
       ua: "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 7 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.72 Safari/537.36 OPR/19.0.1340.69721"
       spec:
         browser:

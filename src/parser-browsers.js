@@ -1216,7 +1216,7 @@ const browsersList = [
 
   /* Freebox */
   {
-    test: [/navigateur web/i],
+    test: [/freebox/i],
     describe(ua) {
       const browser = {
         name: 'Freebox',

@@ -12,6 +12,9 @@ const result: ParsedResult = parse(UA);
 const parser: Parser = getParser(UA);
 const tree: checkTree = { chrome: '>100' };
 const satisfies: boolean | undefined = parser.satisfies(tree);
+const comparison: boolean | undefined = parser.compareVersion('>100');
+// @ts-expect-error A browser without a detected version returns undefined.
+const definiteComparison: boolean = parser.compareVersion('>100');
 const hints: ClientHints = { mobile: false };
 const maps: Array<Record<string, string>> = [
   Bowser.BROWSER_MAP, BROWSER_MAP, ENGINE_MAP, OS_MAP, PLATFORMS_MAP,

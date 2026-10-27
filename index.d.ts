@@ -75,10 +75,10 @@ declare namespace Bowser {
       /**
        * Check if the version is equals the browser version
        * @param version The string to compare with the browser version
-       * @returns {boolean}
+       * @returns {boolean | undefined} Undefined if no browser version is available.
        */
 
-      compareVersion(version: string): boolean;
+      compareVersion(version: string): boolean | undefined;
 
       /**
        * Get parsed browser object

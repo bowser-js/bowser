@@ -1214,6 +1214,23 @@ const browsersList = [
     },
   },
 
+  /* Freebox */
+  {
+    test: [/navigateur web/i],
+    describe(ua) {
+      const browser = {
+        name: 'Freebox',
+      };
+      const version = Utils.getFirstMatch(/navigateur web\/(\d+(\.\d+)+)/i, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+
   /* Safari */
   {
     test: [/safari|applewebkit/i],

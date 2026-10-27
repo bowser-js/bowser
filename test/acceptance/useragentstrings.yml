@@ -2148,6 +2148,20 @@
         engine:
           name: "WebKit"
           version: "605.1.15"
+  Freebox:
+    -
+      ua: "Mozilla/5.0 (Freebox; Linux i686) AppleWebKit/538.1 (KHTML, like Gecko) Navigateur web/1.0 Safari/538.1"
+      spec:
+        browser:
+          name: "Freebox"
+          version: "1.0"
+        os:
+          name: "Linux"
+        platform:
+          type: "desktop"
+        engine:
+          name: "WebKit"
+          version: "538.1"
   LibreWolf:
     -
       ua: "Mozilla/5.0 (X11; Linux x86_64; rv:124.0) Gecko/20100101 LibreWolf/124.0.2"

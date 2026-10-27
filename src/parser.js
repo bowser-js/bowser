@@ -553,7 +553,7 @@ class Parser {
     }
 
     return expectedResults.indexOf(
-      Utils.compareVersions(currentBrowserVersion, comparableVersion, isLoose),
+      Utils.compareVersions(currentBrowserVersion, comparableVersion.trim(), isLoose),
     ) > -1;
   }
 

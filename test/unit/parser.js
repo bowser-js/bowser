@@ -116,6 +116,15 @@ test('Parser.satisfies should make simple comparisons', (t) => {
   t.is(parser.satisfies({ opera: '~43' }), true);
 });
 
+test('Parser.satisfies should allow a space after the operator', (t) => {
+  const p = new Parser('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_5) AppleWebKit/537.4 (KHTML, like Gecko) Chrome/22.0.1229.92 Safari/537.4');
+  t.is(p.satisfies({ chrome: '>= 23' }), false);
+  t.is(p.satisfies({ chrome: '> 21' }), true);
+  t.is(p.satisfies({ chrome: '<= 22' }), true);
+  t.is(p.satisfies({ chrome: '= 22.0.1229.92' }), true);
+  t.is(p.satisfies({ chrome: '~ 22' }), true);
+});
+
 test('Parser.satisfies should make comparisons with array of versions', (t) => {
   // also covers Parser.compareVersion() and Parser.compareVersions() methods
   t.is(parser.satisfies({ opera: ['~42', '~43'] }), true);

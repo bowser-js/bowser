@@ -542,6 +542,18 @@ export default [
     },
   },
 
+  /* Chrome OS */
+  {
+    test(parser) {
+      return parser.getOSName(true) === 'chrome os';
+    },
+    describe() {
+      return {
+        type: PLATFORMS_MAP.desktop,
+      };
+    },
+  },
+
   /* PlayStation 4 */
   {
     test(parser) {

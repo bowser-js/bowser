@@ -176,7 +176,20 @@
           version: "29.0.1547.57"
         os:
           name: "Chrome OS"
-        platform: {}
+        platform:
+          type: "desktop"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (X11; CrOS x86_64 12239.67.1) AppleWebKit/537.36 (KHTML,  like Gecko) Chrome/76.0.3809.102 Safari/537.36"
+      spec:
+        browser:
+          name: "Chrome"
+          version: "76.0.3809.102"
+        os:
+          name: "Chrome OS"
+        platform:
+          type: "desktop"
         engine:
           name: "Blink"
     -

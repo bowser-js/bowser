@@ -907,6 +907,22 @@
           version: "605.1.15"
   Safari:
     -
+      ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 26_6_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.6.2 Mobile/15E148 Safari/605.1.15 BingSapphire/34.4.441106001"
+      spec:
+        browser:
+          name: "Safari"
+          version: "26.6.2"
+        os:
+          name: "iOS"
+          version: "26.6.2"
+        platform:
+          type: "mobile"
+          vendor: "Apple"
+          model: "iPhone"
+        engine:
+          name: "WebKit"
+          version: "605.1.15"
+    -
       ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_8) AppleWebKit/537.13+ (KHTML, like Gecko) Version/5.1.7 Safari/534.57.2"
       spec:
         browser:

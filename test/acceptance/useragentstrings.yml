@@ -3374,6 +3374,57 @@
           version: "605.1.15"
   UC Browser:
     -
+      ua: "Mozilla/5.0 (Linux; Android 16; en-US; SM-S918B Build/BP2A.250605.031.A3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6312.80 UCMobile/15.0.7.1383 Mobile Safari/537.36"
+      spec:
+        browser:
+          name: "UC Browser"
+          version: "15.0.7.1383"
+        os:
+          name: "Android"
+          version: "16"
+        platform:
+          type: "mobile"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36 UCPC/1.1.0.12"
+      spec:
+        browser:
+          name: "UC Browser"
+          version: "1.1.0.12"
+        os:
+          name: "Windows"
+          version: "NT 10.0"
+          versionName: "10"
+        platform:
+          type: "desktop"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 UBrowser/5.6.12860.7 Safari/537.36"
+      spec:
+        browser:
+          name: "UC Browser"
+          version: "5.6.12860.7"
+        os:
+          name: "Windows"
+          version: "NT 6.1"
+          versionName: "7"
+        platform:
+          type: "desktop"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Java; U; Pt-br; samsung-gt-s5620) UCBrowser8.2.1.144/69/352/UCWEB Mobile UNTRUSTED/1.0"
+      spec:
+        browser:
+          name: "UC Browser"
+          version: "8.2.1.144"
+        os: {}
+        platform:
+          type: "mobile"
+        engine: {}
+    -
       ua: "Mozilla/5.0 (iPad; U; CPU OS 9 like Mac OS X; en-us; iPad4,4) AppleWebKit/534.46 (KHTML, like Gecko) UCBrowser/2.4.0.367 U3/1 Safari/7543.48.3"
       spec:
         browser:

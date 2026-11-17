@@ -627,13 +627,15 @@ const browsersList = [
     },
   },
   {
-    test: [/ucbrowser/i],
+    // UC Browser 15+ on Android sends UCMobile/, UC Browser for PC sends UCPC/ or UBrowser/
+    test: [/ucbrowser|ucmobile\//i, /\bucpc\//i, /\bubrowser\//i],
     describe(ua) {
       const browser = {
         name: 'UC Browser',
       };
-      // Prefer UCBrowser/, since Version/ on Android is the WebView token (Version/4.0), not the UC Browser version
-      const version = Utils.getFirstMatch(/(?:ucbrowser)[\s/](\d+(\.?_?\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+      // Prefer the UC token, since Version/ on Android is the WebView token (Version/4.0), not the UC Browser version.
+      // Old J2ME builds glue the version to the name (UCBrowser8.2.1.144/69/352).
+      const version = Utils.getFirstMatch(/(?:ucbrowser[\s/]?|ucmobile\/|\bucpc\/|\bubrowser\/)(\d+(\.?_?\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;

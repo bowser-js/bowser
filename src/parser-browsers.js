@@ -1183,7 +1183,8 @@ const browsersList = [
     },
   },
   {
-    test: [/GSA/i],
+    // GSA/ only: a bare /GSA/i also matches the Bing app's "BingSapphire/" token
+    test: [/\bGSA\//i],
     describe(ua) {
       const browser = {
         name: 'Google Search',

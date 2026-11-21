@@ -223,6 +223,7 @@ const isValidBrowser = browser.satisfies({
 
 Settings for any particular OS or platform has more priority and redefines settings of standalone browsers.
 Thus, you can define OS or platform specific rules and they will have more priority in the end.
+When OS or platform scopes match but none defines the current browser, `.satisfies()` returns `false` instead of using a standalone browser rule.
 
 More of API and possibilities you will find in the `docs` folder.
 

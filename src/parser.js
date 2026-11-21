@@ -425,7 +425,8 @@ class Parser {
    * and should have browsers specs on the bottom-laying layer
    *
    * @returns {Boolean|undefined} Whether the browser satisfies the set conditions or not.
-   * Returns `undefined` when the browser is no described in the checkTree object.
+   * Returns `false` when matching OS or platform definitions do not define the browser.
+   * Returns `undefined` when no scope matches and the browser is not defined at the top level.
    *
    * @example
    * const browser = Bowser.getParser(window.navigator.userAgent);
@@ -438,6 +439,7 @@ class Parser {
   satisfies(checkTree) {
     const platformsAndOSes = {};
     let platformsAndOSCounter = 0;
+    let scopedDefinitionMatched = false;
     const browsers = {};
     let browsersCounter = 0;
 
@@ -459,6 +461,7 @@ class Parser {
       const OSMatchingDefinition = Utils.find(platformsAndOSNames, name => (this.isOS(name)));
 
       if (OSMatchingDefinition) {
+        scopedDefinitionMatched = true;
         const osResult = this.satisfies(platformsAndOSes[OSMatchingDefinition]);
 
         if (osResult !== void 0) {
@@ -471,12 +474,17 @@ class Parser {
         name => (this.isPlatform(name)),
       );
       if (platformMatchingDefinition) {
+        scopedDefinitionMatched = true;
         const platformResult = this.satisfies(platformsAndOSes[platformMatchingDefinition]);
 
         if (platformResult !== void 0) {
           return platformResult;
         }
       }
+    }
+
+    if (scopedDefinitionMatched) {
+      return false;
     }
 
     if (browsersCounter > 0) {

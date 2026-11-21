@@ -124,7 +124,7 @@ test('Parser.satisfies should make comparisons with array of versions', (t) => {
 
 test('Parser.satisfies should make complex comparison', (t) => {
   t.is(parser.satisfies({
-    macos: {
+    windows: {
       safari: '>11',
     },
     ios: {
@@ -167,7 +167,39 @@ test('Parser.satisfies should respect platform and OS specific declarations', (t
       chrome: '>42',
     },
     firefox: '>42',
-  }), void 0);
+  }), false);
+});
+
+test('Parser.satisfies should not fall back to standalone browsers when an OS or platform matches', (t) => {
+  const iosChromeParser = new Parser('Mozilla/5.0 (iPad; CPU OS 13_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/79.0.3945.73 Mobile/15E148 Safari/604.1');
+
+  t.is(iosChromeParser.getBrowserName(), 'Chrome');
+  t.is(iosChromeParser.getOSName(), 'iOS');
+  t.is(iosChromeParser.getPlatformType(), 'tablet');
+
+  t.is(iosChromeParser.satisfies({
+    ios: {
+      safari: '>=12',
+    },
+    chrome: '>=75',
+    firefox: '>=61',
+    safari: '>=12',
+    edge: '>=81',
+  }), false);
+
+  t.is(iosChromeParser.satisfies({
+    tablet: {
+      safari: '>=12',
+    },
+    chrome: '>=75',
+  }), false);
+
+  t.is(iosChromeParser.satisfies({
+    windows: {
+      safari: '>=12',
+    },
+    chrome: '>=75',
+  }), true);
 });
 
 test('Parser.satisfies for versionless UA strings', (t) => {

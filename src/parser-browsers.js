@@ -611,6 +611,26 @@ const browsersList = [
       return browser;
     },
   },
+  /* Bertina Browser */
+  {
+    // Chromium-based, but its UA carries no Chrome/ token: "... (KHTML, like Gecko) Bertina/158.0.0.0 Safari/537.36".
+    // Match the " Bertina/" product token; this must stay above the generic Chrome, Android Browser and Safari
+    // descriptors, which would otherwise claim the UA through its "Safari/537.36" part.
+    test: [/\sbertina\//i],
+    describe(ua) {
+      const browser = {
+        name: 'Bertina Browser',
+      };
+      // Capture the dotted version that follows "Bertina/" (e.g. 158.0.0.0); fall back to "Version/x" if absent.
+      const version = Utils.getFirstMatch(/(?:bertina)\/(\d+(\.?_?\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
   {
     test: [/yabrowser/i],
     describe(ua) {

@@ -183,6 +183,19 @@ check('es5.js sets a lowercase `bowser` global when loaded as a script', functio
   assert.strictEqual(sandbox.Bowser, undefined, 'unexpected capitalised global');
 });
 
+check('es5.js satisfies() works without String.prototype.trim (IE8)', function () {
+  var file = require.resolve('bowser/es5.js');
+  var sandbox = {};
+  sandbox.self = sandbox;
+  vm.createContext(sandbox);
+  vm.runInContext('delete String.prototype.trim;', sandbox);
+  vm.runInContext(fs.readFileSync(file, 'utf8'), sandbox);
+  var parser = sandbox.bowser.getParser(UA);
+  assert.strictEqual(parser.satisfies({ chrome: '>119' }), true);
+  assert.strictEqual(parser.satisfies({ chrome: '> 119' }), true);
+  assert.strictEqual(parser.satisfies({ chrome: '< 120' }), false);
+});
+
 check('es5.js contains no ES6 template literals', function () {
   // rolldown's built-in (oxc) minifier rewrites every string literal as a
   // template literal, which is a syntax error in the old browsers this bundle

@@ -647,6 +647,37 @@ const browsersList = [
     },
   },
   {
+    // UC Mini may include an older UCWEB token as well; prefer the UC Mini version.
+    test: [/ucmini\//i],
+    describe(ua) {
+      const browser = {
+        name: 'UCMini',
+      };
+      const version = Utils.getFirstMatch(/ucmini\/(\d+(\.?_?\d+)+)/i, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
+    test: [/ucweb\//i],
+    describe(ua) {
+      const browser = {
+        name: 'UCWEB',
+      };
+      const version = Utils.getFirstMatch(/ucweb\/(\d+(\.?_?\d+)+)/i, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
     // UC Browser 15+ on Android sends UCMobile/, UC Browser for PC sends UCPC/ or UBrowser/
     test: [/ucbrowser|ucmobile\//i, /\bucpc\//i, /\bubrowser\//i],
     describe(ua) {
@@ -716,6 +747,21 @@ const browsersList = [
         name: 'Sleipnir',
       };
       const version = Utils.getFirstMatch(commonVersionIdentifier, ua) || Utils.getFirstMatch(/(?:sleipnir)[\s/](\d+(\.?_?\d+)+)/i, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
+    test: [/konqueror/i],
+    describe(ua) {
+      const browser = {
+        name: 'Konqueror',
+      };
+      const version = Utils.getFirstMatch(/konqueror[\s/](\d+(\.?_?\d+)+)/i, ua);
 
       if (version) {
         browser.version = version;

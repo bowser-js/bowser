@@ -842,6 +842,61 @@
           type: "mobile"
         engine:
           name: "Blink"
+  Bertina Browser:
+    -
+      ua: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Bertina/158.0.0.0 Safari/537.36"
+      spec:
+        browser:
+          name: "Bertina Browser"
+          version: "158.0.0.0"
+        os:
+          name: "Linux"
+        platform:
+          type: "desktop"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Bertina/158.0.0.0 Safari/537.36"
+      spec:
+        browser:
+          name: "Bertina Browser"
+          version: "158.0.0.0"
+        os:
+          name: "Windows"
+          version: "NT 10.0"
+          versionName: "10"
+        platform:
+          type: "desktop"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Bertina/158.0.0.0 Safari/537.36"
+      spec:
+        browser:
+          name: "Bertina Browser"
+          version: "158.0.0.0"
+        os:
+          name: "macOS"
+          version: "10.15.7"
+          versionName: "Catalina"
+        platform:
+          type: "desktop"
+          vendor: "Apple"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Bertina/158.0.0.0 Mobile Safari/537.36"
+      spec:
+        browser:
+          name: "Bertina Browser"
+          version: "158.0.0.0"
+        os:
+          name: "Android"
+          version: "10"
+        platform:
+          type: "mobile"
+        engine:
+          name: "Blink"
   Yandex Browser:
     -
       ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 YaBrowser/15.4.2272.3420 (beta) Yowser/2.0 Safari/537.36"

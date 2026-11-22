@@ -1,6 +1,6 @@
 ## Bowser
 A small, fast and rich-API browser/platform/engine detector for both browser and node.
-- **Small.** Use plain ES5-version which is ~4.8kB gzipped.
+- **Small.** Use plain ES5-version which is ~7.5kB gzipped.
 - **Optimized.** Use only those parsers you need — it doesn't do useless work.
 - **Multi-platform.** It's browser- and node-ready, so you can use it in any environment.
 

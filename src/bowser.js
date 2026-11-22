@@ -73,18 +73,38 @@ class Bowser {
     return (new Parser(UA, clientHints)).getResult();
   }
 
+  /**
+   * Map browser aliases to display names.
+   * @type {Object<string, string>}
+   * @public
+   */
   static get BROWSER_MAP() {
     return BROWSER_MAP;
   }
 
+  /**
+   * Map rendering-engine identifiers to display names.
+   * @type {Object<string, string>}
+   * @public
+   */
   static get ENGINE_MAP() {
     return ENGINE_MAP;
   }
 
+  /**
+   * Map operating-system identifiers to display names.
+   * @type {Object<string, string>}
+   * @public
+   */
   static get OS_MAP() {
     return OS_MAP;
   }
 
+  /**
+   * Map platform identifiers to display names.
+   * @type {Object<string, string>}
+   * @public
+   */
   static get PLATFORMS_MAP() {
     return PLATFORMS_MAP;
   }

@@ -8,6 +8,9 @@ coverage
 /bundled.js*
 /es5.js*
 /bowser.mjs*
+/website/.docusaurus/
+/website/build/
+/website/.jsdoc-api/
 
 # `npm pack` output, used by the package smoke test
 *.tgz

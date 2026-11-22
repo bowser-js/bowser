@@ -14,9 +14,12 @@ Also supports User-Agent Client Hints via an optional `clientHints` parameter on
 
 ## Commands
 
-- **Build**: `npm run build` (tsdown + Babel → UMD `es5.js` / `bundled.js` and ESM `bowser.mjs`, all ES5; see `tsdown.config.ts`)
-- **Test**: `npm test` (AVA — runs both `test/unit/` and `test/acceptance/`)
-- **Lint**: `npm run lint:check` / `npm run lint:fix`
+- **Install**: `pnpm install`
+- **Build**: `pnpm build` (tsdown → `es5.js`, `bundled.js`, and `bowser.mjs`)
+- **Test**: `pnpm test` (AVA — runs both `test/unit/` and `test/acceptance/`)
+- **Lint**: `pnpm lint:check` / `pnpm lint:fix`
+- **Docs**: `pnpm docs:start` / `pnpm docs:build` (generates the API reference before preview and production builds)
+- **Deploy docs**: `pnpm docs:deploy` (publishes the Docusaurus build to the root of `gh-pages`)
 
 ## Adding Browser/Bot Support (5 files to touch)
 
@@ -26,7 +29,7 @@ Also supports User-Agent Client Hints via an optional `clientHints` parameter on
 4. **`test/acceptance/useragentstrings.yml`**: Add real UA strings under the browser's display name with full `spec` (browser, os, platform, engine). The acceptance test iterates this YAML and asserts `Bowser.parse(ua)` deep-equals the spec. The top-level key **must match** the browser's `name` field exactly.
 5. **`index.d.ts`**: Update TypeScript definitions if adding new API surface.
 
-Run `npm test` to validate — acceptance tests auto-generate from the YAML file.
+Run `pnpm build` then `pnpm test` to validate — acceptance tests auto-generate from the YAML file.
 
 ## Descriptor Pattern
 
@@ -60,7 +63,7 @@ parser.satisfies({ windows: { chrome: '>118' }, macos: { safari: '>=15' } })
 parser.satisfies({ desktop: { chrome: '>118' }, mobile: { safari: '>=15' } })
 ```
 
-Returns `true`/`false` if the browser matches, or `undefined` if the browser isn't mentioned in the tree. The `~` operator does a loose prefix comparison (e.g., `~100` matches `100.x.x`).
+Returns `true` or `false` for a matching browser rule. A matching OS or platform scope takes precedence over top-level browser rules and returns `false` when that scope omits the current browser. Returns `undefined` when no scope matches and no top-level browser rule applies. The `~` operator does a loose prefix comparison (e.g., `~100` matches `100.x.x`).
 
 ## Code Conventions
 

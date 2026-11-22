@@ -1,0 +1,20 @@
+{
+  "name": "@bowser/docs",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "generate-api": "node scripts/generate-api.mjs",
+    "start": "pnpm generate-api && docusaurus start",
+    "build": "pnpm generate-api && docusaurus build",
+    "serve": "pnpm generate-api && docusaurus build && docusaurus serve",
+    "clear": "docusaurus clear"
+  },
+  "devDependencies": {
+    "@docusaurus/core": "3.10.2",
+    "@docusaurus/preset-classic": "3.10.2",
+    "@easyops-cn/docusaurus-search-local": "0.55.3",
+    "jsdoc-to-markdown": "9.1.3"
+  }
+}

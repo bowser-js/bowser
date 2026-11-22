@@ -5,8 +5,15 @@ import enginesParsersList from './parser-engines.js';
 import Utils from './utils.js';
 
 /**
+ * A brand and version reported by User-Agent Client Hints.
+ * @typedef {Object} ClientHintBrand
+ * @property {string} brand Brand name, such as `Google Chrome`.
+ * @property {string} version Version reported for the brand.
+ */
+
+/**
  * @typedef {Object} ClientHints
- * @property {Array<{brand: string, version: string}>} [brands] Array of brand objects
+ * @property {ClientHintBrand[]} [brands] Brand and version entries.
  * @property {boolean} [mobile] Whether the device is mobile
  * @property {string} [platform] Platform name (e.g., "Windows", "macOS")
  * @property {string} [platformVersion] Platform version
@@ -16,7 +23,9 @@ import Utils from './utils.js';
  */
 
 /**
- * The main class that arranges the whole parsing process.
+ * Parses a User-Agent string into browser, OS, platform, and engine details.
+ * Client Hints are retained for inspection but do not alter parsing results.
+ * @class
  */
 class Parser {
   /**
@@ -27,7 +36,7 @@ class Parser {
    * or a ClientHints object containing User-Agent Client Hints data
    * @param {ClientHints} [clientHints] User-Agent Client Hints data (navigator.userAgentData)
    *
-   * @throw {Error} in case of empty UA String
+   * @throws {Error} when the UA string is empty
    *
    * @constructor
    */
@@ -61,7 +70,7 @@ class Parser {
      * @property {String|undefined} [os.versionName] OS name, like `"XP"` or `"High Sierra"`
      * @property {Object} platform
      * @property {String|undefined} [platform.type]
-     * platform type, can be either `"desktop"`, `"tablet"` or `"mobile"`
+     * Platform type: `desktop`, `tablet`, `mobile`, `tv`, or `bot`.
      * @property {String|undefined} [platform.vendor] Vendor of the device,
      * like `"Apple"` or `"Samsung"`
      * @property {String|undefined} [platform.model] Device model,
@@ -143,8 +152,8 @@ class Parser {
   }
 
   /**
-   * Get UserAgent string of current Parser instance
-   * @return {String} User-Agent String of the current <Parser> object
+   * Get the User-Agent string of the current Parser instance.
+   * @return {String} User-Agent string of the current Parser object.
    *
    * @public
    */
@@ -162,7 +171,7 @@ class Parser {
   }
 
   /**
-   * Get parsed browser object
+   * Parse the User-Agent string and save the result to `parsedResult.browser`.
    * @return {Object}
    */
   parseBrowser() {
@@ -216,7 +225,7 @@ class Parser {
 
   /**
    * Get browser's version
-   * @return {String} version of browser
+   * @return {String|undefined} Version of the browser, when available.
    *
    * @public
    */
@@ -225,7 +234,7 @@ class Parser {
   }
 
   /**
-   * Get OS
+   * Get parsed operating-system details.
    * @return {Object}
    *
    * @example
@@ -286,14 +295,14 @@ class Parser {
 
   /**
    * Get OS version
-   * @return {String} full version with dots ('10.11.12', '5.6', etc)
+   * @return {String|undefined} Full version with dots, if available.
    */
   getOSVersion() {
     return this.getOS().version;
   }
 
   /**
-   * Get parsed platform
+   * Get parsed platform details.
    * @return {{}}
    */
   getPlatform() {
@@ -305,9 +314,9 @@ class Parser {
   }
 
   /**
-   * Get platform name
+   * Get platform type, such as `desktop`, `mobile`, `tablet`, `tv`, or `bot`.
    * @param {Boolean} [toLowerCase=false]
-   * @return {*}
+   * @return {String} Platform type, or an empty string when unknown.
    */
   getPlatformType(toLowerCase = false) {
     const { type } = this.getPlatform();
@@ -320,7 +329,7 @@ class Parser {
   }
 
   /**
-   * Get parsed platform
+   * Parse platform and save it to `parsedResult.platform`.
    * @return {{}}
    */
   parsePlatform() {
@@ -358,8 +367,9 @@ class Parser {
   }
 
   /**
-   * Get engines's name
-   * @return {String} Engines's name or an empty string
+   * Get the rendering-engine name.
+   * @param {Boolean} [toLowerCase=false] Return the name in lowercase.
+   * @return {String} Engine name or an empty string.
    *
    * @public
    */
@@ -371,7 +381,7 @@ class Parser {
   }
 
   /**
-   * Get parsed platform
+   * Parse engine and save it to `parsedResult.engine`.
    * @return {{}}
    */
   parseEngine() {
@@ -420,9 +430,8 @@ class Parser {
   /**
    * Check if parsed browser matches certain conditions
    *
-   * @param {Object} checkTree It's one or two layered object,
-   * which can include a platform or an OS on the first layer
-   * and should have browsers specs on the bottom-laying layer
+   * @param {Object} checkTree A map of browser names or aliases to version rules,
+   * optionally nested under OS names or platform types.
    *
    * @returns {Boolean|undefined} Whether the browser satisfies the set conditions or not.
    * Returns `false` when matching OS or platform definitions do not define the browser.
@@ -435,6 +444,12 @@ class Parser {
    * if (browser.satisfies({windows: { chrome: '>118.01.1322' } }))
    * // or with platforms
    * if (browser.satisfies({desktop: { chrome: '>118.01.1322' } }))
+   *
+   * Version rules support `>`, `>=`, `<`, `<=`, `=`, and `~`; values may also
+   * be arrays of rules, where any matching rule returns true. A matching OS or
+   * platform scope takes precedence over top-level browser rules. If a matching
+   * scope does not include the current browser, the result is false. If no
+   * scope matches and no top-level browser entry applies, the result is undefined.
    */
   satisfies(checkTree) {
     const platformsAndOSes = {};
@@ -517,9 +532,11 @@ class Parser {
   }
 
   /**
-   * Check if browser version equals the version or equals one of versions
-   * @param {(string|string[])} versionsOrVersion versions strings array or version string
-   * @returns {boolean}
+   * Check whether the browser version matches one or more version rules.
+   * Arrays use OR logic and return true when any rule matches.
+   * @param {string|string[]} versionsOrVersion A version rule or rules.
+   * @returns {boolean|undefined} Whether a rule matches, or undefined if a single rule is checked and no browser version is available.
+   * @public
    */
   compareVersions(versionsOrVersion) {
     if (typeof versionsOrVersion === 'string') {
@@ -529,6 +546,13 @@ class Parser {
     return versionsOrVersion.some(version => this.compareVersion(version));
   }
 
+  /**
+   * Compare the browser version against one version rule.
+   * Supported operators are `>`, `>=`, `<`, `<=`, `=`, and `~`.
+   * @param {string} version Version rule to compare.
+   * @returns {boolean|undefined} Whether the rule matches, or undefined if the browser has no version.
+   * @public
+   */
   compareVersion(version) {
     let expectedResults = [0];
     let comparableVersion = version;
@@ -606,7 +630,7 @@ class Parser {
 
   /**
    * Check if any of the given values satisfies this.is(anything)
-   * @param {String[]} anythings
+   * @param {String[]} [anythings=[]] Browser, OS, platform, or engine names to check.
    * @returns {Boolean}
    */
   some(anythings = []) {

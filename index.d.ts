@@ -73,12 +73,19 @@ declare namespace Bowser {
       getBrandVersion(brandName: string): string | undefined;
 
       /**
-       * Check if the version is equals the browser version
-       * @param version The string to compare with the browser version
-       * @returns {boolean | undefined} Undefined if no browser version is available.
+       * Compare a version rule with the browser version.
+       * @param version The string to compare with the browser version.
+       * @returns {boolean | undefined} Whether a rule matches; undefined when no browser version is available.
        */
 
       compareVersion(version: string): boolean | undefined;
+
+      /**
+       * Check whether one or more version rules match the browser version.
+       * @param versionsOrVersion A version rule or array of rules.
+       * @returns {boolean | undefined} Whether a rule matches; undefined when the browser has no version and a single rule is checked.
+       */
+      compareVersions(versionsOrVersion: string | string[]): boolean | undefined;
 
       /**
        * Get parsed browser object
@@ -125,10 +132,10 @@ declare namespace Bowser {
 
       /**
        * Get OS version
-       * @return {String} full version with dots ('10.11.12', '5.6', etc)
+       * @return {String|undefined} Full version with dots, if available.
        */
 
-      getOSVersion(): string;
+      getOSVersion(): string | undefined;
 
       /**
        * Get parsed platform
@@ -138,8 +145,8 @@ declare namespace Bowser {
       getPlatform(): PlatformDetails;
 
       /**
-       * Get platform name
-       * @param {boolean} toLowerCase
+       * Get platform type, such as desktop, mobile, tablet, tv, or bot.
+       * @param {boolean} [toLowerCase] Return the type in lowercase.
        */
 
       getPlatformType(toLowerCase?: boolean): string;
@@ -152,11 +159,12 @@ declare namespace Bowser {
       getEngine(): EngineDetails;
 
       /**
-       * Get parsed engine's name
+       * Get the rendering-engine name.
+       * @param {boolean} [toLowerCase] Return the name in lowercase.
        * @returns {String} Engine's name or an empty string
        */
 
-      getEngineName(): string;
+      getEngineName(toLowerCase?: boolean): string;
 
       /**
        * Get parsed result
@@ -257,16 +265,17 @@ declare namespace Bowser {
        * which can include a platform or an OS on the first layer
        * and should have browsers specs on the bottom-laying layer
        *
-       * @returns {Boolean|undefined} Whether the browser satisfies the set conditions or not.
-       * Returns `undefined` when the browser is no described in the checkTree object.
+       * @returns {boolean | undefined} Whether the browser satisfies the rules.
+       * Returns `false` when a matching OS or platform scope omits the browser,
+       * and `undefined` when no scope or top-level browser rule applies.
        *
        * @example
-       * const browser = new Bowser(UA);
-       * if (browser.check({chrome: '>118.01.1322' }))
+       * const browser = Bowser.getParser(UA);
+       * if (browser.satisfies({chrome: '>118.01.1322' }))
        * // or with os
-       * if (browser.check({windows: { chrome: '>118.01.1322' } }))
+       * if (browser.satisfies({windows: { chrome: '>118.01.1322' } }))
        * // or with platforms
-       * if (browser.check({desktop: { chrome: '>118.01.1322' } }))
+       * if (browser.satisfies({desktop: { chrome: '>118.01.1322' } }))
        */
 
       satisfies(checkTree: checkTree): boolean | undefined;
@@ -310,7 +319,7 @@ declare namespace Bowser {
        * @returns {boolean} true if at least one condition is satisfied, false otherwise.
        */
 
-      some(anythings: string[]): boolean | undefined;
+      some(anythings?: string[]): boolean;
 
       /**
        * Test a UA string for a regexp

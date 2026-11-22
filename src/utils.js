@@ -1,11 +1,19 @@
 import { BROWSER_MAP, BROWSER_ALIASES_MAP } from './constants.js';
 
+/**
+ * @module utils
+ */
+
+/**
+ * Utility helpers used by Bowser's parsers and exposed from the `src/utils.js` package subpath.
+ * @class
+ */
 export default class Utils {
   /**
-   * Get first matched item for a string
+   * Get the first captured match from a User-Agent string, or an empty string.
    * @param {RegExp} regexp
    * @param {String} ua
-   * @return {Array|{index: number, input: string}|*|boolean|string}
+   * @return {string}
    */
   static getFirstMatch(regexp, ua) {
     const match = ua.match(regexp);
@@ -13,10 +21,10 @@ export default class Utils {
   }
 
   /**
-   * Get second matched item for a string
-   * @param regexp
+   * Get the second captured match from a User-Agent string, or an empty string.
+   * @param {RegExp} regexp
    * @param {String} ua
-   * @return {Array|{index: number, input: string}|*|boolean|string}
+   * @return {string}
    */
   static getSecondMatch(regexp, ua) {
     const match = ua.match(regexp);
@@ -28,7 +36,7 @@ export default class Utils {
    * @param {RegExp} regexp
    * @param {String} ua
    * @param {*} _const Any const that will be returned if regexp matches the string
-   * @return {*}
+   * @return {*|undefined}
    */
   static matchAndReturnConst(regexp, ua, _const) {
     if (regexp.test(ua)) {
@@ -43,6 +51,7 @@ export default class Utils {
    * but linear: that regexp backtracks polynomially on crafted input.
    * @param {String} ua
    * @return {Boolean}
+   * @public
    */
   static isFirefoxOnIpad(ua) {
     const macIndex = ua.indexOf('Macintosh');
@@ -53,6 +62,14 @@ export default class Utils {
     return fxiosIndex !== -1 && ua.indexOf('/', fxiosIndex + ' FxiOS'.length) !== -1;
   }
 
+  /**
+   * Get the display name for a Windows version identifier.
+   * @param {string} version Windows version, such as `NT 6.1`.
+   * @returns {string|undefined} Version name, or undefined when it is unknown.
+   * @public
+   * @example
+   * Utils.getWindowsVersionName('NT 6.1'); // '7'
+   */
   static getWindowsVersionName(version) {
     switch (version) {
       case 'NT': return 'NT';
@@ -92,7 +109,7 @@ export default class Utils {
    *   getMacOSVersionName("10.14") // 'Mojave'
    *
    * @param  {string} version
-   * @return {string} versionName
+   * @return {string|undefined} versionName
    */
   static getMacOSVersionName(version) {
     const v = version.split('.').splice(0, 2).map(s => parseInt(s, 10) || 0);
@@ -149,7 +166,7 @@ export default class Utils {
    *   getAndroidVersionName("7.0") // 'Nougat'
    *
    * @param  {string} version
-   * @return {string} versionName
+   * @return {string|undefined} versionName
    */
   static getAndroidVersionName(version) {
     const v = version.split('.').splice(0, 2).map(s => parseInt(s, 10) || 0);
@@ -185,6 +202,7 @@ export default class Utils {
     return version.split('.').length;
   }
 
+  /* eslint consistent-return: 1 */
   /**
    * Calculate browser version weight
    *
@@ -201,7 +219,6 @@ export default class Utils {
    * @return {Number} comparison result: -1 when versionA is lower,
    * 1 when versionA is bigger, 0 when both equal
    */
-  /* eslint consistent-return: 1 */
   static compareVersions(versionA, versionB, isLoose = false) {
     // 1) get common precision for both versions, for example for "10.0" and "9" it should be 2
     const versionAPrecision = Utils.getVersionPrecision(versionA);
@@ -253,7 +270,7 @@ export default class Utils {
    *
    * @param  {Array} arr
    * @param  {Function} iterator
-   * @return {Array}
+   * @return {Array} A new array containing each mapped value.
    */
   static map(arr, iterator) {
     const result = [];
@@ -272,7 +289,7 @@ export default class Utils {
    *
    * @param  {Array} arr
    * @param  {Function} predicate
-   * @return {Array}
+   * @return {*|undefined} The first matching value, or undefined when none match.
    */
   static find(arr, predicate) {
     let i;
@@ -322,7 +339,7 @@ export default class Utils {
    *   getBrowserAlias('Microsoft Edge') // edge
    *
    * @param  {string} browserName
-   * @return {string}
+   * @return {string|undefined}
    */
   static getBrowserAlias(browserName) {
     return BROWSER_ALIASES_MAP[browserName];
@@ -335,7 +352,7 @@ export default class Utils {
    *   getBrowserTypeByAlias('edge') // Microsoft Edge
    *
    * @param  {string} browserAlias
-   * @return {string}
+   * @return {string} Browser display name, or an empty string when the alias is unknown.
    */
   static getBrowserTypeByAlias(browserAlias) {
     return BROWSER_MAP[browserAlias] || '';

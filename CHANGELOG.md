@@ -1,5 +1,35 @@
 # Bowser Changelog
 
+### [2.15.0](https://github.com/bowser-js/bowser/releases/tag/v2.15.0)
+- [SECURITY] Fix polynomial-time regular-expression denial-of-service patterns in Firefox-on-iPad, Linespider, SlackBot, and the generic fallback User-Agent rules.
+- [ADD] Publish CommonJS and ES module package entry points while preserving existing package paths; the ES module exposes named `parse` and `getParser` functions.
+- [ADD] Add Ladybird, HeyTap Browser, and Vivo Browser detection, and prevent Motorola Edge phones from being identified as Microsoft Edge.
+- [FIX] Update the bundled polyfill set and restore ES5 output for the legacy builds.
+- [ADD] Allow arrays of version rules in `Parser.satisfies()`; any matching rule satisfies the browser.
+
+### [2.14.1](https://github.com/bowser-js/bowser/releases/tag/v2.14.1)
+- [FIX] Exclude unnecessary files from the published bundle.
+
+### [2.14.0](https://github.com/bowser-js/bowser/releases/tag/v2.14.0)
+- [ADD] Detect Smart TV platforms, Brave, DuckDuckGo, Linespider, and SlackBot.
+
+### [2.13.1](https://github.com/bowser-js/bowser/releases/tag/v2.13.1)
+- [REVERT] Roll back the named exports introduced in 2.13.0.
+
+### [2.13.0](https://github.com/bowser-js/bowser/releases/tag/v2.13.0)
+- [ADD] Add current macOS versions, Sogou Browser, LibreWolf, AI crawler bots, additional bot platforms, and HarmonyOS detection.
+- [ADD] Introduce named exports for tree-shaking support in Vite and modern bundlers.
+- [CHORE] Add repository Copilot instructions.
+
+### [2.12.1](https://github.com/bowser-js/bowser/releases/tag/v2.12.1)
+- [REVERT] Restore the `export =` declaration form for TypeScript default imports.
+
+### [2.12.0](https://github.com/bowser-js/bowser/releases/tag/v2.12.0)
+- [ADD] Detect bots as a platform, report Nokia device vendors, and support Pale Moon.
+- [ADD] Expand parser method type definitions, including `isEngine`, `isOS`, `isPlatform`, and `compareVersion`.
+- [FIX] Correct alias helper documentation and compatibility with Next.js middleware.
+- [CHORE] Move CI to GitHub Actions and add Release Drafter.
+
 ### 2.11.0 (Sep 12, 2020)
 - [ADD] Added support for aliases in `Parser#is` method (#437)
 - [ADD] Added more typings (#438, #427)

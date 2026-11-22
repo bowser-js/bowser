@@ -5,11 +5,11 @@
 // condition and stays the source of truth for the type declarations.
 //
 // This file describes `bowser.mjs`, which is a real ES module: it has a default
-// export *and* every member of the CommonJS namespace as a named export, so
-// `import * as Bowser from 'bowser'` sees what `require('bowser')` does. It is
-// reached via the `import` condition. Declaring it separately is what keeps the types honest
-// for `moduleResolution: node16`/`bundler` consumers — reusing `index.d.ts` for
-// both conditions would describe an ES module with CommonJS types.
+// export, named parser functions, and named constant maps. It is reached via
+// the `import` condition. Declaring it separately is what keeps the types
+// honest for `moduleResolution: node16`/`bundler` consumers — reusing
+// `index.d.ts` for both conditions would describe an ES module with CommonJS
+// types.
 
 import Bowser = require('./index.js');
 
@@ -21,7 +21,6 @@ export declare const BROWSER_MAP: typeof Bowser.BROWSER_MAP;
 export declare const ENGINE_MAP: typeof Bowser.ENGINE_MAP;
 export declare const OS_MAP: typeof Bowser.OS_MAP;
 export declare const PLATFORMS_MAP: typeof Bowser.PLATFORMS_MAP;
-
 export type ClientHints = Bowser.ClientHints;
 // `Parser` is both the parser type and, as in `index.d.ts`, a namespace of the
 // result types, so `Bowser.Parser.ParsedResult` works on a namespace import.

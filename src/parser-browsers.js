@@ -759,7 +759,7 @@ const browsersList = [
     test: [/\b(?:FBAN|FB_IAB)\/(?:FBIOS|FB4A)\b/i],
     describe(ua) {
       const browser = {
-        name: 'Facebook',
+        name: 'Facebook Mobile',
       };
       const version = Utils.getFirstMatch(/\bFBAV\/(\d+(\.?_?\d+)+)/i, ua);
 

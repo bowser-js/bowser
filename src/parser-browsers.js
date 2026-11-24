@@ -755,6 +755,22 @@ const browsersList = [
     },
   },
   {
+    // Facebook app only: FBAN/FBIOS on iOS, FB_IAB/FB4A or FBAN/FB4A on Android (not Messenger)
+    test: [/\b(?:FBAN|FB_IAB)\/(?:FBIOS|FB4A)\b/i],
+    describe(ua) {
+      const browser = {
+        name: 'Facebook',
+      };
+      const version = Utils.getFirstMatch(/\bFBAV\/(\d+(\.?_?\d+)+)/i, ua);
+
+      if (version) {
+        browser.version = version;
+      }
+
+      return browser;
+    },
+  },
+  {
     test: [/qqbrowser/i],
     describe(ua) {
       const browser = {

@@ -1484,20 +1484,6 @@
         engine:
           name: "WebKit"
           version: "601.1.46"
-    - ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 [FBAN/FBIOS;FBDV/iPhone7,2;FBMD/iPhone;FBSN/iOS;FBSV/11.4.1;FBSS/2;FBCR/vfnl;FBID/phone;FBLC/nl_NL;FBOP/5;FBRV/0]"
-      spec:
-        browser:
-          name: "Safari"
-        os:
-          name: "iOS"
-          version: "11.4.1"
-        platform:
-          type: "mobile"
-          vendor: "Apple"
-          model: "iPhone"
-        engine:
-          name: "WebKit"
-          version: "605.1.15"
     -
       ua: "Mozilla/5.0 (SmartHub; SMART-TV; U; Linux/SmartTV) AppleWebKit/531.2+ (KHTML, like Gecko) WebBrowser/1.0 SmartTV Safari/531.2+"
       spec:
@@ -3443,6 +3429,51 @@
         engine:
           name: "WebKit"
           version: "605.1.15"
+  Facebook:
+    -
+      ua: "Mozilla/5.0 (iPad; CPU OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16D57 [FBAN/FBIOS;FBAV/271.0.0.71.103;FBBV/215604415;FBDV/iPad4,2;FBMD/iPad;FBSN/iOS;FBSV/12.1.4;FBSS/2;FBID/tablet;FBLC/en_GB;FBOP/5;FBRV/217399145]"
+      spec:
+        browser:
+          name: "Facebook"
+          version: "271.0.0.71.103"
+        os:
+          name: "iOS"
+          version: "12.1.4"
+        platform:
+          type: "tablet"
+          vendor: "Apple"
+          model: "iPad"
+        engine:
+          name: "WebKit"
+          version: "605.1.15"
+    -
+      ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15G77 [FBAN/FBIOS;FBDV/iPhone7,2;FBMD/iPhone;FBSN/iOS;FBSV/11.4.1;FBSS/2;FBCR/vfnl;FBID/phone;FBLC/nl_NL;FBOP/5;FBRV/0]"
+      spec:
+        browser:
+          name: "Facebook"
+        os:
+          name: "iOS"
+          version: "11.4.1"
+        platform:
+          type: "mobile"
+          vendor: "Apple"
+          model: "iPhone"
+        engine:
+          name: "WebKit"
+          version: "605.1.15"
+    -
+      ua: "Mozilla/5.0 (Linux; Android 12; SM-S908U1 Build/SP1A.210812.016; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/100.0.4896.88 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/377.0.0.22.107;]"
+      spec:
+        browser:
+          name: "Facebook"
+          version: "377.0.0.22.107"
+        os:
+          name: "Android"
+          version: "12"
+        platform:
+          type: "mobile"
+        engine:
+          name: "Blink"
   UC Browser:
     -
       ua: "Mozilla/5.0 (Linux; Android 16; en-US; SM-S918B Build/BP2A.250605.031.A3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6312.80 UCMobile/15.0.7.1383 Mobile Safari/537.36"

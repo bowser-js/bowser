@@ -3592,7 +3592,7 @@
       spec:
         browser:
           name: "Maxthon"
-          version: "9.0"
+          version: "4.8.6.59"
         os:
           name: "iOS"
           version: "9.3.1"
@@ -3618,6 +3618,22 @@
         engine:
           name: "WebKit"
           version: "537.1"
+    -
+      ua: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/604.5.6 (KHTML, like Gecko) Version/11.0.3 Safari/604.5.6 Maxthon/5.1.102"
+      spec:
+        browser:
+          name: "Maxthon"
+          version: "5.1.102"
+        os:
+          name: "macOS"
+          version: "10.12.6"
+          versionName: "Sierra"
+        platform:
+          type: "desktop"
+          vendor: "Apple"
+        engine:
+          name: "WebKit"
+          version: "604.5.6"
   Epiphany:
     -
       ua: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/602.1 (KHTML, like Gecko) Version/8.0 Safari/602.1 Debian/buildd-unstable (3.18.5-1) Epiphany/3.18.5"
@@ -3658,6 +3674,19 @@
           versionName: "7"
         platform:
           type: "desktop"
+        engine:
+          name: "Blink"
+    -
+      ua: "Mozilla/5.0 (Linux; Android 10; SOV37 Build/52.1.C.0.220; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/123.0.6312.120 Mobile Safari/537.36 Sleipnir/3.7.5"
+      spec:
+        browser:
+          name: "Sleipnir"
+          version: "3.7.5"
+        os:
+          name: "Android"
+          version: "10"
+        platform:
+          type: "mobile"
         engine:
           name: "Blink"
   K-Meleon:

@@ -117,7 +117,7 @@ export default [
 
   /* Blink */
   {
-    test: [/(apple)?webkit\/537\.36/i],
+    test: [/(apple)?webkit\s*\/\s*537\.36/i],
     describe() {
       return {
         name: ENGINE_MAP.Blink,

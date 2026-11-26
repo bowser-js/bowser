@@ -670,7 +670,8 @@ const browsersList = [
       const browser = {
         name: 'Maxthon',
       };
-      const version = Utils.getFirstMatch(commonVersionIdentifier, ua) || Utils.getFirstMatch(/(?:Maxthon|mxios)[\s/](\d+(\.?_?\d+)+)/i, ua);
+      // Prefer the Maxthon token, since Version/ is the Safari version on iOS and macOS
+      const version = Utils.getFirstMatch(/(?:Maxthon|mxios)[\s/](\d+(\.?_?\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;
@@ -715,7 +716,8 @@ const browsersList = [
       const browser = {
         name: 'Sleipnir',
       };
-      const version = Utils.getFirstMatch(commonVersionIdentifier, ua) || Utils.getFirstMatch(/(?:sleipnir)[\s/](\d+(\.?_?\d+)+)/i, ua);
+      // Prefer Sleipnir/, since Version/ on Android is the WebView token (Version/4.0)
+      const version = Utils.getFirstMatch(/(?:sleipnir)[\s/](\d+(\.?_?\d+)+)/i, ua) || Utils.getFirstMatch(commonVersionIdentifier, ua);
 
       if (version) {
         browser.version = version;

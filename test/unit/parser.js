@@ -469,3 +469,16 @@ test('Parser.getBrandVersion returns version for Vivaldi', (t) => {
   const p = new Parser(VIVALDI_UA, false, VIVALDI_HINTS);
   t.is(p.getBrandVersion('Vivaldi'), '7.1');
 });
+
+const YJAPP_IOS_UA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 27_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Version/27.0.1 YJApp-IOS jp.co.yahoo.ipn.appli/4.175.0';
+const YJAPP_ANDROID_UA = 'Mozilla/5.0 (Linux; Android 14; CPH2523 Build/UKQ1.230924.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/156.0.8078.47 Mobile Safari/537.36 YJApp-ANDROID jp.co.yahoo.android.yjtop/3.230.5';
+const YAHOO_SLURP_UA = 'Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)';
+
+test('Yahoo! JAPAN app (YJApp) in-app WebView is mobile, not a Yahoo bot', (t) => {
+  t.is(new Parser(YJAPP_IOS_UA, true).getPlatformType(true), 'mobile');
+  t.is(new Parser(YJAPP_ANDROID_UA, true).getPlatformType(true), 'mobile');
+});
+
+test('Yahoo! Slurp crawler is still detected as a bot', (t) => {
+  t.is(new Parser(YAHOO_SLURP_UA, true).getPlatformType(true), 'bot');
+});

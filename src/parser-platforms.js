@@ -251,7 +251,7 @@ export default [
 
   /* Yahoo! Slurp */
   {
-    test: [/yahoo/i],
+    test: [/yahoo!?[\s/]*slurp/i],
     describe() {
       return {
         type: PLATFORMS_MAP.bot,
